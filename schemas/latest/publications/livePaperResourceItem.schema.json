@@ -45,7 +45,9 @@
           },
           "@type": {
             "enum": [
-              "https://openminds.om-i.org/types/Organization"
+              "https://openminds.om-i.org/types/Organization",
+              "https://openminds.om-i.org/types/WebService",
+              "https://openminds.om-i.org/types/Service"
             ],
             "format": "iri",
             "type": "string"
