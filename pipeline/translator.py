@@ -143,6 +143,8 @@ class JSONSchemaBuilder(object):
 
     def _resolve_array_property(self, property):
         array_property_spec = {"type": property["type"]}
+        if self.property_name not in self.required_properties:
+            array_property_spec["type"] = [property["type"], "null"]
         if "items" in property and property["items"]:
             if "type" in property["items"] and property["items"]["type"]:
                 if property["items"]["type"] == "string":
