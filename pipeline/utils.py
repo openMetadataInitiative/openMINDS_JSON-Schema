@@ -17,10 +17,10 @@ def find_embedded_schema(version, class_name):
     Searches a returns a pre-generated (embedded) JSON Schema file for a given class name and version.
     """
     directory = Path(f"./target/schemas/{version}/")
-    #camel_case = class_name[:1].lower() + class_name[1:]
+    camel_case = class_name[:1].lower() + class_name[1:]
 
     # Search for exact filename matches
-    for case in [class_name]:
+    for case in [camel_case, class_name]:
         for file_path in directory.glob(f"**/{case}.schema.json"):
             return json.loads(file_path.read_text())
     return None
