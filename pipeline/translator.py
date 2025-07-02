@@ -1,5 +1,7 @@
 import json
 import os.path
+
+from pathlib import Path
 from typing import List, Optional, Dict
 
 from pipeline.utils import find_embedded_schema, find_source_schema_path
@@ -85,13 +87,13 @@ class JSONSchemaBuilder(object):
                 embedded_schema = self._resolve_embedded_schema(property['_embeddedTypes'][0])
                 del embedded_schema['$schema']
                 object_property_spec = embedded_schema
-
             elif len(property["_embeddedTypes"]) > 1:
                 object_property_spec["anyOf"] = []
                 for embedded_type in property["_embeddedTypes"]:
                     embedded_schema = self._resolve_embedded_schema(embedded_type)
                     del embedded_schema['$schema']
                     object_property_spec["anyOf"].append(embedded_schema)
+
                 if self.property_name not in self.required_properties:
                     object_property_spec["anyOf"].append({
                         "type": "null"
@@ -222,6 +224,10 @@ class JSONSchemaBuilder(object):
 
     def build(self):
         target_file = os.path.join("target", "schemas", f"{self._target_file_without_extension()}.schema.json")
+        path_target_file = Path(target_file)
+        if path_target_file.exists():
+            return json.loads(path_target_file.read_text())
+
         os.makedirs(os.path.dirname(target_file), exist_ok=True)
 
         self.translate()

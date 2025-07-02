@@ -33,7 +33,7 @@ def find_source_schema_path(version, class_name):
     camel_case = class_name[:1].lower() + class_name[1:]
 
     # Search for exact filename matches
-    for case in [class_name, camel_case]:
+    for case in [camel_case, class_name]:
         for file_path in directory.glob(f"**/{case}.schema.omi.json"):
             return os.path.abspath(file_path)
     return None
