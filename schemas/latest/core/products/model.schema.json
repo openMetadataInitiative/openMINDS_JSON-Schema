@@ -193,50 +193,6 @@
       "name": "fullName",
       "type": "string"
     },
-    "https://openminds.om-i.org/props/hasVersion": {
-      "description": "Reference to variants of an original.",
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            },
-            "@type": {
-              "enum": [
-                "https://openminds.om-i.org/types/ModelVersion"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "hasVersion",
-      "type": "array",
-      "uniqueItems": true
-    },
     "https://openminds.om-i.org/props/homepage": {
       "description": "Main website of something or someone.",
       "format": "iri",
@@ -371,7 +327,6 @@
     "https://openminds.om-i.org/props/description",
     "https://openminds.om-i.org/props/developer",
     "https://openminds.om-i.org/props/fullName",
-    "https://openminds.om-i.org/props/hasVersion",
     "https://openminds.om-i.org/props/scope",
     "https://openminds.om-i.org/props/shortName",
     "https://openminds.om-i.org/props/studyTarget"
