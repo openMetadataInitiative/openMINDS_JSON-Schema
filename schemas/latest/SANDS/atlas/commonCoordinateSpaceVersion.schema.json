@@ -397,8 +397,47 @@
       "name": "howToCite",
       "type": "string"
     },
-    "https://openminds.om-i.org/props/isAlternativeVersionOf": {
-      "description": "Reference to an original form where the essence was preserved, but presented in an alternative form.",
+    "https://openminds.om-i.org/props/isPrecededBy": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "isPrecededBy",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/CommonCoordinateSpaceVersion"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/isVariantOf": {
+      "description": null,
       "items": {
         "else": {
           "properties": {
@@ -437,12 +476,12 @@
         "type": "object"
       },
       "minItems": 1,
-      "name": "isAlternativeVersionOf",
+      "name": "isVariantOf",
       "type": "array",
       "uniqueItems": true
     },
-    "https://openminds.om-i.org/props/isNewVersionOf": {
-      "description": "Reference to a previous (potentially outdated) particular form of something.",
+    "https://openminds.om-i.org/props/isVersionOf": {
+      "description": null,
       "else": {
         "properties": {
           "@id": {
@@ -459,7 +498,7 @@
           "@type"
         ]
       },
-      "name": "isNewVersionOf",
+      "name": "isVersionOf",
       "then": {
         "properties": {
           "@id": {
@@ -468,7 +507,7 @@
           },
           "@type": {
             "enum": [
-              "https://openminds.om-i.org/types/CommonCoordinateSpaceVersion"
+              "https://openminds.om-i.org/types/CommonCoordinateSpace"
             ],
             "format": "iri",
             "type": "string"

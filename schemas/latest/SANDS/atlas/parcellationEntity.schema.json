@@ -185,6 +185,7 @@
   "required": [
     "@id",
     "@type",
+    "https://openminds.om-i.org/props/lookupLabel",
     "https://openminds.om-i.org/props/name"
   ],
   "title": "ParcellationEntity",
