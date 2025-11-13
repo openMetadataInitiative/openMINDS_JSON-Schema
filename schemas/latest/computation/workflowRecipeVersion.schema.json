@@ -491,7 +491,7 @@
           },
           "@type": {
             "enum": [
-              "https://openminds.om-i.org/types/Workflow"
+              "https://openminds.om-i.org/types/WorkflowRecipe"
             ],
             "format": "iri",
             "type": "string"
