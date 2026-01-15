@@ -447,8 +447,8 @@
               "enum": [
                 "https://openminds.om-i.org/types/ModelVersion",
                 "https://openminds.om-i.org/types/SoftwareVersion",
-                "https://openminds.om-i.org/types/BrainAtlasVersion",
-                "https://openminds.om-i.org/types/CommonCoordinateSpaceVersion"
+                "https://openminds.om-i.org/types/AnatomicalAtlasVersion",
+                "https://openminds.om-i.org/types/CommonCoordinateFrameworkVersion"
               ],
               "format": "iri",
               "type": "string"
