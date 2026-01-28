@@ -1,0 +1,165 @@
+{
+  "$id": "https://openminds.om-i.org/types/customCoordinateFramework?format=json-schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": null,
+  "properties": {
+    "@id": {
+      "description": "Metadata node identifier.",
+      "type": "string"
+    },
+    "@type": {
+      "const": "https://openminds.om-i.org/types/customCoordinateFramework",
+      "description": "Metadata schema identifier.",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/anatomicalAxesOrientation": {
+      "description": "Relation between reference planes used in anatomy and mathematics.",
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "anatomicalAxesOrientation",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/AnatomicalAxesOrientation"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/axesOrigin": {
+      "description": "Special point in a coordinate system used as a fixed point of reference for the geometry of the surrounding space.",
+      "items": {
+        "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema",
+        "type": "object"
+      },
+      "maxItems": 3,
+      "minItems": 2,
+      "name": "axesOrigin",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/defaultImage": {
+      "description": "Two or three dimensional image that particluarly represents a specific coordinate space.",
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/File"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "defaultImage",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/name": {
+      "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+      "name": "name",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/nativeUnit": {
+      "description": "Determinate quantity used in the original measurement.",
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "nativeUnit",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/UnitOfMeasurement"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "https://openminds.om-i.org/props/anatomicalAxesOrientation",
+    "https://openminds.om-i.org/props/axesOrigin",
+    "https://openminds.om-i.org/props/name",
+    "https://openminds.om-i.org/props/nativeUnit"
+  ],
+  "title": "customCoordinateFramework",
+  "type": "object"
+}

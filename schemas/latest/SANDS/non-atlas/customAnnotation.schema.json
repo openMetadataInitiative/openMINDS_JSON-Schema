@@ -23,8 +23,8 @@
       "name": "anchorPoint",
       "type": "array"
     },
-    "https://openminds.om-i.org/props/coordinateSpace": {
-      "description": "Two or three dimensional geometric setting.",
+    "https://openminds.om-i.org/props/coordinateFramework": {
+      "description": null,
       "else": {
         "properties": {
           "@id": {
@@ -41,7 +41,7 @@
           "@type"
         ]
       },
-      "name": "coordinateSpace",
+      "name": "coordinateFramework",
       "then": {
         "properties": {
           "@id": {
@@ -50,8 +50,8 @@
           },
           "@type": {
             "enum": [
-              "https://openminds.om-i.org/types/CommonCoordinateSpaceVersion",
-              "https://openminds.om-i.org/types/CustomCoordinateSpace"
+              "https://openminds.om-i.org/types/CommonCoordinateFrameworkVersion",
+              "https://openminds.om-i.org/types/CustomCoordinateFramework"
             ],
             "format": "iri",
             "type": "string"
@@ -363,7 +363,7 @@
   "required": [
     "@id",
     "@type",
-    "https://openminds.om-i.org/props/coordinateSpace",
+    "https://openminds.om-i.org/props/coordinateFramework",
     "https://openminds.om-i.org/props/criteriaQualityType",
     "https://openminds.om-i.org/props/criteriaType",
     "https://openminds.om-i.org/props/type"

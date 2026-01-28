@@ -93,6 +93,45 @@
       "type": "array",
       "uniqueItems": true
     },
+    "https://openminds.om-i.org/props/isVersionOf": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "isVersionOf",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/ParcellationEntity"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
     "https://openminds.om-i.org/props/lookupLabel": {
       "description": null,
       "name": "lookupLabel",
