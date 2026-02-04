@@ -1,0 +1,274 @@
+{
+  "$id": "https://openminds.om-i.org/types/UsageAgreement?format=json-schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": null,
+  "properties": {
+    "@id": {
+      "description": "Metadata node identifier.",
+      "type": "string"
+    },
+    "@type": {
+      "const": "https://openminds.om-i.org/types/UsageAgreement",
+      "description": "Metadata schema identifier.",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/authoringParty": {
+      "description": null,
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/Consortium",
+                "https://openminds.om-i.org/types/Organization",
+                "https://openminds.om-i.org/types/Person"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "authoringParty",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/fullName": {
+      "description": "Whole, non-abbreviated name of something or somebody.",
+      "name": "fullName",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/jurisdiction": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "jurisdiction",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/SovereignState",
+              "https://openminds.om-i.org/types/SupranationalBody"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/modificationProfile": {
+      "description": null,
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/ModificationConsentRequirement",
+                "https://openminds.om-i.org/types/ModificationConstraint",
+                "https://openminds.om-i.org/types/ModificationForm",
+                "https://openminds.om-i.org/types/ModificationScope"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "modificationProfile",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/shortName": {
+      "description": "Shortened or fully abbreviated name of something or somebody.",
+      "name": "shortName",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/source": {
+      "description": null,
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/License",
+                "https://openminds.om-i.org/types/UsageAgreement"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "source",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/supportChannel": {
+      "description": "Way of communication used to interact with users or customers.",
+      "items": {
+        "anyOf": [
+          {
+            "format": "email",
+            "type": "string"
+          },
+          {
+            "format": "iri",
+            "type": "string"
+          }
+        ]
+      },
+      "minItems": 1,
+      "name": "supportChannel",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/template": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "template",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/WebResource"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "https://openminds.om-i.org/props/authoringParty",
+    "https://openminds.om-i.org/props/fullName",
+    "https://openminds.om-i.org/props/jurisdiction",
+    "https://openminds.om-i.org/props/modificationProfile",
+    "https://openminds.om-i.org/props/shortName",
+    "https://openminds.om-i.org/props/template"
+  ],
+  "title": "UsageAgreement",
+  "type": "object"
+}

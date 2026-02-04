@@ -12,6 +12,11 @@
       "description": "Metadata schema identifier.",
       "type": "string"
     },
+    "https://openminds.om-i.org/props/customUsageClause": {
+      "description": null,
+      "name": "customUsageClause",
+      "type": "string"
+    },
     "https://openminds.om-i.org/props/holder": {
       "description": "Legal person in possession of something.",
       "items": {

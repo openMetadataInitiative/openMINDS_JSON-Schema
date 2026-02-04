@@ -144,7 +144,43 @@
     },
     "https://openminds.om-i.org/props/usedTaxon": {
       "description": null,
-      "name": "usedTaxon"
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "usedTaxon",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/BiologicalOrder",
+              "https://openminds.om-i.org/types/Species"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
     }
   },
   "required": [

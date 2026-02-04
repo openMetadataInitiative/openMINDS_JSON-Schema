@@ -702,7 +702,6 @@
                 "https://openminds.om-i.org/types/DiseaseModel",
                 "https://openminds.om-i.org/types/EducationalLevel",
                 "https://openminds.om-i.org/types/ElectricalStimulusType",
-                "https://openminds.om-i.org/types/EthicsAssessment",
                 "https://openminds.om-i.org/types/ExperimentalApproach",
                 "https://openminds.om-i.org/types/FileBundleGrouping",
                 "https://openminds.om-i.org/types/FileRepositoryType",
@@ -721,7 +720,10 @@
                 "https://openminds.om-i.org/types/MetaDataModelType",
                 "https://openminds.om-i.org/types/ModelAbstractionLevel",
                 "https://openminds.om-i.org/types/ModelScope",
-                "https://openminds.om-i.org/types/ModificationClause",
+                "https://openminds.om-i.org/types/ModificationConsentRequirement",
+                "https://openminds.om-i.org/types/ModificationConstraint",
+                "https://openminds.om-i.org/types/ModificationForm",
+                "https://openminds.om-i.org/types/ModificationScope",
                 "https://openminds.om-i.org/types/MolecularEntity",
                 "https://openminds.om-i.org/types/OlfactoryStimulusType",
                 "https://openminds.om-i.org/types/OperatingDevice",
@@ -815,50 +817,6 @@
       },
       "minItems": 1,
       "name": "language",
-      "type": "array",
-      "uniqueItems": true
-    },
-    "https://openminds.om-i.org/props/license": {
-      "description": "Grant by a party to another party as an element of an agreement between those parties that permits to do, use, or own something.",
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            },
-            "@type": {
-              "enum": [
-                "https://openminds.om-i.org/types/License"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "license",
       "type": "array",
       "uniqueItems": true
     },
@@ -1134,6 +1092,51 @@
       "type": "array",
       "uniqueItems": true
     },
+    "https://openminds.om-i.org/props/usageCondition": {
+      "description": null,
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/License",
+                "https://openminds.om-i.org/types/UsageAgreement"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "usageCondition",
+      "type": "array",
+      "uniqueItems": true
+    },
     "https://openminds.om-i.org/props/versionIdentifier": {
       "description": "Term or code used to identify the version of something.",
       "name": "versionIdentifier",
@@ -1155,7 +1158,6 @@
     "https://openminds.om-i.org/props/fullDocumentation",
     "https://openminds.om-i.org/props/isVersionOf",
     "https://openminds.om-i.org/props/language",
-    "https://openminds.om-i.org/props/license",
     "https://openminds.om-i.org/props/operatingSystem",
     "https://openminds.om-i.org/props/programmingLanguage",
     "https://openminds.om-i.org/props/releaseDate",
