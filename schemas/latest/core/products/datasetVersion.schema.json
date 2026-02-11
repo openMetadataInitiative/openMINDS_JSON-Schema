@@ -39,7 +39,7 @@
           },
           "@type": {
             "enum": [
-              "https://openminds.om-i.org/types/ProductAccessibility"
+              "https://openminds.om-i.org/types/Accessibility"
             ],
             "format": "iri",
             "type": "string"
@@ -668,6 +668,10 @@
             },
             "@type": {
               "enum": [
+                "https://openminds.om-i.org/types/AccessChannel",
+                "https://openminds.om-i.org/types/AccessEligibilityType",
+                "https://openminds.om-i.org/types/AccessForm",
+                "https://openminds.om-i.org/types/AccessProcessType",
                 "https://openminds.om-i.org/types/ActionStatusType",
                 "https://openminds.om-i.org/types/AgeCategory",
                 "https://openminds.om-i.org/types/AnalysisTechnique",
@@ -733,9 +737,11 @@
                 "https://openminds.om-i.org/types/OrganismSystem",
                 "https://openminds.om-i.org/types/OrganizationType",
                 "https://openminds.om-i.org/types/PatchClampVariation",
+                "https://openminds.om-i.org/types/PaymentModelType",
                 "https://openminds.om-i.org/types/PreparationType",
                 "https://openminds.om-i.org/types/ProductAccessibility",
                 "https://openminds.om-i.org/types/ProgrammingLanguage",
+                "https://openminds.om-i.org/types/PublicationStatus",
                 "https://openminds.om-i.org/types/QualitativeOverlap",
                 "https://openminds.om-i.org/types/SemanticDataType",
                 "https://openminds.om-i.org/types/Service",
@@ -873,6 +879,45 @@
       "name": "protocol",
       "type": "array",
       "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/publicationStatus": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "publicationStatus",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/PublicationStatus"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
     },
     "https://openminds.om-i.org/props/relatedPublication": {
       "description": "Reference to something that was made available for the general public to see or buy.",
