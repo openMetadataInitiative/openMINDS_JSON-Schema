@@ -1,5 +1,5 @@
 {
-  "$id": "https://openminds.om-i.org/types/customCoordinateFramework?format=json-schema",
+  "$id": "https://openminds.om-i.org/types/CustomCoordinateFramework?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "description": null,
   "properties": {
@@ -8,7 +8,7 @@
       "type": "string"
     },
     "@type": {
-      "const": "https://openminds.om-i.org/types/customCoordinateFramework",
+      "const": "https://openminds.om-i.org/types/CustomCoordinateFramework",
       "description": "Metadata schema identifier.",
       "type": "string"
     },
@@ -160,6 +160,6 @@
     "https://openminds.om-i.org/props/name",
     "https://openminds.om-i.org/props/nativeUnit"
   ],
-  "title": "customCoordinateFramework",
+  "title": "CustomCoordinateFramework",
   "type": "object"
 }

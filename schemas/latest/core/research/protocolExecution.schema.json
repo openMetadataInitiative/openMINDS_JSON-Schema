@@ -119,8 +119,8 @@
                 "https://openminds.om-i.org/types/SubjectState",
                 "https://openminds.om-i.org/types/TissueSampleCollectionState",
                 "https://openminds.om-i.org/types/TissueSampleState",
-                "https://openminds.om-i.org/types/BrainAtlasVersion",
-                "https://openminds.om-i.org/types/CommonCoordinateSpaceVersion"
+                "https://openminds.om-i.org/types/AnatomicalAtlasVersion",
+                "https://openminds.om-i.org/types/CommonCoordinateFrameworkVersion"
               ],
               "format": "iri",
               "type": "string"
