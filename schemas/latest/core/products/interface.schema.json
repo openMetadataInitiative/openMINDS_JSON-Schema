@@ -1,0 +1,177 @@
+{
+  "$id": "https://openminds.om-i.org/types/Interface?format=json-schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": null,
+  "properties": {
+    "@id": {
+      "description": "Metadata node identifier.",
+      "type": "string"
+    },
+    "@type": {
+      "const": "https://openminds.om-i.org/types/Interface",
+      "description": "Metadata schema identifier.",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/communicationProtocol": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "communicationProtocol",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/CommunicationProtocol"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/custodian": {
+      "description": "The 'custodian' is a legal person who is responsible for the content and quality of the data, metadata, and/or code of a research product.",
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/Consortium",
+                "https://openminds.om-i.org/types/Organization",
+                "https://openminds.om-i.org/types/Person"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "custodian",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/description": {
+      "description": "Longer statement or account giving the characteristics of someone or something.",
+      "name": "description",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/fullName": {
+      "description": "Whole, non-abbreviated name of something or somebody.",
+      "name": "fullName",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/homepage": {
+      "description": "Main website of something or someone.",
+      "format": "iri",
+      "name": "homepage",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/howToCite": {
+      "description": "Preferred format for citing a particular object or legal person.",
+      "name": "howToCite",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/interfaceType": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "interfaceType",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/CommunicationInterfaceType"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/shortName": {
+      "description": "Shortened or fully abbreviated name of something or somebody.",
+      "name": "shortName",
+      "type": "string"
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "https://openminds.om-i.org/props/communicationProtocol",
+    "https://openminds.om-i.org/props/description",
+    "https://openminds.om-i.org/props/fullName",
+    "https://openminds.om-i.org/props/interfaceType",
+    "https://openminds.om-i.org/props/shortName"
+  ],
+  "title": "Interface",
+  "type": "object"
+}

@@ -1,5 +1,5 @@
 {
-  "$id": "https://openminds.om-i.org/types/Book?format=json-schema",
+  "$id": "https://openminds.om-i.org/types/Service?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "description": null,
   "properties": {
@@ -8,172 +8,28 @@
       "type": "string"
     },
     "@type": {
-      "const": "https://openminds.om-i.org/types/Book",
+      "const": "https://openminds.om-i.org/types/Service",
       "description": "Metadata schema identifier.",
       "type": "string"
     },
-    "https://openminds.om-i.org/props/IRI": {
-      "description": "Stands for Internationalized Resource Identifier which is an internet protocol standard that builds on the URI protocol, extending the set of permitted characters to include Unicode/ISO 10646.",
-      "format": "iri",
-      "name": "IRI",
-      "type": "string"
-    },
-    "https://openminds.om-i.org/props/abstract": {
+    "https://openminds.om-i.org/props/contribution": {
       "description": null,
-      "name": "abstract",
-      "type": "string"
-    },
-    "https://openminds.om-i.org/props/author": {
-      "description": "Creator of a literary or creative work, as well as a dataset publication.",
       "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            },
-            "@type": {
-              "enum": [
-                "https://openminds.om-i.org/types/Consortium",
-                "https://openminds.om-i.org/types/Organization",
-                "https://openminds.om-i.org/types/Person"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
+        "$ref": "https://openminds.om-i.org/types/Contribution?format=json-schema",
         "type": "object"
       },
       "minItems": 1,
-      "name": "author",
+      "name": "contribution",
       "type": "array",
       "uniqueItems": true
     },
-    "https://openminds.om-i.org/props/citedPublication": {
-      "description": null,
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            },
-            "@type": {
-              "enum": [
-                "https://openminds.om-i.org/types/DOI",
-                "https://openminds.om-i.org/types/ISBN"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "citedPublication",
-      "type": "array",
-      "uniqueItems": true
-    },
-    "https://openminds.om-i.org/props/copyright": {
-      "$ref": "https://openminds.om-i.org/types/Copyright?format=json-schema",
-      "description": "Exclusive and assignable legal right of an originator to reproduce, publish, sell, or distribute the matter and form of a creative work for a defined time period.",
-      "name": "copyright",
-      "type": "object"
-    },
-    "https://openminds.om-i.org/props/creationDate": {
-      "description": null,
-      "format": "date",
-      "name": "creationDate",
+    "https://openminds.om-i.org/props/description": {
+      "description": "Longer statement or account giving the characteristics of someone or something.",
+      "name": "description",
       "type": "string"
     },
-    "https://openminds.om-i.org/props/custodian": {
-      "description": "The 'custodian' is a legal person who is responsible for the content and quality of the data, metadata, and/or code of a research product.",
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            },
-            "@type": {
-              "enum": [
-                "https://openminds.om-i.org/types/Consortium",
-                "https://openminds.om-i.org/types/Organization",
-                "https://openminds.om-i.org/types/Person"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "custodian",
-      "type": "array",
-      "uniqueItems": true
-    },
-    "https://openminds.om-i.org/props/digitalIdentifier": {
-      "description": "Digital handle to identify objects or legal persons.",
+    "https://openminds.om-i.org/props/fullDocumentation": {
+      "description": "Non-abridged instructions, comments, and information for using a particular product.",
       "else": {
         "properties": {
           "@id": {
@@ -190,7 +46,7 @@
           "@type"
         ]
       },
-      "name": "digitalIdentifier",
+      "name": "fullDocumentation",
       "then": {
         "properties": {
           "@id": {
@@ -200,7 +56,9 @@
           "@type": {
             "enum": [
               "https://openminds.om-i.org/types/DOI",
-              "https://openminds.om-i.org/types/ISBN"
+              "https://openminds.om-i.org/types/File",
+              "https://openminds.om-i.org/types/ISBN",
+              "https://openminds.om-i.org/types/WebResource"
             ],
             "format": "iri",
             "type": "string"
@@ -212,93 +70,15 @@
       },
       "type": "object"
     },
-    "https://openminds.om-i.org/props/editor": {
-      "description": null,
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            },
-            "@type": {
-              "enum": [
-                "https://openminds.om-i.org/types/Person"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "editor",
-      "type": "array",
-      "uniqueItems": true
+    "https://openminds.om-i.org/props/fullName": {
+      "description": "Whole, non-abbreviated name of something or somebody.",
+      "name": "fullName",
+      "type": "string"
     },
-    "https://openminds.om-i.org/props/funding": {
-      "description": "Money provided by a legal person for a particular purpose.",
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            },
-            "@type": {
-              "enum": [
-                "https://openminds.om-i.org/types/Funding"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "funding",
-      "type": "array",
-      "uniqueItems": true
+    "https://openminds.om-i.org/props/howToCite": {
+      "description": "Preferred format for citing a particular object or legal person.",
+      "name": "howToCite",
+      "type": "string"
     },
     "https://openminds.om-i.org/props/keyword": {
       "description": "Significant word or concept that are representative of something or someone.",
@@ -449,115 +229,140 @@
       "type": "array",
       "uniqueItems": true
     },
-    "https://openminds.om-i.org/props/license": {
-      "description": "Grant by a party to another party as an element of an agreement between those parties that permits to do, use, or own something.",
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
+    "https://openminds.om-i.org/props/relatedPublication": {
+      "description": "Reference to something that was made available for the general public to see or buy.",
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
         },
-        "required": [
-          "@id"
-        ]
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/DOI",
+                "https://openminds.om-i.org/types/HANDLE",
+                "https://openminds.om-i.org/types/ISBN",
+                "https://openminds.om-i.org/types/ISSN",
+                "https://openminds.om-i.org/types/Book",
+                "https://openminds.om-i.org/types/Chapter",
+                "https://openminds.om-i.org/types/ScholarlyArticle"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
       },
-      "if": {
-        "required": [
-          "@type"
-        ]
+      "minItems": 1,
+      "name": "relatedPublication",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/scope": {
+      "description": "Extent of something.",
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/AnalysisTechnique",
+                "https://openminds.om-i.org/types/DataType",
+                "https://openminds.om-i.org/types/ExperimentalApproach",
+                "https://openminds.om-i.org/types/OperationalApproach",
+                "https://openminds.om-i.org/types/SoftwareApplicationCategory",
+                "https://openminds.om-i.org/types/SoftwareFeature",
+                "https://openminds.om-i.org/types/Technique",
+                "https://openminds.om-i.org/types/TermSuggestion"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
       },
-      "name": "license",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
+      "minItems": 1,
+      "name": "scope",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/shortName": {
+      "description": "Shortened or fully abbreviated name of something or somebody.",
+      "name": "shortName",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/supportChannel": {
+      "description": "Way of communication used to interact with users or customers.",
+      "items": {
+        "anyOf": [
+          {
+            "format": "email",
             "type": "string"
           },
-          "@type": {
-            "enum": [
-              "https://openminds.om-i.org/types/License"
-            ],
+          {
             "format": "iri",
             "type": "string"
           }
-        },
-        "required": [
-          "@id"
         ]
       },
-      "type": "object"
-    },
-    "https://openminds.om-i.org/props/modificationDate": {
-      "description": null,
-      "format": "date",
-      "name": "modificationDate",
-      "type": "string"
-    },
-    "https://openminds.om-i.org/props/name": {
-      "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
-      "name": "name",
-      "type": "string"
-    },
-    "https://openminds.om-i.org/props/publicationDate": {
-      "description": null,
-      "format": "date",
-      "name": "publicationDate",
-      "type": "string"
-    },
-    "https://openminds.om-i.org/props/publisher": {
-      "description": null,
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "publisher",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          },
-          "@type": {
-            "enum": [
-              "https://openminds.om-i.org/types/Consortium",
-              "https://openminds.om-i.org/types/Organization",
-              "https://openminds.om-i.org/types/Person"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
-    "https://openminds.om-i.org/props/versionIdentifier": {
-      "description": "Term or code used to identify the version of something.",
-      "name": "versionIdentifier",
-      "type": "string"
+      "minItems": 1,
+      "name": "supportChannel",
+      "type": "array",
+      "uniqueItems": true
     }
   },
   "required": [
     "@id",
     "@type",
-    "https://openminds.om-i.org/props/name",
-    "https://openminds.om-i.org/props/publicationDate"
+    "https://openminds.om-i.org/props/fullDocumentation",
+    "https://openminds.om-i.org/props/fullName",
+    "https://openminds.om-i.org/props/scope",
+    "https://openminds.om-i.org/props/shortName"
   ],
-  "title": "Book",
+  "title": "Service",
   "type": "object"
 }

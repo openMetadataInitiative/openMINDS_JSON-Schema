@@ -1,5 +1,5 @@
 {
-  "$id": "https://openminds.om-i.org/types/AnatomicalTargetPosition?format=json-schema",
+  "$id": "https://openminds.om-i.org/types/Dependency?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "description": null,
   "properties": {
@@ -8,16 +8,11 @@
       "type": "string"
     },
     "@type": {
-      "const": "https://openminds.om-i.org/types/AnatomicalTargetPosition",
+      "const": "https://openminds.om-i.org/types/Dependency",
       "description": "Metadata schema identifier.",
       "type": "string"
     },
-    "https://openminds.om-i.org/props/additionalRemarks": {
-      "description": "Mention of what deserves additional attention or notice.",
-      "name": "additionalRemarks",
-      "type": "string"
-    },
-    "https://openminds.om-i.org/props/anatomicalTarget": {
+    "https://openminds.om-i.org/props/failureImpact": {
       "description": null,
       "items": {
         "else": {
@@ -44,15 +39,7 @@
             },
             "@type": {
               "enum": [
-                "https://openminds.om-i.org/types/CellType",
-                "https://openminds.om-i.org/types/ExternalBodyRegion",
-                "https://openminds.om-i.org/types/Organ",
-                "https://openminds.om-i.org/types/OrganismSubstance",
-                "https://openminds.om-i.org/types/SubcellularEntity",
-                "https://openminds.om-i.org/types/UBERONParcellation",
-                "https://openminds.om-i.org/types/CustomAnatomicalEntity",
-                "https://openminds.om-i.org/types/ParcellationEntity",
-                "https://openminds.om-i.org/types/ParcellationEntityVersion"
+                "https://openminds.om-i.org/types/DependencyImpact"
               ],
               "format": "iri",
               "type": "string"
@@ -65,22 +52,11 @@
         "type": "object"
       },
       "minItems": 1,
-      "name": "anatomicalTarget",
+      "name": "failureImpact",
       "type": "array",
       "uniqueItems": true
     },
-    "https://openminds.om-i.org/props/spatialLocation": {
-      "description": null,
-      "items": {
-        "$ref": "https://openminds.om-i.org/types/CoordinatePoint?format=json-schema",
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "spatialLocation",
-      "type": "array",
-      "uniqueItems": true
-    },
-    "https://openminds.om-i.org/props/targetIdentificationType": {
+    "https://openminds.om-i.org/props/fulfilledBy": {
       "description": null,
       "else": {
         "properties": {
@@ -98,7 +74,7 @@
           "@type"
         ]
       },
-      "name": "targetIdentificationType",
+      "name": "fulfilledBy",
       "then": {
         "properties": {
           "@id": {
@@ -107,7 +83,11 @@
           },
           "@type": {
             "enum": [
-              "https://openminds.om-i.org/types/AnatomicalIdentificationType"
+              "https://openminds.om-i.org/types/Configuration",
+              "https://openminds.om-i.org/types/File",
+              "https://openminds.om-i.org/types/InterfaceVersion",
+              "https://openminds.om-i.org/types/SoftwareVersion",
+              "https://openminds.om-i.org/types/WebResource"
             ],
             "format": "iri",
             "type": "string"
@@ -123,9 +103,8 @@
   "required": [
     "@id",
     "@type",
-    "https://openminds.om-i.org/props/anatomicalTarget",
-    "https://openminds.om-i.org/props/targetIdentificationType"
+    "https://openminds.om-i.org/props/fulfilledBy"
   ],
-  "title": "AnatomicalTargetPosition",
+  "title": "Dependency",
   "type": "object"
 }

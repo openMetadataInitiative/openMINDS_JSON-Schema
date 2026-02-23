@@ -51,50 +51,6 @@
       },
       "type": "object"
     },
-    "https://openminds.om-i.org/props/applicationCategory": {
-      "description": "Distinct class that groups software programs which perform a similar task or set of tasks.",
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            },
-            "@type": {
-              "enum": [
-                "https://openminds.om-i.org/types/SoftwareApplicationCategory"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "applicationCategory",
-      "type": "array",
-      "uniqueItems": true
-    },
     "https://openminds.om-i.org/props/copyright": {
       "$ref": "https://openminds.om-i.org/types/Copyright?format=json-schema",
       "description": "Exclusive and assignable legal right of an originator to reproduce, publish, sell, or distribute the matter and form of a creative work for a defined time period.",
@@ -147,100 +103,21 @@
       "type": "array",
       "uniqueItems": true
     },
+    "https://openminds.om-i.org/props/dependency": {
+      "description": null,
+      "items": {
+        "$ref": "https://openminds.om-i.org/types/Dependency?format=json-schema",
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "dependency",
+      "type": "array",
+      "uniqueItems": true
+    },
     "https://openminds.om-i.org/props/description": {
       "description": "Longer statement or account giving the characteristics of someone or something.",
       "name": "description",
       "type": "string"
-    },
-    "https://openminds.om-i.org/props/developer": {
-      "description": "Legal person that creates or improves products or services (e.g., software, applications, etc.).",
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            },
-            "@type": {
-              "enum": [
-                "https://openminds.om-i.org/types/Consortium",
-                "https://openminds.om-i.org/types/Organization",
-                "https://openminds.om-i.org/types/Person"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "developer",
-      "type": "array",
-      "uniqueItems": true
-    },
-    "https://openminds.om-i.org/props/device": {
-      "description": "Piece of equipment or mechanism (hardware) designed to serve a special purpose or perform a special function.",
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            },
-            "@type": {
-              "enum": [
-                "https://openminds.om-i.org/types/OperatingDevice"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "device",
-      "type": "array",
-      "uniqueItems": true
     },
     "https://openminds.om-i.org/props/digitalIdentifier": {
       "description": "Digital handle to identify objects or legal persons.",
@@ -282,50 +159,6 @@
         ]
       },
       "type": "object"
-    },
-    "https://openminds.om-i.org/props/feature": {
-      "description": "Structure, form, or appearance that characterizes something or someone.",
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            },
-            "@type": {
-              "enum": [
-                "https://openminds.om-i.org/types/SoftwareFeature"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "feature",
-      "type": "array",
-      "uniqueItems": true
     },
     "https://openminds.om-i.org/props/fullDocumentation": {
       "description": "Non-abridged instructions, comments, and information for using a particular product.",
@@ -418,7 +251,18 @@
       "type": "array",
       "uniqueItems": true
     },
-    "https://openminds.om-i.org/props/hasPart": {
+    "https://openminds.om-i.org/props/homepage": {
+      "description": "Main website of something or someone.",
+      "format": "iri",
+      "name": "homepage",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/howToCite": {
+      "description": "Preferred format for citing a particular object or legal person.",
+      "name": "howToCite",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/implements": {
       "description": null,
       "items": {
         "else": {
@@ -445,10 +289,7 @@
             },
             "@type": {
               "enum": [
-                "https://openminds.om-i.org/types/ModelVersion",
-                "https://openminds.om-i.org/types/SoftwareVersion",
-                "https://openminds.om-i.org/types/AnatomicalAtlasVersion",
-                "https://openminds.om-i.org/types/CommonCoordinateFrameworkVersion"
+                "https://openminds.om-i.org/types/InterfaceVersion"
               ],
               "format": "iri",
               "type": "string"
@@ -461,20 +302,9 @@
         "type": "object"
       },
       "minItems": 1,
-      "name": "hasPart",
+      "name": "implements",
       "type": "array",
       "uniqueItems": true
-    },
-    "https://openminds.om-i.org/props/homepage": {
-      "description": "Main website of something or someone.",
-      "format": "iri",
-      "name": "homepage",
-      "type": "string"
-    },
-    "https://openminds.om-i.org/props/howToCite": {
-      "description": "Preferred format for citing a particular object or legal person.",
-      "name": "howToCite",
-      "type": "string"
     },
     "https://openminds.om-i.org/props/inputFormat": {
       "description": "Format of data that is put into a process or machine.",
@@ -708,6 +538,7 @@
                 "https://openminds.om-i.org/types/EducationalLevel",
                 "https://openminds.om-i.org/types/ElectricalStimulusType",
                 "https://openminds.om-i.org/types/ExperimentalApproach",
+                "https://openminds.om-i.org/types/ExternalBodyRegion",
                 "https://openminds.om-i.org/types/FileBundleGrouping",
                 "https://openminds.om-i.org/types/FileRepositoryType",
                 "https://openminds.om-i.org/types/FileUsageRole",
@@ -717,7 +548,7 @@
                 "https://openminds.om-i.org/types/Language",
                 "https://openminds.om-i.org/types/Laterality",
                 "https://openminds.om-i.org/types/LearningResourceType",
-                "https://openminds.om-i.org/types/MRICoilRole",
+                "https://openminds.om-i.org/types/MRIFatSuppressionTechnique",
                 "https://openminds.om-i.org/types/MRIParallelAcquisitionTechnique",
                 "https://openminds.om-i.org/types/MRIPulseSequence",
                 "https://openminds.om-i.org/types/MRISpoilingTechnique",
@@ -735,6 +566,7 @@
                 "https://openminds.om-i.org/types/OlfactoryStimulusType",
                 "https://openminds.om-i.org/types/OperatingDevice",
                 "https://openminds.om-i.org/types/OperatingSystem",
+                "https://openminds.om-i.org/types/OperationalApproach",
                 "https://openminds.om-i.org/types/OpticalStimulusType",
                 "https://openminds.om-i.org/types/Organ",
                 "https://openminds.om-i.org/types/OrganismSubstance",
@@ -745,12 +577,14 @@
                 "https://openminds.om-i.org/types/PreparationType",
                 "https://openminds.om-i.org/types/ProductAccessibility",
                 "https://openminds.om-i.org/types/ProgrammingLanguage",
+                "https://openminds.om-i.org/types/ProjectType",
                 "https://openminds.om-i.org/types/PublicationStatus",
                 "https://openminds.om-i.org/types/PulseShape",
                 "https://openminds.om-i.org/types/QualitativeOverlap",
                 "https://openminds.om-i.org/types/SemanticDataType",
                 "https://openminds.om-i.org/types/Service",
                 "https://openminds.om-i.org/types/SetupType",
+                "https://openminds.om-i.org/types/SignalDirectionality",
                 "https://openminds.om-i.org/types/SoftwareApplicationCategory",
                 "https://openminds.om-i.org/types/SoftwareFeature",
                 "https://openminds.om-i.org/types/SovereignState",
@@ -828,6 +662,50 @@
       },
       "minItems": 1,
       "name": "language",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/operatingDevice": {
+      "description": null,
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/OperatingDevice"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "operatingDevice",
       "type": "array",
       "uniqueItems": true
     },
@@ -1108,13 +986,54 @@
       },
       "type": "object"
     },
-    "https://openminds.om-i.org/props/requirement": {
-      "description": "Something essential to the existence, occurrence or function of something else.",
+    "https://openminds.om-i.org/props/scope": {
+      "description": "Extent of something.",
       "items": {
-        "type": "string"
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/AnalysisTechnique",
+                "https://openminds.om-i.org/types/DataType",
+                "https://openminds.om-i.org/types/ExperimentalApproach",
+                "https://openminds.om-i.org/types/OperationalApproach",
+                "https://openminds.om-i.org/types/SoftwareApplicationCategory",
+                "https://openminds.om-i.org/types/SoftwareFeature",
+                "https://openminds.om-i.org/types/Technique",
+                "https://openminds.om-i.org/types/TermSuggestion"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
       },
       "minItems": 1,
-      "name": "requirement",
+      "name": "scope",
       "type": "array",
       "uniqueItems": true
     },
@@ -1202,15 +1121,10 @@
     "@id",
     "@type",
     "https://openminds.om-i.org/props/accessibility",
-    "https://openminds.om-i.org/props/applicationCategory",
-    "https://openminds.om-i.org/props/device",
-    "https://openminds.om-i.org/props/feature",
     "https://openminds.om-i.org/props/fullDocumentation",
     "https://openminds.om-i.org/props/isVersionOf",
-    "https://openminds.om-i.org/props/language",
-    "https://openminds.om-i.org/props/operatingSystem",
-    "https://openminds.om-i.org/props/programmingLanguage",
     "https://openminds.om-i.org/props/releaseDate",
+    "https://openminds.om-i.org/props/scope",
     "https://openminds.om-i.org/props/shortName",
     "https://openminds.om-i.org/props/versionIdentifier",
     "https://openminds.om-i.org/props/versionInnovation"

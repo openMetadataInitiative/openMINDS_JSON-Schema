@@ -1,0 +1,192 @@
+{
+  "$id": "https://openminds.om-i.org/types/GridImageStack?format=json-schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": null,
+  "properties": {
+    "@id": {
+      "description": "Metadata node identifier.",
+      "type": "string"
+    },
+    "@type": {
+      "const": "https://openminds.om-i.org/types/GridImageStack",
+      "description": "Metadata schema identifier.",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/additionalRemarks": {
+      "description": "Mention of what deserves additional attention or notice.",
+      "name": "additionalRemarks",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/capturedWith": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "capturedWith",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/ElectrodeArrayUsage",
+              "https://openminds.om-i.org/types/ElectrodeUsage",
+              "https://openminds.om-i.org/types/PipetteUsage",
+              "https://openminds.om-i.org/types/SlicingDeviceUsage"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/coordinateFramework": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "coordinateFramework",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/CommonCoordinateFrameworkVersion",
+              "https://openminds.om-i.org/types/CustomCoordinateFramework"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/dataLocation": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "dataLocation",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/File",
+              "https://openminds.om-i.org/types/FileBundle"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/dimension": {
+      "description": null,
+      "items": {
+        "type": "integer"
+      },
+      "maxItems": 2,
+      "minItems": 2,
+      "name": "dimension",
+      "type": "array"
+    },
+    "https://openminds.om-i.org/props/name": {
+      "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+      "name": "name",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/numberOfImages": {
+      "description": null,
+      "minimum": 2,
+      "name": "numberOfImages",
+      "type": "integer"
+    },
+    "https://openminds.om-i.org/props/pixelSize": {
+      "description": null,
+      "items": {
+        "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema",
+        "type": "object"
+      },
+      "maxItems": 2,
+      "minItems": 2,
+      "name": "pixelSize",
+      "type": "array"
+    },
+    "https://openminds.om-i.org/props/z-stepSize": {
+      "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema",
+      "description": null,
+      "name": "z-stepSize",
+      "type": "object"
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "https://openminds.om-i.org/props/coordinateFramework",
+    "https://openminds.om-i.org/props/dataLocation",
+    "https://openminds.om-i.org/props/dimension",
+    "https://openminds.om-i.org/props/pixelSize",
+    "https://openminds.om-i.org/props/z-stepSize"
+  ],
+  "title": "GridImageStack",
+  "type": "object"
+}

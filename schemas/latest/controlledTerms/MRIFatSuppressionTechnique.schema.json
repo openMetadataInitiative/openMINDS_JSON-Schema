@@ -1,0 +1,66 @@
+{
+  "$id": "https://openminds.om-i.org/types/MRIFatSuppressionTechnique?format=json-schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": null,
+  "properties": {
+    "@id": {
+      "description": "Metadata node identifier.",
+      "type": "string"
+    },
+    "@type": {
+      "const": "https://openminds.om-i.org/types/MRIFatSuppressionTechnique",
+      "description": "Metadata schema identifier.",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/definition": {
+      "description": "Short, but precise statement of the meaning of a word, word group, sign or a symbol.",
+      "name": "definition",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/description": {
+      "description": "Longer statement or account giving the characteristics of someone or something.",
+      "name": "description",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/interlexIdentifier": {
+      "description": "Persistent identifier for a term registered in the InterLex project.",
+      "format": "iri",
+      "name": "interlexIdentifier",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/knowledgeSpaceLink": {
+      "description": "Persistent link to an encyclopedia entry in the Knowledge Space project.",
+      "format": "iri",
+      "name": "knowledgeSpaceLink",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/name": {
+      "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+      "name": "name",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/preferredOntologyIdentifier": {
+      "description": "Persistent identifier of a preferred ontological term.",
+      "format": "iri",
+      "name": "preferredOntologyIdentifier",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/synonym": {
+      "description": "Words or expressions used in the same language that have the same or nearly the same meaning in some or all senses.",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "name": "synonym",
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "https://openminds.om-i.org/props/name"
+  ],
+  "title": "MRIFatSuppressionTechnique",
+  "type": "object"
+}

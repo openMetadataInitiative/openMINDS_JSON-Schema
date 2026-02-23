@@ -45,6 +45,7 @@
             "@type": {
               "enum": [
                 "https://openminds.om-i.org/types/CellType",
+                "https://openminds.om-i.org/types/ExternalBodyRegion",
                 "https://openminds.om-i.org/types/Organ",
                 "https://openminds.om-i.org/types/OrganismSubstance",
                 "https://openminds.om-i.org/types/SubcellularEntity",
