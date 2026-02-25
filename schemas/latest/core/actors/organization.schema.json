@@ -12,16 +12,59 @@
       "description": "Metadata schema identifier.",
       "type": "string"
     },
-    "https://openminds.om-i.org/props/affiliation": {
-      "description": "Declaration of a person being closely associated to an organization.",
+    "https://openminds.om-i.org/props/acronym": {
+      "description": null,
+      "name": "acronym",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/alternateName": {
+      "description": null,
       "items": {
-        "$ref": "https://openminds.om-i.org/types/Affiliation?format=json-schema",
-        "type": "object"
+        "type": "string"
       },
       "minItems": 1,
-      "name": "affiliation",
+      "name": "alternateName",
       "type": "array",
       "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/countryOfFormation": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "countryOfFormation",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/SovereignState"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
     },
     "https://openminds.om-i.org/props/digitalIdentifier": {
       "description": "Digital handle to identify objects or legal persons.",
@@ -50,9 +93,7 @@
             },
             "@type": {
               "enum": [
-                "https://openminds.om-i.org/types/GRIDID",
-                "https://openminds.om-i.org/types/RORID",
-                "https://openminds.om-i.org/types/RRID"
+                "https://openminds.om-i.org/types/GenericIdentifier"
               ],
               "format": "iri",
               "type": "string"
@@ -68,11 +109,6 @@
       "name": "digitalIdentifier",
       "type": "array",
       "uniqueItems": true
-    },
-    "https://openminds.om-i.org/props/fullName": {
-      "description": "Whole, non-abbreviated name of something or somebody.",
-      "name": "fullName",
-      "type": "string"
     },
     "https://openminds.om-i.org/props/hasParent": {
       "description": "Reference to a parent object or legal person.",
@@ -124,16 +160,70 @@
       "name": "homepage",
       "type": "string"
     },
-    "https://openminds.om-i.org/props/shortName": {
-      "description": "Shortened or fully abbreviated name of something or somebody.",
-      "name": "shortName",
+    "https://openminds.om-i.org/props/jurisdiction": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "jurisdiction",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/SovereignState",
+              "https://openminds.om-i.org/types/SupranationalBody"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/location": {
+      "$ref": "https://openminds.om-i.org/types/Location?format=json-schema",
+      "description": null,
+      "name": "location",
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/name": {
+      "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+      "name": "name",
       "type": "string"
+    },
+    "https://openminds.om-i.org/props/type": {
+      "$ref": "https://openminds.om-i.org/types/OrganizationType?format=json-schema",
+      "description": "Distinct class to which a group of entities or concepts with similar characteristics or attributes belong to.",
+      "name": "type",
+      "type": "object"
     }
   },
   "required": [
     "@id",
     "@type",
-    "https://openminds.om-i.org/props/fullName"
+    "https://openminds.om-i.org/props/countryOfFormation",
+    "https://openminds.om-i.org/props/name",
+    "https://openminds.om-i.org/props/type"
   ],
   "title": "Organization",
   "type": "object"

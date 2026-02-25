@@ -1,5 +1,5 @@
 {
-  "$id": "https://openminds.om-i.org/types/LivePaperResourceItem?format=json-schema",
+  "$id": "https://openminds.om-i.org/types/DeployedInterface?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "description": null,
   "properties": {
@@ -8,18 +8,12 @@
       "type": "string"
     },
     "@type": {
-      "const": "https://openminds.om-i.org/types/LivePaperResourceItem",
+      "const": "https://openminds.om-i.org/types/DeployedInterface",
       "description": "Metadata schema identifier.",
       "type": "string"
     },
-    "https://openminds.om-i.org/props/IRI": {
-      "description": "Stands for Internationalized Resource Identifier which is an internet protocol standard that builds on the URI protocol, extending the set of permitted characters to include Unicode/ISO 10646.",
-      "format": "iri",
-      "name": "IRI",
-      "type": "string"
-    },
-    "https://openminds.om-i.org/props/hostedBy": {
-      "description": "Reference to an organization that provides facilities and services for something.",
+    "https://openminds.om-i.org/props/accessibility": {
+      "description": "Level to which something is accessible to someone or something.",
       "else": {
         "properties": {
           "@id": {
@@ -36,7 +30,7 @@
           "@type"
         ]
       },
-      "name": "hostedBy",
+      "name": "accessibility",
       "then": {
         "properties": {
           "@id": {
@@ -45,9 +39,7 @@
           },
           "@type": {
             "enum": [
-              "https://openminds.om-i.org/types/Organization",
-              "https://openminds.om-i.org/types/Service",
-              "https://openminds.om-i.org/types/Service"
+              "https://openminds.om-i.org/types/Accessibility"
             ],
             "format": "iri",
             "type": "string"
@@ -59,8 +51,8 @@
       },
       "type": "object"
     },
-    "https://openminds.om-i.org/props/isPartOf": {
-      "description": "Reference to the ensemble of multiple things or beings.",
+    "https://openminds.om-i.org/props/interface": {
+      "description": null,
       "else": {
         "properties": {
           "@id": {
@@ -77,7 +69,7 @@
           "@type"
         ]
       },
-      "name": "isPartOf",
+      "name": "interface",
       "then": {
         "properties": {
           "@id": {
@@ -86,7 +78,7 @@
           },
           "@type": {
             "enum": [
-              "https://openminds.om-i.org/types/LivePaperSection"
+              "https://openminds.om-i.org/types/InterfaceVersion"
             ],
             "format": "iri",
             "type": "string"
@@ -98,20 +90,54 @@
       },
       "type": "object"
     },
-    "https://openminds.om-i.org/props/name": {
-      "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
-      "name": "name",
-      "type": "string"
+    "https://openminds.om-i.org/props/location": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "location",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/Location",
+              "https://openminds.om-i.org/types/WebResource"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
     }
   },
   "required": [
     "@id",
     "@type",
-    "https://openminds.om-i.org/props/IRI",
-    "https://openminds.om-i.org/props/hostedBy",
-    "https://openminds.om-i.org/props/isPartOf",
-    "https://openminds.om-i.org/props/name"
+    "https://openminds.om-i.org/props/accessibility",
+    "https://openminds.om-i.org/props/interface",
+    "https://openminds.om-i.org/props/location"
   ],
-  "title": "LivePaperResourceItem",
+  "title": "DeployedInterface",
   "type": "object"
 }

@@ -1,0 +1,212 @@
+{
+  "$id": "https://openminds.om-i.org/types/LocalFile?format=json-schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Structured information about a file that is not accessible via a URL.",
+  "properties": {
+    "@id": {
+      "description": "Metadata node identifier.",
+      "type": "string"
+    },
+    "@type": {
+      "const": "https://openminds.om-i.org/types/LocalFile",
+      "description": "Metadata schema identifier.",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/contentDescription": {
+      "description": null,
+      "name": "contentDescription",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/copyOf": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "copyOf",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/File"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/dataType": {
+      "description": null,
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/DataType"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "dataType",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/format": {
+      "description": "Method of digitally organizing and structuring data or information.",
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "format",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/ContentType"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/hash": {
+      "$ref": "https://openminds.om-i.org/types/Hash?format=json-schema",
+      "description": "Term used for the process of converting any data into a single value. Often also directly refers to the resulting single value.",
+      "name": "hash",
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/name": {
+      "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+      "name": "name",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/path": {
+      "description": null,
+      "name": "path",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/specialUsageRole": {
+      "description": "Particular function of something when it is used.",
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "specialUsageRole",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/FileUsageRole"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/storageSize": {
+      "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema",
+      "description": "Quantitative value defining how much disk space is used by an object on a computer system.",
+      "name": "storageSize",
+      "type": "object"
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "https://openminds.om-i.org/props/name",
+    "https://openminds.om-i.org/props/path"
+  ],
+  "title": "LocalFile",
+  "type": "object"
+}

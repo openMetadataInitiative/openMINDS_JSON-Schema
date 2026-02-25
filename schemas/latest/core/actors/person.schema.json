@@ -12,17 +12,6 @@
       "description": "Metadata schema identifier.",
       "type": "string"
     },
-    "https://openminds.om-i.org/props/affiliation": {
-      "description": "Declaration of a person being closely associated to an organization.",
-      "items": {
-        "$ref": "https://openminds.om-i.org/types/Affiliation?format=json-schema",
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "affiliation",
-      "type": "array",
-      "uniqueItems": true
-    },
     "https://openminds.om-i.org/props/alternateName": {
       "description": null,
       "items": {
@@ -143,6 +132,7 @@
             },
             "@type": {
               "enum": [
+                "https://openminds.om-i.org/types/GenericIdentifier",
                 "https://openminds.om-i.org/types/ORCID"
               ],
               "format": "iri",
@@ -169,12 +159,17 @@
       "description": "Name given to a person, including all potential middle names, but excluding the family name.",
       "name": "givenName",
       "type": "string"
+    },
+    "https://openminds.om-i.org/props/preferredName": {
+      "description": null,
+      "name": "preferredName",
+      "type": "string"
     }
   },
   "required": [
     "@id",
     "@type",
-    "https://openminds.om-i.org/props/givenName"
+    "https://openminds.om-i.org/props/preferredName"
   ],
   "title": "Person",
   "type": "object"

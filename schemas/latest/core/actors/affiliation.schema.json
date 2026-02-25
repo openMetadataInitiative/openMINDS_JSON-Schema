@@ -12,13 +12,51 @@
       "description": "Metadata schema identifier.",
       "type": "string"
     },
-    "https://openminds.om-i.org/props/endDate": {
-      "description": "Date in the Gregorian calendar at which something terminates in time.",
-      "format": "date",
-      "name": "endDate",
-      "type": "string"
+    "https://openminds.om-i.org/props/organization": {
+      "description": "Legally accountable, administrative and functional structure.",
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/Organization"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "organization",
+      "type": "array",
+      "uniqueItems": true
     },
-    "https://openminds.om-i.org/props/memberOf": {
+    "https://openminds.om-i.org/props/person": {
       "description": null,
       "else": {
         "properties": {
@@ -36,7 +74,7 @@
           "@type"
         ]
       },
-      "name": "memberOf",
+      "name": "person",
       "then": {
         "properties": {
           "@id": {
@@ -45,8 +83,7 @@
           },
           "@type": {
             "enum": [
-              "https://openminds.om-i.org/types/Consortium",
-              "https://openminds.om-i.org/types/Organization"
+              "https://openminds.om-i.org/types/Person"
             ],
             "format": "iri",
             "type": "string"
@@ -57,18 +94,13 @@
         ]
       },
       "type": "object"
-    },
-    "https://openminds.om-i.org/props/startDate": {
-      "description": "Date in the Gregorian calendar at which something begins in time",
-      "format": "date",
-      "name": "startDate",
-      "type": "string"
     }
   },
   "required": [
     "@id",
     "@type",
-    "https://openminds.om-i.org/props/memberOf"
+    "https://openminds.om-i.org/props/organization",
+    "https://openminds.om-i.org/props/person"
   ],
   "title": "Affiliation",
   "type": "object"

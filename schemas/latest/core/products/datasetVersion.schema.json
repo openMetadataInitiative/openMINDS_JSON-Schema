@@ -51,93 +51,25 @@
       },
       "type": "object"
     },
-    "https://openminds.om-i.org/props/author": {
-      "description": "Creator of a literary or creative work, as well as a dataset publication.",
+    "https://openminds.om-i.org/props/contribution": {
+      "description": null,
       "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            },
-            "@type": {
-              "enum": [
-                "https://openminds.om-i.org/types/Consortium",
-                "https://openminds.om-i.org/types/Organization",
-                "https://openminds.om-i.org/types/Person"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
+        "$ref": "https://openminds.om-i.org/types/Contribution?format=json-schema",
         "type": "object"
       },
       "minItems": 1,
-      "name": "author",
+      "name": "contribution",
       "type": "array",
       "uniqueItems": true
     },
-    "https://openminds.om-i.org/props/behavioralProtocol": {
+    "https://openminds.om-i.org/props/contributorAffiliation": {
       "description": null,
       "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            },
-            "@type": {
-              "enum": [
-                "https://openminds.om-i.org/types/BehavioralProtocol"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
+        "$ref": "https://openminds.om-i.org/types/Affiliation?format=json-schema",
         "type": "object"
       },
       "minItems": 1,
-      "name": "behavioralProtocol",
+      "name": "contributorAffiliation",
       "type": "array",
       "uniqueItems": true
     },
@@ -146,52 +78,6 @@
       "description": "Exclusive and assignable legal right of an originator to reproduce, publish, sell, or distribute the matter and form of a creative work for a defined time period.",
       "name": "copyright",
       "type": "object"
-    },
-    "https://openminds.om-i.org/props/custodian": {
-      "description": "The 'custodian' is a legal person who is responsible for the content and quality of the data, metadata, and/or code of a research product.",
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            },
-            "@type": {
-              "enum": [
-                "https://openminds.om-i.org/types/Consortium",
-                "https://openminds.om-i.org/types/Organization",
-                "https://openminds.om-i.org/types/Person"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "custodian",
-      "type": "array",
-      "uniqueItems": true
     },
     "https://openminds.om-i.org/props/dataType": {
       "description": null,
@@ -270,7 +156,50 @@
           "@type": {
             "enum": [
               "https://openminds.om-i.org/types/DOI",
+              "https://openminds.om-i.org/types/GenericIdentifier",
               "https://openminds.om-i.org/types/IdentifiersDotOrgID"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/documentation": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "documentation",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/DOI",
+              "https://openminds.om-i.org/types/File",
+              "https://openminds.om-i.org/types/ISBN",
+              "https://openminds.om-i.org/types/WebResource"
             ],
             "format": "iri",
             "type": "string"
@@ -365,48 +294,6 @@
       "name": "experimentalApproach",
       "type": "array",
       "uniqueItems": true
-    },
-    "https://openminds.om-i.org/props/fullDocumentation": {
-      "description": "Non-abridged instructions, comments, and information for using a particular product.",
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "fullDocumentation",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          },
-          "@type": {
-            "enum": [
-              "https://openminds.om-i.org/types/DOI",
-              "https://openminds.om-i.org/types/File",
-              "https://openminds.om-i.org/types/ISBN",
-              "https://openminds.om-i.org/types/WebResource"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
     },
     "https://openminds.om-i.org/props/fullName": {
       "description": "Whole, non-abbreviated name of something or somebody.",
@@ -790,19 +677,8 @@
       "type": "array",
       "uniqueItems": true
     },
-    "https://openminds.om-i.org/props/otherContribution": {
-      "description": "Giving or supplying of something (such as money or time) as a part or share other than what is covered elsewhere.",
-      "items": {
-        "$ref": "https://openminds.om-i.org/types/Contribution?format=json-schema",
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "otherContribution",
-      "type": "array",
-      "uniqueItems": true
-    },
-    "https://openminds.om-i.org/props/preparationDesign": {
-      "description": null,
+    "https://openminds.om-i.org/props/preparationType": {
+      "description": "Distinct class of actions or processes that make something ready for use or service.",
       "items": {
         "else": {
           "properties": {
@@ -841,7 +717,7 @@
         "type": "object"
       },
       "minItems": 1,
-      "name": "preparationDesign",
+      "name": "preparationType",
       "type": "array",
       "uniqueItems": true
     },
@@ -872,6 +748,7 @@
             },
             "@type": {
               "enum": [
+                "https://openminds.om-i.org/types/BehavioralProtocol",
                 "https://openminds.om-i.org/types/Protocol"
               ],
               "format": "iri",
@@ -956,6 +833,7 @@
             "@type": {
               "enum": [
                 "https://openminds.om-i.org/types/DOI",
+                "https://openminds.om-i.org/types/GenericIdentifier",
                 "https://openminds.om-i.org/types/HANDLE",
                 "https://openminds.om-i.org/types/ISBN",
                 "https://openminds.om-i.org/types/ISSN",
@@ -1056,9 +934,13 @@
             "@type": {
               "enum": [
                 "https://openminds.om-i.org/types/Subject",
+                "https://openminds.om-i.org/types/SubjectState",
                 "https://openminds.om-i.org/types/SubjectGroup",
+                "https://openminds.om-i.org/types/SubjectGroupState",
                 "https://openminds.om-i.org/types/TissueSample",
-                "https://openminds.om-i.org/types/TissueSampleCollection"
+                "https://openminds.om-i.org/types/TissueSampleState",
+                "https://openminds.om-i.org/types/TissueSampleCollection",
+                "https://openminds.om-i.org/types/TissueSampleCollectionState"
               ],
               "format": "iri",
               "type": "string"
@@ -1269,9 +1151,9 @@
       "name": "versionIdentifier",
       "type": "string"
     },
-    "https://openminds.om-i.org/props/versionInnovation": {
-      "description": "Documentation on what changed in comparison to a previously published form of something.",
-      "name": "versionInnovation",
+    "https://openminds.om-i.org/props/versionSpecification": {
+      "description": null,
+      "name": "versionSpecification",
       "type": "string"
     }
   },
@@ -1279,17 +1161,20 @@
     "@id",
     "@type",
     "https://openminds.om-i.org/props/accessibility",
+    "https://openminds.om-i.org/props/contribution",
     "https://openminds.om-i.org/props/dataType",
+    "https://openminds.om-i.org/props/description",
     "https://openminds.om-i.org/props/digitalIdentifier",
+    "https://openminds.om-i.org/props/documentation",
     "https://openminds.om-i.org/props/ethicsJurisdiction",
     "https://openminds.om-i.org/props/experimentalApproach",
-    "https://openminds.om-i.org/props/fullDocumentation",
+    "https://openminds.om-i.org/props/fullName",
     "https://openminds.om-i.org/props/isVersionOf",
     "https://openminds.om-i.org/props/releaseDate",
     "https://openminds.om-i.org/props/shortName",
     "https://openminds.om-i.org/props/technique",
     "https://openminds.om-i.org/props/versionIdentifier",
-    "https://openminds.om-i.org/props/versionInnovation"
+    "https://openminds.om-i.org/props/versionSpecification"
   ],
   "title": "DatasetVersion",
   "type": "object"

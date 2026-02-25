@@ -14,9 +14,14 @@
     },
     "https://openminds.om-i.org/props/email": {
       "description": "Address to which or from which an electronic mail can be sent.",
-      "format": "email",
+      "items": {
+        "format": "email",
+        "type": "string"
+      },
+      "minItems": 1,
       "name": "email",
-      "type": "string"
+      "type": "array",
+      "uniqueItems": true
     }
   },
   "required": [

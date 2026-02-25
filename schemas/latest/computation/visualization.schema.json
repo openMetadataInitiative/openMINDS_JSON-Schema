@@ -70,7 +70,7 @@
           "@type": {
             "enum": [
               "https://openminds.om-i.org/types/Environment",
-              "https://openminds.om-i.org/types/WebServiceVersion"
+              "https://openminds.om-i.org/types/Service"
             ],
             "format": "iri",
             "type": "string"

@@ -83,7 +83,6 @@
             },
             "@type": {
               "enum": [
-                "https://openminds.om-i.org/types/LocalFile",
                 "https://openminds.om-i.org/types/AnalysisTechnique",
                 "https://openminds.om-i.org/types/AuditoryStimulusType",
                 "https://openminds.om-i.org/types/BiologicalOrder",
@@ -119,6 +118,7 @@
                 "https://openminds.om-i.org/types/BehavioralProtocol",
                 "https://openminds.om-i.org/types/File",
                 "https://openminds.om-i.org/types/FileBundle",
+                "https://openminds.om-i.org/types/LocalFile",
                 "https://openminds.om-i.org/types/Subject",
                 "https://openminds.om-i.org/types/SubjectGroup",
                 "https://openminds.om-i.org/types/SubjectGroupState",

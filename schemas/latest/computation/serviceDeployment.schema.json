@@ -1,0 +1,232 @@
+{
+  "$id": "https://openminds.om-i.org/types/ServiceDeployment?format=json-schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": null,
+  "properties": {
+    "@id": {
+      "description": "Metadata node identifier.",
+      "type": "string"
+    },
+    "@type": {
+      "const": "https://openminds.om-i.org/types/ServiceDeployment",
+      "description": "Metadata schema identifier.",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/dependsOn": {
+      "description": null,
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/WorkflowRecipeVersion",
+                "https://openminds.om-i.org/types/DatasetVersion",
+                "https://openminds.om-i.org/types/MetaDataModelVersion",
+                "https://openminds.om-i.org/types/ModelVersion",
+                "https://openminds.om-i.org/types/SoftwareVersion",
+                "https://openminds.om-i.org/types/AnatomicalAtlasVersion",
+                "https://openminds.om-i.org/types/CommonCoordinateFrameworkVersion"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "dependsOn",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/deploymentType": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "deploymentType",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/DeploymentEnvironmentType"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/endTime": {
+      "description": null,
+      "format": "datetime",
+      "name": "endTime",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/name": {
+      "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+      "name": "name",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/provides": {
+      "description": null,
+      "items": {
+        "$ref": "https://openminds.om-i.org/types/DeployedInterface?format=json-schema",
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "provides",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/service": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "service",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/Service"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/startTime": {
+      "description": null,
+      "format": "datetime",
+      "name": "startTime",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/uses": {
+      "description": null,
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/WorkflowRecipeVersion",
+                "https://openminds.om-i.org/types/DeployedInterface",
+                "https://openminds.om-i.org/types/DatasetVersion",
+                "https://openminds.om-i.org/types/MetaDataModelVersion",
+                "https://openminds.om-i.org/types/ModelVersion",
+                "https://openminds.om-i.org/types/AnatomicalAtlasVersion",
+                "https://openminds.om-i.org/types/CommonCoordinateFrameworkVersion"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "uses",
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "https://openminds.om-i.org/props/name",
+    "https://openminds.om-i.org/props/provides",
+    "https://openminds.om-i.org/props/service",
+    "https://openminds.om-i.org/props/startTime"
+  ],
+  "title": "ServiceDeployment",
+  "type": "object"
+}

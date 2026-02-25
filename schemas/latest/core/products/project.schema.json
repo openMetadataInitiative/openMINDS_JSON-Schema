@@ -12,49 +12,14 @@
       "description": "Metadata schema identifier.",
       "type": "string"
     },
-    "https://openminds.om-i.org/props/coordinator": {
-      "description": "Legal person who organizes the collaborative work of people or groups.",
+    "https://openminds.om-i.org/props/contribution": {
+      "description": null,
       "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            },
-            "@type": {
-              "enum": [
-                "https://openminds.om-i.org/types/Consortium",
-                "https://openminds.om-i.org/types/Organization",
-                "https://openminds.om-i.org/types/Person"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
+        "$ref": "https://openminds.om-i.org/types/Contribution?format=json-schema",
         "type": "object"
       },
       "minItems": 1,
-      "name": "coordinator",
+      "name": "contribution",
       "type": "array",
       "uniqueItems": true
     },
@@ -141,6 +106,45 @@
       "description": "Shortened or fully abbreviated name of something or somebody.",
       "name": "shortName",
       "type": "string"
+    },
+    "https://openminds.om-i.org/props/type": {
+      "description": "Distinct class to which a group of entities or concepts with similar characteristics or attributes belong to.",
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "type",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/ProjectType"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
     }
   },
   "required": [
@@ -149,7 +153,8 @@
     "https://openminds.om-i.org/props/description",
     "https://openminds.om-i.org/props/fullName",
     "https://openminds.om-i.org/props/hasPart",
-    "https://openminds.om-i.org/props/shortName"
+    "https://openminds.om-i.org/props/shortName",
+    "https://openminds.om-i.org/props/type"
   ],
   "title": "Project",
   "type": "object"

@@ -14,47 +14,6 @@
     },
     "https://openminds.om-i.org/props/contributor": {
       "description": "Legal person that gave or supplied something as a part or share.",
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "contributor",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          },
-          "@type": {
-            "enum": [
-              "https://openminds.om-i.org/types/Consortium",
-              "https://openminds.om-i.org/types/Organization",
-              "https://openminds.om-i.org/types/Person"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
-    "https://openminds.om-i.org/props/type": {
-      "description": "Distinct class to which a group of entities or concepts with similar characteristics or attributes belong to.",
       "items": {
         "else": {
           "properties": {
@@ -80,7 +39,9 @@
             },
             "@type": {
               "enum": [
-                "https://openminds.om-i.org/types/ContributionType"
+                "https://openminds.om-i.org/types/Consortium",
+                "https://openminds.om-i.org/types/Organization",
+                "https://openminds.om-i.org/types/Person"
               ],
               "format": "iri",
               "type": "string"
@@ -93,9 +54,48 @@
         "type": "object"
       },
       "minItems": 1,
-      "name": "type",
+      "name": "contributor",
       "type": "array",
       "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/type": {
+      "description": "Distinct class to which a group of entities or concepts with similar characteristics or attributes belong to.",
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "type",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/ContributionType"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
     }
   },
   "required": [

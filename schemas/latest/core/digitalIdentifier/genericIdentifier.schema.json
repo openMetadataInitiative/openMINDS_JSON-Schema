@@ -1,0 +1,73 @@
+{
+  "$id": "https://openminds.om-i.org/types/GenericIdentifier?format=json-schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": null,
+  "properties": {
+    "@id": {
+      "description": "Metadata node identifier.",
+      "type": "string"
+    },
+    "@type": {
+      "const": "https://openminds.om-i.org/types/GenericIdentifier",
+      "description": "Metadata schema identifier.",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/emitter": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "emitter",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/Organization"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/identifier": {
+      "description": "Term or code used to identify something or someone.",
+      "name": "identifier",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/type": {
+      "description": "Distinct class to which a group of entities or concepts with similar characteristics or attributes belong to.",
+      "name": "type",
+      "type": "string"
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "https://openminds.om-i.org/props/emitter",
+    "https://openminds.om-i.org/props/identifier"
+  ],
+  "title": "GenericIdentifier",
+  "type": "object"
+}

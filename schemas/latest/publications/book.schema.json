@@ -23,52 +23,6 @@
       "name": "abstract",
       "type": "string"
     },
-    "https://openminds.om-i.org/props/author": {
-      "description": "Creator of a literary or creative work, as well as a dataset publication.",
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            },
-            "@type": {
-              "enum": [
-                "https://openminds.om-i.org/types/Consortium",
-                "https://openminds.om-i.org/types/Organization",
-                "https://openminds.om-i.org/types/Person"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "author",
-      "type": "array",
-      "uniqueItems": true
-    },
     "https://openminds.om-i.org/props/citedPublication": {
       "description": null,
       "items": {
@@ -114,6 +68,28 @@
       "type": "array",
       "uniqueItems": true
     },
+    "https://openminds.om-i.org/props/contribution": {
+      "description": null,
+      "items": {
+        "$ref": "https://openminds.om-i.org/types/Contribution?format=json-schema",
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "contribution",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/contributorAffiliation": {
+      "description": null,
+      "items": {
+        "$ref": "https://openminds.om-i.org/types/Affiliation?format=json-schema",
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "contributorAffiliation",
+      "type": "array",
+      "uniqueItems": true
+    },
     "https://openminds.om-i.org/props/copyright": {
       "$ref": "https://openminds.om-i.org/types/Copyright?format=json-schema",
       "description": "Exclusive and assignable legal right of an originator to reproduce, publish, sell, or distribute the matter and form of a creative work for a defined time period.",
@@ -125,52 +101,6 @@
       "format": "date",
       "name": "creationDate",
       "type": "string"
-    },
-    "https://openminds.om-i.org/props/custodian": {
-      "description": "The 'custodian' is a legal person who is responsible for the content and quality of the data, metadata, and/or code of a research product.",
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            },
-            "@type": {
-              "enum": [
-                "https://openminds.om-i.org/types/Consortium",
-                "https://openminds.om-i.org/types/Organization",
-                "https://openminds.om-i.org/types/Person"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "custodian",
-      "type": "array",
-      "uniqueItems": true
     },
     "https://openminds.om-i.org/props/digitalIdentifier": {
       "description": "Digital handle to identify objects or legal persons.",
@@ -211,50 +141,6 @@
         ]
       },
       "type": "object"
-    },
-    "https://openminds.om-i.org/props/editor": {
-      "description": null,
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            },
-            "@type": {
-              "enum": [
-                "https://openminds.om-i.org/types/Person"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "editor",
-      "type": "array",
-      "uniqueItems": true
     },
     "https://openminds.om-i.org/props/funding": {
       "description": "Money provided by a legal person for a particular purpose.",
@@ -449,45 +335,6 @@
       "type": "array",
       "uniqueItems": true
     },
-    "https://openminds.om-i.org/props/license": {
-      "description": "Grant by a party to another party as an element of an agreement between those parties that permits to do, use, or own something.",
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "license",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          },
-          "@type": {
-            "enum": [
-              "https://openminds.om-i.org/types/License"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
     "https://openminds.om-i.org/props/modificationDate": {
       "description": null,
       "format": "date",
@@ -505,46 +352,50 @@
       "name": "publicationDate",
       "type": "string"
     },
-    "https://openminds.om-i.org/props/publisher": {
+    "https://openminds.om-i.org/props/usageCondition": {
       "description": null,
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "publisher",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
           },
-          "@type": {
-            "enum": [
-              "https://openminds.om-i.org/types/Consortium",
-              "https://openminds.om-i.org/types/Organization",
-              "https://openminds.om-i.org/types/Person"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
+          "required": [
+            "@id"
+          ]
         },
-        "required": [
-          "@id"
-        ]
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/License",
+                "https://openminds.om-i.org/types/UsageAgreement"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
       },
-      "type": "object"
+      "minItems": 1,
+      "name": "usageCondition",
+      "type": "array",
+      "uniqueItems": true
     },
     "https://openminds.om-i.org/props/versionIdentifier": {
       "description": "Term or code used to identify the version of something.",

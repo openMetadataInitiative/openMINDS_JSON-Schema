@@ -44,7 +44,6 @@
             },
             "@type": {
               "enum": [
-                "https://openminds.om-i.org/types/Consortium",
                 "https://openminds.om-i.org/types/Organization",
                 "https://openminds.om-i.org/types/Person"
               ],

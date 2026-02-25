@@ -28,8 +28,8 @@
       "name": "description",
       "type": "string"
     },
-    "https://openminds.om-i.org/props/fullDocumentation": {
-      "description": "Non-abridged instructions, comments, and information for using a particular product.",
+    "https://openminds.om-i.org/props/documentation": {
+      "description": null,
       "else": {
         "properties": {
           "@id": {
@@ -46,7 +46,7 @@
           "@type"
         ]
       },
-      "name": "fullDocumentation",
+      "name": "documentation",
       "then": {
         "properties": {
           "@id": {
@@ -257,6 +257,7 @@
             "@type": {
               "enum": [
                 "https://openminds.om-i.org/types/DOI",
+                "https://openminds.om-i.org/types/GenericIdentifier",
                 "https://openminds.om-i.org/types/HANDLE",
                 "https://openminds.om-i.org/types/ISBN",
                 "https://openminds.om-i.org/types/ISSN",
@@ -358,7 +359,8 @@
   "required": [
     "@id",
     "@type",
-    "https://openminds.om-i.org/props/fullDocumentation",
+    "https://openminds.om-i.org/props/contribution",
+    "https://openminds.om-i.org/props/description",
     "https://openminds.om-i.org/props/fullName",
     "https://openminds.om-i.org/props/scope",
     "https://openminds.om-i.org/props/shortName"
