@@ -206,6 +206,17 @@
       "name": "location",
       "type": "object"
     },
+    "https://openminds.om-i.org/props/memberships": {
+      "description": null,
+      "items": {
+        "$ref": "https://openminds.om-i.org/types/Membership?format=json-schema",
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "memberships",
+      "type": "array",
+      "uniqueItems": true
+    },
     "https://openminds.om-i.org/props/name": {
       "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
       "name": "name",

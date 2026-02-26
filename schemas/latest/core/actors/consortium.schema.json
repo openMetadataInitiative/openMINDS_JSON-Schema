@@ -62,6 +62,17 @@
       "name": "homepage",
       "type": "string"
     },
+    "https://openminds.om-i.org/props/memberships": {
+      "description": null,
+      "items": {
+        "$ref": "https://openminds.om-i.org/types/Membership?format=json-schema",
+        "type": "object"
+      },
+      "minItems": 2,
+      "name": "memberships",
+      "type": "array",
+      "uniqueItems": true
+    },
     "https://openminds.om-i.org/props/shortName": {
       "description": "Shortened or fully abbreviated name of something or somebody.",
       "name": "shortName",
@@ -71,7 +82,8 @@
   "required": [
     "@id",
     "@type",
-    "https://openminds.om-i.org/props/fullName"
+    "https://openminds.om-i.org/props/fullName",
+    "https://openminds.om-i.org/props/memberships"
   ],
   "title": "Consortium",
   "type": "object"

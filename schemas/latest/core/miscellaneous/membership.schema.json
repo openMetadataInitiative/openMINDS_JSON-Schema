@@ -1,0 +1,76 @@
+{
+  "$id": "https://openminds.om-i.org/types/Membership?format=json-schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": null,
+  "properties": {
+    "@id": {
+      "description": "Metadata node identifier.",
+      "type": "string"
+    },
+    "@type": {
+      "const": "https://openminds.om-i.org/types/Membership",
+      "description": "Metadata schema identifier.",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/endDate": {
+      "description": "Date in the Gregorian calendar at which something terminates in time.",
+      "format": "date",
+      "name": "endDate",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/member": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "member",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/Consortium",
+              "https://openminds.om-i.org/types/Organization",
+              "https://openminds.om-i.org/types/Person"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/startDate": {
+      "description": "Date in the Gregorian calendar at which something begins in time",
+      "format": "date",
+      "name": "startDate",
+      "type": "string"
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "https://openminds.om-i.org/props/member"
+  ],
+  "title": "Membership",
+  "type": "object"
+}
