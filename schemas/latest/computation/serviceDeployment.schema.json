@@ -103,7 +103,7 @@
     },
     "https://openminds.om-i.org/props/endTime": {
       "description": null,
-      "format": "datetime",
+      "format": "date-time",
       "name": "endTime",
       "type": "string"
     },
@@ -164,7 +164,7 @@
     },
     "https://openminds.om-i.org/props/startTime": {
       "description": null,
-      "format": "datetime",
+      "format": "date-time",
       "name": "startTime",
       "type": "string"
     },
