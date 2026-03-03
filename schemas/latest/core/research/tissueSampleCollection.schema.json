@@ -118,6 +118,50 @@
       "name": "internalIdentifier",
       "type": "string"
     },
+    "https://openminds.om-i.org/props/isPartOf": {
+      "description": "Reference to the ensemble of multiple things or beings.",
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/TissueSampleCollection"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "isPartOf",
+      "type": "array",
+      "uniqueItems": true
+    },
     "https://openminds.om-i.org/props/laterality": {
       "description": "Differentiation between a pair of lateral homologous parts of the body.",
       "items": {

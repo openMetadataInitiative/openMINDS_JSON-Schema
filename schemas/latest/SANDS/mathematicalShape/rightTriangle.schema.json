@@ -1,5 +1,5 @@
 {
-  "$id": "https://openminds.om-i.org/types/Ellipse?format=json-schema",
+  "$id": "https://openminds.om-i.org/types/RightTriangle?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "description": null,
   "properties": {
@@ -8,11 +8,11 @@
       "type": "string"
     },
     "@type": {
-      "const": "https://openminds.om-i.org/types/Ellipse",
+      "const": "https://openminds.om-i.org/types/RightTriangle",
       "description": "Metadata schema identifier.",
       "type": "string"
     },
-    "https://openminds.om-i.org/props/diameters": {
+    "https://openminds.om-i.org/props/perpendicularLegLengths": {
       "description": null,
       "items": {
         "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema",
@@ -20,15 +20,15 @@
       },
       "maxItems": 2,
       "minItems": 2,
-      "name": "diameters",
+      "name": "perpendicularLegLengths",
       "type": "array"
     }
   },
   "required": [
     "@id",
     "@type",
-    "https://openminds.om-i.org/props/diameters"
+    "https://openminds.om-i.org/props/perpendicularLegLengths"
   ],
-  "title": "Ellipse",
+  "title": "RightTriangle",
   "type": "object"
 }

@@ -1,0 +1,29 @@
+{
+  "$id": "https://openminds.om-i.org/types/Square?format=json-schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": null,
+  "properties": {
+    "@id": {
+      "description": "Metadata node identifier.",
+      "type": "string"
+    },
+    "@type": {
+      "const": "https://openminds.om-i.org/types/Square",
+      "description": "Metadata schema identifier.",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/sideLength": {
+      "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema",
+      "description": null,
+      "name": "sideLength",
+      "type": "object"
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "https://openminds.om-i.org/props/sideLength"
+  ],
+  "title": "Square",
+  "type": "object"
+}

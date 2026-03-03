@@ -1,0 +1,43 @@
+{
+  "$id": "https://openminds.om-i.org/types/Ellipsoid?format=json-schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": null,
+  "properties": {
+    "@id": {
+      "description": "Metadata node identifier.",
+      "type": "string"
+    },
+    "@type": {
+      "const": "https://openminds.om-i.org/types/Ellipsoid",
+      "description": "Metadata schema identifier.",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/intermediateDiameter": {
+      "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema",
+      "description": null,
+      "name": "intermediateDiameter",
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/majorDiameter": {
+      "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema",
+      "description": null,
+      "name": "majorDiameter",
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/minorDiameter": {
+      "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema",
+      "description": null,
+      "name": "minorDiameter",
+      "type": "object"
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "https://openminds.om-i.org/props/intermediateDiameter",
+    "https://openminds.om-i.org/props/majorDiameter",
+    "https://openminds.om-i.org/props/minorDiameter"
+  ],
+  "title": "Ellipsoid",
+  "type": "object"
+}

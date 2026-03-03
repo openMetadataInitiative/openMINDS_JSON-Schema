@@ -1,5 +1,5 @@
 {
-  "$id": "https://openminds.om-i.org/types/Rectangle?format=json-schema",
+  "$id": "https://openminds.om-i.org/types/IsoscelesTriangle?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "description": null,
   "properties": {
@@ -8,29 +8,29 @@
       "type": "string"
     },
     "@type": {
-      "const": "https://openminds.om-i.org/types/Rectangle",
+      "const": "https://openminds.om-i.org/types/IsoscelesTriangle",
       "description": "Metadata schema identifier.",
       "type": "string"
     },
-    "https://openminds.om-i.org/props/majorSideLength": {
+    "https://openminds.om-i.org/props/apexAngle": {
       "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema",
       "description": null,
-      "name": "majorSideLength",
+      "name": "apexAngle",
       "type": "object"
     },
-    "https://openminds.om-i.org/props/minorSideLength": {
+    "https://openminds.om-i.org/props/legLength": {
       "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema",
       "description": null,
-      "name": "minorSideLength",
+      "name": "legLength",
       "type": "object"
     }
   },
   "required": [
     "@id",
     "@type",
-    "https://openminds.om-i.org/props/majorSideLength",
-    "https://openminds.om-i.org/props/minorSideLength"
+    "https://openminds.om-i.org/props/apexAngle",
+    "https://openminds.om-i.org/props/legLength"
   ],
-  "title": "Rectangle",
+  "title": "IsoscelesTriangle",
   "type": "object"
 }

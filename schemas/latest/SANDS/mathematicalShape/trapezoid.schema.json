@@ -1,5 +1,5 @@
 {
-  "$id": "https://openminds.om-i.org/types/Ellipse?format=json-schema",
+  "$id": "https://openminds.om-i.org/types/Trapezoid?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "description": null,
   "properties": {
@@ -8,11 +8,17 @@
       "type": "string"
     },
     "@type": {
-      "const": "https://openminds.om-i.org/types/Ellipse",
+      "const": "https://openminds.om-i.org/types/Trapezoid",
       "description": "Metadata schema identifier.",
       "type": "string"
     },
-    "https://openminds.om-i.org/props/diameters": {
+    "https://openminds.om-i.org/props/baseDistance": {
+      "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema",
+      "description": null,
+      "name": "baseDistance",
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/baseLengths": {
       "description": null,
       "items": {
         "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema",
@@ -20,15 +26,16 @@
       },
       "maxItems": 2,
       "minItems": 2,
-      "name": "diameters",
+      "name": "baseLengths",
       "type": "array"
     }
   },
   "required": [
     "@id",
     "@type",
-    "https://openminds.om-i.org/props/diameters"
+    "https://openminds.om-i.org/props/baseDistance",
+    "https://openminds.om-i.org/props/baseLengths"
   ],
-  "title": "Ellipse",
+  "title": "Trapezoid",
   "type": "object"
 }
