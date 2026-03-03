@@ -113,6 +113,7 @@
                 "https://openminds.om-i.org/types/AccessProcessType",
                 "https://openminds.om-i.org/types/ActionStatusType",
                 "https://openminds.om-i.org/types/AgeCategory",
+                "https://openminds.om-i.org/types/AgeReference",
                 "https://openminds.om-i.org/types/AnalysisTechnique",
                 "https://openminds.om-i.org/types/AnatomicalAxesOrientation",
                 "https://openminds.om-i.org/types/AnatomicalIdentificationType",
@@ -212,7 +213,8 @@
                 "https://openminds.om-i.org/types/TypeOfUncertainty",
                 "https://openminds.om-i.org/types/UBERONParcellation",
                 "https://openminds.om-i.org/types/UnitOfMeasurement",
-                "https://openminds.om-i.org/types/VisualStimulusType"
+                "https://openminds.om-i.org/types/VisualStimulusType",
+                "https://openminds.om-i.org/types/WeightType"
               ],
               "format": "iri",
               "type": "string"
