@@ -68,7 +68,8 @@
             "enum": [
               "https://openminds.om-i.org/types/DOI",
               "https://openminds.om-i.org/types/GenericIdentifier",
-              "https://openminds.om-i.org/types/IdentifiersDotOrgID"
+              "https://openminds.om-i.org/types/IdentifiersDotOrgID",
+              "https://openminds.om-i.org/types/RRID"
             ],
             "format": "iri",
             "type": "string"

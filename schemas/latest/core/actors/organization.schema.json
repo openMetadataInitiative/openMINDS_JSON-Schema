@@ -93,7 +93,11 @@
             },
             "@type": {
               "enum": [
-                "https://openminds.om-i.org/types/GenericIdentifier"
+                "https://openminds.om-i.org/types/GenericIdentifier",
+                "https://openminds.om-i.org/types/ISNI",
+                "https://openminds.om-i.org/types/LEI",
+                "https://openminds.om-i.org/types/RORID",
+                "https://openminds.om-i.org/types/RRID"
               ],
               "format": "iri",
               "type": "string"

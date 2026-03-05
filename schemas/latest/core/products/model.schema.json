@@ -106,7 +106,9 @@
           "@type": {
             "enum": [
               "https://openminds.om-i.org/types/DOI",
-              "https://openminds.om-i.org/types/GenericIdentifier"
+              "https://openminds.om-i.org/types/GenericIdentifier",
+              "https://openminds.om-i.org/types/RRID",
+              "https://openminds.om-i.org/types/SWHID"
             ],
             "format": "iri",
             "type": "string"
@@ -455,6 +457,7 @@
                 "https://openminds.om-i.org/types/BreedingType",
                 "https://openminds.om-i.org/types/CellCultureType",
                 "https://openminds.om-i.org/types/CellType",
+                "https://openminds.om-i.org/types/DeviceType",
                 "https://openminds.om-i.org/types/Disease",
                 "https://openminds.om-i.org/types/DiseaseModel",
                 "https://openminds.om-i.org/types/ElectricalStimulusType",
