@@ -83,7 +83,7 @@
     "https://openminds.om-i.org/props/minorBaseScale": {
       "description": null,
       "name": "minorBaseScale",
-      "type": "float"
+      "type": "number"
     }
   },
   "required": [
