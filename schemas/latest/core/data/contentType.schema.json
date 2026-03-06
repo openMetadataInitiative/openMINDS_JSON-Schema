@@ -56,6 +56,17 @@
       "type": "array",
       "uniqueItems": true
     },
+    "https://openminds.om-i.org/props/definingSource": {
+      "description": null,
+      "items": {
+        "format": "iri",
+        "type": "string"
+      },
+      "minItems": 1,
+      "name": "definingSource",
+      "type": "array",
+      "uniqueItems": true
+    },
     "https://openminds.om-i.org/props/description": {
       "description": "Longer statement or account giving the characteristics of someone or something.",
       "name": "description",
@@ -76,15 +87,53 @@
       "type": "array",
       "uniqueItems": true
     },
+    "https://openminds.om-i.org/props/isBasedOn": {
+      "description": null,
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/ContentType"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "isBasedOn",
+      "type": "array",
+      "uniqueItems": true
+    },
     "https://openminds.om-i.org/props/name": {
       "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
       "name": "name",
-      "type": "string"
-    },
-    "https://openminds.om-i.org/props/relatedMediaType": {
-      "description": "Reference to an official two-part identifier for file formats and format contents.",
-      "format": "iri",
-      "name": "relatedMediaType",
       "type": "string"
     },
     "https://openminds.om-i.org/props/specification": {

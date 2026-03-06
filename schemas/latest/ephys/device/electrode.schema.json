@@ -53,89 +53,55 @@
       },
       "type": "object"
     },
+    "https://openminds.om-i.org/props/contribution": {
+      "description": null,
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/Organization",
+                "https://openminds.om-i.org/types/Person"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "contribution",
+      "type": "array",
+      "uniqueItems": true
+    },
     "https://openminds.om-i.org/props/description": {
       "description": "Longer statement or account giving the characteristics of someone or something.",
       "name": "description",
       "type": "string"
-    },
-    "https://openminds.om-i.org/props/deviceType": {
-      "description": null,
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "deviceType",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          },
-          "@type": {
-            "enum": [
-              "https://openminds.om-i.org/types/DeviceType"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
-    "https://openminds.om-i.org/props/digitalIdentifier": {
-      "description": "Digital handle to identify objects or legal persons.",
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "digitalIdentifier",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          },
-          "@type": {
-            "enum": [
-              "https://openminds.om-i.org/types/DOI",
-              "https://openminds.om-i.org/types/RRID"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
     },
     "https://openminds.om-i.org/props/insulatorMaterial": {
       "description": null,
@@ -197,117 +163,63 @@
       "description": null,
       "name": "intrinsicResistance"
     },
-    "https://openminds.om-i.org/props/lookupLabel": {
-      "description": null,
-      "name": "lookupLabel",
-      "type": "string"
-    },
-    "https://openminds.om-i.org/props/manufacturer": {
-      "description": null,
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            },
-            "@type": {
-              "enum": [
-                "https://openminds.om-i.org/types/Organization",
-                "https://openminds.om-i.org/types/Person"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "manufacturer",
-      "type": "array",
-      "uniqueItems": true
-    },
     "https://openminds.om-i.org/props/name": {
       "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
       "name": "name",
       "type": "string"
     },
-    "https://openminds.om-i.org/props/owner": {
-      "description": null,
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            },
-            "@type": {
-              "enum": [
-                "https://openminds.om-i.org/types/Organization",
-                "https://openminds.om-i.org/types/Person"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "owner",
-      "type": "array",
-      "uniqueItems": true
-    },
     "https://openminds.om-i.org/props/serialNumber": {
       "description": null,
       "name": "serialNumber",
       "type": "string"
+    },
+    "https://openminds.om-i.org/props/type": {
+      "description": "Distinct class to which a group of entities or concepts with similar characteristics or attributes belong to.",
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "type",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/DeviceType",
+              "https://openminds.om-i.org/types/HardwareProduct"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
     }
   },
   "required": [
     "@id",
     "@type",
-    "https://openminds.om-i.org/props/deviceType",
-    "https://openminds.om-i.org/props/name"
+    "https://openminds.om-i.org/props/contribution",
+    "https://openminds.om-i.org/props/name",
+    "https://openminds.om-i.org/props/type"
   ],
   "title": "Electrode",
   "type": "object"
