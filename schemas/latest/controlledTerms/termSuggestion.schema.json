@@ -61,21 +61,37 @@
       "name": "description",
       "type": "string"
     },
-    "https://openminds.om-i.org/props/interlexIdentifier": {
-      "description": "Persistent identifier for a term registered in the InterLex project.",
-      "format": "iri",
-      "name": "interlexIdentifier",
-      "type": "string"
-    },
-    "https://openminds.om-i.org/props/knowledgeSpaceLink": {
-      "description": "Persistent link to an encyclopedia entry in the Knowledge Space project.",
-      "format": "iri",
-      "name": "knowledgeSpaceLink",
-      "type": "string"
-    },
     "https://openminds.om-i.org/props/name": {
       "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
       "name": "name",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/otherCrossReference": {
+      "description": null,
+      "items": {
+        "format": "iri",
+        "type": "string"
+      },
+      "minItems": 1,
+      "name": "otherCrossReference",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/otherOntologyIdentifier": {
+      "description": null,
+      "items": {
+        "format": "iri",
+        "type": "string"
+      },
+      "minItems": 1,
+      "name": "otherOntologyIdentifier",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/preferredCrossReference": {
+      "description": null,
+      "format": "iri",
+      "name": "preferredCrossReference",
       "type": "string"
     },
     "https://openminds.om-i.org/props/preferredOntologyIdentifier": {
