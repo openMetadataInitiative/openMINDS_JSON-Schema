@@ -227,9 +227,42 @@
       "type": "string"
     },
     "https://openminds.om-i.org/props/type": {
-      "$ref": "https://openminds.om-i.org/types/OrganizationType?format=json-schema",
       "description": "Distinct class to which a group of entities or concepts with similar characteristics or attributes belong to.",
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
       "name": "type",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/OrganizationType"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
       "type": "object"
     }
   },
