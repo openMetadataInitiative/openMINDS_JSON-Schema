@@ -108,42 +108,49 @@
     },
     "https://openminds.om-i.org/props/service": {
       "description": null,
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "service",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
           },
-          "@type": {
-            "enum": [
-              "https://openminds.om-i.org/types/Service"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
+          "required": [
+            "@id"
+          ]
         },
-        "required": [
-          "@id"
-        ]
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/Interface",
+                "https://openminds.om-i.org/types/InterfaceVersion",
+                "https://openminds.om-i.org/types/WebResource"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
       },
-      "type": "object"
+      "minItems": 1,
+      "name": "service",
+      "type": "array",
+      "uniqueItems": true
     }
   },
   "required": [

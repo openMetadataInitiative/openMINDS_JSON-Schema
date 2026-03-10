@@ -118,6 +118,48 @@
       "name": "numberOfImages",
       "type": "integer"
     },
+    "https://openminds.om-i.org/props/obtainedWith": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "obtainedWith",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/ElectrodeArrayUsage",
+              "https://openminds.om-i.org/types/ElectrodeUsage",
+              "https://openminds.om-i.org/types/PipetteUsage",
+              "https://openminds.om-i.org/types/SlicingDeviceUsage"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
     "https://openminds.om-i.org/props/pixelSize": {
       "description": null,
       "items": {
@@ -139,7 +181,6 @@
   "required": [
     "@id",
     "@type",
-    "https://openminds.om-i.org/props/coordinateFramework",
     "https://openminds.om-i.org/props/dataLocation",
     "https://openminds.om-i.org/props/dimension",
     "https://openminds.om-i.org/props/pixelSize",

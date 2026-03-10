@@ -12,6 +12,12 @@
       "description": "Metadata schema identifier.",
       "type": "string"
     },
+    "https://openminds.om-i.org/props/externalDefinitionOfName": {
+      "description": null,
+      "format": "iri",
+      "name": "externalDefinitionOfName",
+      "type": "string"
+    },
     "https://openminds.om-i.org/props/name": {
       "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
       "name": "name",
