@@ -1,0 +1,823 @@
+{
+  "$id": "https://openminds.om-i.org/types/WorkflowRecipeVersion?format=json-schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Structured information about a specific implemented version of a workflow recipe.",
+  "properties": {
+    "@id": {
+      "description": "Metadata node identifier.",
+      "type": "string"
+    },
+    "@type": {
+      "const": "https://openminds.om-i.org/types/WorkflowRecipeVersion",
+      "description": "Metadata schema identifier.",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/accessibility": {
+      "description": "Level to which something is accessible to someone or something.",
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "accessibility",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/Accessibility"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/contribution": {
+      "description": null,
+      "items": {
+        "$ref": "https://openminds.om-i.org/types/Contribution?format=json-schema",
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "contribution",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/contributorAffiliation": {
+      "description": null,
+      "items": {
+        "$ref": "https://openminds.om-i.org/types/Affiliation?format=json-schema",
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "contributorAffiliation",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/copyright": {
+      "$ref": "https://openminds.om-i.org/types/Copyright?format=json-schema",
+      "description": "Exclusive and assignable legal right of an originator to reproduce, publish, sell, or distribute the matter and form of a creative work for a defined time period.",
+      "name": "copyright",
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/description": {
+      "description": "Longer statement or account giving the characteristics of someone or something.",
+      "name": "description",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/digitalIdentifier": {
+      "description": "Digital handle to identify objects or legal persons.",
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "digitalIdentifier",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/DOI"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/documentation": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "documentation",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/DOI",
+              "https://openminds.om-i.org/types/File",
+              "https://openminds.om-i.org/types/ISBN",
+              "https://openminds.om-i.org/types/WebResource"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/format": {
+      "description": "Method of digitally organizing and structuring data or information.",
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "format",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/ContentType"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/fullName": {
+      "description": "Whole, non-abbreviated name of something or somebody.",
+      "name": "fullName",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/funding": {
+      "description": "Money provided by a legal person for a particular purpose.",
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/Funding"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "funding",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/hasPart": {
+      "description": null,
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/WorkflowRecipeVersion",
+                "https://openminds.om-i.org/types/File",
+                "https://openminds.om-i.org/types/FileBundle",
+                "https://openminds.om-i.org/types/SoftwareVersion"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "hasPart",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/homepage": {
+      "description": "Main website of something or someone.",
+      "format": "iri",
+      "name": "homepage",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/howToCite": {
+      "description": "Preferred format for citing a particular object or legal person.",
+      "name": "howToCite",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/isPrecededBy": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "isPrecededBy",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/WorkflowRecipeVersion"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/isVariantOf": {
+      "description": null,
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/WorkflowRecipeVersion"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "isVariantOf",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/isVersionOf": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "isVersionOf",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/WorkflowRecipe"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/keyword": {
+      "description": "Significant word or concept that are representative of something or someone.",
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/AccessChannel",
+                "https://openminds.om-i.org/types/AccessEligibilityType",
+                "https://openminds.om-i.org/types/AccessForm",
+                "https://openminds.om-i.org/types/AccessProcessType",
+                "https://openminds.om-i.org/types/ActionStatusType",
+                "https://openminds.om-i.org/types/AgeCategory",
+                "https://openminds.om-i.org/types/AgeReference",
+                "https://openminds.om-i.org/types/AnalysisTechnique",
+                "https://openminds.om-i.org/types/AnatomicalAxesOrientation",
+                "https://openminds.om-i.org/types/AnatomicalCavity",
+                "https://openminds.om-i.org/types/AnatomicalIdentificationType",
+                "https://openminds.om-i.org/types/AnatomicalPlane",
+                "https://openminds.om-i.org/types/AnnotationCriteriaType",
+                "https://openminds.om-i.org/types/AnnotationType",
+                "https://openminds.om-i.org/types/AtlasType",
+                "https://openminds.om-i.org/types/AuditoryStimulusType",
+                "https://openminds.om-i.org/types/BiologicalOrder",
+                "https://openminds.om-i.org/types/BiologicalProcess",
+                "https://openminds.om-i.org/types/BiologicalSex",
+                "https://openminds.om-i.org/types/BreedingType",
+                "https://openminds.om-i.org/types/CellCultureType",
+                "https://openminds.om-i.org/types/CellType",
+                "https://openminds.om-i.org/types/ChemicalMixtureType",
+                "https://openminds.om-i.org/types/Colormap",
+                "https://openminds.om-i.org/types/CommunicationInterfaceType",
+                "https://openminds.om-i.org/types/CommunicationProtocol",
+                "https://openminds.om-i.org/types/ContributionType",
+                "https://openminds.om-i.org/types/CranialWindowConstructionType",
+                "https://openminds.om-i.org/types/CranialWindowReinforcementType",
+                "https://openminds.om-i.org/types/CriteriaQualityType",
+                "https://openminds.om-i.org/types/DataType",
+                "https://openminds.om-i.org/types/DependencyImpact",
+                "https://openminds.om-i.org/types/DeploymentEnvironmentType",
+                "https://openminds.om-i.org/types/DeviceMountingType",
+                "https://openminds.om-i.org/types/DeviceType",
+                "https://openminds.om-i.org/types/DifferenceMeasure",
+                "https://openminds.om-i.org/types/Disease",
+                "https://openminds.om-i.org/types/DiseaseModel",
+                "https://openminds.om-i.org/types/EducationalLevel",
+                "https://openminds.om-i.org/types/ElectricalStimulusType",
+                "https://openminds.om-i.org/types/ExperimentalApproach",
+                "https://openminds.om-i.org/types/ExternalBodyRegion",
+                "https://openminds.om-i.org/types/FileBundleGrouping",
+                "https://openminds.om-i.org/types/FileRepositoryType",
+                "https://openminds.om-i.org/types/FileUsageRole",
+                "https://openminds.om-i.org/types/GeneticStrainType",
+                "https://openminds.om-i.org/types/GustatoryStimulusType",
+                "https://openminds.om-i.org/types/Handedness",
+                "https://openminds.om-i.org/types/Language",
+                "https://openminds.om-i.org/types/Laterality",
+                "https://openminds.om-i.org/types/LearningResourceType",
+                "https://openminds.om-i.org/types/MRIFatSuppressionTechnique",
+                "https://openminds.om-i.org/types/MRIParallelAcquisitionTechnique",
+                "https://openminds.om-i.org/types/MRIPulseSequence",
+                "https://openminds.om-i.org/types/MRISpoilingTechnique",
+                "https://openminds.om-i.org/types/MRIWeighting",
+                "https://openminds.om-i.org/types/MeasuredQuantity",
+                "https://openminds.om-i.org/types/MeasuredSignalType",
+                "https://openminds.om-i.org/types/MetaDataModelType",
+                "https://openminds.om-i.org/types/ModelAbstractionLevel",
+                "https://openminds.om-i.org/types/ModelScope",
+                "https://openminds.om-i.org/types/ModificationConsentRequirement",
+                "https://openminds.om-i.org/types/ModificationConstraint",
+                "https://openminds.om-i.org/types/ModificationForm",
+                "https://openminds.om-i.org/types/ModificationScope",
+                "https://openminds.om-i.org/types/MolecularEntity",
+                "https://openminds.om-i.org/types/MuscularStructure",
+                "https://openminds.om-i.org/types/NervousSystemStructure",
+                "https://openminds.om-i.org/types/OlfactoryStimulusType",
+                "https://openminds.om-i.org/types/OperatingDevice",
+                "https://openminds.om-i.org/types/OperatingSystem",
+                "https://openminds.om-i.org/types/OperationalApproach",
+                "https://openminds.om-i.org/types/OpticalStimulusType",
+                "https://openminds.om-i.org/types/Organ",
+                "https://openminds.om-i.org/types/OrganSystemStructure",
+                "https://openminds.om-i.org/types/OrganismSubstance",
+                "https://openminds.om-i.org/types/OrganismSystem",
+                "https://openminds.om-i.org/types/OrganizationType",
+                "https://openminds.om-i.org/types/PatchClampVariation",
+                "https://openminds.om-i.org/types/PaymentModelType",
+                "https://openminds.om-i.org/types/PreparationType",
+                "https://openminds.om-i.org/types/ProgrammingLanguage",
+                "https://openminds.om-i.org/types/ProjectType",
+                "https://openminds.om-i.org/types/PublicationStatus",
+                "https://openminds.om-i.org/types/PulseShape",
+                "https://openminds.om-i.org/types/QualitativeOverlap",
+                "https://openminds.om-i.org/types/SemanticDataType",
+                "https://openminds.om-i.org/types/SetupType",
+                "https://openminds.om-i.org/types/SignalDirectionality",
+                "https://openminds.om-i.org/types/SkeletalStructure",
+                "https://openminds.om-i.org/types/SoftwareApplicationCategory",
+                "https://openminds.om-i.org/types/SoftwareFeature",
+                "https://openminds.om-i.org/types/SovereignState",
+                "https://openminds.om-i.org/types/SpatialEncoding",
+                "https://openminds.om-i.org/types/Species",
+                "https://openminds.om-i.org/types/StimulationApproach",
+                "https://openminds.om-i.org/types/StimulationTechnique",
+                "https://openminds.om-i.org/types/SubcellularEntity",
+                "https://openminds.om-i.org/types/SubjectAttribute",
+                "https://openminds.om-i.org/types/SupranationalBody",
+                "https://openminds.om-i.org/types/TactileStimulusType",
+                "https://openminds.om-i.org/types/Technique",
+                "https://openminds.om-i.org/types/TermSuggestion",
+                "https://openminds.om-i.org/types/Terminology",
+                "https://openminds.om-i.org/types/TissueSampleAttribute",
+                "https://openminds.om-i.org/types/TissueSampleType",
+                "https://openminds.om-i.org/types/TissueStructure",
+                "https://openminds.om-i.org/types/TypeOfUncertainty",
+                "https://openminds.om-i.org/types/UnitOfMeasurement",
+                "https://openminds.om-i.org/types/VascularStructure",
+                "https://openminds.om-i.org/types/VisualStimulusType",
+                "https://openminds.om-i.org/types/WeightType"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "keyword",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/publicationStatus": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "publicationStatus",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/PublicationStatus"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/relatedPublication": {
+      "description": "Reference to something that was made available for the general public to see or buy.",
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/DOI",
+                "https://openminds.om-i.org/types/GenericIdentifier",
+                "https://openminds.om-i.org/types/HANDLE",
+                "https://openminds.om-i.org/types/ISBN",
+                "https://openminds.om-i.org/types/ISSN",
+                "https://openminds.om-i.org/types/Book",
+                "https://openminds.om-i.org/types/Chapter",
+                "https://openminds.om-i.org/types/ScholarlyArticle"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "relatedPublication",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/releaseDate": {
+      "description": "Fixed date on which a product is due to become or was made available for the general public to see or buy",
+      "format": "date",
+      "name": "releaseDate",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/repository": {
+      "description": "Place, room, or container where something is deposited or stored.",
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "repository",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/FileRepository"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/shortName": {
+      "description": "Shortened or fully abbreviated name of something or somebody.",
+      "name": "shortName",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/supportChannel": {
+      "description": "Way of communication used to interact with users or customers.",
+      "items": {
+        "anyOf": [
+          {
+            "format": "email",
+            "type": "string"
+          },
+          {
+            "format": "iri",
+            "type": "string"
+          }
+        ]
+      },
+      "minItems": 1,
+      "name": "supportChannel",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/usageCondition": {
+      "description": null,
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/License",
+                "https://openminds.om-i.org/types/UsageAgreement"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "usageCondition",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/versionIdentifier": {
+      "description": "Term or code used to identify the version of something.",
+      "name": "versionIdentifier",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/versionSpecification": {
+      "description": null,
+      "name": "versionSpecification",
+      "type": "string"
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "https://openminds.om-i.org/props/accessibility",
+    "https://openminds.om-i.org/props/contribution",
+    "https://openminds.om-i.org/props/description",
+    "https://openminds.om-i.org/props/documentation",
+    "https://openminds.om-i.org/props/format",
+    "https://openminds.om-i.org/props/fullName",
+    "https://openminds.om-i.org/props/isVersionOf",
+    "https://openminds.om-i.org/props/releaseDate",
+    "https://openminds.om-i.org/props/shortName",
+    "https://openminds.om-i.org/props/versionIdentifier",
+    "https://openminds.om-i.org/props/versionSpecification"
+  ],
+  "title": "WorkflowRecipeVersion",
+  "type": "object"
+}

@@ -1,0 +1,756 @@
+{
+  "$id": "https://openminds.om-i.org/types/DynamicMRIAcquisition?format=json-schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": null,
+  "properties": {
+    "@id": {
+      "description": "Metadata node identifier.",
+      "type": "string"
+    },
+    "@type": {
+      "const": "https://openminds.om-i.org/types/DynamicMRIAcquisition",
+      "description": "Metadata schema identifier.",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/behavioralProtocol": {
+      "description": null,
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/BehavioralProtocol"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "behavioralProtocol",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/contrastAgent": {
+      "description": null,
+      "items": {
+        "$ref": "https://openminds.om-i.org/types/AmountOfChemical?format=json-schema",
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "contrastAgent",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/customPropertySet": {
+      "description": null,
+      "items": {
+        "$ref": "https://openminds.om-i.org/types/CustomPropertySet?format=json-schema",
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "customPropertySet",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/delayTime": {
+      "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema",
+      "description": null,
+      "name": "delayTime",
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/description": {
+      "description": "Longer statement or account giving the characteristics of someone or something.",
+      "name": "description",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/device": {
+      "description": "Piece of equipment or mechanism (hardware) designed to serve a special purpose or perform a special function.",
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "device",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/MRIScannerUsage"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/distortionCorrection": {
+      "description": null,
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/File"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "distortionCorrection",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/endTime": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "format": "time",
+          "type": "string"
+        }
+      ],
+      "description": null,
+      "name": "endTime"
+    },
+    "https://openminds.om-i.org/props/input": {
+      "description": "Something or someone that is put into or participates in a process or machine.",
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/SubjectState",
+                "https://openminds.om-i.org/types/TissueSampleState"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "input",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/isPartOf": {
+      "description": "Reference to the ensemble of multiple things or beings.",
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "isPartOf",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/DatasetVersion"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/lookupLabel": {
+      "description": null,
+      "name": "lookupLabel",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/motionCorrection": {
+      "description": null,
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/File"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "motionCorrection",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/numberOfDiscardedVolumes": {
+      "description": null,
+      "name": "numberOfDiscardedVolumes",
+      "type": "integer"
+    },
+    "https://openminds.om-i.org/props/output": {
+      "description": "Something or someone that comes out of, is delivered or produced by a process or machine.",
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/File"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "output",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/performedBy": {
+      "description": null,
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/SoftwareAgent",
+                "https://openminds.om-i.org/types/Person"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "performedBy",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/preparationDesign": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "preparationDesign",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/PreparationType"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/protocol": {
+      "description": "Plan that describes the process of a scientific or medical experiment, treatment, or procedure.",
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/Protocol"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "protocol",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/registrationData": {
+      "description": null,
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/File"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "registrationData",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/specimenOrientation": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "specimenOrientation",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/AnatomicalAxesOrientation"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/startTime": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "format": "time",
+          "type": "string"
+        }
+      ],
+      "description": null,
+      "name": "startTime"
+    },
+    "https://openminds.om-i.org/props/studyTarget": {
+      "description": "Structure or function that was targeted within a study.",
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/AnatomicalCavity",
+                "https://openminds.om-i.org/types/AuditoryStimulusType",
+                "https://openminds.om-i.org/types/BiologicalOrder",
+                "https://openminds.om-i.org/types/BiologicalSex",
+                "https://openminds.om-i.org/types/BreedingType",
+                "https://openminds.om-i.org/types/CellCultureType",
+                "https://openminds.om-i.org/types/CellType",
+                "https://openminds.om-i.org/types/DeviceType",
+                "https://openminds.om-i.org/types/Disease",
+                "https://openminds.om-i.org/types/DiseaseModel",
+                "https://openminds.om-i.org/types/ElectricalStimulusType",
+                "https://openminds.om-i.org/types/ExternalBodyRegion",
+                "https://openminds.om-i.org/types/GeneticStrainType",
+                "https://openminds.om-i.org/types/GustatoryStimulusType",
+                "https://openminds.om-i.org/types/Handedness",
+                "https://openminds.om-i.org/types/MolecularEntity",
+                "https://openminds.om-i.org/types/MuscularStructure",
+                "https://openminds.om-i.org/types/NervousSystemStructure",
+                "https://openminds.om-i.org/types/OlfactoryStimulusType",
+                "https://openminds.om-i.org/types/OpticalStimulusType",
+                "https://openminds.om-i.org/types/Organ",
+                "https://openminds.om-i.org/types/OrganSystemStructure",
+                "https://openminds.om-i.org/types/OrganismSubstance",
+                "https://openminds.om-i.org/types/OrganismSystem",
+                "https://openminds.om-i.org/types/SkeletalStructure",
+                "https://openminds.om-i.org/types/Species",
+                "https://openminds.om-i.org/types/SubcellularEntity",
+                "https://openminds.om-i.org/types/TactileStimulusType",
+                "https://openminds.om-i.org/types/TermSuggestion",
+                "https://openminds.om-i.org/types/TissueSampleType",
+                "https://openminds.om-i.org/types/TissueStructure",
+                "https://openminds.om-i.org/types/VascularStructure",
+                "https://openminds.om-i.org/types/VisualStimulusType",
+                "https://openminds.om-i.org/types/CustomAnatomicalEntity",
+                "https://openminds.om-i.org/types/ParcellationEntity",
+                "https://openminds.om-i.org/types/ParcellationEntityVersion"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "studyTarget",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/targetAnatomy": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "targetAnatomy",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/AnatomicalCavity",
+              "https://openminds.om-i.org/types/CellType",
+              "https://openminds.om-i.org/types/ExternalBodyRegion",
+              "https://openminds.om-i.org/types/MuscularStructure",
+              "https://openminds.om-i.org/types/NervousSystemStructure",
+              "https://openminds.om-i.org/types/Organ",
+              "https://openminds.om-i.org/types/OrganSystemStructure",
+              "https://openminds.om-i.org/types/OrganismSubstance",
+              "https://openminds.om-i.org/types/OrganismSystem",
+              "https://openminds.om-i.org/types/SkeletalStructure",
+              "https://openminds.om-i.org/types/SubcellularEntity",
+              "https://openminds.om-i.org/types/TissueStructure",
+              "https://openminds.om-i.org/types/VascularStructure",
+              "https://openminds.om-i.org/types/CustomAnatomicalEntity",
+              "https://openminds.om-i.org/types/ParcellationEntity",
+              "https://openminds.om-i.org/types/ParcellationEntityVersion"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/volumeAcquisitionTime": {
+      "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema",
+      "description": null,
+      "name": "volumeAcquisitionTime",
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/volumeTiming": {
+      "$ref": "https://openminds.om-i.org/types/QuantitativeValueArray?format=json-schema",
+      "description": null,
+      "name": "volumeTiming",
+      "type": "object"
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "https://openminds.om-i.org/props/behavioralProtocol",
+    "https://openminds.om-i.org/props/device",
+    "https://openminds.om-i.org/props/input",
+    "https://openminds.om-i.org/props/isPartOf",
+    "https://openminds.om-i.org/props/output",
+    "https://openminds.om-i.org/props/protocol",
+    "https://openminds.om-i.org/props/specimenOrientation",
+    "https://openminds.om-i.org/props/volumeAcquisitionTime"
+  ],
+  "title": "DynamicMRIAcquisition",
+  "type": "object"
+}

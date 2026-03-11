@@ -1,0 +1,47 @@
+{
+  "$id": "https://openminds.om-i.org/types/PropertyValueList?format=json-schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "An identifiable list of property-value pairs.",
+  "properties": {
+    "@id": {
+      "description": "Metadata node identifier.",
+      "type": "string"
+    },
+    "@type": {
+      "const": "https://openminds.om-i.org/types/PropertyValueList",
+      "description": "Metadata schema identifier.",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/lookupLabel": {
+      "description": null,
+      "name": "lookupLabel",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/propertyValuePair": {
+      "description": null,
+      "items": {
+        "anyOf": [
+          {
+            "$ref": "https://openminds.om-i.org/types/NumericalProperty?format=json-schema",
+            "type": "object"
+          },
+          {
+            "$ref": "https://openminds.om-i.org/types/StringProperty?format=json-schema",
+            "type": "object"
+          }
+        ]
+      },
+      "minItems": 1,
+      "name": "propertyValuePair",
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "https://openminds.om-i.org/props/propertyValuePair"
+  ],
+  "title": "PropertyValueList",
+  "type": "object"
+}

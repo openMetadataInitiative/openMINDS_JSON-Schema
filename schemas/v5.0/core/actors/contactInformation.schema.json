@@ -1,0 +1,34 @@
+{
+  "$id": "https://openminds.om-i.org/types/ContactInformation?format=json-schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Structured information about how to contact a given person or consortium.",
+  "properties": {
+    "@id": {
+      "description": "Metadata node identifier.",
+      "type": "string"
+    },
+    "@type": {
+      "const": "https://openminds.om-i.org/types/ContactInformation",
+      "description": "Metadata schema identifier.",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/email": {
+      "description": "Address to which or from which an electronic mail can be sent.",
+      "items": {
+        "format": "email",
+        "type": "string"
+      },
+      "minItems": 1,
+      "name": "email",
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "https://openminds.om-i.org/props/email"
+  ],
+  "title": "ContactInformation",
+  "type": "object"
+}

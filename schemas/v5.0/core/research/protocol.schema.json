@@ -1,0 +1,179 @@
+{
+  "$id": "https://openminds.om-i.org/types/Protocol?format=json-schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Structured information on a research project.",
+  "properties": {
+    "@id": {
+      "description": "Metadata node identifier.",
+      "type": "string"
+    },
+    "@type": {
+      "const": "https://openminds.om-i.org/types/Protocol",
+      "description": "Metadata schema identifier.",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/describedIn": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "describedIn",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/DOI",
+              "https://openminds.om-i.org/types/File",
+              "https://openminds.om-i.org/types/WebResource"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/description": {
+      "description": "Longer statement or account giving the characteristics of someone or something.",
+      "name": "description",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/name": {
+      "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+      "name": "name",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/stimulusType": {
+      "description": null,
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/AuditoryStimulusType",
+                "https://openminds.om-i.org/types/ElectricalStimulusType",
+                "https://openminds.om-i.org/types/GustatoryStimulusType",
+                "https://openminds.om-i.org/types/OlfactoryStimulusType",
+                "https://openminds.om-i.org/types/OpticalStimulusType",
+                "https://openminds.om-i.org/types/TactileStimulusType",
+                "https://openminds.om-i.org/types/VisualStimulusType"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "stimulusType",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/technique": {
+      "description": "Method of accomplishing a desired aim.",
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/AnalysisTechnique",
+                "https://openminds.om-i.org/types/MRIFatSuppressionTechnique",
+                "https://openminds.om-i.org/types/MRIParallelAcquisitionTechnique",
+                "https://openminds.om-i.org/types/MRIPulseSequence",
+                "https://openminds.om-i.org/types/MRISpoilingTechnique",
+                "https://openminds.om-i.org/types/MRIWeighting",
+                "https://openminds.om-i.org/types/SpatialEncoding",
+                "https://openminds.om-i.org/types/StimulationApproach",
+                "https://openminds.om-i.org/types/StimulationTechnique",
+                "https://openminds.om-i.org/types/Technique"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "technique",
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "https://openminds.om-i.org/props/description",
+    "https://openminds.om-i.org/props/name",
+    "https://openminds.om-i.org/props/technique"
+  ],
+  "title": "Protocol",
+  "type": "object"
+}

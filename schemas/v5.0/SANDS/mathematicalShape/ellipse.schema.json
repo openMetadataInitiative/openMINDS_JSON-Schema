@@ -1,0 +1,34 @@
+{
+  "$id": "https://openminds.om-i.org/types/Ellipse?format=json-schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": null,
+  "properties": {
+    "@id": {
+      "description": "Metadata node identifier.",
+      "type": "string"
+    },
+    "@type": {
+      "const": "https://openminds.om-i.org/types/Ellipse",
+      "description": "Metadata schema identifier.",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/diameters": {
+      "description": null,
+      "items": {
+        "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema",
+        "type": "object"
+      },
+      "maxItems": 2,
+      "minItems": 2,
+      "name": "diameters",
+      "type": "array"
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "https://openminds.om-i.org/props/diameters"
+  ],
+  "title": "Ellipse",
+  "type": "object"
+}

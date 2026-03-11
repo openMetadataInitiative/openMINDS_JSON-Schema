@@ -1,0 +1,329 @@
+{
+  "$id": "https://openminds.om-i.org/types/Strain?format=json-schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": null,
+  "properties": {
+    "@id": {
+      "description": "Metadata node identifier.",
+      "type": "string"
+    },
+    "@type": {
+      "const": "https://openminds.om-i.org/types/Strain",
+      "description": "Metadata schema identifier.",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/alternateIdentifier": {
+      "description": null,
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "name": "alternateIdentifier",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/backgroundStrain": {
+      "description": null,
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/Strain"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "maxItems": 2,
+      "minItems": 1,
+      "name": "backgroundStrain",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/breedingType": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "breedingType",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/BreedingType"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/description": {
+      "description": "Longer statement or account giving the characteristics of someone or something.",
+      "name": "description",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/digitalIdentifier": {
+      "description": "Digital handle to identify objects or legal persons.",
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "digitalIdentifier",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/RRID"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/diseaseModel": {
+      "description": null,
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/Disease",
+                "https://openminds.om-i.org/types/DiseaseModel"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "diseaseModel",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/geneticStrainType": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "geneticStrainType",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/GeneticStrainType"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/laboratoryCode": {
+      "description": null,
+      "name": "laboratoryCode",
+      "pattern": "^[A-Z]([a-z]?)+$",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/name": {
+      "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+      "name": "name",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/ontologyIdentifier": {
+      "description": "Term or code used to identify something or someone registered within a particular ontology.",
+      "items": {
+        "format": "iri",
+        "type": "string"
+      },
+      "minItems": 1,
+      "name": "ontologyIdentifier",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/phenotype": {
+      "description": "Physical expression of one or more genes of an organism.",
+      "name": "phenotype",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/species": {
+      "description": "Category of biological classification comprising related organisms or populations potentially capable of interbreeding, and being designated by a binomial that consists of the name of a genus followed by a Latin or latinized uncapitalized noun or adjective.",
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "species",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/Species"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/stockNumber": {
+      "$ref": "https://openminds.om-i.org/types/StockNumber?format=json-schema",
+      "description": null,
+      "name": "stockNumber",
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/synonym": {
+      "description": "Words or expressions used in the same language that have the same or nearly the same meaning in some or all senses.",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "name": "synonym",
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "https://openminds.om-i.org/props/geneticStrainType",
+    "https://openminds.om-i.org/props/name",
+    "https://openminds.om-i.org/props/species"
+  ],
+  "title": "Strain",
+  "type": "object"
+}

@@ -1,0 +1,664 @@
+{
+  "$id": "https://openminds.om-i.org/types/MRIScannerUsage?format=json-schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": null,
+  "properties": {
+    "@id": {
+      "description": "Metadata node identifier.",
+      "type": "string"
+    },
+    "@type": {
+      "const": "https://openminds.om-i.org/types/MRIScannerUsage",
+      "description": "Metadata schema identifier.",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/MRIWeighting": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "MRIWeighting",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/MRIWeighting"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/MTPulseShape": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "MTPulseShape",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/PulseShape"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/accelerationFactor": {
+      "description": null,
+      "minimum": 1,
+      "name": "accelerationFactor",
+      "type": "integer"
+    },
+    "https://openminds.om-i.org/props/diffusionEncodingParameters": {
+      "description": null,
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/File"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "maxItems": 2,
+      "minItems": 2,
+      "name": "diffusionEncodingParameters",
+      "type": "array"
+    },
+    "https://openminds.om-i.org/props/dwellTime": {
+      "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema",
+      "description": null,
+      "name": "dwellTime",
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/echoTime": {
+      "description": null,
+      "items": {
+        "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema",
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "echoTime",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/fatSuppressionTechnique": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "fatSuppressionTechnique",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/MRIFatSuppressionTechnique"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/fieldOfView": {
+      "description": null,
+      "name": "fieldOfView"
+    },
+    "https://openminds.om-i.org/props/flipAngle": {
+      "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema",
+      "description": null,
+      "name": "flipAngle",
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/gradientCorrection": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "gradientCorrection",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/AnalysisTechnique"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/inversionTime": {
+      "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema",
+      "description": null,
+      "name": "inversionTime",
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/lookupLabel": {
+      "description": null,
+      "name": "lookupLabel",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/matrixSize": {
+      "description": null,
+      "items": {
+        "type": "integer"
+      },
+      "maxItems": 3,
+      "minItems": 2,
+      "name": "matrixSize",
+      "type": "array"
+    },
+    "https://openminds.om-i.org/props/metadataLocation": {
+      "description": null,
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/File",
+                "https://openminds.om-i.org/types/FileBundle"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "metadataLocation",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/numberOfDiscardedVolumes": {
+      "description": null,
+      "name": "numberOfDiscardedVolumes",
+      "type": "integer"
+    },
+    "https://openminds.om-i.org/props/numberOfExcitations": {
+      "description": null,
+      "name": "numberOfExcitations",
+      "type": "integer"
+    },
+    "https://openminds.om-i.org/props/numberOfSlices": {
+      "description": null,
+      "name": "numberOfSlices",
+      "type": "integer"
+    },
+    "https://openminds.om-i.org/props/parallelAcquisitionTechnique": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "parallelAcquisitionTechnique",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/MRIParallelAcquisitionTechnique"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/phaseEncodingDirection": {
+      "description": null,
+      "items": {
+        "type": "integer"
+      },
+      "maxItems": 3,
+      "minItems": 3,
+      "name": "phaseEncodingDirection",
+      "type": "array"
+    },
+    "https://openminds.om-i.org/props/receiverBandwidth": {
+      "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema",
+      "description": null,
+      "name": "receiverBandwidth",
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/repetitionTime": {
+      "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema",
+      "description": null,
+      "name": "repetitionTime",
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/sliceAngulation": {
+      "description": null,
+      "items": {
+        "type": "number"
+      },
+      "maxItems": 3,
+      "minItems": 3,
+      "name": "sliceAngulation",
+      "type": "array"
+    },
+    "https://openminds.om-i.org/props/sliceGap": {
+      "anyOf": [
+        {
+          "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema",
+          "type": "object"
+        },
+        {
+          "$ref": "https://openminds.om-i.org/types/QuantitativeValueRange?format=json-schema",
+          "type": "object"
+        }
+      ],
+      "description": null,
+      "name": "sliceGap"
+    },
+    "https://openminds.om-i.org/props/sliceOrientation": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "sliceOrientation",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/AnatomicalPlane"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/sliceThickness": {
+      "anyOf": [
+        {
+          "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema",
+          "type": "object"
+        },
+        {
+          "$ref": "https://openminds.om-i.org/types/QuantitativeValueRange?format=json-schema",
+          "type": "object"
+        }
+      ],
+      "description": null,
+      "name": "sliceThickness"
+    },
+    "https://openminds.om-i.org/props/sliceTiming": {
+      "$ref": "https://openminds.om-i.org/types/QuantitativeValueArray?format=json-schema",
+      "description": null,
+      "name": "sliceTiming",
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/spatialEncoding": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "spatialEncoding",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/SpatialEncoding"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/spoilingTechnique": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "spoilingTechnique",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/MRISpoilingTechnique"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/totalReadOutTime": {
+      "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema",
+      "description": null,
+      "name": "totalReadOutTime",
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/transmitterBandwidth": {
+      "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema",
+      "description": null,
+      "name": "transmitterBandwidth",
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/usedCoils": {
+      "description": null,
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/DeviceType",
+                "https://openminds.om-i.org/types/MRICoilUsage"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 2,
+      "name": "usedCoils",
+      "type": "array"
+    },
+    "https://openminds.om-i.org/props/usedSpecimen": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "usedSpecimen",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/SubjectState",
+              "https://openminds.om-i.org/types/TissueSampleState"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/voxelSize": {
+      "$ref": "https://openminds.om-i.org/types/QuantitativeValueArray?format=json-schema",
+      "description": "Extent of the discrete elements comprising a three-dimensional entity.",
+      "name": "voxelSize",
+      "type": "object"
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "https://openminds.om-i.org/props/device",
+    "https://openminds.om-i.org/props/echoTime",
+    "https://openminds.om-i.org/props/repetitionTime",
+    "https://openminds.om-i.org/props/sliceTiming"
+  ],
+  "title": "MRIScannerUsage",
+  "type": "object"
+}

@@ -1,0 +1,112 @@
+{
+  "$id": "https://openminds.om-i.org/types/QuantitativeValueRange?format=json-schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "A representation of a range of quantitative values.",
+  "properties": {
+    "@id": {
+      "description": "Metadata node identifier.",
+      "type": "string"
+    },
+    "@type": {
+      "const": "https://openminds.om-i.org/types/QuantitativeValueRange",
+      "description": "Metadata schema identifier.",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/maxValue": {
+      "description": "Greatest quantity attained or allowed.",
+      "name": "maxValue",
+      "type": "number"
+    },
+    "https://openminds.om-i.org/props/maxValueUnit": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "maxValueUnit",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/UnitOfMeasurement"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/minValue": {
+      "description": "Smallest quantity attained or allowed.",
+      "name": "minValue",
+      "type": "number"
+    },
+    "https://openminds.om-i.org/props/minValueUnit": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "minValueUnit",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/UnitOfMeasurement"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "https://openminds.om-i.org/props/maxValue",
+    "https://openminds.om-i.org/props/minValue"
+  ],
+  "title": "QuantitativeValueRange",
+  "type": "object"
+}

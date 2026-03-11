@@ -1,0 +1,163 @@
+{
+  "$id": "https://openminds.om-i.org/types/ContentType?format=json-schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Structured information on the content type of a file instance, bundle or repository.",
+  "properties": {
+    "@id": {
+      "description": "Metadata node identifier.",
+      "type": "string"
+    },
+    "@type": {
+      "const": "https://openminds.om-i.org/types/ContentType",
+      "description": "Metadata schema identifier.",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/dataType": {
+      "description": null,
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/DataType"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "dataType",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/definingSource": {
+      "description": null,
+      "items": {
+        "format": "iri",
+        "type": "string"
+      },
+      "minItems": 1,
+      "name": "definingSource",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/description": {
+      "description": "Longer statement or account giving the characteristics of someone or something.",
+      "name": "description",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/displayLabel": {
+      "description": null,
+      "name": "displayLabel",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/fileExtension": {
+      "description": "String of characters attached as suffix to the names of files of a particular format.",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "name": "fileExtension",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/isBasedOn": {
+      "description": null,
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/ContentType"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "isBasedOn",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/name": {
+      "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+      "name": "name",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/specification": {
+      "description": "Detailed and precise presentation of, or proposal for something.",
+      "format": "iri",
+      "name": "specification",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/synonym": {
+      "description": "Words or expressions used in the same language that have the same or nearly the same meaning in some or all senses.",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "name": "synonym",
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "https://openminds.om-i.org/props/name"
+  ],
+  "title": "ContentType",
+  "type": "object"
+}

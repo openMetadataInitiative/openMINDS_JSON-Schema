@@ -1,0 +1,29 @@
+{
+  "$id": "https://openminds.om-i.org/types/DOI?format=json-schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Structured information about a digital object identifier, as standardized by the International Organization for Standardization.",
+  "properties": {
+    "@id": {
+      "description": "Metadata node identifier.",
+      "type": "string"
+    },
+    "@type": {
+      "const": "https://openminds.om-i.org/types/DOI",
+      "description": "Metadata schema identifier.",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/identifier": {
+      "description": "Term or code used to identify something or someone.",
+      "name": "identifier",
+      "pattern": "^https://doi.org/10.[0-9]{4,9}/[-._;()/:A-Za-z0-9]+",
+      "type": "string"
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "https://openminds.om-i.org/props/identifier"
+  ],
+  "title": "DOI",
+  "type": "object"
+}

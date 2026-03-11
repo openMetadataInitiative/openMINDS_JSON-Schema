@@ -1,0 +1,610 @@
+{
+  "$id": "https://openminds.om-i.org/types/DataAnalysis?format=json-schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Structured information on inspecting, cleansing, transforming, and modelling data.",
+  "properties": {
+    "@id": {
+      "description": "Metadata node identifier.",
+      "type": "string"
+    },
+    "@type": {
+      "const": "https://openminds.om-i.org/types/DataAnalysis",
+      "description": "Metadata schema identifier.",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/customPropertySet": {
+      "description": null,
+      "items": {
+        "$ref": "https://openminds.om-i.org/types/CustomPropertySet?format=json-schema",
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "customPropertySet",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/description": {
+      "description": "Longer statement or account giving the characteristics of someone or something.",
+      "name": "description",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/endTime": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "format": "time",
+          "type": "string"
+        }
+      ],
+      "description": null,
+      "name": "endTime"
+    },
+    "https://openminds.om-i.org/props/environment": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "environment",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/Environment",
+              "https://openminds.om-i.org/types/Service"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/input": {
+      "description": "Something or someone that is put into or participates in a process or machine.",
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/LocalFile",
+                "https://openminds.om-i.org/types/File",
+                "https://openminds.om-i.org/types/FileBundle",
+                "https://openminds.om-i.org/types/SoftwareVersion",
+                "https://openminds.om-i.org/types/AnatomicalAtlasVersion",
+                "https://openminds.om-i.org/types/CommonCoordinateFrameworkVersion"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "input",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/launchConfiguration": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "launchConfiguration",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/LaunchConfiguration"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/lookupLabel": {
+      "description": null,
+      "name": "lookupLabel",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/output": {
+      "description": "Something or someone that comes out of, is delivered or produced by a process or machine.",
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/LocalFile",
+                "https://openminds.om-i.org/types/File",
+                "https://openminds.om-i.org/types/FileArchive",
+                "https://openminds.om-i.org/types/FileBundle"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "output",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/performedBy": {
+      "description": null,
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/SoftwareAgent",
+                "https://openminds.om-i.org/types/Person"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "performedBy",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/recipe": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "recipe",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/WorkflowRecipeVersion"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/resourceUsage": {
+      "description": null,
+      "items": {
+        "anyOf": [
+          {
+            "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema",
+            "type": "object"
+          },
+          {
+            "$ref": "https://openminds.om-i.org/types/QuantitativeValueRange?format=json-schema",
+            "type": "object"
+          }
+        ]
+      },
+      "minItems": 1,
+      "name": "resourceUsage",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/startTime": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "format": "time",
+          "type": "string"
+        }
+      ],
+      "description": null,
+      "name": "startTime"
+    },
+    "https://openminds.om-i.org/props/startedBy": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "startedBy",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/SoftwareAgent",
+              "https://openminds.om-i.org/types/Person"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/status": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "status",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/ActionStatusType"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/studyTarget": {
+      "description": "Structure or function that was targeted within a study.",
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/AnatomicalCavity",
+                "https://openminds.om-i.org/types/AuditoryStimulusType",
+                "https://openminds.om-i.org/types/BiologicalOrder",
+                "https://openminds.om-i.org/types/BiologicalSex",
+                "https://openminds.om-i.org/types/BreedingType",
+                "https://openminds.om-i.org/types/CellCultureType",
+                "https://openminds.om-i.org/types/CellType",
+                "https://openminds.om-i.org/types/DeviceType",
+                "https://openminds.om-i.org/types/Disease",
+                "https://openminds.om-i.org/types/DiseaseModel",
+                "https://openminds.om-i.org/types/ElectricalStimulusType",
+                "https://openminds.om-i.org/types/ExternalBodyRegion",
+                "https://openminds.om-i.org/types/GeneticStrainType",
+                "https://openminds.om-i.org/types/GustatoryStimulusType",
+                "https://openminds.om-i.org/types/Handedness",
+                "https://openminds.om-i.org/types/MolecularEntity",
+                "https://openminds.om-i.org/types/MuscularStructure",
+                "https://openminds.om-i.org/types/NervousSystemStructure",
+                "https://openminds.om-i.org/types/OlfactoryStimulusType",
+                "https://openminds.om-i.org/types/OpticalStimulusType",
+                "https://openminds.om-i.org/types/Organ",
+                "https://openminds.om-i.org/types/OrganSystemStructure",
+                "https://openminds.om-i.org/types/OrganismSubstance",
+                "https://openminds.om-i.org/types/OrganismSystem",
+                "https://openminds.om-i.org/types/SkeletalStructure",
+                "https://openminds.om-i.org/types/Species",
+                "https://openminds.om-i.org/types/SubcellularEntity",
+                "https://openminds.om-i.org/types/TactileStimulusType",
+                "https://openminds.om-i.org/types/TermSuggestion",
+                "https://openminds.om-i.org/types/TissueSampleType",
+                "https://openminds.om-i.org/types/TissueStructure",
+                "https://openminds.om-i.org/types/VascularStructure",
+                "https://openminds.om-i.org/types/VisualStimulusType",
+                "https://openminds.om-i.org/types/CustomAnatomicalEntity",
+                "https://openminds.om-i.org/types/ParcellationEntity",
+                "https://openminds.om-i.org/types/ParcellationEntityVersion"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "studyTarget",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/tag": {
+      "description": null,
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "name": "tag",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/technique": {
+      "description": "Method of accomplishing a desired aim.",
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/AnalysisTechnique"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "technique",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/wasInformedBy": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "wasInformedBy",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/DataAnalysis",
+              "https://openminds.om-i.org/types/DataCopy",
+              "https://openminds.om-i.org/types/GenericComputation",
+              "https://openminds.om-i.org/types/ModelValidation",
+              "https://openminds.om-i.org/types/Optimization",
+              "https://openminds.om-i.org/types/Simulation",
+              "https://openminds.om-i.org/types/Visualization"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "https://openminds.om-i.org/props/environment",
+    "https://openminds.om-i.org/props/input",
+    "https://openminds.om-i.org/props/output",
+    "https://openminds.om-i.org/props/startTime"
+  ],
+  "title": "DataAnalysis",
+  "type": "object"
+}

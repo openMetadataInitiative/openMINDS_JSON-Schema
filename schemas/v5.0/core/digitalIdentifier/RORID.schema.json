@@ -1,0 +1,29 @@
+{
+  "$id": "https://openminds.om-i.org/types/RORID?format=json-schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "A persistent identifier for a research organization, provided by the Research Organization Registry.",
+  "properties": {
+    "@id": {
+      "description": "Metadata node identifier.",
+      "type": "string"
+    },
+    "@type": {
+      "const": "https://openminds.om-i.org/types/RORID",
+      "description": "Metadata schema identifier.",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/identifier": {
+      "description": "Term or code used to identify something or someone.",
+      "name": "identifier",
+      "pattern": "^https://ror.org/0([0-9]|[^ILO]|[a-z]){6}[0-9]{2}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "https://openminds.om-i.org/props/identifier"
+  ],
+  "title": "RORID",
+  "type": "object"
+}

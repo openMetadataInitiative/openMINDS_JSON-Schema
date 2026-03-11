@@ -1,0 +1,85 @@
+{
+  "$id": "https://openminds.om-i.org/types/LivePaperSection?format=json-schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": null,
+  "properties": {
+    "@id": {
+      "description": "Metadata node identifier.",
+      "type": "string"
+    },
+    "@type": {
+      "const": "https://openminds.om-i.org/types/LivePaperSection",
+      "description": "Metadata schema identifier.",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/description": {
+      "description": "Longer statement or account giving the characteristics of someone or something.",
+      "name": "description",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/isPartOf": {
+      "description": "Reference to the ensemble of multiple things or beings.",
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "isPartOf",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/LivePaperVersion"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/name": {
+      "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+      "name": "name",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/order": {
+      "description": null,
+      "name": "order",
+      "type": "integer"
+    },
+    "https://openminds.om-i.org/props/type": {
+      "description": "Distinct class to which a group of entities or concepts with similar characteristics or attributes belong to.",
+      "name": "type",
+      "type": "string"
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "https://openminds.om-i.org/props/isPartOf",
+    "https://openminds.om-i.org/props/name",
+    "https://openminds.om-i.org/props/order",
+    "https://openminds.om-i.org/props/type"
+  ],
+  "title": "LivePaperSection",
+  "type": "object"
+}

@@ -1,0 +1,158 @@
+{
+  "$id": "https://openminds.om-i.org/types/ParcellationEntity?format=json-schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": null,
+  "properties": {
+    "@id": {
+      "description": "Metadata node identifier.",
+      "type": "string"
+    },
+    "@type": {
+      "const": "https://openminds.om-i.org/types/ParcellationEntity",
+      "description": "Metadata schema identifier.",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/abbreviation": {
+      "description": null,
+      "name": "abbreviation",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/alternateName": {
+      "description": null,
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "name": "alternateName",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/definition": {
+      "description": "Short, but precise statement of the meaning of a word, word group, sign or a symbol.",
+      "name": "definition",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/hasParent": {
+      "description": "Reference to a parent object or legal person.",
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/ParcellationEntity"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "hasParent",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/lookupLabel": {
+      "description": null,
+      "name": "lookupLabel",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/name": {
+      "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+      "name": "name",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/ontologyIdentifier": {
+      "description": "Term or code used to identify something or someone registered within a particular ontology.",
+      "items": {
+        "format": "iri",
+        "type": "string"
+      },
+      "minItems": 1,
+      "name": "ontologyIdentifier",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/relatedInterspeciesAnatomy": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "relatedInterspeciesAnatomy",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/AnatomicalCavity",
+              "https://openminds.om-i.org/types/ExternalBodyRegion",
+              "https://openminds.om-i.org/types/MuscularStructure",
+              "https://openminds.om-i.org/types/NervousSystemStructure",
+              "https://openminds.om-i.org/types/Organ",
+              "https://openminds.om-i.org/types/OrganSystemStructure",
+              "https://openminds.om-i.org/types/OrganismSubstance",
+              "https://openminds.om-i.org/types/OrganismSystem",
+              "https://openminds.om-i.org/types/SkeletalStructure",
+              "https://openminds.om-i.org/types/TissueStructure",
+              "https://openminds.om-i.org/types/VascularStructure"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "https://openminds.om-i.org/props/lookupLabel",
+    "https://openminds.om-i.org/props/name"
+  ],
+  "title": "ParcellationEntity",
+  "type": "object"
+}

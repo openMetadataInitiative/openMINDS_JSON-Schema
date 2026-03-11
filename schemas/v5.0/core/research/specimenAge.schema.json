@@ -1,0 +1,77 @@
+{
+  "$id": "https://openminds.om-i.org/types/SpecimenAge?format=json-schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": null,
+  "properties": {
+    "@id": {
+      "description": "Metadata node identifier.",
+      "type": "string"
+    },
+    "@type": {
+      "const": "https://openminds.om-i.org/types/SpecimenAge",
+      "description": "Metadata schema identifier.",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/age": {
+      "anyOf": [
+        {
+          "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema",
+          "type": "object"
+        },
+        {
+          "$ref": "https://openminds.om-i.org/types/QuantitativeValueRange?format=json-schema",
+          "type": "object"
+        }
+      ],
+      "description": "Time of life or existence at which some particular qualification, capacity or event arises.",
+      "name": "age"
+    },
+    "https://openminds.om-i.org/props/reference": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "reference",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/AgeReference"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "https://openminds.om-i.org/props/age",
+    "https://openminds.om-i.org/props/reference"
+  ],
+  "title": "SpecimenAge",
+  "type": "object"
+}

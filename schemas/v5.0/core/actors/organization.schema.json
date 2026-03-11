@@ -1,0 +1,278 @@
+{
+  "$id": "https://openminds.om-i.org/types/Organization?format=json-schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "An entity comprised of one or more natural persons with a particular purpose. [adapted from Wikipedia](https://en.wikipedia.org/wiki/Organization)",
+  "properties": {
+    "@id": {
+      "description": "Metadata node identifier.",
+      "type": "string"
+    },
+    "@type": {
+      "const": "https://openminds.om-i.org/types/Organization",
+      "description": "Metadata schema identifier.",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/acronym": {
+      "description": null,
+      "name": "acronym",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/alternateName": {
+      "description": null,
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "name": "alternateName",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/countryOfFormation": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "countryOfFormation",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/SovereignState"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/digitalIdentifier": {
+      "description": "Digital handle to identify objects or legal persons.",
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/GenericIdentifier",
+                "https://openminds.om-i.org/types/ISNI",
+                "https://openminds.om-i.org/types/LEI",
+                "https://openminds.om-i.org/types/RORID",
+                "https://openminds.om-i.org/types/RRID"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "digitalIdentifier",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/hasParent": {
+      "description": "Reference to a parent object or legal person.",
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/Organization"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "hasParent",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/homepage": {
+      "description": "Main website of something or someone.",
+      "format": "iri",
+      "name": "homepage",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/jurisdiction": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "jurisdiction",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/SovereignState",
+              "https://openminds.om-i.org/types/SupranationalBody"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/location": {
+      "$ref": "https://openminds.om-i.org/types/Location?format=json-schema",
+      "description": null,
+      "name": "location",
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/membership": {
+      "description": null,
+      "items": {
+        "$ref": "https://openminds.om-i.org/types/Membership?format=json-schema",
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "membership",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/name": {
+      "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+      "name": "name",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/type": {
+      "description": "Distinct class to which a group of entities or concepts with similar characteristics or attributes belong to.",
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "type",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/OrganizationType"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "https://openminds.om-i.org/props/countryOfFormation",
+    "https://openminds.om-i.org/props/name",
+    "https://openminds.om-i.org/props/type"
+  ],
+  "title": "Organization",
+  "type": "object"
+}

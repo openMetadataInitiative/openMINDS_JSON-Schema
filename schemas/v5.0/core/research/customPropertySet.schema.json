@@ -1,0 +1,119 @@
+{
+  "$id": "https://openminds.om-i.org/types/CustomPropertySet?format=json-schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Structured information about properties of an entity that are not represented in an openMINDS schema.",
+  "properties": {
+    "@id": {
+      "description": "Metadata node identifier.",
+      "type": "string"
+    },
+    "@type": {
+      "const": "https://openminds.om-i.org/types/CustomPropertySet",
+      "description": "Metadata schema identifier.",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/context": {
+      "description": null,
+      "name": "context",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/dataLocation": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "dataLocation",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/Configuration",
+              "https://openminds.om-i.org/types/File",
+              "https://openminds.om-i.org/types/PropertyValueList"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/relevantFor": {
+      "description": "Reference to what or whom something or someone bears significance.",
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "relevantFor",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/AnalysisTechnique",
+              "https://openminds.om-i.org/types/MRIFatSuppressionTechnique",
+              "https://openminds.om-i.org/types/MRIParallelAcquisitionTechnique",
+              "https://openminds.om-i.org/types/MRIPulseSequence",
+              "https://openminds.om-i.org/types/MRISpoilingTechnique",
+              "https://openminds.om-i.org/types/MRIWeighting",
+              "https://openminds.om-i.org/types/SpatialEncoding",
+              "https://openminds.om-i.org/types/StimulationApproach",
+              "https://openminds.om-i.org/types/StimulationTechnique",
+              "https://openminds.om-i.org/types/Technique"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "https://openminds.om-i.org/props/context",
+    "https://openminds.om-i.org/props/dataLocation",
+    "https://openminds.om-i.org/props/relevantFor"
+  ],
+  "title": "CustomPropertySet",
+  "type": "object"
+}

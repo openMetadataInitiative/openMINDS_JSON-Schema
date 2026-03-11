@@ -1,0 +1,85 @@
+{
+  "$id": "https://openminds.om-i.org/types/ViewerSpecification?format=json-schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": null,
+  "properties": {
+    "@id": {
+      "description": "Metadata node identifier.",
+      "type": "string"
+    },
+    "@type": {
+      "const": "https://openminds.om-i.org/types/ViewerSpecification",
+      "description": "Metadata schema identifier.",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/additionalRemarks": {
+      "description": "Mention of what deserves additional attention or notice.",
+      "name": "additionalRemarks",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/anchorPoint": {
+      "description": null,
+      "items": {
+        "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema",
+        "type": "object"
+      },
+      "maxItems": 3,
+      "minItems": 2,
+      "name": "anchorPoint",
+      "type": "array"
+    },
+    "https://openminds.om-i.org/props/cameraPosition": {
+      "$ref": "https://openminds.om-i.org/types/CoordinatePoint?format=json-schema",
+      "description": null,
+      "name": "cameraPosition",
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/preferredDisplayColor": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "preferredDisplayColor",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/Colormap",
+              "https://openminds.om-i.org/types/SingleColor"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "https://openminds.om-i.org/props/anchorPoint"
+  ],
+  "title": "ViewerSpecification",
+  "type": "object"
+}

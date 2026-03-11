@@ -1,0 +1,90 @@
+{
+  "$id": "https://openminds.om-i.org/types/Consortium?format=json-schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Structured information about an association of two or more persons or organizations, with the objective of participating in a common activity.",
+  "properties": {
+    "@id": {
+      "description": "Metadata node identifier.",
+      "type": "string"
+    },
+    "@type": {
+      "const": "https://openminds.om-i.org/types/Consortium",
+      "description": "Metadata schema identifier.",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/contactInformation": {
+      "description": "Any available way used to contact a person or business (e.g., address, phone number, email address, etc.).",
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "contactInformation",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/ContactInformation"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/fullName": {
+      "description": "Whole, non-abbreviated name of something or somebody.",
+      "name": "fullName",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/homepage": {
+      "description": "Main website of something or someone.",
+      "format": "iri",
+      "name": "homepage",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/memberships": {
+      "description": null,
+      "items": {
+        "$ref": "https://openminds.om-i.org/types/Membership?format=json-schema",
+        "type": "object"
+      },
+      "minItems": 2,
+      "name": "memberships",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/shortName": {
+      "description": "Shortened or fully abbreviated name of something or somebody.",
+      "name": "shortName",
+      "type": "string"
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "https://openminds.om-i.org/props/fullName",
+    "https://openminds.om-i.org/props/memberships"
+  ],
+  "title": "Consortium",
+  "type": "object"
+}

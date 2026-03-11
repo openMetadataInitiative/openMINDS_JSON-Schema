@@ -1,0 +1,29 @@
+{
+  "$id": "https://openminds.om-i.org/types/RRID?format=json-schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "A persistent identifier for a research resource provided by the Resource Identification Initiative.",
+  "properties": {
+    "@id": {
+      "description": "Metadata node identifier.",
+      "type": "string"
+    },
+    "@type": {
+      "const": "https://openminds.om-i.org/types/RRID",
+      "description": "Metadata schema identifier.",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/identifier": {
+      "description": "Term or code used to identify something or someone.",
+      "name": "identifier",
+      "pattern": "https://scicrunch.org/resolver/RRID:([A-Za-z]+)[_:]([A-Za-z0-9_:-]+)",
+      "type": "string"
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "https://openminds.om-i.org/props/identifier"
+  ],
+  "title": "RRID",
+  "type": "object"
+}

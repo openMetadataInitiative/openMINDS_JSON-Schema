@@ -1,0 +1,244 @@
+{
+  "$id": "https://openminds.om-i.org/types/ElectrodeArray?format=json-schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Structured information on an electrode array.",
+  "properties": {
+    "@id": {
+      "description": "Metadata node identifier.",
+      "type": "string"
+    },
+    "@type": {
+      "const": "https://openminds.om-i.org/types/ElectrodeArray",
+      "description": "Metadata schema identifier.",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/conductorMaterial": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "conductorMaterial",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/ChemicalMixture",
+              "https://openminds.om-i.org/types/ChemicalSubstance",
+              "https://openminds.om-i.org/types/MolecularEntity"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/contribution": {
+      "description": null,
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/Organization",
+                "https://openminds.om-i.org/types/Person"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "contribution",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/description": {
+      "description": "Longer statement or account giving the characteristics of someone or something.",
+      "name": "description",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/electrodeIdentifier": {
+      "description": null,
+      "items": {
+        "type": "string"
+      },
+      "minItems": 2,
+      "name": "electrodeIdentifier",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "https://openminds.om-i.org/props/insulatorMaterial": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "insulatorMaterial",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/ChemicalMixture",
+              "https://openminds.om-i.org/types/ChemicalSubstance",
+              "https://openminds.om-i.org/types/MolecularEntity"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/internalIdentifier": {
+      "description": "Term or code that identifies someone or something within a particular product.",
+      "name": "internalIdentifier",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/intrinsicResistance": {
+      "anyOf": [
+        {
+          "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema",
+          "type": "object"
+        },
+        {
+          "$ref": "https://openminds.om-i.org/types/QuantitativeValueRange?format=json-schema",
+          "type": "object"
+        }
+      ],
+      "description": null,
+      "name": "intrinsicResistance"
+    },
+    "https://openminds.om-i.org/props/name": {
+      "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+      "name": "name",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/numberOfElectrodes": {
+      "description": null,
+      "minimum": 2,
+      "name": "numberOfElectrodes",
+      "type": "integer"
+    },
+    "https://openminds.om-i.org/props/serialNumber": {
+      "description": null,
+      "name": "serialNumber",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/type": {
+      "description": "Distinct class to which a group of entities or concepts with similar characteristics or attributes belong to.",
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "type",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/DeviceType",
+              "https://openminds.om-i.org/types/HardwareProduct"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "https://openminds.om-i.org/props/contribution",
+    "https://openminds.om-i.org/props/electrodeIdentifier",
+    "https://openminds.om-i.org/props/name",
+    "https://openminds.om-i.org/props/numberOfElectrodes",
+    "https://openminds.om-i.org/props/type"
+  ],
+  "title": "ElectrodeArray",
+  "type": "object"
+}

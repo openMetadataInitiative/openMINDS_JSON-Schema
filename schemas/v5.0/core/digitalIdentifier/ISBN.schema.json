@@ -1,0 +1,29 @@
+{
+  "$id": "https://openminds.om-i.org/types/ISBN?format=json-schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "An International Standard Book Number of the International ISBN Agency.",
+  "properties": {
+    "@id": {
+      "description": "Metadata node identifier.",
+      "type": "string"
+    },
+    "@type": {
+      "const": "https://openminds.om-i.org/types/ISBN",
+      "description": "Metadata schema identifier.",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/identifier": {
+      "description": "Term or code used to identify something or someone.",
+      "name": "identifier",
+      "pattern": "^(?=(?:\\d-?){9}-[\\dX]$)[\\d]{1,5}-[\\d]{2,7}-[\\d]{1,6}-[\\dX]$|^(?=(?:\\d-?){13}$)97[89]-[\\d]{1,5}-[\\d]{1,7}-[\\d]{1,6}-[\\d]$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "https://openminds.om-i.org/props/identifier"
+  ],
+  "title": "ISBN",
+  "type": "object"
+}

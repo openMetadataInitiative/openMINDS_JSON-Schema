@@ -1,0 +1,92 @@
+{
+  "$id": "https://openminds.om-i.org/types/ResearchProductGroup?format=json-schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": null,
+  "properties": {
+    "@id": {
+      "description": "Metadata node identifier.",
+      "type": "string"
+    },
+    "@type": {
+      "const": "https://openminds.om-i.org/types/ResearchProductGroup",
+      "description": "Metadata schema identifier.",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/context": {
+      "description": null,
+      "name": "context",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/hasPart": {
+      "description": null,
+      "items": {
+        "else": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "if": {
+          "required": [
+            "@type"
+          ]
+        },
+        "then": {
+          "properties": {
+            "@id": {
+              "format": "iri",
+              "type": "string"
+            },
+            "@type": {
+              "enum": [
+                "https://openminds.om-i.org/types/ValidationTest",
+                "https://openminds.om-i.org/types/ValidationTestVersion",
+                "https://openminds.om-i.org/types/WorkflowRecipe",
+                "https://openminds.om-i.org/types/WorkflowRecipeVersion",
+                "https://openminds.om-i.org/types/Dataset",
+                "https://openminds.om-i.org/types/DatasetVersion",
+                "https://openminds.om-i.org/types/Interface",
+                "https://openminds.om-i.org/types/InterfaceVersion",
+                "https://openminds.om-i.org/types/MetaDataModel",
+                "https://openminds.om-i.org/types/MetaDataModelVersion",
+                "https://openminds.om-i.org/types/Model",
+                "https://openminds.om-i.org/types/ModelVersion",
+                "https://openminds.om-i.org/types/Software",
+                "https://openminds.om-i.org/types/SoftwareVersion",
+                "https://openminds.om-i.org/types/LivePaper",
+                "https://openminds.om-i.org/types/LivePaperVersion",
+                "https://openminds.om-i.org/types/AnatomicalAtlas",
+                "https://openminds.om-i.org/types/AnatomicalAtlasVersion",
+                "https://openminds.om-i.org/types/CommonCoordinateFramework",
+                "https://openminds.om-i.org/types/CommonCoordinateFrameworkVersion"
+              ],
+              "format": "iri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id"
+          ]
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "name": "hasPart",
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "https://openminds.om-i.org/props/context",
+    "https://openminds.om-i.org/props/hasPart"
+  ],
+  "title": "ResearchProductGroup",
+  "type": "object"
+}

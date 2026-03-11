@@ -1,0 +1,29 @@
+{
+  "$id": "https://openminds.om-i.org/types/HANDLE?format=json-schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "A persistent identifier for an information resource provided by the Handle System of the Corporation for National Research Initiatives.",
+  "properties": {
+    "@id": {
+      "description": "Metadata node identifier.",
+      "type": "string"
+    },
+    "@type": {
+      "const": "https://openminds.om-i.org/types/HANDLE",
+      "description": "Metadata schema identifier.",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/identifier": {
+      "description": "Term or code used to identify something or someone.",
+      "name": "identifier",
+      "pattern": "^http://hdl.handle.net/[.0-9A-Za-z]+/[.0-9A-Za-z]+",
+      "type": "string"
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "https://openminds.om-i.org/props/identifier"
+  ],
+  "title": "HANDLE",
+  "type": "object"
+}

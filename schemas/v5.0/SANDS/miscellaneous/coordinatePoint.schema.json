@@ -1,0 +1,75 @@
+{
+  "$id": "https://openminds.om-i.org/types/CoordinatePoint?format=json-schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": null,
+  "properties": {
+    "@id": {
+      "description": "Metadata node identifier.",
+      "type": "string"
+    },
+    "@type": {
+      "const": "https://openminds.om-i.org/types/CoordinatePoint",
+      "description": "Metadata schema identifier.",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/coordinateFramework": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "coordinateFramework",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/CommonCoordinateFrameworkVersion",
+              "https://openminds.om-i.org/types/CustomCoordinateFramework"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/coordinates": {
+      "description": "Pair or triplet of numbers defining a location in a given coordinate space.",
+      "items": {
+        "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema",
+        "type": "object"
+      },
+      "maxItems": 3,
+      "minItems": 2,
+      "name": "coordinates",
+      "type": "array"
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "https://openminds.om-i.org/props/coordinateFramework",
+    "https://openminds.om-i.org/props/coordinates"
+  ],
+  "title": "CoordinatePoint",
+  "type": "object"
+}

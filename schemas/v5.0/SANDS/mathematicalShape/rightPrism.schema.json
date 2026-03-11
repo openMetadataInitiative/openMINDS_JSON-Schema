@@ -1,0 +1,80 @@
+{
+  "$id": "https://openminds.om-i.org/types/RightPrism?format=json-schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": null,
+  "properties": {
+    "@id": {
+      "description": "Metadata node identifier.",
+      "type": "string"
+    },
+    "@type": {
+      "const": "https://openminds.om-i.org/types/RightPrism",
+      "description": "Metadata schema identifier.",
+      "type": "string"
+    },
+    "https://openminds.om-i.org/props/baseDistance": {
+      "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema",
+      "description": null,
+      "name": "baseDistance",
+      "type": "object"
+    },
+    "https://openminds.om-i.org/props/baseShape": {
+      "anyOf": [
+        {
+          "$ref": "https://openminds.om-i.org/types/EquilateralTriangle?format=json-schema",
+          "type": "object"
+        },
+        {
+          "$ref": "https://openminds.om-i.org/types/IsoscelesTriangle?format=json-schema",
+          "type": "object"
+        },
+        {
+          "$ref": "https://openminds.om-i.org/types/Kite?format=json-schema",
+          "type": "object"
+        },
+        {
+          "$ref": "https://openminds.om-i.org/types/Parallelogram?format=json-schema",
+          "type": "object"
+        },
+        {
+          "$ref": "https://openminds.om-i.org/types/Rectangle?format=json-schema",
+          "type": "object"
+        },
+        {
+          "$ref": "https://openminds.om-i.org/types/RegularPolygon?format=json-schema",
+          "type": "object"
+        },
+        {
+          "$ref": "https://openminds.om-i.org/types/Rhombus?format=json-schema",
+          "type": "object"
+        },
+        {
+          "$ref": "https://openminds.om-i.org/types/RightTriangle?format=json-schema",
+          "type": "object"
+        },
+        {
+          "$ref": "https://openminds.om-i.org/types/Square?format=json-schema",
+          "type": "object"
+        },
+        {
+          "$ref": "https://openminds.om-i.org/types/Trapezoid?format=json-schema",
+          "type": "object"
+        },
+        {
+          "$ref": "https://openminds.om-i.org/types/Triangle?format=json-schema",
+          "type": "object"
+        }
+      ],
+      "description": null,
+      "name": "baseShape"
+    }
+  },
+  "required": [
+    "@id",
+    "@type",
+    "https://openminds.om-i.org/props/baseDistance",
+    "https://openminds.om-i.org/props/baseShape"
+  ],
+  "title": "RightPrism",
+  "type": "object"
+}
