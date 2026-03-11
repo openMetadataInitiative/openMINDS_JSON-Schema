@@ -12,17 +12,6 @@
       "description": "Metadata schema identifier.",
       "type": "string"
     },
-    "https://openminds.om-i.org/props/anchorPoint": {
-      "description": null,
-      "items": {
-        "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema",
-        "type": "object"
-      },
-      "maxItems": 3,
-      "minItems": 2,
-      "name": "anchorPoint",
-      "type": "array"
-    },
     "https://openminds.om-i.org/props/coordinateFramework": {
       "description": null,
       "else": {

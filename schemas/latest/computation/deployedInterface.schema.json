@@ -51,6 +51,45 @@
       },
       "type": "object"
     },
+    "https://openminds.om-i.org/props/entryPoint": {
+      "description": null,
+      "else": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "if": {
+        "required": [
+          "@type"
+        ]
+      },
+      "name": "entryPoint",
+      "then": {
+        "properties": {
+          "@id": {
+            "format": "iri",
+            "type": "string"
+          },
+          "@type": {
+            "enum": [
+              "https://openminds.om-i.org/types/WebResource"
+            ],
+            "format": "iri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "type": "object"
+    },
     "https://openminds.om-i.org/props/interface": {
       "description": null,
       "else": {
@@ -89,54 +128,14 @@
         ]
       },
       "type": "object"
-    },
-    "https://openminds.om-i.org/props/location": {
-      "description": null,
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "location",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          },
-          "@type": {
-            "enum": [
-              "https://openminds.om-i.org/types/Location",
-              "https://openminds.om-i.org/types/WebResource"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
     }
   },
   "required": [
     "@id",
     "@type",
     "https://openminds.om-i.org/props/accessibility",
-    "https://openminds.om-i.org/props/interface",
-    "https://openminds.om-i.org/props/location"
+    "https://openminds.om-i.org/props/entryPoint",
+    "https://openminds.om-i.org/props/interface"
   ],
   "title": "DeployedInterface",
   "type": "object"

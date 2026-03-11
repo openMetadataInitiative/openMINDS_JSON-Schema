@@ -196,10 +196,10 @@
             "@type": {
               "enum": [
                 "https://openminds.om-i.org/types/WorkflowRecipeVersion",
-                "https://openminds.om-i.org/types/DeployedInterface",
                 "https://openminds.om-i.org/types/DatasetVersion",
                 "https://openminds.om-i.org/types/MetaDataModelVersion",
                 "https://openminds.om-i.org/types/ModelVersion",
+                "https://openminds.om-i.org/types/WebResource",
                 "https://openminds.om-i.org/types/AnatomicalAtlasVersion",
                 "https://openminds.om-i.org/types/CommonCoordinateFrameworkVersion"
               ],

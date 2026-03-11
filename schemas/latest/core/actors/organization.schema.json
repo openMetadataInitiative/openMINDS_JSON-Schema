@@ -210,14 +210,14 @@
       "name": "location",
       "type": "object"
     },
-    "https://openminds.om-i.org/props/memberships": {
+    "https://openminds.om-i.org/props/membership": {
       "description": null,
       "items": {
         "$ref": "https://openminds.om-i.org/types/Membership?format=json-schema",
         "type": "object"
       },
       "minItems": 1,
-      "name": "memberships",
+      "name": "membership",
       "type": "array",
       "uniqueItems": true
     },
