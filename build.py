@@ -22,7 +22,3 @@ for schema_version in schema_loader.get_schema_versions():
     for schema_file_path in schemas_file_paths:
         # Step 3 - translate and build each openMINDS schema as JSON-Schema
         JSONSchemaBuilder(schema_file_path, schema_loader.schemas_sources).build()
-
-
-
-
