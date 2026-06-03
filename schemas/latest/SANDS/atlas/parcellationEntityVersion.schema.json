@@ -177,9 +177,9 @@
       "name": "versionIdentifier",
       "type": "string"
     },
-    "https://openminds.om-i.org/props/versionInnovation": {
-      "description": "Documentation on what changed in comparison to a previously published form of something.",
-      "name": "versionInnovation",
+    "https://openminds.om-i.org/props/versionSpecification": {
+      "description": null,
+      "name": "versionSpecification",
       "type": "string"
     }
   },
