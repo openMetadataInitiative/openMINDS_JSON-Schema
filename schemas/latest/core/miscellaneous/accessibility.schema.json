@@ -12,6 +12,11 @@
       "description": "Metadata schema identifier.",
       "type": "string"
     },
+    "https://openminds.om-i.org/props/application": {
+      "description": null,
+      "name": "application",
+      "type": "string"
+    },
     "https://openminds.om-i.org/props/channel": {
       "description": null,
       "else": {
