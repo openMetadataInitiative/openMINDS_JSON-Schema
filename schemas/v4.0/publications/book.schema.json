@@ -25,7 +25,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/abstract": {
-          "description": null,
           "name": "abstract",
           "type": "string"
         },
@@ -90,7 +89,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/citedPublication": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -155,7 +153,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/creationDate": {
-          "description": null,
           "format": "date",
           "name": "creationDate",
           "type": "string"
@@ -275,7 +272,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/editor": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -581,7 +577,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/modificationDate": {
-          "description": null,
           "format": "date",
           "name": "modificationDate",
           "type": "string"
@@ -592,13 +587,11 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/publicationDate": {
-          "description": null,
           "format": "date",
           "name": "publicationDate",
           "type": "string"
         },
         "https://openminds.om-i.org/props/publisher": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/configuration": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -73,7 +72,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/recipe": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -126,7 +124,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/stage": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -190,7 +187,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/startedBy": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

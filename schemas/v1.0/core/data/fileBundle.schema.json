@@ -24,7 +24,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/descendedFrom": {
-          "description": null,
           "items": {
             "else": {
               "properties": {

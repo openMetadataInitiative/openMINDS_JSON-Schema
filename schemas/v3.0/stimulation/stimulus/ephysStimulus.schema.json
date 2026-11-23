@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/deliveredBy": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -81,12 +80,10 @@
         },
         "https://openminds.ebrains.eu/vocab/epoch": {
           "$ref": "https://openminds.ebrains.eu/core/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "epoch",
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/generatedBy": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -147,7 +144,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/lookupLabel": {
-          "description": null,
           "name": "lookupLabel",
           "type": "string"
         },

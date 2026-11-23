@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/describedIn": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -84,7 +83,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/stimulusType": {
-          "description": null,
           "items": {
             "else": {
               "properties": {

@@ -30,7 +30,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/descendedFrom": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -94,7 +93,6 @@
           "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/fileRepository": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

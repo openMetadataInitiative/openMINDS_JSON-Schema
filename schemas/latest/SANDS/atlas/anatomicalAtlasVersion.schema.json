@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/abbreviation": {
-          "description": null,
           "name": "abbreviation",
           "type": "string"
         },
@@ -77,7 +76,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/contribution": {
-          "description": null,
           "items": {
             "$ref": "https://openminds.om-i.org/types/Contribution?format=json-schema#/definitions/embedded",
             "type": "object"
@@ -88,7 +86,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/contributorAffiliation": {
-          "description": null,
           "items": {
             "$ref": "https://openminds.om-i.org/types/Affiliation?format=json-schema#/definitions/embedded",
             "type": "object"
@@ -99,7 +96,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/coordinateFramework": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -218,7 +214,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/documentation": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -338,7 +333,6 @@
         },
         "https://openminds.om-i.org/props/hasTerminology": {
           "$ref": "https://openminds.om-i.org/types/ParcellationTerminologyVersion?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "hasTerminology",
           "type": "object"
         },
@@ -354,7 +348,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/isPrecededBy": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -407,7 +400,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/isVariantOf": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -465,7 +457,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/isVersionOf": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -687,7 +678,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/majorVersionIdentifier": {
-          "description": null,
           "name": "majorVersionIdentifier",
           "type": "string"
         },
@@ -698,7 +688,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/publicationStatus": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -952,7 +941,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/usageCondition": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -1011,7 +999,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/usedSpecimen": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -1077,7 +1064,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/versionSpecification": {
-          "description": null,
           "name": "versionSpecification",
           "type": "string"
         }

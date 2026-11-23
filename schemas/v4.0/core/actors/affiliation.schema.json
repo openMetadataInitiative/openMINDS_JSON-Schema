@@ -25,7 +25,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/memberOf": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

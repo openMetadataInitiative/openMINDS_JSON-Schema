@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/diagonalLengths": {
-          "description": null,
           "items": {
             "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
             "type": "object"

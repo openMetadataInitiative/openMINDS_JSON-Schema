@@ -24,7 +24,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/anatomicalTarget": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -89,7 +88,6 @@
           "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/spatialLocation": {
-          "description": null,
           "items": {
             "$ref": "https://openminds.ebrains.eu/sands/CoordinatePoint?format=json-schema#/definitions/embedded",
             "type": "object"
@@ -100,7 +98,6 @@
           "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/targetIdentificationType": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

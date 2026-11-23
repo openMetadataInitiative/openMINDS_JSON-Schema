@@ -19,12 +19,10 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/contentDescription": {
-          "description": null,
           "name": "contentDescription",
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/copyOf": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -77,7 +75,6 @@
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/dataType": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -199,7 +196,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/path": {
-          "description": null,
           "name": "path",
           "type": "string"
         },

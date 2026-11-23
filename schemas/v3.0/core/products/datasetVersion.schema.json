@@ -132,7 +132,6 @@
           "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/behavioralProtocol": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -256,7 +255,6 @@
           "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/dataType": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -426,7 +424,6 @@
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/experimentalApproach": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -990,7 +987,6 @@
           "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/preparationDesign": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -1234,7 +1230,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/studiedSpecimen": {
-          "description": null,
           "items": {
             "else": {
               "properties": {

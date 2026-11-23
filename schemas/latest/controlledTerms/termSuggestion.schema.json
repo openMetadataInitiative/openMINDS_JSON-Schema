@@ -87,7 +87,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/otherCrossReference": {
-          "description": null,
           "items": {
             "format": "iri",
             "type": "string"
@@ -98,7 +97,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/otherOntologyIdentifier": {
-          "description": null,
           "items": {
             "format": "iri",
             "type": "string"
@@ -109,7 +107,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/preferredCrossReference": {
-          "description": null,
           "format": "iri",
           "name": "preferredCrossReference",
           "type": "string"

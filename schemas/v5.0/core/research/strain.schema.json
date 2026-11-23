@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/alternateIdentifier": {
-          "description": null,
           "items": {
             "type": "string"
           },
@@ -29,7 +28,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/backgroundStrain": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -88,7 +86,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/breedingType": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -199,7 +196,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/diseaseModel": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -258,7 +254,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/geneticStrainType": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -311,7 +306,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/laboratoryCode": {
-          "description": null,
           "name": "laboratoryCode",
           "pattern": "^[A-Z]([a-z]?)+$",
           "type": "string"
@@ -392,7 +386,6 @@
         },
         "https://openminds.om-i.org/props/stockNumber": {
           "$ref": "https://openminds.om-i.org/types/StockNumber?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "stockNumber",
           "type": "object"
         },

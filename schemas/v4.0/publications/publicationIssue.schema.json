@@ -72,7 +72,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/issueNumber": {
-          "description": null,
           "name": "issueNumber",
           "type": "string"
         }

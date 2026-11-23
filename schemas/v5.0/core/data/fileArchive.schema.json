@@ -78,7 +78,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/sourceData": {
-          "description": null,
           "items": {
             "else": {
               "properties": {

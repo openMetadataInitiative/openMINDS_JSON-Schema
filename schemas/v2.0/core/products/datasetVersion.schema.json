@@ -308,7 +308,6 @@
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/experimentalApproach": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -970,7 +969,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/studiedSpecimen": {
-          "description": null,
           "items": {
             "else": {
               "properties": {

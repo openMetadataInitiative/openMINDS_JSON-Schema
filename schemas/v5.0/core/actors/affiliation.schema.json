@@ -77,7 +77,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/person": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

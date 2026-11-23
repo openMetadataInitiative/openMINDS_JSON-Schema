@@ -19,12 +19,10 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/context": {
-          "description": null,
           "name": "context",
           "type": "string"
         },
         "https://openminds.om-i.org/props/dataLocation": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/contribution": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -440,7 +439,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/usageCondition": {
-          "description": null,
           "items": {
             "else": {
               "properties": {

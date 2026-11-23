@@ -20,7 +20,6 @@
         },
         "https://openminds.om-i.org/props/apexBaseDistance": {
           "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "apexBaseDistance",
           "type": "object"
         },
@@ -71,7 +70,6 @@
               "type": "object"
             }
           ],
-          "description": null,
           "name": "baseShape"
         }
       },

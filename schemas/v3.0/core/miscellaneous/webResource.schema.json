@@ -25,7 +25,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/contentDescription": {
-          "description": null,
           "name": "contentDescription",
           "type": "string"
         },

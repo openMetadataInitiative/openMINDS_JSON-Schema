@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/hasAnnotation": {
-          "description": null,
           "items": {
             "$ref": "https://openminds.om-i.org/types/CustomAnnotation?format=json-schema#/definitions/embedded",
             "type": "object"
@@ -35,7 +34,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/relatedUBERONTerm": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -89,7 +87,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/relationAssessment": {
-          "description": null,
           "items": {
             "anyOf": [
               {

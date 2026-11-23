@@ -20,12 +20,10 @@
         },
         "https://openminds.om-i.org/props/baseDistance": {
           "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "baseDistance",
           "type": "object"
         },
         "https://openminds.om-i.org/props/baseLengths": {
-          "description": null,
           "items": {
             "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
             "type": "object"

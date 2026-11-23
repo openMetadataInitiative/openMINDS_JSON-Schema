@@ -25,7 +25,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/memberOf": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

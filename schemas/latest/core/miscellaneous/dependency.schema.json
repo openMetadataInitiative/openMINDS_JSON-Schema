@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/failureImpact": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -77,7 +76,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/fulfilledBy": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

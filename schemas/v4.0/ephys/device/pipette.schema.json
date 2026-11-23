@@ -24,7 +24,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/deviceType": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -132,13 +131,11 @@
         },
         "https://openminds.om-i.org/props/externalDiameter": {
           "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "externalDiameter",
           "type": "object"
         },
         "https://openminds.om-i.org/props/internalDiameter": {
           "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "internalDiameter",
           "type": "object"
         },
@@ -148,12 +145,10 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/lookupLabel": {
-          "description": null,
           "name": "lookupLabel",
           "type": "string"
         },
         "https://openminds.om-i.org/props/manufacturer": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -213,7 +208,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/material": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -273,7 +267,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/owner": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -333,7 +326,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/serialNumber": {
-          "description": null,
           "name": "serialNumber",
           "type": "string"
         }

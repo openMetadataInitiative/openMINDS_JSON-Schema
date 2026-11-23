@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/contribution": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -83,13 +82,11 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/elementCount": {
-          "description": null,
           "minimum": 1,
           "name": "elementCount",
           "type": "integer"
         },
         "https://openminds.om-i.org/props/intendedMountingLocation": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -147,7 +144,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/mountingType": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -205,7 +201,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/serialNumber": {
-          "description": null,
           "name": "serialNumber",
           "type": "string"
         },

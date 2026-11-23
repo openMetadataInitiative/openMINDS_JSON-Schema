@@ -20,7 +20,6 @@
         },
         "https://openminds.om-i.org/props/baseDistance": {
           "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "baseDistance",
           "type": "object"
         },
@@ -83,11 +82,9 @@
               "type": "object"
             }
           ],
-          "description": null,
           "name": "majorBaseShape"
         },
         "https://openminds.om-i.org/props/minorBaseScale": {
-          "description": null,
           "name": "minorBaseScale",
           "type": "number"
         }

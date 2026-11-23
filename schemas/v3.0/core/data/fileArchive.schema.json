@@ -78,7 +78,6 @@
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/sourceData": {
-          "description": null,
           "items": {
             "else": {
               "properties": {

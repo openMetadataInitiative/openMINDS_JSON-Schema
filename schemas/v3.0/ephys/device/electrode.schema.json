@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/conductorMaterial": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -79,7 +78,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/deviceType": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -186,7 +184,6 @@
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/insulatorMaterial": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -256,16 +253,13 @@
               "type": "object"
             }
           ],
-          "description": null,
           "name": "intrinsicResistance"
         },
         "https://openminds.ebrains.eu/vocab/lookupLabel": {
-          "description": null,
           "name": "lookupLabel",
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/manufacturer": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -330,7 +324,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/owner": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -390,7 +383,6 @@
           "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/serialNumber": {
-          "description": null,
           "name": "serialNumber",
           "type": "string"
         }

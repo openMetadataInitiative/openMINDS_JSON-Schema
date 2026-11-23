@@ -132,7 +132,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/behavioralProtocol": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -256,7 +255,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/dataType": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -426,7 +424,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/experimentalApproach": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -992,7 +989,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/preparationDesign": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -1236,7 +1232,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/studiedSpecimen": {
-          "description": null,
           "items": {
             "else": {
               "properties": {

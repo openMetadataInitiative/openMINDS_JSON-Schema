@@ -20,13 +20,11 @@
         },
         "https://openminds.om-i.org/props/majorSideLength": {
           "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "majorSideLength",
           "type": "object"
         },
         "https://openminds.om-i.org/props/minorSideLength": {
           "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "minorSideLength",
           "type": "object"
         }

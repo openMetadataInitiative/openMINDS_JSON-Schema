@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/argument": {
-          "description": null,
           "items": {
             "type": "string"
           },
@@ -33,7 +32,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/environmentVariable": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -86,7 +84,6 @@
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/executable": {
-          "description": null,
           "name": "executable",
           "type": "string"
         },

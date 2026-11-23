@@ -24,7 +24,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/coordinateFramework": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -78,7 +77,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/dataLocation": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -132,7 +130,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/dimension": {
-          "description": null,
           "items": {
             "type": "integer"
           },
@@ -147,12 +144,10 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/numberOfPlanes": {
-          "description": null,
           "name": "numberOfPlanes",
           "type": "integer"
         },
         "https://openminds.om-i.org/props/obtainedWith": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

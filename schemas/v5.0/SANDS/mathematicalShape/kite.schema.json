@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/legLengths": {
-          "description": null,
           "items": {
             "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
             "type": "object"
@@ -31,7 +30,6 @@
         },
         "https://openminds.om-i.org/props/symmetryDiagonalLength": {
           "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "symmetryDiagonalLength",
           "type": "object"
         }

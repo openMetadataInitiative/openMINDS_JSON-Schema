@@ -20,13 +20,11 @@
         },
         "https://openminds.om-i.org/props/apexAngle": {
           "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "apexAngle",
           "type": "object"
         },
         "https://openminds.om-i.org/props/legLength": {
           "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "legLength",
           "type": "object"
         }

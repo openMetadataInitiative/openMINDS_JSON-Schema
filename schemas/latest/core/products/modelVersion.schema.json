@@ -72,7 +72,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/configuration": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -128,7 +127,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/contribution": {
-          "description": null,
           "items": {
             "$ref": "https://openminds.om-i.org/types/Contribution?format=json-schema#/definitions/embedded",
             "type": "object"
@@ -139,7 +137,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/contributorAffiliation": {
-          "description": null,
           "items": {
             "$ref": "https://openminds.om-i.org/types/Affiliation?format=json-schema#/definitions/embedded",
             "type": "object"
@@ -217,7 +214,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/documentation": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -273,7 +269,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/entryPoint": {
-          "description": null,
           "name": "entryPoint",
           "type": "string"
         },
@@ -471,7 +466,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/isPrecededBy": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -524,7 +518,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/isVariantOf": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -582,7 +575,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/isVersionOf": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -865,7 +857,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/publicationStatus": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -1066,7 +1057,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/usageCondition": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -1130,7 +1120,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/versionSpecification": {
-          "description": null,
           "name": "versionSpecification",
           "type": "string"
         }

@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/anatomicalLocation": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -79,7 +78,6 @@
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/chlorideReversalPotential": {
-          "description": null,
           "items": {
             "$ref": "https://openminds.ebrains.eu/core/Measurement?format=json-schema#/definitions/embedded",
             "type": "object"
@@ -90,7 +88,6 @@
         },
         "https://openminds.ebrains.eu/vocab/compensationCurrent": {
           "$ref": "https://openminds.ebrains.eu/core/Measurement?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "compensationCurrent",
           "type": "object"
         },
@@ -149,24 +146,20 @@
         },
         "https://openminds.ebrains.eu/vocab/endMembranePotential": {
           "$ref": "https://openminds.ebrains.eu/core/Measurement?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "endMembranePotential",
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/holdingPotential": {
           "$ref": "https://openminds.ebrains.eu/core/Measurement?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "holdingPotential",
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/inputResistance": {
           "$ref": "https://openminds.ebrains.eu/core/Measurement?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "inputResistance",
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/labelingCompound": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -222,17 +215,14 @@
         },
         "https://openminds.ebrains.eu/vocab/liquidJunctionPotential": {
           "$ref": "https://openminds.ebrains.eu/core/Measurement?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "liquidJunctionPotential",
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/lookupLabel": {
-          "description": null,
           "name": "lookupLabel",
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/metadataLocation": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -301,11 +291,9 @@
               "type": "object"
             }
           ],
-          "description": null,
           "name": "pipetteResistance"
         },
         "https://openminds.ebrains.eu/vocab/pipetteSolution": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -359,30 +347,25 @@
         },
         "https://openminds.ebrains.eu/vocab/sealResistance": {
           "$ref": "https://openminds.ebrains.eu/core/Measurement?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "sealResistance",
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/seriesResistance": {
           "$ref": "https://openminds.ebrains.eu/core/Measurement?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "seriesResistance",
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/spatialLocation": {
           "$ref": "https://openminds.ebrains.eu/sands/CoordinatePoint?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "spatialLocation",
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/startMembranePotential": {
           "$ref": "https://openminds.ebrains.eu/core/Measurement?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "startMembranePotential",
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/usedSpecimen": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

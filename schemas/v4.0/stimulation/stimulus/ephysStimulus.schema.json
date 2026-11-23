@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/deliveredBy": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -81,12 +80,10 @@
         },
         "https://openminds.om-i.org/props/epoch": {
           "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "epoch",
           "type": "object"
         },
         "https://openminds.om-i.org/props/generatedBy": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -147,7 +144,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/lookupLabel": {
-          "description": null,
           "name": "lookupLabel",
           "type": "string"
         },

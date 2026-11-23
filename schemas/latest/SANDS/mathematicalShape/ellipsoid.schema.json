@@ -20,19 +20,16 @@
         },
         "https://openminds.om-i.org/props/intermediateDiameter": {
           "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "intermediateDiameter",
           "type": "object"
         },
         "https://openminds.om-i.org/props/majorDiameter": {
           "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "majorDiameter",
           "type": "object"
         },
         "https://openminds.om-i.org/props/minorDiameter": {
           "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "minorDiameter",
           "type": "object"
         }

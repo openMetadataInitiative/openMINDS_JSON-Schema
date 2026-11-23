@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/dataLocation": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -77,7 +76,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/hasEntity": {
-          "description": null,
           "items": {
             "else": {
               "properties": {

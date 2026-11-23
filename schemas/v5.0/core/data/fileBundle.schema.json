@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/contentDescription": {
-          "description": null,
           "name": "contentDescription",
           "type": "string"
         },
@@ -191,7 +190,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/groupingType": {
-          "description": null,
           "items": {
             "else": {
               "properties": {

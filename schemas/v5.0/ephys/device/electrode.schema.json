@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/conductorMaterial": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -74,7 +73,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/contribution": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -138,7 +136,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/insulatorMaterial": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -208,7 +205,6 @@
               "type": "object"
             }
           ],
-          "description": null,
           "name": "intrinsicResistance"
         },
         "https://openminds.om-i.org/props/name": {
@@ -217,7 +213,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/serialNumber": {
-          "description": null,
           "name": "serialNumber",
           "type": "string"
         },

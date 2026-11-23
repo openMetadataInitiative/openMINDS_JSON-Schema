@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/negativeUncertainties": {
-          "description": null,
           "items": {
             "type": "number"
           },
@@ -28,7 +27,6 @@
           "type": "array"
         },
         "https://openminds.ebrains.eu/vocab/positiveUncertainties": {
-          "description": null,
           "items": {
             "type": "number"
           },
@@ -143,7 +141,6 @@
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/values": {
-          "description": null,
           "items": {
             "type": "number"
           },

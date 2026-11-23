@@ -87,12 +87,10 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/lookupLabel": {
-          "description": null,
           "name": "lookupLabel",
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/numberOfSubjects": {
-          "description": null,
           "minimum": 2,
           "name": "numberOfSubjects",
           "type": "integer"

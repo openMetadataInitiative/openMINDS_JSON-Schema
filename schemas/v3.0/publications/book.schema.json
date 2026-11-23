@@ -25,7 +25,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/abstract": {
-          "description": null,
           "name": "abstract",
           "type": "string"
         },
@@ -90,7 +89,6 @@
           "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/citedPublication": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -155,7 +153,6 @@
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/creationDate": {
-          "description": null,
           "format": "date",
           "name": "creationDate",
           "type": "string"
@@ -275,7 +272,6 @@
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/editor": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -579,7 +575,6 @@
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/modificationDate": {
-          "description": null,
           "format": "date",
           "name": "modificationDate",
           "type": "string"
@@ -590,13 +585,11 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/publicationDate": {
-          "description": null,
           "format": "date",
           "name": "publicationDate",
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/publisher": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

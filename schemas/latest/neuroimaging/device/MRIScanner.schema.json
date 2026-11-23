@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/contribution": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -89,7 +88,6 @@
         },
         "https://openminds.om-i.org/props/magneticFieldStrength": {
           "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "magneticFieldStrength",
           "type": "object"
         },
@@ -99,7 +97,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/serialNumber": {
-          "description": null,
           "name": "serialNumber",
           "type": "string"
         },

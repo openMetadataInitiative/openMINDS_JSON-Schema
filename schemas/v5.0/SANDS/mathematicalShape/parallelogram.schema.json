@@ -20,19 +20,16 @@
         },
         "https://openminds.om-i.org/props/baseDistance": {
           "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "baseDistance",
           "type": "object"
         },
         "https://openminds.om-i.org/props/baseLength": {
           "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "baseLength",
           "type": "object"
         },
         "https://openminds.om-i.org/props/interiorAngle": {
           "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "interiorAngle",
           "type": "object"
         }

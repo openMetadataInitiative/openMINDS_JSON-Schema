@@ -20,13 +20,11 @@
         },
         "https://openminds.om-i.org/props/equatorialDiameter": {
           "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "equatorialDiameter",
           "type": "object"
         },
         "https://openminds.om-i.org/props/polarDiameter": {
           "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "polarDiameter",
           "type": "object"
         }

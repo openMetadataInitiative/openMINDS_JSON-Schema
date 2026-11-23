@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/customUsageClause": {
-          "description": null,
           "name": "customUsageClause",
           "type": "string"
         },

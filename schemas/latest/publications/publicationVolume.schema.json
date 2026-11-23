@@ -72,7 +72,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/volumeNumber": {
-          "description": null,
           "name": "volumeNumber",
           "type": "string"
         }

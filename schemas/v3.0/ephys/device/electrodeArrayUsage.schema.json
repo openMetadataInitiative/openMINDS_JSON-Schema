@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/anatomicalLocationOfArray": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -84,7 +83,6 @@
           "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/anatomicalLocationOfElectrodes": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -149,7 +147,6 @@
           "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/contactResistances": {
-          "description": null,
           "items": {
             "anyOf": [
               {
@@ -221,12 +218,10 @@
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/lookupLabel": {
-          "description": null,
           "name": "lookupLabel",
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/metadataLocation": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -285,7 +280,6 @@
           "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/spatialLocationOfElectrodes": {
-          "description": null,
           "items": {
             "$ref": "https://openminds.ebrains.eu/sands/CoordinatePoint?format=json-schema#/definitions/embedded",
             "type": "object"
@@ -296,7 +290,6 @@
           "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/usedElectrode": {
-          "description": null,
           "items": {
             "type": "string"
           },
@@ -306,7 +299,6 @@
           "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/usedSpecimen": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

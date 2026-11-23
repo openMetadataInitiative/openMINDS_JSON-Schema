@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/abbreviation": {
-          "description": null,
           "name": "abbreviation",
           "type": "string"
         },
@@ -29,7 +28,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/alternateName": {
-          "description": null,
           "items": {
             "type": "string"
           },
@@ -39,12 +37,10 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/correctedName": {
-          "description": null,
           "name": "correctedName",
           "type": "string"
         },
         "https://openminds.om-i.org/props/hasAnnotation": {
-          "description": null,
           "items": {
             "$ref": "https://openminds.om-i.org/types/AtlasAnnotation?format=json-schema#/definitions/embedded",
             "type": "object"
@@ -114,7 +110,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/isVersionOf": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -167,7 +162,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/lookupLabel": {
-          "description": null,
           "name": "lookupLabel",
           "type": "string"
         },
@@ -188,7 +182,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/relationAssessment": {
-          "description": null,
           "items": {
             "anyOf": [
               {
@@ -212,7 +205,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/versionSpecification": {
-          "description": null,
           "name": "versionSpecification",
           "type": "string"
         }

@@ -19,12 +19,10 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/abbreviation": {
-          "description": null,
           "name": "abbreviation",
           "type": "string"
         },
         "https://openminds.om-i.org/props/alternateName": {
-          "description": null,
           "items": {
             "type": "string"
           },
@@ -97,7 +95,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/lookupLabel": {
-          "description": null,
           "name": "lookupLabel",
           "type": "string"
         },
@@ -118,7 +115,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/relatedInterspeciesAnatomy": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

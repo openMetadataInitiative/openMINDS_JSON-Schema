@@ -25,12 +25,10 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/abstract": {
-          "description": null,
           "name": "abstract",
           "type": "string"
         },
         "https://openminds.om-i.org/props/citedPublication": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -89,7 +87,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/contribution": {
-          "description": null,
           "items": {
             "$ref": "https://openminds.om-i.org/types/Contribution?format=json-schema#/definitions/embedded",
             "type": "object"
@@ -100,7 +97,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/contributorAffiliation": {
-          "description": null,
           "items": {
             "$ref": "https://openminds.om-i.org/types/Affiliation?format=json-schema#/definitions/embedded",
             "type": "object"
@@ -117,7 +113,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/creationDate": {
-          "description": null,
           "format": "date",
           "name": "creationDate",
           "type": "string"
@@ -457,7 +452,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/modificationDate": {
-          "description": null,
           "format": "date",
           "name": "modificationDate",
           "type": "string"
@@ -468,18 +462,15 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/pagination": {
-          "description": null,
           "name": "pagination",
           "type": "string"
         },
         "https://openminds.om-i.org/props/publicationDate": {
-          "description": null,
           "format": "date",
           "name": "publicationDate",
           "type": "string"
         },
         "https://openminds.om-i.org/props/usageCondition": {
-          "description": null,
           "items": {
             "else": {
               "properties": {

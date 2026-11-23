@@ -24,7 +24,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/anatomicalTarget": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -97,7 +96,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/spatialLocation": {
-          "description": null,
           "items": {
             "$ref": "https://openminds.om-i.org/types/CoordinatePoint?format=json-schema#/definitions/embedded",
             "type": "object"
@@ -108,7 +106,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/targetIdentificationType": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

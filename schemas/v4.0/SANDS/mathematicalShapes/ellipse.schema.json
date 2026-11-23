@@ -20,13 +20,11 @@
         },
         "https://openminds.om-i.org/props/semiMajorAxis": {
           "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "semiMajorAxis",
           "type": "object"
         },
         "https://openminds.om-i.org/props/semiMinorAxis": {
           "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "semiMinorAxis",
           "type": "object"
         }

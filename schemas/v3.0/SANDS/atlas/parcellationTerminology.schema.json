@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/dataLocation": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -77,7 +76,6 @@
           "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/hasEntity": {
-          "description": null,
           "items": {
             "else": {
               "properties": {

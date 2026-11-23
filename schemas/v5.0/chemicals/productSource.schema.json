@@ -77,12 +77,10 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/productName": {
-          "description": null,
           "name": "productName",
           "type": "string"
         },
         "https://openminds.om-i.org/props/provider": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -146,7 +144,6 @@
               "type": "object"
             }
           ],
-          "description": null,
           "name": "purity"
         }
       },

@@ -24,7 +24,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/anchorPoint": {
-          "description": null,
           "items": {
             "$ref": "https://openminds.ebrains.eu/core/QuantitativeValue?format=json-schema#/definitions/embedded",
             "type": "object"
@@ -36,12 +35,10 @@
         },
         "https://openminds.ebrains.eu/vocab/cameraPosition": {
           "$ref": "https://openminds.ebrains.eu/sands/CoordinatePoint?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "cameraPosition",
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/preferredDisplayColor": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

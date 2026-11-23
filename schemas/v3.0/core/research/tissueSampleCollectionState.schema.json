@@ -38,7 +38,6 @@
           "name": "age"
         },
         "https://openminds.ebrains.eu/vocab/attribute": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -96,7 +95,6 @@
           "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/descendedFrom": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -162,7 +160,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/lookupLabel": {
-          "description": null,
           "name": "lookupLabel",
           "type": "string"
         },
@@ -236,7 +233,6 @@
               "type": "object"
             }
           ],
-          "description": null,
           "name": "relativeTimeIndication"
         },
         "https://openminds.ebrains.eu/vocab/weight": {

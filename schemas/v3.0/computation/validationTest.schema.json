@@ -271,7 +271,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/referenceDataAcquisition": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -382,7 +381,6 @@
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/scoreType": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

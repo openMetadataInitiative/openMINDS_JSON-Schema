@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/about": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -745,7 +744,6 @@
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/modificationDate": {
-          "description": null,
           "format": "date-time",
           "name": "modificationDate",
           "type": "string"

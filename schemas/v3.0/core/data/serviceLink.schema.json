@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/dataLocation": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -77,18 +76,15 @@
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/displayLabel": {
-          "description": null,
           "name": "displayLabel",
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/openDataIn": {
-          "description": null,
           "format": "iri",
           "name": "openDataIn",
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/previewImage": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -141,7 +137,6 @@
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/service": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

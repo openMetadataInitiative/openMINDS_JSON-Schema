@@ -72,7 +72,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/entryPoint": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -125,7 +124,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/interface": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

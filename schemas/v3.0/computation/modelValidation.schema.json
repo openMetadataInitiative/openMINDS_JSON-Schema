@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/customPropertySet": {
-          "description": null,
           "items": {
             "$ref": "https://openminds.ebrains.eu/core/CustomPropertySet?format=json-schema#/definitions/embedded",
             "type": "object"
@@ -45,11 +44,9 @@
               "type": "string"
             }
           ],
-          "description": null,
           "name": "endTime"
         },
         "https://openminds.ebrains.eu/vocab/environment": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -166,7 +163,6 @@
           "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/launchConfiguration": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -219,7 +215,6 @@
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/lookupLabel": {
-          "description": null,
           "name": "lookupLabel",
           "type": "string"
         },
@@ -284,7 +279,6 @@
           "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/performedBy": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -343,7 +337,6 @@
           "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/recipe": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -396,7 +389,6 @@
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/resourceUsage": {
-          "description": null,
           "items": {
             "anyOf": [
               {
@@ -415,7 +407,6 @@
           "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/score": {
-          "description": null,
           "name": "score",
           "type": "number"
         },
@@ -430,11 +421,9 @@
               "type": "string"
             }
           ],
-          "description": null,
           "name": "startTime"
         },
         "https://openminds.ebrains.eu/vocab/startedBy": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -488,7 +477,6 @@
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/status": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -625,7 +613,6 @@
           "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/tag": {
-          "description": null,
           "items": {
             "type": "string"
           },
@@ -693,7 +680,6 @@
           "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/wasInformedBy": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

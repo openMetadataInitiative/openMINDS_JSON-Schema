@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/abbreviation": {
-          "description": null,
           "name": "abbreviation",
           "type": "string"
         },
@@ -29,7 +28,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/alternateName": {
-          "description": null,
           "items": {
             "type": "string"
           },
@@ -39,12 +37,10 @@
           "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/correctedName": {
-          "description": null,
           "name": "correctedName",
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/hasAnnotation": {
-          "description": null,
           "items": {
             "$ref": "https://openminds.ebrains.eu/sands/AtlasAnnotation?format=json-schema#/definitions/embedded",
             "type": "object"
@@ -114,7 +110,6 @@
           "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/lookupLabel": {
-          "description": null,
           "name": "lookupLabel",
           "type": "string"
         },
@@ -135,7 +130,6 @@
           "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/relationAssessment": {
-          "description": null,
           "items": {
             "anyOf": [
               {

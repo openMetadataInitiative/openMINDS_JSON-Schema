@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/conductorMaterial": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -79,7 +78,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/deviceType": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -186,7 +184,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/electrodeIdentifier": {
-          "description": null,
           "items": {
             "type": "string"
           },
@@ -196,7 +193,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/insulatorMaterial": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -266,16 +262,13 @@
               "type": "object"
             }
           ],
-          "description": null,
           "name": "intrinsicResistance"
         },
         "https://openminds.om-i.org/props/lookupLabel": {
-          "description": null,
           "name": "lookupLabel",
           "type": "string"
         },
         "https://openminds.om-i.org/props/manufacturer": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -340,13 +333,11 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/numberOfElectrodes": {
-          "description": null,
           "minimum": 2,
           "name": "numberOfElectrodes",
           "type": "integer"
         },
         "https://openminds.om-i.org/props/owner": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -406,7 +397,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/serialNumber": {
-          "description": null,
           "name": "serialNumber",
           "type": "string"
         }

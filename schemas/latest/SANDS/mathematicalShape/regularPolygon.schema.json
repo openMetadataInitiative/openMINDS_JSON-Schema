@@ -20,12 +20,10 @@
         },
         "https://openminds.om-i.org/props/circumradius": {
           "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "circumradius",
           "type": "object"
         },
         "https://openminds.om-i.org/props/numberOfSides": {
-          "description": null,
           "minimum": 3,
           "name": "numberOfSides",
           "type": "integer"

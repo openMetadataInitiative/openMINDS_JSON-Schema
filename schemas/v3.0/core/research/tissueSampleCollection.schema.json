@@ -24,7 +24,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/anatomicalLocation": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -211,12 +210,10 @@
           "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/lookupLabel": {
-          "description": null,
           "name": "lookupLabel",
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/numberOfTissueSamples": {
-          "description": null,
           "minimum": 2,
           "name": "numberOfTissueSamples",
           "type": "integer"

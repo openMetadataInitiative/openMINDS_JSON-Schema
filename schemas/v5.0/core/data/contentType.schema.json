@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/dataType": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -77,7 +76,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/definingSource": {
-          "description": null,
           "items": {
             "format": "iri",
             "type": "string"
@@ -93,7 +91,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/displayLabel": {
-          "description": null,
           "name": "displayLabel",
           "type": "string"
         },
@@ -108,7 +105,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/isBasedOn": {
-          "description": null,
           "items": {
             "else": {
               "properties": {

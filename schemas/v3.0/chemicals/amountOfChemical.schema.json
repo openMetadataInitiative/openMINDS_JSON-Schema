@@ -20,12 +20,10 @@
         },
         "https://openminds.ebrains.eu/vocab/amount": {
           "$ref": "https://openminds.ebrains.eu/core/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "amount",
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/chemicalProduct": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

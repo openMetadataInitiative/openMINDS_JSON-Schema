@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/activeElement": {
-          "description": null,
           "items": {
             "type": "string"
           },
@@ -82,12 +81,10 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/lookupLabel": {
-          "description": null,
           "name": "lookupLabel",
           "type": "string"
         },
         "https://openminds.om-i.org/props/metadataLocation": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -146,7 +143,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/mountingLocation": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -199,7 +195,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/signalDirectionality": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -252,7 +247,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/usedSpecimen": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

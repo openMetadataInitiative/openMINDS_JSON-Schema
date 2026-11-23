@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/hasAnnotation": {
-          "description": null,
           "items": {
             "$ref": "https://openminds.ebrains.eu/sands/CustomAnnotation?format=json-schema#/definitions/embedded",
             "type": "object"
@@ -35,7 +34,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/relatedUBERONTerm": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -89,7 +87,6 @@
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/relationAssessment": {
-          "description": null,
           "items": {
             "anyOf": [
               {

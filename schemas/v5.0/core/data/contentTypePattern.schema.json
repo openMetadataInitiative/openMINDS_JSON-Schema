@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/contentType": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -72,12 +71,10 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/lookupLabel": {
-          "description": null,
           "name": "lookupLabel",
           "type": "string"
         },
         "https://openminds.om-i.org/props/regex": {
-          "description": null,
           "format": "ECMA262",
           "name": "regex",
           "type": "string"

@@ -145,12 +145,10 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/lookupLabel": {
-          "description": null,
           "name": "lookupLabel",
           "type": "string"
         },
         "https://openminds.om-i.org/props/numberOfSubjects": {
-          "description": null,
           "minimum": 2,
           "name": "numberOfSubjects",
           "type": "integer"

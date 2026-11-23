@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/abbreviation": {
-          "description": null,
           "name": "abbreviation",
           "type": "string"
         },

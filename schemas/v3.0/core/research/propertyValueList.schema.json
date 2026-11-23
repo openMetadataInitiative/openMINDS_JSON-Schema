@@ -19,12 +19,10 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/lookupLabel": {
-          "description": null,
           "name": "lookupLabel",
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/propertyValuePair": {
-          "description": null,
           "items": {
             "anyOf": [
               {

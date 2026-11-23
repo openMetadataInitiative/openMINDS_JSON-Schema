@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/configuration": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -77,7 +76,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/hardware": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -135,7 +133,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/software": {
-          "description": null,
           "items": {
             "else": {
               "properties": {

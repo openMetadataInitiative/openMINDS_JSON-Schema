@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/authoringParty": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -83,7 +82,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/jurisdiction": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -137,7 +135,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/modificationProfile": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -203,7 +200,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/source": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -281,7 +277,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/template": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

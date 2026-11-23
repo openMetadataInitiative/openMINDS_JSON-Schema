@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/contentDescription": {
-          "description": null,
           "name": "contentDescription",
           "type": "string"
         },
@@ -180,7 +179,6 @@
           "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/groupingType": {
-          "description": null,
           "items": {
             "else": {
               "properties": {

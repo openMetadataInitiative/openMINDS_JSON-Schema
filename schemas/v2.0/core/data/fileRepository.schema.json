@@ -142,7 +142,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/repositoryType": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

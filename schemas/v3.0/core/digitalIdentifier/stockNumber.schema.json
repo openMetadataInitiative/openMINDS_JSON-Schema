@@ -24,7 +24,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/vendor": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

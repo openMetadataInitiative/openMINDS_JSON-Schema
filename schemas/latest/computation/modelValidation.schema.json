@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/customPropertySet": {
-          "description": null,
           "items": {
             "$ref": "https://openminds.om-i.org/types/CustomPropertySet?format=json-schema#/definitions/embedded",
             "type": "object"
@@ -45,11 +44,9 @@
               "type": "string"
             }
           ],
-          "description": null,
           "name": "endTime"
         },
         "https://openminds.om-i.org/props/environment": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -166,7 +163,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/launchConfiguration": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -219,7 +215,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/lookupLabel": {
-          "description": null,
           "name": "lookupLabel",
           "type": "string"
         },
@@ -284,7 +279,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/performedBy": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -343,7 +337,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/recipe": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -396,7 +389,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/resourceUsage": {
-          "description": null,
           "items": {
             "anyOf": [
               {
@@ -415,7 +407,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/score": {
-          "description": null,
           "name": "score",
           "type": "number"
         },
@@ -430,11 +421,9 @@
               "type": "string"
             }
           ],
-          "description": null,
           "name": "startTime"
         },
         "https://openminds.om-i.org/props/startedBy": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -488,7 +477,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/status": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -634,7 +622,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/tag": {
-          "description": null,
           "items": {
             "type": "string"
           },
@@ -702,7 +689,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/wasInformedBy": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

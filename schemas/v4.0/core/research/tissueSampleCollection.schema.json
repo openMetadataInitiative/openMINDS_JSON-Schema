@@ -24,7 +24,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/anatomicalLocation": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -211,12 +210,10 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/lookupLabel": {
-          "description": null,
           "name": "lookupLabel",
           "type": "string"
         },
         "https://openminds.om-i.org/props/numberOfTissueSamples": {
-          "description": null,
           "minimum": 2,
           "name": "numberOfTissueSamples",
           "type": "integer"

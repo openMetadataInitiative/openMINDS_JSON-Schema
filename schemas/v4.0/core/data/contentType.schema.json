@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/dataType": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -82,7 +81,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/displayLabel": {
-          "description": null,
           "name": "displayLabel",
           "type": "string"
         },

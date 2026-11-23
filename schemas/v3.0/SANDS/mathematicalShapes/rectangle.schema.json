@@ -20,13 +20,11 @@
         },
         "https://openminds.ebrains.eu/vocab/length": {
           "$ref": "https://openminds.ebrains.eu/core/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "length",
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/width": {
           "$ref": "https://openminds.ebrains.eu/core/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "width",
           "type": "object"
         }

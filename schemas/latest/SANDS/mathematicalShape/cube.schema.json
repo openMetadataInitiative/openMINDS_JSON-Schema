@@ -20,7 +20,6 @@
         },
         "https://openminds.om-i.org/props/sideLength": {
           "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "sideLength",
           "type": "object"
         }

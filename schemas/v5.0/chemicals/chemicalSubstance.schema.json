@@ -24,12 +24,10 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/lookupLabel": {
-          "description": null,
           "name": "lookupLabel",
           "type": "string"
         },
         "https://openminds.om-i.org/props/molecularEntity": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -82,7 +80,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/productSource": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -145,7 +142,6 @@
               "type": "object"
             }
           ],
-          "description": null,
           "name": "purity"
         }
       },

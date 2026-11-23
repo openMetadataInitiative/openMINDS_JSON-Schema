@@ -20,12 +20,10 @@
         },
         "https://openminds.om-i.org/props/amount": {
           "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "amount",
           "type": "object"
         },
         "https://openminds.om-i.org/props/chemicalProduct": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

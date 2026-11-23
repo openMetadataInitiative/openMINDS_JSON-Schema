@@ -551,7 +551,6 @@
           "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/hasPart": {
-          "description": null,
           "items": {
             "else": {
               "properties": {

@@ -83,7 +83,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/associatedProtocol": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -142,7 +141,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/attribute": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -200,7 +198,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/descendedFrom": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -311,7 +308,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/lookupLabel": {
-          "description": null,
           "name": "lookupLabel",
           "type": "string"
         },
@@ -385,7 +381,6 @@
               "type": "object"
             }
           ],
-          "description": null,
           "name": "relativeTimeIndication"
         },
         "https://openminds.om-i.org/props/weight": {

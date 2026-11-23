@@ -24,7 +24,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/coordinateFramework": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -78,7 +77,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/dataLocation": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -132,7 +130,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/dimension": {
-          "description": null,
           "items": {
             "type": "integer"
           },
@@ -147,18 +144,15 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/numberOfPlanes": {
-          "description": null,
           "name": "numberOfPlanes",
           "type": "integer"
         },
         "https://openminds.om-i.org/props/numberOfVolumes": {
-          "description": null,
           "minimum": 2,
           "name": "numberOfVolumes",
           "type": "integer"
         },
         "https://openminds.om-i.org/props/obtainedWith": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -217,7 +211,6 @@
         },
         "https://openminds.om-i.org/props/temporalSamplingFrequency": {
           "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "temporalSamplingFrequency",
           "type": "object"
         },

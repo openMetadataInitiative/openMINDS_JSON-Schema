@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/dataLocation": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -77,18 +76,15 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/displayLabel": {
-          "description": null,
           "name": "displayLabel",
           "type": "string"
         },
         "https://openminds.om-i.org/props/openDataIn": {
-          "description": null,
           "format": "iri",
           "name": "openDataIn",
           "type": "string"
         },
         "https://openminds.om-i.org/props/previewImage": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -141,7 +137,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/service": {
-          "description": null,
           "items": {
             "else": {
               "properties": {

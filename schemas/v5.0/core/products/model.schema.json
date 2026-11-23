@@ -72,7 +72,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/contribution": {
-          "description": null,
           "items": {
             "$ref": "https://openminds.om-i.org/types/Contribution?format=json-schema#/definitions/embedded",
             "type": "object"
@@ -83,7 +82,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/contributorAffiliation": {
-          "description": null,
           "items": {
             "$ref": "https://openminds.om-i.org/types/Affiliation?format=json-schema#/definitions/embedded",
             "type": "object"
@@ -155,7 +153,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/documentation": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

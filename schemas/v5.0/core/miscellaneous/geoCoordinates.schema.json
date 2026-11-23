@@ -19,17 +19,14 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/elevation": {
-          "description": null,
           "name": "elevation",
           "type": "number"
         },
         "https://openminds.om-i.org/props/latitude": {
-          "description": null,
           "name": "latitude",
           "type": "number"
         },
         "https://openminds.om-i.org/props/longitude": {
-          "description": null,
           "name": "longitude",
           "type": "number"
         }

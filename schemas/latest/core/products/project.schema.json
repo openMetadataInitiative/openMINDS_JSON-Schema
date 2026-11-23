@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/contribution": {
-          "description": null,
           "items": {
             "$ref": "https://openminds.om-i.org/types/Contribution?format=json-schema#/definitions/embedded",
             "type": "object"
@@ -40,7 +39,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/hasPart": {
-          "description": null,
           "items": {
             "else": {
               "properties": {

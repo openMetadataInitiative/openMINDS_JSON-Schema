@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/describedIn": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -94,7 +93,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/stimulation": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -153,7 +151,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/stimulusType": {
-          "description": null,
           "items": {
             "else": {
               "properties": {

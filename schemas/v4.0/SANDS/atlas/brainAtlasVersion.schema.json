@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/abbreviation": {
-          "description": null,
           "name": "abbreviation",
           "type": "string"
         },
@@ -436,7 +435,6 @@
         },
         "https://openminds.om-i.org/props/hasTerminology": {
           "$ref": "https://openminds.om-i.org/types/ParcellationTerminologyVersion?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "hasTerminology",
           "type": "object"
         },
@@ -753,7 +751,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/majorVersionIdentifier": {
-          "description": null,
           "name": "majorVersionIdentifier",
           "type": "string"
         },
@@ -975,7 +972,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/usedSpecimen": {
-          "description": null,
           "items": {
             "else": {
               "properties": {

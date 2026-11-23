@@ -20,7 +20,6 @@
         },
         "https://openminds.ebrains.eu/vocab/radius": {
           "$ref": "https://openminds.ebrains.eu/core/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "radius",
           "type": "object"
         }

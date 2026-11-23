@@ -24,7 +24,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/hasPart": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -89,12 +88,10 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/location": {
-          "description": null,
           "name": "location",
           "type": "string"
         },
         "https://openminds.om-i.org/props/manufacturer": {
-          "description": null,
           "items": {
             "else": {
               "properties": {

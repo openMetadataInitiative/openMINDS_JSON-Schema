@@ -29,7 +29,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/studyOption": {
-          "description": null,
           "items": {},
           "minItems": 1,
           "name": "studyOption",

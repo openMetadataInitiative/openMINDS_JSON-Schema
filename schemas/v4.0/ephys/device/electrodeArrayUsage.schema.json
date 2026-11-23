@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/anatomicalLocationOfArray": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -84,7 +83,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/anatomicalLocationOfElectrodes": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -149,7 +147,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/contactResistances": {
-          "description": null,
           "items": {
             "anyOf": [
               {
@@ -221,12 +218,10 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/lookupLabel": {
-          "description": null,
           "name": "lookupLabel",
           "type": "string"
         },
         "https://openminds.om-i.org/props/metadataLocation": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -285,7 +280,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/spatialLocationOfElectrodes": {
-          "description": null,
           "items": {
             "$ref": "https://openminds.om-i.org/types/CoordinatePoint?format=json-schema#/definitions/embedded",
             "type": "object"
@@ -296,7 +290,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/usedElectrode": {
-          "description": null,
           "items": {
             "type": "string"
           },
@@ -306,7 +299,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/usedSpecimen": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

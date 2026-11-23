@@ -24,7 +24,6 @@
           "type": "number"
         },
         "https://openminds.om-i.org/props/maxValueUnit": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -82,7 +81,6 @@
           "type": "number"
         },
         "https://openminds.om-i.org/props/minValueUnit": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

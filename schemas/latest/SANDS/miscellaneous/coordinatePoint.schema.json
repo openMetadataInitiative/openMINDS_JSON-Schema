@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/coordinateFramework": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

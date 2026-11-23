@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/argument": {
-          "description": null,
           "items": {
             "type": "string"
           },
@@ -33,7 +32,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/environmentVariable": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -86,7 +84,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/executable": {
-          "description": null,
           "name": "executable",
           "type": "string"
         },

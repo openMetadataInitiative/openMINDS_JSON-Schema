@@ -20,13 +20,11 @@
         },
         "https://openminds.om-i.org/props/length": {
           "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "length",
           "type": "object"
         },
         "https://openminds.om-i.org/props/width": {
           "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "width",
           "type": "object"
         }

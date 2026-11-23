@@ -30,7 +30,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/alternateName": {
-          "description": null,
           "items": {
             "type": "string"
           },
@@ -40,7 +39,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/associatedAccount": {
-          "description": null,
           "items": {
             "else": {
               "properties": {

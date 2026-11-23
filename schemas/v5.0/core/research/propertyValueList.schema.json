@@ -19,12 +19,10 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/lookupLabel": {
-          "description": null,
           "name": "lookupLabel",
           "type": "string"
         },
         "https://openminds.om-i.org/props/propertyValuePair": {
-          "description": null,
           "items": {
             "anyOf": [
               {

@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/contribution": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -84,13 +83,11 @@
         },
         "https://openminds.om-i.org/props/externalDiameter": {
           "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "externalDiameter",
           "type": "object"
         },
         "https://openminds.om-i.org/props/internalDiameter": {
           "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "internalDiameter",
           "type": "object"
         },
@@ -100,7 +97,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/material": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -160,7 +156,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/serialNumber": {
-          "description": null,
           "name": "serialNumber",
           "type": "string"
         },

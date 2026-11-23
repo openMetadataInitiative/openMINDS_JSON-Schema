@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/abbreviation": {
-          "description": null,
           "name": "abbreviation",
           "type": "string"
         },

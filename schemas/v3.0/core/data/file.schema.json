@@ -25,12 +25,10 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/contentDescription": {
-          "description": null,
           "name": "contentDescription",
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/dataType": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -88,7 +86,6 @@
           "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/fileRepository": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

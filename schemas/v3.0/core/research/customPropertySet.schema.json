@@ -19,12 +19,10 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/context": {
-          "description": null,
           "name": "context",
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/dataLocation": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

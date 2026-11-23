@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/filePathPattern": {
-          "description": null,
           "items": {
             "$ref": "https://openminds.ebrains.eu/core/FilePathPattern?format=json-schema#/definitions/embedded",
             "type": "object"
@@ -30,7 +29,6 @@
           "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/lookupLabel": {
-          "description": null,
           "name": "lookupLabel",
           "type": "string"
         }

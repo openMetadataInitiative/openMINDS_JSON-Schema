@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/configuration": {
-          "description": null,
           "name": "configuration",
           "type": "string"
         },
@@ -77,7 +76,6 @@
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/lookupLabel": {
-          "description": null,
           "name": "lookupLabel",
           "type": "string"
         }

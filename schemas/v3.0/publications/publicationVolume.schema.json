@@ -72,7 +72,6 @@
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/volumeNumber": {
-          "description": null,
           "name": "volumeNumber",
           "type": "string"
         }

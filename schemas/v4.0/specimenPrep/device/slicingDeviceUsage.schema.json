@@ -72,12 +72,10 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/lookupLabel": {
-          "description": null,
           "name": "lookupLabel",
           "type": "string"
         },
         "https://openminds.om-i.org/props/metadataLocation": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -137,7 +135,6 @@
         },
         "https://openminds.om-i.org/props/oscillationAmplitude": {
           "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "oscillationAmplitude",
           "type": "object"
         },
@@ -152,11 +149,9 @@
               "type": "object"
             }
           ],
-          "description": null,
           "name": "sliceThickness"
         },
         "https://openminds.om-i.org/props/slicingAngle": {
-          "description": null,
           "items": {
             "anyOf": [
               {
@@ -175,7 +170,6 @@
           "type": "array"
         },
         "https://openminds.om-i.org/props/slicingPlane": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -229,12 +223,10 @@
         },
         "https://openminds.om-i.org/props/slicingSpeed": {
           "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "slicingSpeed",
           "type": "object"
         },
         "https://openminds.om-i.org/props/usedSpecimen": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -289,7 +281,6 @@
         },
         "https://openminds.om-i.org/props/vibrationFrequency": {
           "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "vibrationFrequency",
           "type": "object"
         }

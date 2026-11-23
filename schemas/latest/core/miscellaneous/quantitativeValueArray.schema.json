@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/negativeUncertainties": {
-          "description": null,
           "items": {
             "type": "number"
           },
@@ -28,7 +27,6 @@
           "type": "array"
         },
         "https://openminds.om-i.org/props/positiveUncertainties": {
-          "description": null,
           "items": {
             "type": "number"
           },
@@ -143,7 +141,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/values": {
-          "description": null,
           "items": {
             "type": "number"
           },

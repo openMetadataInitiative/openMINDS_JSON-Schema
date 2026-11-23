@@ -87,7 +87,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/studyOption": {
-          "description": null,
           "items": {
             "else": {
               "properties": {

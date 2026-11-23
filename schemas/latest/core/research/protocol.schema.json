@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/describedIn": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -84,7 +83,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/stimulusType": {
-          "description": null,
           "items": {
             "else": {
               "properties": {

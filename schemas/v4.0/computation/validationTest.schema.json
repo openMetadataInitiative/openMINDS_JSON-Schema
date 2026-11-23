@@ -271,7 +271,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/referenceDataAcquisition": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -382,7 +381,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/scoreType": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

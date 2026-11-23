@@ -25,7 +25,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/contentTypePattern": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -206,7 +205,6 @@
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/structurePattern": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

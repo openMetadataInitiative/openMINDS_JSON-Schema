@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/about": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -91,12 +90,10 @@
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/comment": {
-          "description": null,
           "name": "comment",
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/commenter": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -149,7 +146,6 @@
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/timestamp": {
-          "description": null,
           "format": "date-time",
           "name": "timestamp",
           "type": "string"

@@ -24,12 +24,10 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/lookupLabel": {
-          "description": null,
           "name": "lookupLabel",
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/molecularEntity": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -82,7 +80,6 @@
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/productSource": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -145,7 +142,6 @@
               "type": "object"
             }
           ],
-          "description": null,
           "name": "purity"
         }
       },

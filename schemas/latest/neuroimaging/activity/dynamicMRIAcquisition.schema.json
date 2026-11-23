@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/behavioralProtocol": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -77,7 +76,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/contrastAgent": {
-          "description": null,
           "items": {
             "$ref": "https://openminds.om-i.org/types/AmountOfChemical?format=json-schema#/definitions/embedded",
             "type": "object"
@@ -88,7 +86,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/customPropertySet": {
-          "description": null,
           "items": {
             "$ref": "https://openminds.om-i.org/types/CustomPropertySet?format=json-schema#/definitions/embedded",
             "type": "object"
@@ -100,7 +97,6 @@
         },
         "https://openminds.om-i.org/props/delayTime": {
           "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "delayTime",
           "type": "object"
         },
@@ -163,7 +159,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/distortionCorrection": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -231,7 +226,6 @@
               "type": "string"
             }
           ],
-          "description": null,
           "name": "endTime"
         },
         "https://openminds.om-i.org/props/input": {
@@ -347,12 +341,10 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/lookupLabel": {
-          "description": null,
           "name": "lookupLabel",
           "type": "string"
         },
         "https://openminds.om-i.org/props/motionCorrection": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -410,7 +402,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/numberOfDiscardedVolumes": {
-          "description": null,
           "name": "numberOfDiscardedVolumes",
           "type": "integer"
         },
@@ -473,7 +464,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/performedBy": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -532,7 +522,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/preparationDesign": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -643,7 +632,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/registrationData": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -701,7 +689,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/specimenOrientation": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -764,7 +751,6 @@
               "type": "string"
             }
           ],
-          "description": null,
           "name": "startTime"
         },
         "https://openminds.om-i.org/props/studyTarget": {
@@ -861,7 +847,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/targetAnatomy": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -930,13 +915,11 @@
         },
         "https://openminds.om-i.org/props/volumeAcquisitionTime": {
           "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "volumeAcquisitionTime",
           "type": "object"
         },
         "https://openminds.om-i.org/props/volumeTiming": {
           "$ref": "https://openminds.om-i.org/types/QuantitativeValueArray?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "volumeTiming",
           "type": "object"
         }

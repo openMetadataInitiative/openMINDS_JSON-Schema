@@ -33,7 +33,6 @@
           "name": "age"
         },
         "https://openminds.om-i.org/props/reference": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

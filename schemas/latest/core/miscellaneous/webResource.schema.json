@@ -25,7 +25,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/contentDescription": {
-          "description": null,
           "name": "contentDescription",
           "type": "string"
         },

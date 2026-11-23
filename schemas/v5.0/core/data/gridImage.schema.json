@@ -24,7 +24,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/coordinateFramework": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -78,7 +77,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/dataLocation": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -132,7 +130,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/dimension": {
-          "description": null,
           "items": {
             "type": "integer"
           },
@@ -147,7 +144,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/obtainedWith": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -205,7 +201,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/pixelSize": {
-          "description": null,
           "items": {
             "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
             "type": "object"

@@ -24,7 +24,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/hasPart": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -87,12 +86,10 @@
           "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/location": {
-          "description": null,
           "name": "location",
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/manufacturer": {
-          "description": null,
           "items": {
             "else": {
               "properties": {

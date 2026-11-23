@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/externalDefinitionOfName": {
-          "description": null,
           "format": "iri",
           "name": "externalDefinitionOfName",
           "type": "string"

@@ -19,12 +19,10 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/address": {
-          "description": null,
           "name": "address",
           "type": "string"
         },
         "https://openminds.om-i.org/props/country": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -78,7 +76,6 @@
         },
         "https://openminds.om-i.org/props/geoCoordinates": {
           "$ref": "https://openminds.om-i.org/types/GeoCoordinates?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "geoCoordinates",
           "type": "object"
         }

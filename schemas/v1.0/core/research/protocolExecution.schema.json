@@ -92,7 +92,6 @@
               "type": "string"
             }
           ],
-          "description": null,
           "name": "endedAtTime"
         },
         "https://openminds.ebrains.eu/vocab/input": {
@@ -212,7 +211,6 @@
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/lookupLabel": {
-          "description": null,
           "name": "lookupLabel",
           "type": "string"
         },
@@ -412,7 +410,6 @@
               "type": "string"
             }
           ],
-          "description": null,
           "name": "startedAtTime"
         },
         "https://openminds.ebrains.eu/vocab/studyTarget": {

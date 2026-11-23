@@ -20,13 +20,11 @@
         },
         "https://openminds.om-i.org/props/centralAngle": {
           "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "centralAngle",
           "type": "object"
         },
         "https://openminds.om-i.org/props/radius": {
           "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "radius",
           "type": "object"
         }

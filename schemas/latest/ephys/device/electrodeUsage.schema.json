@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/anatomicalLocation": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -97,7 +96,6 @@
               "type": "object"
             }
           ],
-          "description": null,
           "name": "contactResistance"
         },
         "https://openminds.om-i.org/props/device": {
@@ -154,12 +152,10 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/lookupLabel": {
-          "description": null,
           "name": "lookupLabel",
           "type": "string"
         },
         "https://openminds.om-i.org/props/metadataLocation": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -219,12 +215,10 @@
         },
         "https://openminds.om-i.org/props/spatialLocation": {
           "$ref": "https://openminds.om-i.org/types/CoordinatePoint?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "spatialLocation",
           "type": "object"
         },
         "https://openminds.om-i.org/props/usedSpecimen": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

@@ -24,7 +24,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/channel": {
-          "description": null,
           "items": {
             "$ref": "https://openminds.om-i.org/types/Channel?format=json-schema#/definitions/embedded",
             "type": "object"
@@ -35,7 +34,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/dataLocation": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -99,7 +97,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/obtainedWith": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -157,7 +154,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/previousRegularTimeSeries": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -211,7 +207,6 @@
         },
         "https://openminds.om-i.org/props/samplingFrequency": {
           "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "samplingFrequency",
           "type": "object"
         }

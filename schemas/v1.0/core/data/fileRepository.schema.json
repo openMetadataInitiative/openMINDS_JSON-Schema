@@ -25,7 +25,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/contentTypePattern": {
-          "description": null,
           "items": {
             "$ref": "https://openminds.ebrains.eu/core/ContentTypePattern?format=json-schema#/definitions/embedded",
             "type": "object"
@@ -153,7 +152,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/repositoryType": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -212,7 +210,6 @@
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/structurePattern": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

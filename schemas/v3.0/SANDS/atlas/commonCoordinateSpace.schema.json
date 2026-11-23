@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/abbreviation": {
-          "description": null,
           "name": "abbreviation",
           "type": "string"
         },
@@ -294,7 +293,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/usedSpecies": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

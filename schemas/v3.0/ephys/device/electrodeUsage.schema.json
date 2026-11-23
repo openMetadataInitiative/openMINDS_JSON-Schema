@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/anatomicalLocation": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -89,7 +88,6 @@
               "type": "object"
             }
           ],
-          "description": null,
           "name": "contactResistance"
         },
         "https://openminds.ebrains.eu/vocab/device": {
@@ -146,12 +144,10 @@
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/lookupLabel": {
-          "description": null,
           "name": "lookupLabel",
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/metadataLocation": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -211,12 +207,10 @@
         },
         "https://openminds.ebrains.eu/vocab/spatialLocation": {
           "$ref": "https://openminds.ebrains.eu/sands/CoordinatePoint?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "spatialLocation",
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/usedSpecimen": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

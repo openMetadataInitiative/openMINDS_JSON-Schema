@@ -196,11 +196,9 @@
               "type": "object"
             }
           ],
-          "description": null,
           "name": "temperature"
         },
         "https://openminds.ebrains.eu/vocab/tissueBathSolution": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

@@ -188,7 +188,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/hasAlternativeVersion": {
-          "description": null,
           "items": {
             "else": {
               "properties": {

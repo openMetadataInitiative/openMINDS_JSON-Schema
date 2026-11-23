@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/URL": {
-          "description": null,
           "format": "iri",
           "name": "URL",
           "type": "string"

@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/hasAnnotation": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -77,7 +76,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/relationAssessment": {
-          "description": null,
           "items": {
             "anyOf": [
               {

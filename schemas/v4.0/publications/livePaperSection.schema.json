@@ -82,7 +82,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/order": {
-          "description": null,
           "name": "order",
           "type": "integer"
         },

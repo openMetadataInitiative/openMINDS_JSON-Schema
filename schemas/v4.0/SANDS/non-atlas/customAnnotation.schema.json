@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/anchorPoint": {
-          "description": null,
           "items": {
             "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
             "type": "object"
@@ -190,7 +189,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/criteriaType": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -366,7 +364,6 @@
         },
         "https://openminds.om-i.org/props/preferredVisualization": {
           "$ref": "https://openminds.om-i.org/types/ViewerSpecification?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "preferredVisualization",
           "type": "object"
         },

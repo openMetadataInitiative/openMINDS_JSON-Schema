@@ -77,12 +77,10 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/productName": {
-          "description": null,
           "name": "productName",
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/provider": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -147,7 +145,6 @@
               "type": "object"
             }
           ],
-          "description": null,
           "name": "purity"
         }
       },

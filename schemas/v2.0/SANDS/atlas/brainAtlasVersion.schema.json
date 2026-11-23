@@ -130,7 +130,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/hasTerminology": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

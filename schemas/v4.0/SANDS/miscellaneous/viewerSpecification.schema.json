@@ -24,7 +24,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/anchorPoint": {
-          "description": null,
           "items": {
             "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
             "type": "object"
@@ -36,12 +35,10 @@
         },
         "https://openminds.om-i.org/props/cameraPosition": {
           "$ref": "https://openminds.om-i.org/types/CoordinatePoint?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "cameraPosition",
           "type": "object"
         },
         "https://openminds.om-i.org/props/preferredDisplayColor": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

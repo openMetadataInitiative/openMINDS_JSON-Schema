@@ -24,7 +24,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/vendor": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

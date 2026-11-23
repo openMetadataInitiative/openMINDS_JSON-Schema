@@ -89,7 +89,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/hasPart": {
-          "description": null,
           "items": {
             "else": {
               "properties": {

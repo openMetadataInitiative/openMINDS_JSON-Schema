@@ -83,7 +83,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/memberships": {
-          "description": null,
           "items": {
             "$ref": "https://openminds.om-i.org/types/Membership?format=json-schema#/definitions/embedded",
             "type": "object"

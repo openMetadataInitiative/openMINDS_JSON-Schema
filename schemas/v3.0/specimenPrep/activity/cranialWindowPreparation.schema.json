@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/constructionType": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -72,7 +71,6 @@
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/customPropertySet": {
-          "description": null,
           "items": {
             "$ref": "https://openminds.ebrains.eu/core/CustomPropertySet?format=json-schema#/definitions/embedded",
             "type": "object"
@@ -102,7 +100,6 @@
               "type": "object"
             }
           ],
-          "description": null,
           "name": "dimension"
         },
         "https://openminds.ebrains.eu/vocab/endTime": {
@@ -116,7 +113,6 @@
               "type": "string"
             }
           ],
-          "description": null,
           "name": "endTime"
         },
         "https://openminds.ebrains.eu/vocab/input": {
@@ -231,7 +227,6 @@
           "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/lookupLabel": {
-          "description": null,
           "name": "lookupLabel",
           "type": "string"
         },
@@ -294,7 +289,6 @@
           "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/performedBy": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -353,7 +347,6 @@
           "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/preparationDesign": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -464,7 +457,6 @@
           "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/reinforcementType": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -527,7 +519,6 @@
               "type": "string"
             }
           ],
-          "description": null,
           "name": "startTime"
         },
         "https://openminds.ebrains.eu/vocab/studyTarget": {

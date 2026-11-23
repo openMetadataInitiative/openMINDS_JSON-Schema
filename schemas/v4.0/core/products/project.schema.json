@@ -89,7 +89,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/hasPart": {
-          "description": null,
           "items": {
             "else": {
               "properties": {

@@ -24,7 +24,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/measuredQuantity": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -77,7 +76,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/obtainedWith": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -135,7 +133,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/timestamp": {
-          "description": null,
           "format": "date-time",
           "name": "timestamp",
           "type": "string"

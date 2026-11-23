@@ -19,12 +19,10 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/acronym": {
-          "description": null,
           "name": "acronym",
           "type": "string"
         },
         "https://openminds.om-i.org/props/alternateName": {
-          "description": null,
           "items": {
             "type": "string"
           },
@@ -34,7 +32,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/countryOfFormation": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -213,7 +210,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/jurisdiction": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -268,12 +264,10 @@
         },
         "https://openminds.om-i.org/props/location": {
           "$ref": "https://openminds.om-i.org/types/Location?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "location",
           "type": "object"
         },
         "https://openminds.om-i.org/props/membership": {
-          "description": null,
           "items": {
             "$ref": "https://openminds.om-i.org/types/Membership?format=json-schema#/definitions/embedded",
             "type": "object"

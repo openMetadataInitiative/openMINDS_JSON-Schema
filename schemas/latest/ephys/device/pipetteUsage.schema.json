@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/anatomicalLocation": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -87,7 +86,6 @@
           "type": "object"
         },
         "https://openminds.om-i.org/props/chlorideReversalPotential": {
-          "description": null,
           "items": {
             "$ref": "https://openminds.om-i.org/types/Measurement?format=json-schema#/definitions/embedded",
             "type": "object"
@@ -98,7 +96,6 @@
         },
         "https://openminds.om-i.org/props/compensationCurrent": {
           "$ref": "https://openminds.om-i.org/types/Measurement?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "compensationCurrent",
           "type": "object"
         },
@@ -157,24 +154,20 @@
         },
         "https://openminds.om-i.org/props/endMembranePotential": {
           "$ref": "https://openminds.om-i.org/types/Measurement?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "endMembranePotential",
           "type": "object"
         },
         "https://openminds.om-i.org/props/holdingPotential": {
           "$ref": "https://openminds.om-i.org/types/Measurement?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "holdingPotential",
           "type": "object"
         },
         "https://openminds.om-i.org/props/inputResistance": {
           "$ref": "https://openminds.om-i.org/types/Measurement?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "inputResistance",
           "type": "object"
         },
         "https://openminds.om-i.org/props/labelingCompound": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -230,17 +223,14 @@
         },
         "https://openminds.om-i.org/props/liquidJunctionPotential": {
           "$ref": "https://openminds.om-i.org/types/Measurement?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "liquidJunctionPotential",
           "type": "object"
         },
         "https://openminds.om-i.org/props/lookupLabel": {
-          "description": null,
           "name": "lookupLabel",
           "type": "string"
         },
         "https://openminds.om-i.org/props/metadataLocation": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -309,11 +299,9 @@
               "type": "object"
             }
           ],
-          "description": null,
           "name": "pipetteResistance"
         },
         "https://openminds.om-i.org/props/pipetteSolution": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {
@@ -367,30 +355,25 @@
         },
         "https://openminds.om-i.org/props/sealResistance": {
           "$ref": "https://openminds.om-i.org/types/Measurement?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "sealResistance",
           "type": "object"
         },
         "https://openminds.om-i.org/props/seriesResistance": {
           "$ref": "https://openminds.om-i.org/types/Measurement?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "seriesResistance",
           "type": "object"
         },
         "https://openminds.om-i.org/props/spatialLocation": {
           "$ref": "https://openminds.om-i.org/types/CoordinatePoint?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "spatialLocation",
           "type": "object"
         },
         "https://openminds.om-i.org/props/startMembranePotential": {
           "$ref": "https://openminds.om-i.org/types/Measurement?format=json-schema#/definitions/embedded",
-          "description": null,
           "name": "startMembranePotential",
           "type": "object"
         },
         "https://openminds.om-i.org/props/usedSpecimen": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

@@ -25,12 +25,10 @@
           "type": "string"
         },
         "https://openminds.om-i.org/props/contentDescription": {
-          "description": null,
           "name": "contentDescription",
           "type": "string"
         },
         "https://openminds.om-i.org/props/dataType": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -88,7 +86,6 @@
           "uniqueItems": true
         },
         "https://openminds.om-i.org/props/fileRepository": {
-          "description": null,
           "else": {
             "properties": {
               "@id": {

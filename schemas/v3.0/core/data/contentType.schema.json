@@ -19,7 +19,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/dataType": {
-          "description": null,
           "items": {
             "else": {
               "properties": {
@@ -82,7 +81,6 @@
           "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/displayLabel": {
-          "description": null,
           "name": "displayLabel",
           "type": "string"
         },
