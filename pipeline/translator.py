@@ -11,13 +11,19 @@ def _embedded_ref(type_iri: str) -> str:
     return f"{type_iri}?format=json-schema#/definitions/{EMBEDDED_DEFINITION}"
 
 
+# Patterns instead of "format" so that the checks are enforced by every validator
+# ("format" is only an annotation by default, and "uuid" is not a draft-07 format).
+IRI_PATTERN = r"^[A-Za-z][A-Za-z0-9+.\-]*:\S+$"
+UUID_PATTERN = r"^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+
+
 def _linked_id_spec() -> Dict:
     # References to linked instances may be given either as IRI or as UUID.
     return {
         "type": "string",
         "anyOf": [
-            {"format": "iri"},
-            {"format": "uuid"}
+            {"pattern": IRI_PATTERN},
+            {"pattern": UUID_PATTERN}
         ]
     }
 
@@ -93,7 +99,8 @@ class JSONSchemaBuilder(object):
                     "@type": {
                         "type": "string",
                         "format": "iri",
-                        "enum": property["_linkedTypes"]
+                        # remove duplicates while keeping the original order
+                        "enum": list(dict.fromkeys(property["_linkedTypes"]))
                     }},
                 "required": ["@id"]
             }
