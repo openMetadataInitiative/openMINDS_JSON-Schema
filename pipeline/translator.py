@@ -2,6 +2,26 @@ import json
 import os.path
 from typing import List, Optional, Dict
 
+# Name of the definition that holds the "embedded" variant of each schema.
+# Embedded instances have no "@id"; standalone instances must have one.
+EMBEDDED_DEFINITION = "embedded"
+
+
+def _embedded_ref(type_iri: str) -> str:
+    return f"{type_iri}?format=json-schema#/definitions/{EMBEDDED_DEFINITION}"
+
+
+def _linked_id_spec() -> Dict:
+    # References to linked instances may be given either as IRI or as UUID.
+    return {
+        "type": "string",
+        "anyOf": [
+            {"format": "iri"},
+            {"format": "uuid"}
+        ]
+    }
+
+
 class JSONSchemaBuilder(object):
 
     def __init__(self, schema_file_path:str, root_path:str):
@@ -50,15 +70,17 @@ class JSONSchemaBuilder(object):
     def _resolve_object_property(self, property):
         object_property_spec = {}
         if "_embeddedTypes" in property and property["_embeddedTypes"]:
+            # Embedded instances are validated against the "embedded" variant
+            # of the target schema, which does not require "@id".
             if len(property["_embeddedTypes"]) == 1:
                 object_property_spec["type"] = "object"
-                object_property_spec["$ref"] = f"{property['_embeddedTypes'][0]}?format=json-schema"
+                object_property_spec["$ref"] = _embedded_ref(property['_embeddedTypes'][0])
             elif len(property["_embeddedTypes"]) > 1:
                 object_property_spec["anyOf"] = []
                 for embedded_type in property["_embeddedTypes"]:
                     object_property_spec["anyOf"].append({
                         "type": "object",
-                        "$ref": f"{embedded_type}?format=json-schema"
+                        "$ref": _embedded_ref(embedded_type)
                     })
         elif "_linkedTypes" in property and property["_linkedTypes"]:
             object_property_spec["type"] = "object"
@@ -67,10 +89,7 @@ class JSONSchemaBuilder(object):
             }
             object_property_spec["then"] = {
                 "properties": {
-                    "@id": {
-                        "type": "string",
-                        "format": "iri"
-                    },
+                    "@id": _linked_id_spec(),
                     "@type": {
                         "type": "string",
                         "format": "iri",
@@ -80,10 +99,7 @@ class JSONSchemaBuilder(object):
             }
             object_property_spec["else"] = {
                 "properties": {
-                    "@id": {
-                        "type": "string",
-                        "format": "iri"
-                    }
+                    "@id": _linked_id_spec()
                 },
                 "required": ["@id"]
             }
@@ -135,16 +151,16 @@ class JSONSchemaBuilder(object):
         return self._translated_prop_spec
 
     def translate(self):
-        # set required properties
-        required_prop = self._schema_payload["required"] if "required" in self._schema_payload else []
-        required_prop.extend(["@id", "@type"])
-        # set description
-        description = self._schema_payload['description'] if "description" in self._schema_payload else None
+        # Required properties shared by both variants (no "@id" here).
+        # Copy the list so the source payload is not mutated.
+        required_prop = set(self._schema_payload.get("required") or [])
+        required_prop.discard("@id")
+        required_prop.add("@type")
 
-        self._translated_schema = {
-            "$id": f"{self._schema_payload['_type']}?format=json-schema",
-            "$schema": "http://json-schema.org/draft-07/schema#",
-            "description": description,
+        description = self._schema_payload.get("description")
+
+        # The "embedded" variant: all properties and constraints, "@id" optional.
+        embedded_schema = {
             "properties": {
                 "@id": {
                     "description": "Metadata node identifier.",
@@ -157,13 +173,29 @@ class JSONSchemaBuilder(object):
                 }
             },
             "required": sorted(required_prop),
-            "title": self._schema_payload['name'],
             "type": "object"
         }
 
         if "properties" in self._schema_payload and self._schema_payload["properties"]:
             for prop_name, prop_spec in self._schema_payload["properties"].items():
-                self._translated_schema["properties"][prop_name] = self._translate_property_specifications(prop_spec)
+                embedded_schema["properties"][prop_name] = self._translate_property_specifications(prop_spec)
+
+        # The root (standalone) variant: everything from "embedded" plus a required "@id".
+        self._translated_schema = {
+            "$id": f"{self._schema_payload['_type']}?format=json-schema",
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "allOf": [
+                {"$ref": f"#/definitions/{EMBEDDED_DEFINITION}"}
+            ],
+            "definitions": {
+                EMBEDDED_DEFINITION: embedded_schema
+            },
+            "required": ["@id"],
+            "title": self._schema_payload['name'],
+            "type": "object"
+        }
+        if description:
+            self._translated_schema["description"] = description
 
     def build(self):
         target_file = os.path.join("target", "schemas", f"{self._target_file_without_extension()}.schema.json")
