@@ -1,28 +1,39 @@
 {
   "$id": "https://openminds.om-i.org/types/EquilateralTriangle?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": null,
-  "properties": {
-    "@id": {
-      "description": "Metadata node identifier.",
-      "type": "string"
-    },
-    "@type": {
-      "const": "https://openminds.om-i.org/types/EquilateralTriangle",
-      "description": "Metadata schema identifier.",
-      "type": "string"
-    },
-    "https://openminds.om-i.org/props/sideLength": {
-      "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema",
-      "description": null,
-      "name": "sideLength",
+  "allOf": [
+    {
+      "$ref": "#/definitions/embedded"
+    }
+  ],
+  "definitions": {
+    "embedded": {
+      "properties": {
+        "@id": {
+          "description": "Metadata node identifier.",
+          "type": "string"
+        },
+        "@type": {
+          "const": "https://openminds.om-i.org/types/EquilateralTriangle",
+          "description": "Metadata schema identifier.",
+          "type": "string"
+        },
+        "https://openminds.om-i.org/props/sideLength": {
+          "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
+          "description": null,
+          "name": "sideLength",
+          "type": "object"
+        }
+      },
+      "required": [
+        "@type",
+        "https://openminds.om-i.org/props/sideLength"
+      ],
       "type": "object"
     }
   },
   "required": [
-    "@id",
-    "@type",
-    "https://openminds.om-i.org/props/sideLength"
+    "@id"
   ],
   "title": "EquilateralTriangle",
   "type": "object"

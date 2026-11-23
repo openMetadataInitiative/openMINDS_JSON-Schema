@@ -1,217 +1,284 @@
 {
   "$id": "https://openminds.ebrains.eu/ephys/ElectrodeUsage?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": null,
-  "properties": {
-    "@id": {
-      "description": "Metadata node identifier.",
-      "type": "string"
-    },
-    "@type": {
-      "const": "https://openminds.ebrains.eu/ephys/ElectrodeUsage",
-      "description": "Metadata schema identifier.",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/anatomicalLocation": {
-      "description": null,
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
+  "allOf": [
+    {
+      "$ref": "#/definitions/embedded"
+    }
+  ],
+  "definitions": {
+    "embedded": {
+      "properties": {
+        "@id": {
+          "description": "Metadata node identifier.",
+          "type": "string"
         },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "anatomicalLocation",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
+        "@type": {
+          "const": "https://openminds.ebrains.eu/ephys/ElectrodeUsage",
+          "description": "Metadata schema identifier.",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/anatomicalLocation": {
+          "description": null,
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
           },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/controlledTerms/CellType",
-              "https://openminds.ebrains.eu/controlledTerms/Organ",
-              "https://openminds.ebrains.eu/controlledTerms/OrganismSubstance",
-              "https://openminds.ebrains.eu/controlledTerms/SubcellularEntity",
-              "https://openminds.ebrains.eu/controlledTerms/UBERONParcellation",
-              "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity",
-              "https://openminds.ebrains.eu/sands/ParcellationEntity",
-              "https://openminds.ebrains.eu/sands/ParcellationEntityVersion"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/contactResistance": {
-      "anyOf": [
-        {
-          "$ref": "https://openminds.ebrains.eu/core/QuantitativeValue?format=json-schema",
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "anatomicalLocation",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/controlledTerms/CellType",
+                  "https://openminds.ebrains.eu/controlledTerms/Organ",
+                  "https://openminds.ebrains.eu/controlledTerms/OrganismSubstance",
+                  "https://openminds.ebrains.eu/controlledTerms/SubcellularEntity",
+                  "https://openminds.ebrains.eu/controlledTerms/UBERONParcellation",
+                  "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity",
+                  "https://openminds.ebrains.eu/sands/ParcellationEntity",
+                  "https://openminds.ebrains.eu/sands/ParcellationEntityVersion"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
           "type": "object"
         },
-        {
-          "$ref": "https://openminds.ebrains.eu/core/QuantitativeValueRange?format=json-schema",
+        "https://openminds.ebrains.eu/vocab/contactResistance": {
+          "anyOf": [
+            {
+              "$ref": "https://openminds.ebrains.eu/core/QuantitativeValue?format=json-schema#/definitions/embedded",
+              "type": "object"
+            },
+            {
+              "$ref": "https://openminds.ebrains.eu/core/QuantitativeValueRange?format=json-schema#/definitions/embedded",
+              "type": "object"
+            }
+          ],
+          "description": null,
+          "name": "contactResistance"
+        },
+        "https://openminds.ebrains.eu/vocab/device": {
+          "description": "Piece of equipment or mechanism (hardware) designed to serve a special purpose or perform a special function.",
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "device",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/ephys/Electrode"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/lookupLabel": {
+          "description": null,
+          "name": "lookupLabel",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/metadataLocation": {
+          "description": null,
+          "items": {
+            "else": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "if": {
+              "required": [
+                "@type"
+              ]
+            },
+            "then": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                },
+                "@type": {
+                  "enum": [
+                    "https://openminds.ebrains.eu/core/File",
+                    "https://openminds.ebrains.eu/core/FileBundle"
+                  ],
+                  "format": "iri",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "type": "object"
+          },
+          "minItems": 1,
+          "name": "metadataLocation",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/spatialLocation": {
+          "$ref": "https://openminds.ebrains.eu/sands/CoordinatePoint?format=json-schema#/definitions/embedded",
+          "description": null,
+          "name": "spatialLocation",
+          "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/usedSpecimen": {
+          "description": null,
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "usedSpecimen",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/core/SubjectState",
+                  "https://openminds.ebrains.eu/core/TissueSampleState"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
           "type": "object"
         }
+      },
+      "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/device"
       ],
-      "description": null,
-      "name": "contactResistance"
-    },
-    "https://openminds.ebrains.eu/vocab/device": {
-      "description": "Piece of equipment or mechanism (hardware) designed to serve a special purpose or perform a special function.",
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "device",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/ephys/Electrode"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/lookupLabel": {
-      "description": null,
-      "name": "lookupLabel",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/metadataLocation": {
-      "description": null,
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            },
-            "@type": {
-              "enum": [
-                "https://openminds.ebrains.eu/core/File",
-                "https://openminds.ebrains.eu/core/FileBundle"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "metadataLocation",
-      "type": "array",
-      "uniqueItems": true
-    },
-    "https://openminds.ebrains.eu/vocab/spatialLocation": {
-      "$ref": "https://openminds.ebrains.eu/sands/CoordinatePoint?format=json-schema",
-      "description": null,
-      "name": "spatialLocation",
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/usedSpecimen": {
-      "description": null,
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "usedSpecimen",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/core/SubjectState",
-              "https://openminds.ebrains.eu/core/TissueSampleState"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
       "type": "object"
     }
   },
   "required": [
-    "@id",
-    "@type",
-    "https://openminds.ebrains.eu/vocab/device"
+    "@id"
   ],
   "title": "ElectrodeUsage",
   "type": "object"

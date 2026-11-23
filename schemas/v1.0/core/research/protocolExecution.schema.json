@@ -1,346 +1,442 @@
 {
   "$id": "https://openminds.ebrains.eu/core/ProtocolExecution?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": "Structured information on a protocol execution.",
-  "properties": {
-    "@id": {
-      "description": "Metadata node identifier.",
-      "type": "string"
-    },
-    "@type": {
-      "const": "https://openminds.ebrains.eu/core/ProtocolExecution",
-      "description": "Metadata schema identifier.",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/behavioralTask": {
-      "description": "Specific set of defined activities (or their absence) that should be performed (or avoided) by a subject.",
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
+  "allOf": [
+    {
+      "$ref": "#/definitions/embedded"
+    }
+  ],
+  "definitions": {
+    "embedded": {
+      "properties": {
+        "@id": {
+          "description": "Metadata node identifier.",
+          "type": "string"
+        },
+        "@type": {
+          "const": "https://openminds.ebrains.eu/core/ProtocolExecution",
+          "description": "Metadata schema identifier.",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/behavioralTask": {
+          "description": "Specific set of defined activities (or their absence) that should be performed (or avoided) by a subject.",
+          "items": {
+            "else": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "if": {
+              "required": [
+                "@type"
+              ]
+            },
+            "then": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                },
+                "@type": {
+                  "enum": [
+                    "https://openminds.ebrains.eu/core/BehavioralTask"
+                  ],
+                  "format": "iri",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "type": "object"
           },
-          "required": [
-            "@id"
-          ]
+          "minItems": 1,
+          "name": "behavioralTask",
+          "type": "array",
+          "uniqueItems": true
         },
-        "if": {
-          "required": [
-            "@type"
-          ]
+        "https://openminds.ebrains.eu/vocab/description": {
+          "description": "Longer statement or account giving the characteristics of someone or something.",
+          "name": "description",
+          "type": "string"
         },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
+        "https://openminds.ebrains.eu/vocab/endedAtTime": {
+          "anyOf": [
+            {
+              "format": "date-time",
               "type": "string"
             },
-            "@type": {
-              "enum": [
-                "https://openminds.ebrains.eu/core/BehavioralTask"
-              ],
-              "format": "iri",
+            {
+              "format": "time",
               "type": "string"
             }
+          ],
+          "description": null,
+          "name": "endedAtTime"
+        },
+        "https://openminds.ebrains.eu/vocab/input": {
+          "description": "Something or someone that is put into or participates in a process or machine.",
+          "items": {
+            "else": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "if": {
+              "required": [
+                "@type"
+              ]
+            },
+            "then": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                },
+                "@type": {
+                  "enum": [
+                    "https://openminds.ebrains.eu/core/File",
+                    "https://openminds.ebrains.eu/core/FileBundle",
+                    "https://openminds.ebrains.eu/core/SubjectGroupState",
+                    "https://openminds.ebrains.eu/core/SubjectState",
+                    "https://openminds.ebrains.eu/core/TissueSampleCollectionState",
+                    "https://openminds.ebrains.eu/core/TissueSampleState"
+                  ],
+                  "format": "iri",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "type": "object"
           },
-          "required": [
-            "@id"
-          ]
+          "minItems": 1,
+          "name": "input",
+          "type": "array",
+          "uniqueItems": true
         },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "behavioralTask",
-      "type": "array",
-      "uniqueItems": true
-    },
-    "https://openminds.ebrains.eu/vocab/description": {
-      "description": "Longer statement or account giving the characteristics of someone or something.",
-      "name": "description",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/endedAtTime": {
-      "anyOf": [
-        {
-          "format": "date-time",
+        "https://openminds.ebrains.eu/vocab/isPartOf": {
+          "description": "Reference to the ensemble of multiple things or beings.",
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "isPartOf",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/core/DatasetVersion"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/lookupLabel": {
+          "description": null,
+          "name": "lookupLabel",
           "type": "string"
         },
-        {
-          "format": "time",
-          "type": "string"
+        "https://openminds.ebrains.eu/vocab/output": {
+          "description": "Something or someone that comes out of, is delivered or produced by a process or machine.",
+          "items": {
+            "else": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "if": {
+              "required": [
+                "@type"
+              ]
+            },
+            "then": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                },
+                "@type": {
+                  "enum": [
+                    "https://openminds.ebrains.eu/core/File",
+                    "https://openminds.ebrains.eu/core/FileBundle",
+                    "https://openminds.ebrains.eu/core/SubjectGroupState",
+                    "https://openminds.ebrains.eu/core/SubjectState",
+                    "https://openminds.ebrains.eu/core/TissueSampleCollectionState",
+                    "https://openminds.ebrains.eu/core/TissueSampleState"
+                  ],
+                  "format": "iri",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "type": "object"
+          },
+          "minItems": 1,
+          "name": "output",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/parameterSet": {
+          "description": "Manner, position, or direction in which digital or physical properties are set to determine a particular function, characteristics or behavior of something.",
+          "items": {
+            "$ref": "https://openminds.ebrains.eu/core/ParameterSet?format=json-schema#/definitions/embedded",
+            "type": "object"
+          },
+          "minItems": 1,
+          "name": "parameterSet",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/preparationType": {
+          "description": "Distinct class of actions or processes that make something ready for use or service.",
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "preparationType",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/controlledTerms/PreparationType"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/protocol": {
+          "description": "Plan that describes the process of a scientific or medical experiment, treatment, or procedure.",
+          "items": {
+            "else": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "if": {
+              "required": [
+                "@type"
+              ]
+            },
+            "then": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                },
+                "@type": {
+                  "enum": [
+                    "https://openminds.ebrains.eu/core/Protocol"
+                  ],
+                  "format": "iri",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "type": "object"
+          },
+          "minItems": 1,
+          "name": "protocol",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/startedAtTime": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "format": "time",
+              "type": "string"
+            }
+          ],
+          "description": null,
+          "name": "startedAtTime"
+        },
+        "https://openminds.ebrains.eu/vocab/studyTarget": {
+          "description": "Structure or function that was targeted within a study.",
+          "items": {},
+          "minItems": 1,
+          "name": "studyTarget",
+          "type": "array",
+          "uniqueItems": true
         }
+      },
+      "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/input",
+        "https://openminds.ebrains.eu/vocab/isPartOf",
+        "https://openminds.ebrains.eu/vocab/output",
+        "https://openminds.ebrains.eu/vocab/protocol"
       ],
-      "description": null,
-      "name": "endedAtTime"
-    },
-    "https://openminds.ebrains.eu/vocab/input": {
-      "description": "Something or someone that is put into or participates in a process or machine.",
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            },
-            "@type": {
-              "enum": [
-                "https://openminds.ebrains.eu/core/File",
-                "https://openminds.ebrains.eu/core/FileBundle",
-                "https://openminds.ebrains.eu/core/SubjectGroupState",
-                "https://openminds.ebrains.eu/core/SubjectState",
-                "https://openminds.ebrains.eu/core/TissueSampleCollectionState",
-                "https://openminds.ebrains.eu/core/TissueSampleState"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "input",
-      "type": "array",
-      "uniqueItems": true
-    },
-    "https://openminds.ebrains.eu/vocab/isPartOf": {
-      "description": "Reference to the ensemble of multiple things or beings.",
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "isPartOf",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/core/DatasetVersion"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
       "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/lookupLabel": {
-      "description": null,
-      "name": "lookupLabel",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/output": {
-      "description": "Something or someone that comes out of, is delivered or produced by a process or machine.",
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            },
-            "@type": {
-              "enum": [
-                "https://openminds.ebrains.eu/core/File",
-                "https://openminds.ebrains.eu/core/FileBundle",
-                "https://openminds.ebrains.eu/core/SubjectGroupState",
-                "https://openminds.ebrains.eu/core/SubjectState",
-                "https://openminds.ebrains.eu/core/TissueSampleCollectionState",
-                "https://openminds.ebrains.eu/core/TissueSampleState"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "output",
-      "type": "array",
-      "uniqueItems": true
-    },
-    "https://openminds.ebrains.eu/vocab/parameterSet": {
-      "description": "Manner, position, or direction in which digital or physical properties are set to determine a particular function, characteristics or behavior of something.",
-      "items": {
-        "$ref": "https://openminds.ebrains.eu/core/ParameterSet?format=json-schema",
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "parameterSet",
-      "type": "array",
-      "uniqueItems": true
-    },
-    "https://openminds.ebrains.eu/vocab/preparationType": {
-      "description": "Distinct class of actions or processes that make something ready for use or service.",
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "preparationType",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/controlledTerms/PreparationType"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/protocol": {
-      "description": "Plan that describes the process of a scientific or medical experiment, treatment, or procedure.",
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            },
-            "@type": {
-              "enum": [
-                "https://openminds.ebrains.eu/core/Protocol"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "protocol",
-      "type": "array",
-      "uniqueItems": true
-    },
-    "https://openminds.ebrains.eu/vocab/startedAtTime": {
-      "anyOf": [
-        {
-          "format": "date-time",
-          "type": "string"
-        },
-        {
-          "format": "time",
-          "type": "string"
-        }
-      ],
-      "description": null,
-      "name": "startedAtTime"
-    },
-    "https://openminds.ebrains.eu/vocab/studyTarget": {
-      "description": "Structure or function that was targeted within a study.",
-      "items": {},
-      "minItems": 1,
-      "name": "studyTarget",
-      "type": "array",
-      "uniqueItems": true
     }
   },
+  "description": "Structured information on a protocol execution.",
   "required": [
-    "@id",
-    "@type",
-    "https://openminds.ebrains.eu/vocab/input",
-    "https://openminds.ebrains.eu/vocab/isPartOf",
-    "https://openminds.ebrains.eu/vocab/output",
-    "https://openminds.ebrains.eu/vocab/protocol"
+    "@id"
   ],
   "title": "ProtocolExecution",
   "type": "object"

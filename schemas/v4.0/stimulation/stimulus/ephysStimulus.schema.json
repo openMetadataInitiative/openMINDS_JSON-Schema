@@ -1,213 +1,280 @@
 {
   "$id": "https://openminds.om-i.org/types/EphysStimulus?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": null,
-  "properties": {
-    "@id": {
-      "description": "Metadata node identifier.",
-      "type": "string"
-    },
-    "@type": {
-      "const": "https://openminds.om-i.org/types/EphysStimulus",
-      "description": "Metadata schema identifier.",
-      "type": "string"
-    },
-    "https://openminds.om-i.org/props/deliveredBy": {
-      "description": null,
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
+  "allOf": [
+    {
+      "$ref": "#/definitions/embedded"
+    }
+  ],
+  "definitions": {
+    "embedded": {
+      "properties": {
+        "@id": {
+          "description": "Metadata node identifier.",
+          "type": "string"
         },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "deliveredBy",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          },
-          "@type": {
-            "enum": [
-              "https://openminds.om-i.org/types/ElectrodeArrayUsage",
-              "https://openminds.om-i.org/types/ElectrodeUsage",
-              "https://openminds.om-i.org/types/PipetteUsage",
-              "https://openminds.om-i.org/types/SlicingDeviceUsage"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
+        "@type": {
+          "const": "https://openminds.om-i.org/types/EphysStimulus",
+          "description": "Metadata schema identifier.",
+          "type": "string"
         },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
-    "https://openminds.om-i.org/props/description": {
-      "description": "Longer statement or account giving the characteristics of someone or something.",
-      "name": "description",
-      "type": "string"
-    },
-    "https://openminds.om-i.org/props/epoch": {
-      "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema",
-      "description": null,
-      "name": "epoch",
-      "type": "object"
-    },
-    "https://openminds.om-i.org/props/generatedBy": {
-      "description": null,
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "generatedBy",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          },
-          "@type": {
-            "enum": [
-              "https://openminds.om-i.org/types/ElectrodeArrayUsage",
-              "https://openminds.om-i.org/types/ElectrodeUsage",
-              "https://openminds.om-i.org/types/PipetteUsage",
-              "https://openminds.om-i.org/types/SlicingDeviceUsage"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
-    "https://openminds.om-i.org/props/internalIdentifier": {
-      "description": "Term or code that identifies someone or something within a particular product.",
-      "name": "internalIdentifier",
-      "type": "string"
-    },
-    "https://openminds.om-i.org/props/lookupLabel": {
-      "description": null,
-      "name": "lookupLabel",
-      "type": "string"
-    },
-    "https://openminds.om-i.org/props/specification": {
-      "description": "Detailed and precise presentation of, or proposal for something.",
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
+        "https://openminds.om-i.org/props/deliveredBy": {
+          "description": null,
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
             },
-            "@type": {
-              "enum": [
-                "https://openminds.om-i.org/types/Configuration",
-                "https://openminds.om-i.org/types/File",
-                "https://openminds.om-i.org/types/FileBundle",
-                "https://openminds.om-i.org/types/PropertyValueList"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
+            "required": [
+              "@id"
+            ]
           },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "specification",
-      "type": "array",
-      "uniqueItems": true
-    },
-    "https://openminds.om-i.org/props/type": {
-      "description": "Distinct class to which a group of entities or concepts with similar characteristics or attributes belong to.",
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "type",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
+          "if": {
+            "required": [
+              "@type"
+            ]
           },
-          "@type": {
-            "enum": [
-              "https://openminds.om-i.org/types/ElectricalStimulusType"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
+          "name": "deliveredBy",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.om-i.org/types/ElectrodeArrayUsage",
+                  "https://openminds.om-i.org/types/ElectrodeUsage",
+                  "https://openminds.om-i.org/types/PipetteUsage",
+                  "https://openminds.om-i.org/types/SlicingDeviceUsage"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
         },
-        "required": [
-          "@id"
-        ]
+        "https://openminds.om-i.org/props/description": {
+          "description": "Longer statement or account giving the characteristics of someone or something.",
+          "name": "description",
+          "type": "string"
+        },
+        "https://openminds.om-i.org/props/epoch": {
+          "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
+          "description": null,
+          "name": "epoch",
+          "type": "object"
+        },
+        "https://openminds.om-i.org/props/generatedBy": {
+          "description": null,
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "generatedBy",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.om-i.org/types/ElectrodeArrayUsage",
+                  "https://openminds.om-i.org/types/ElectrodeUsage",
+                  "https://openminds.om-i.org/types/PipetteUsage",
+                  "https://openminds.om-i.org/types/SlicingDeviceUsage"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
+        },
+        "https://openminds.om-i.org/props/internalIdentifier": {
+          "description": "Term or code that identifies someone or something within a particular product.",
+          "name": "internalIdentifier",
+          "type": "string"
+        },
+        "https://openminds.om-i.org/props/lookupLabel": {
+          "description": null,
+          "name": "lookupLabel",
+          "type": "string"
+        },
+        "https://openminds.om-i.org/props/specification": {
+          "description": "Detailed and precise presentation of, or proposal for something.",
+          "items": {
+            "else": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "if": {
+              "required": [
+                "@type"
+              ]
+            },
+            "then": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                },
+                "@type": {
+                  "enum": [
+                    "https://openminds.om-i.org/types/Configuration",
+                    "https://openminds.om-i.org/types/File",
+                    "https://openminds.om-i.org/types/FileBundle",
+                    "https://openminds.om-i.org/types/PropertyValueList"
+                  ],
+                  "format": "iri",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "type": "object"
+          },
+          "minItems": 1,
+          "name": "specification",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "https://openminds.om-i.org/props/type": {
+          "description": "Distinct class to which a group of entities or concepts with similar characteristics or attributes belong to.",
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "type",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.om-i.org/types/ElectricalStimulusType"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
+        }
       },
+      "required": [
+        "@type",
+        "https://openminds.om-i.org/props/internalIdentifier"
+      ],
       "type": "object"
     }
   },
   "required": [
-    "@id",
-    "@type",
-    "https://openminds.om-i.org/props/internalIdentifier"
+    "@id"
   ],
   "title": "EphysStimulus",
   "type": "object"

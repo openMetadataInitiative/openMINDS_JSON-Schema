@@ -1,243 +1,325 @@
 {
   "$id": "https://openminds.ebrains.eu/sands/ElectrodeContact?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": "Structured information on an electrode contact.",
-  "properties": {
-    "@id": {
-      "description": "Metadata node identifier.",
-      "type": "string"
-    },
-    "@type": {
-      "const": "https://openminds.ebrains.eu/sands/ElectrodeContact",
-      "description": "Metadata schema identifier.",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/coordinatePoint": {
-      "description": "Pair or triplet of numbers defining the position in a particular two- or three dimensional plane or space.",
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
+  "allOf": [
+    {
+      "$ref": "#/definitions/embedded"
+    }
+  ],
+  "definitions": {
+    "embedded": {
+      "properties": {
+        "@id": {
+          "description": "Metadata node identifier.",
+          "type": "string"
         },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "coordinatePoint",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
+        "@type": {
+          "const": "https://openminds.ebrains.eu/sands/ElectrodeContact",
+          "description": "Metadata schema identifier.",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/coordinatePoint": {
+          "description": "Pair or triplet of numbers defining the position in a particular two- or three dimensional plane or space.",
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
           },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/sands/CoordinatePoint"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "coordinatePoint",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/sands/CoordinatePoint"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
         },
-        "required": [
-          "@id"
-        ]
+        "https://openminds.ebrains.eu/vocab/definedIn": {
+          "description": "Reference to a file instance in which something is stored.",
+          "items": {
+            "else": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "if": {
+              "required": [
+                "@type"
+              ]
+            },
+            "then": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                },
+                "@type": {
+                  "enum": [
+                    "https://openminds.ebrains.eu/core/FileInstance"
+                  ],
+                  "format": "iri",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "type": "object"
+          },
+          "minItems": 1,
+          "name": "definedIn",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/internalIdentifier": {
+          "description": "Term or code that identifies someone or something within a particular product.",
+          "name": "internalIdentifier",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/relatedRecording": {
+          "description": "Reference to the written, stored evidence of something.",
+          "items": {
+            "else": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "if": {
+              "required": [
+                "@type"
+              ]
+            },
+            "then": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                },
+                "@type": {
+                  "enum": [
+                    "https://openminds.ebrains.eu/core/FileInstance"
+                  ],
+                  "format": "iri",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "type": "object"
+          },
+          "minItems": 1,
+          "name": "relatedRecording",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/relatedStimulation": {
+          "description": "Reference to the written, stored function used as a physiological stimulus.",
+          "items": {
+            "else": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "if": {
+              "required": [
+                "@type"
+              ]
+            },
+            "then": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                },
+                "@type": {
+                  "enum": [
+                    "https://openminds.ebrains.eu/core/FileInstance"
+                  ],
+                  "format": "iri",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "type": "object"
+          },
+          "minItems": 1,
+          "name": "relatedStimulation",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/visualizedIn": {
+          "description": "Reference to an image in which something is visible.",
+          "items": {
+            "else": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "if": {
+              "required": [
+                "@type"
+              ]
+            },
+            "then": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                },
+                "@type": {
+                  "enum": [
+                    "https://openminds.ebrains.eu/sands/Image"
+                  ],
+                  "format": "iri",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "type": "object"
+          },
+          "minItems": 1,
+          "name": "visualizedIn",
+          "type": "array",
+          "uniqueItems": true
+        }
       },
+      "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/coordinatePoint",
+        "https://openminds.ebrains.eu/vocab/internalIdentifier"
+      ],
       "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/definedIn": {
-      "description": "Reference to a file instance in which something is stored.",
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            },
-            "@type": {
-              "enum": [
-                "https://openminds.ebrains.eu/core/FileInstance"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "definedIn",
-      "type": "array",
-      "uniqueItems": true
-    },
-    "https://openminds.ebrains.eu/vocab/internalIdentifier": {
-      "description": "Term or code that identifies someone or something within a particular product.",
-      "name": "internalIdentifier",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/relatedRecording": {
-      "description": "Reference to the written, stored evidence of something.",
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            },
-            "@type": {
-              "enum": [
-                "https://openminds.ebrains.eu/core/FileInstance"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "relatedRecording",
-      "type": "array",
-      "uniqueItems": true
-    },
-    "https://openminds.ebrains.eu/vocab/relatedStimulation": {
-      "description": "Reference to the written, stored function used as a physiological stimulus.",
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            },
-            "@type": {
-              "enum": [
-                "https://openminds.ebrains.eu/core/FileInstance"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "relatedStimulation",
-      "type": "array",
-      "uniqueItems": true
-    },
-    "https://openminds.ebrains.eu/vocab/visualizedIn": {
-      "description": "Reference to an image in which something is visible.",
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            },
-            "@type": {
-              "enum": [
-                "https://openminds.ebrains.eu/sands/Image"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "visualizedIn",
-      "type": "array",
-      "uniqueItems": true
     }
   },
+  "description": "Structured information on an electrode contact.",
   "required": [
-    "@id",
-    "@type",
-    "https://openminds.ebrains.eu/vocab/coordinatePoint",
-    "https://openminds.ebrains.eu/vocab/internalIdentifier"
+    "@id"
   ],
   "title": "ElectrodeContact",
   "type": "object"

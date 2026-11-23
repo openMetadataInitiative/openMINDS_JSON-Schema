@@ -1,356 +1,451 @@
 {
   "$id": "https://openminds.ebrains.eu/ephys/PipetteUsage?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": null,
-  "properties": {
-    "@id": {
-      "description": "Metadata node identifier.",
-      "type": "string"
-    },
-    "@type": {
-      "const": "https://openminds.ebrains.eu/ephys/PipetteUsage",
-      "description": "Metadata schema identifier.",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/anatomicalLocation": {
-      "description": null,
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
+  "allOf": [
+    {
+      "$ref": "#/definitions/embedded"
+    }
+  ],
+  "definitions": {
+    "embedded": {
+      "properties": {
+        "@id": {
+          "description": "Metadata node identifier.",
+          "type": "string"
         },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "anatomicalLocation",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/controlledTerms/CellType",
-              "https://openminds.ebrains.eu/controlledTerms/Organ",
-              "https://openminds.ebrains.eu/controlledTerms/OrganismSubstance",
-              "https://openminds.ebrains.eu/controlledTerms/SubcellularEntity",
-              "https://openminds.ebrains.eu/controlledTerms/UBERONParcellation",
-              "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity",
-              "https://openminds.ebrains.eu/sands/ParcellationEntity",
-              "https://openminds.ebrains.eu/sands/ParcellationEntityVersion"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
+        "@type": {
+          "const": "https://openminds.ebrains.eu/ephys/PipetteUsage",
+          "description": "Metadata schema identifier.",
+          "type": "string"
         },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/chlorideReversalPotential": {
-      "description": null,
-      "items": {
-        "$ref": "https://openminds.ebrains.eu/core/Measurement?format=json-schema",
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "chlorideReversalPotential",
-      "type": "array"
-    },
-    "https://openminds.ebrains.eu/vocab/compensationCurrent": {
-      "$ref": "https://openminds.ebrains.eu/core/Measurement?format=json-schema",
-      "description": null,
-      "name": "compensationCurrent",
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/device": {
-      "description": "Piece of equipment or mechanism (hardware) designed to serve a special purpose or perform a special function.",
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "device",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/ephys/Pipette"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/endMembranePotential": {
-      "$ref": "https://openminds.ebrains.eu/core/Measurement?format=json-schema",
-      "description": null,
-      "name": "endMembranePotential",
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/holdingPotential": {
-      "$ref": "https://openminds.ebrains.eu/core/Measurement?format=json-schema",
-      "description": null,
-      "name": "holdingPotential",
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/inputResistance": {
-      "$ref": "https://openminds.ebrains.eu/core/Measurement?format=json-schema",
-      "description": null,
-      "name": "inputResistance",
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/labelingCompound": {
-      "description": null,
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "labelingCompound",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/chemicals/ChemicalMixture",
-              "https://openminds.ebrains.eu/chemicals/ChemicalSubstance",
-              "https://openminds.ebrains.eu/controlledTerms/MolecularEntity"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/liquidJunctionPotential": {
-      "$ref": "https://openminds.ebrains.eu/core/Measurement?format=json-schema",
-      "description": null,
-      "name": "liquidJunctionPotential",
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/lookupLabel": {
-      "description": null,
-      "name": "lookupLabel",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/metadataLocation": {
-      "description": null,
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
+        "https://openminds.ebrains.eu/vocab/anatomicalLocation": {
+          "description": null,
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
             },
-            "@type": {
-              "enum": [
-                "https://openminds.ebrains.eu/core/File",
-                "https://openminds.ebrains.eu/core/FileBundle"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
+            "required": [
+              "@id"
+            ]
           },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "metadataLocation",
-      "type": "array",
-      "uniqueItems": true
-    },
-    "https://openminds.ebrains.eu/vocab/pipetteResistance": {
-      "anyOf": [
-        {
-          "$ref": "https://openminds.ebrains.eu/core/QuantitativeValue?format=json-schema",
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "anatomicalLocation",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/controlledTerms/CellType",
+                  "https://openminds.ebrains.eu/controlledTerms/Organ",
+                  "https://openminds.ebrains.eu/controlledTerms/OrganismSubstance",
+                  "https://openminds.ebrains.eu/controlledTerms/SubcellularEntity",
+                  "https://openminds.ebrains.eu/controlledTerms/UBERONParcellation",
+                  "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity",
+                  "https://openminds.ebrains.eu/sands/ParcellationEntity",
+                  "https://openminds.ebrains.eu/sands/ParcellationEntityVersion"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
           "type": "object"
         },
-        {
-          "$ref": "https://openminds.ebrains.eu/core/QuantitativeValueRange?format=json-schema",
+        "https://openminds.ebrains.eu/vocab/chlorideReversalPotential": {
+          "description": null,
+          "items": {
+            "$ref": "https://openminds.ebrains.eu/core/Measurement?format=json-schema#/definitions/embedded",
+            "type": "object"
+          },
+          "minItems": 1,
+          "name": "chlorideReversalPotential",
+          "type": "array"
+        },
+        "https://openminds.ebrains.eu/vocab/compensationCurrent": {
+          "$ref": "https://openminds.ebrains.eu/core/Measurement?format=json-schema#/definitions/embedded",
+          "description": null,
+          "name": "compensationCurrent",
+          "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/device": {
+          "description": "Piece of equipment or mechanism (hardware) designed to serve a special purpose or perform a special function.",
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "device",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/ephys/Pipette"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/endMembranePotential": {
+          "$ref": "https://openminds.ebrains.eu/core/Measurement?format=json-schema#/definitions/embedded",
+          "description": null,
+          "name": "endMembranePotential",
+          "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/holdingPotential": {
+          "$ref": "https://openminds.ebrains.eu/core/Measurement?format=json-schema#/definitions/embedded",
+          "description": null,
+          "name": "holdingPotential",
+          "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/inputResistance": {
+          "$ref": "https://openminds.ebrains.eu/core/Measurement?format=json-schema#/definitions/embedded",
+          "description": null,
+          "name": "inputResistance",
+          "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/labelingCompound": {
+          "description": null,
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "labelingCompound",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/chemicals/ChemicalMixture",
+                  "https://openminds.ebrains.eu/chemicals/ChemicalSubstance",
+                  "https://openminds.ebrains.eu/controlledTerms/MolecularEntity"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/liquidJunctionPotential": {
+          "$ref": "https://openminds.ebrains.eu/core/Measurement?format=json-schema#/definitions/embedded",
+          "description": null,
+          "name": "liquidJunctionPotential",
+          "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/lookupLabel": {
+          "description": null,
+          "name": "lookupLabel",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/metadataLocation": {
+          "description": null,
+          "items": {
+            "else": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "if": {
+              "required": [
+                "@type"
+              ]
+            },
+            "then": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                },
+                "@type": {
+                  "enum": [
+                    "https://openminds.ebrains.eu/core/File",
+                    "https://openminds.ebrains.eu/core/FileBundle"
+                  ],
+                  "format": "iri",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "type": "object"
+          },
+          "minItems": 1,
+          "name": "metadataLocation",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/pipetteResistance": {
+          "anyOf": [
+            {
+              "$ref": "https://openminds.ebrains.eu/core/QuantitativeValue?format=json-schema#/definitions/embedded",
+              "type": "object"
+            },
+            {
+              "$ref": "https://openminds.ebrains.eu/core/QuantitativeValueRange?format=json-schema#/definitions/embedded",
+              "type": "object"
+            }
+          ],
+          "description": null,
+          "name": "pipetteResistance"
+        },
+        "https://openminds.ebrains.eu/vocab/pipetteSolution": {
+          "description": null,
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "pipetteSolution",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/chemicals/ChemicalMixture"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/sealResistance": {
+          "$ref": "https://openminds.ebrains.eu/core/Measurement?format=json-schema#/definitions/embedded",
+          "description": null,
+          "name": "sealResistance",
+          "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/seriesResistance": {
+          "$ref": "https://openminds.ebrains.eu/core/Measurement?format=json-schema#/definitions/embedded",
+          "description": null,
+          "name": "seriesResistance",
+          "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/spatialLocation": {
+          "$ref": "https://openminds.ebrains.eu/sands/CoordinatePoint?format=json-schema#/definitions/embedded",
+          "description": null,
+          "name": "spatialLocation",
+          "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/startMembranePotential": {
+          "$ref": "https://openminds.ebrains.eu/core/Measurement?format=json-schema#/definitions/embedded",
+          "description": null,
+          "name": "startMembranePotential",
+          "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/usedSpecimen": {
+          "description": null,
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "usedSpecimen",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/core/SubjectState",
+                  "https://openminds.ebrains.eu/core/TissueSampleState"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
           "type": "object"
         }
+      },
+      "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/device",
+        "https://openminds.ebrains.eu/vocab/pipetteSolution"
       ],
-      "description": null,
-      "name": "pipetteResistance"
-    },
-    "https://openminds.ebrains.eu/vocab/pipetteSolution": {
-      "description": null,
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "pipetteSolution",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/chemicals/ChemicalMixture"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/sealResistance": {
-      "$ref": "https://openminds.ebrains.eu/core/Measurement?format=json-schema",
-      "description": null,
-      "name": "sealResistance",
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/seriesResistance": {
-      "$ref": "https://openminds.ebrains.eu/core/Measurement?format=json-schema",
-      "description": null,
-      "name": "seriesResistance",
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/spatialLocation": {
-      "$ref": "https://openminds.ebrains.eu/sands/CoordinatePoint?format=json-schema",
-      "description": null,
-      "name": "spatialLocation",
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/startMembranePotential": {
-      "$ref": "https://openminds.ebrains.eu/core/Measurement?format=json-schema",
-      "description": null,
-      "name": "startMembranePotential",
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/usedSpecimen": {
-      "description": null,
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "usedSpecimen",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/core/SubjectState",
-              "https://openminds.ebrains.eu/core/TissueSampleState"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
       "type": "object"
     }
   },
   "required": [
-    "@id",
-    "@type",
-    "https://openminds.ebrains.eu/vocab/device",
-    "https://openminds.ebrains.eu/vocab/pipetteSolution"
+    "@id"
   ],
   "title": "PipetteUsage",
   "type": "object"

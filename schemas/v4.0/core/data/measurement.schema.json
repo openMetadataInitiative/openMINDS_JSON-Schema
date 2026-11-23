@@ -1,134 +1,174 @@
 {
   "$id": "https://openminds.om-i.org/types/Measurement?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": "Structured information about a measurement performed during a scientific experiment.",
-  "properties": {
-    "@id": {
-      "description": "Metadata node identifier.",
-      "type": "string"
-    },
-    "@type": {
-      "const": "https://openminds.om-i.org/types/Measurement",
-      "description": "Metadata schema identifier.",
-      "type": "string"
-    },
-    "https://openminds.om-i.org/props/additionalRemarks": {
-      "description": "Mention of what deserves additional attention or notice.",
-      "name": "additionalRemarks",
-      "type": "string"
-    },
-    "https://openminds.om-i.org/props/measuredQuantity": {
-      "description": null,
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
+  "allOf": [
+    {
+      "$ref": "#/definitions/embedded"
+    }
+  ],
+  "definitions": {
+    "embedded": {
+      "properties": {
+        "@id": {
+          "description": "Metadata node identifier.",
+          "type": "string"
         },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "measuredQuantity",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
+        "@type": {
+          "const": "https://openminds.om-i.org/types/Measurement",
+          "description": "Metadata schema identifier.",
+          "type": "string"
+        },
+        "https://openminds.om-i.org/props/additionalRemarks": {
+          "description": "Mention of what deserves additional attention or notice.",
+          "name": "additionalRemarks",
+          "type": "string"
+        },
+        "https://openminds.om-i.org/props/measuredQuantity": {
+          "description": null,
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
           },
-          "@type": {
-            "enum": [
-              "https://openminds.om-i.org/types/MeasuredQuantity"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "measuredQuantity",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.om-i.org/types/MeasuredQuantity"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
         },
-        "required": [
-          "@id"
-        ]
+        "https://openminds.om-i.org/props/measuredWith": {
+          "description": null,
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "measuredWith",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.om-i.org/types/ElectrodeArrayUsage",
+                  "https://openminds.om-i.org/types/ElectrodeUsage",
+                  "https://openminds.om-i.org/types/PipetteUsage",
+                  "https://openminds.om-i.org/types/SlicingDeviceUsage"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
+        },
+        "https://openminds.om-i.org/props/timestamp": {
+          "description": null,
+          "format": "date-time",
+          "name": "timestamp",
+          "type": "string"
+        },
+        "https://openminds.om-i.org/props/value": {
+          "description": "Entry for a property.",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
+                "type": "object"
+              },
+              {
+                "$ref": "https://openminds.om-i.org/types/QuantitativeValueRange?format=json-schema#/definitions/embedded",
+                "type": "object"
+              }
+            ]
+          },
+          "minItems": 1,
+          "name": "value",
+          "type": "array",
+          "uniqueItems": true
+        }
       },
+      "required": [
+        "@type",
+        "https://openminds.om-i.org/props/measuredQuantity",
+        "https://openminds.om-i.org/props/value"
+      ],
       "type": "object"
-    },
-    "https://openminds.om-i.org/props/measuredWith": {
-      "description": null,
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "measuredWith",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          },
-          "@type": {
-            "enum": [
-              "https://openminds.om-i.org/types/ElectrodeArrayUsage",
-              "https://openminds.om-i.org/types/ElectrodeUsage",
-              "https://openminds.om-i.org/types/PipetteUsage",
-              "https://openminds.om-i.org/types/SlicingDeviceUsage"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
-    "https://openminds.om-i.org/props/timestamp": {
-      "description": null,
-      "format": "date-time",
-      "name": "timestamp",
-      "type": "string"
-    },
-    "https://openminds.om-i.org/props/value": {
-      "description": "Entry for a property.",
-      "items": {
-        "anyOf": [
-          {
-            "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema",
-            "type": "object"
-          },
-          {
-            "$ref": "https://openminds.om-i.org/types/QuantitativeValueRange?format=json-schema",
-            "type": "object"
-          }
-        ]
-      },
-      "minItems": 1,
-      "name": "value",
-      "type": "array",
-      "uniqueItems": true
     }
   },
+  "description": "Structured information about a measurement performed during a scientific experiment.",
   "required": [
-    "@id",
-    "@type",
-    "https://openminds.om-i.org/props/measuredQuantity",
-    "https://openminds.om-i.org/props/value"
+    "@id"
   ],
   "title": "Measurement",
   "type": "object"

@@ -1,67 +1,93 @@
 {
   "$id": "https://openminds.om-i.org/types/AccountInformation?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": "Structured information about a user account for a web service.",
-  "properties": {
-    "@id": {
-      "description": "Metadata node identifier.",
-      "type": "string"
-    },
-    "@type": {
-      "const": "https://openminds.om-i.org/types/AccountInformation",
-      "description": "Metadata schema identifier.",
-      "type": "string"
-    },
-    "https://openminds.om-i.org/props/service": {
-      "description": null,
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
+  "allOf": [
+    {
+      "$ref": "#/definitions/embedded"
+    }
+  ],
+  "definitions": {
+    "embedded": {
+      "properties": {
+        "@id": {
+          "description": "Metadata node identifier.",
+          "type": "string"
         },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "service",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
+        "@type": {
+          "const": "https://openminds.om-i.org/types/AccountInformation",
+          "description": "Metadata schema identifier.",
+          "type": "string"
+        },
+        "https://openminds.om-i.org/props/service": {
+          "description": null,
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
           },
-          "@type": {
-            "enum": [
-              "https://openminds.om-i.org/types/WebService"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "service",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.om-i.org/types/WebService"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
         },
-        "required": [
-          "@id"
-        ]
+        "https://openminds.om-i.org/props/userName": {
+          "description": null,
+          "name": "userName",
+          "type": "string"
+        }
       },
+      "required": [
+        "@type",
+        "https://openminds.om-i.org/props/service",
+        "https://openminds.om-i.org/props/userName"
+      ],
       "type": "object"
-    },
-    "https://openminds.om-i.org/props/userName": {
-      "description": null,
-      "name": "userName",
-      "type": "string"
     }
   },
+  "description": "Structured information about a user account for a web service.",
   "required": [
-    "@id",
-    "@type",
-    "https://openminds.om-i.org/props/service",
-    "https://openminds.om-i.org/props/userName"
+    "@id"
   ],
   "title": "AccountInformation",
   "type": "object"

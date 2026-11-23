@@ -1,373 +1,497 @@
 {
   "$id": "https://openminds.ebrains.eu/sands/Annotation?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": "Structured information on an image annotation.",
-  "properties": {
-    "@id": {
-      "description": "Metadata node identifier.",
-      "type": "string"
-    },
-    "@type": {
-      "const": "https://openminds.ebrains.eu/sands/Annotation",
-      "description": "Metadata schema identifier.",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/bestViewPoint": {
-      "description": "Coordinate point from which you get the best view of something.",
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
+  "allOf": [
+    {
+      "$ref": "#/definitions/embedded"
+    }
+  ],
+  "definitions": {
+    "embedded": {
+      "properties": {
+        "@id": {
+          "description": "Metadata node identifier.",
+          "type": "string"
         },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "bestViewPoint",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/sands/CoordinatePoint"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
+        "@type": {
+          "const": "https://openminds.ebrains.eu/sands/Annotation",
+          "description": "Metadata schema identifier.",
+          "type": "string"
         },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/criteria": {
-      "description": "Aspects or standards on which a judgement or decision is based.",
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "criteria",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/core/ProtocolExecution"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/criteriaQualityType": {
-      "description": "Distinct class that defines how the judgement or decision was made for a particular criteria.",
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "criteriaQualityType",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/controlledTerms/CriteriaQualityType"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/displayColor": {
-      "description": "Preferred coloring.",
-      "items": {
-        "maximum": 255,
-        "type": "integer"
-      },
-      "maxItems": 3,
-      "minItems": 3,
-      "name": "displayColor",
-      "type": "array"
-    },
-    "https://openminds.ebrains.eu/vocab/inspiredBy": {
-      "description": "Reference to an inspiring element.",
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
+        "https://openminds.ebrains.eu/vocab/bestViewPoint": {
+          "description": "Coordinate point from which you get the best view of something.",
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
             },
-            "@type": {
-              "enum": [
-                "https://openminds.ebrains.eu/sands/Image"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
+            "required": [
+              "@id"
+            ]
           },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "inspiredBy",
-      "type": "array",
-      "uniqueItems": true
-    },
-    "https://openminds.ebrains.eu/vocab/internalIdentifier": {
-      "description": "Term or code that identifies someone or something within a particular product.",
-      "name": "internalIdentifier",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/laterality": {
-      "description": "Differentiation between a pair of lateral homologous parts of the body.",
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
+          "if": {
+            "required": [
+              "@type"
+            ]
           },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
+          "name": "bestViewPoint",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/sands/CoordinatePoint"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
             },
-            "@type": {
-              "enum": [
-                "https://openminds.ebrains.eu/controlledTerms/Laterality"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
+            "required": [
+              "@id"
+            ]
           },
-          "required": [
-            "@id"
-          ]
+          "type": "object"
         },
-        "type": "object"
-      },
-      "maxItems": 2,
-      "minItems": 1,
-      "name": "laterality",
-      "type": "array",
-      "uniqueItems": true
-    },
-    "https://openminds.ebrains.eu/vocab/namingTerm": {
-      "description": "Word or expression that has a precise meaning within a science, art, profession, or subject.",
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
+        "https://openminds.ebrains.eu/vocab/criteria": {
+          "description": "Aspects or standards on which a judgement or decision is based.",
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
             },
-            "@type": {
-              "enum": [
-                "https://openminds.ebrains.eu/sands/AnatomicalEntity"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
+            "required": [
+              "@id"
+            ]
           },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "namingTerm",
-      "type": "array",
-      "uniqueItems": true
-    },
-    "https://openminds.ebrains.eu/vocab/relatedAtlasTerm": {
-      "description": "Reference to a related naming term of an anatomical structure that is defined in a particular brain atlas.",
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
+          "if": {
+            "required": [
+              "@type"
+            ]
           },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
+          "name": "criteria",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/core/ProtocolExecution"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
             },
-            "@type": {
-              "enum": [
-                "https://openminds.ebrains.eu/sands/AnatomicalEntity"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
+            "required": [
+              "@id"
+            ]
           },
-          "required": [
-            "@id"
-          ]
+          "type": "object"
         },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "relatedAtlasTerm",
-      "type": "array"
-    },
-    "https://openminds.ebrains.eu/vocab/visualizedIn": {
-      "description": "Reference to an image in which something is visible.",
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "visualizedIn",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
+        "https://openminds.ebrains.eu/vocab/criteriaQualityType": {
+          "description": "Distinct class that defines how the judgement or decision was made for a particular criteria.",
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
           },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/sands/Image"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "criteriaQualityType",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/controlledTerms/CriteriaQualityType"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
         },
-        "required": [
-          "@id"
-        ]
+        "https://openminds.ebrains.eu/vocab/displayColor": {
+          "description": "Preferred coloring.",
+          "items": {
+            "maximum": 255,
+            "type": "integer"
+          },
+          "maxItems": 3,
+          "minItems": 3,
+          "name": "displayColor",
+          "type": "array"
+        },
+        "https://openminds.ebrains.eu/vocab/inspiredBy": {
+          "description": "Reference to an inspiring element.",
+          "items": {
+            "else": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "if": {
+              "required": [
+                "@type"
+              ]
+            },
+            "then": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                },
+                "@type": {
+                  "enum": [
+                    "https://openminds.ebrains.eu/sands/Image"
+                  ],
+                  "format": "iri",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "type": "object"
+          },
+          "minItems": 1,
+          "name": "inspiredBy",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/internalIdentifier": {
+          "description": "Term or code that identifies someone or something within a particular product.",
+          "name": "internalIdentifier",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/laterality": {
+          "description": "Differentiation between a pair of lateral homologous parts of the body.",
+          "items": {
+            "else": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "if": {
+              "required": [
+                "@type"
+              ]
+            },
+            "then": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                },
+                "@type": {
+                  "enum": [
+                    "https://openminds.ebrains.eu/controlledTerms/Laterality"
+                  ],
+                  "format": "iri",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "type": "object"
+          },
+          "maxItems": 2,
+          "minItems": 1,
+          "name": "laterality",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/namingTerm": {
+          "description": "Word or expression that has a precise meaning within a science, art, profession, or subject.",
+          "items": {
+            "else": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "if": {
+              "required": [
+                "@type"
+              ]
+            },
+            "then": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                },
+                "@type": {
+                  "enum": [
+                    "https://openminds.ebrains.eu/sands/AnatomicalEntity"
+                  ],
+                  "format": "iri",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "type": "object"
+          },
+          "minItems": 1,
+          "name": "namingTerm",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/relatedAtlasTerm": {
+          "description": "Reference to a related naming term of an anatomical structure that is defined in a particular brain atlas.",
+          "items": {
+            "else": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "if": {
+              "required": [
+                "@type"
+              ]
+            },
+            "then": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                },
+                "@type": {
+                  "enum": [
+                    "https://openminds.ebrains.eu/sands/AnatomicalEntity"
+                  ],
+                  "format": "iri",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "type": "object"
+          },
+          "minItems": 1,
+          "name": "relatedAtlasTerm",
+          "type": "array"
+        },
+        "https://openminds.ebrains.eu/vocab/visualizedIn": {
+          "description": "Reference to an image in which something is visible.",
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "visualizedIn",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/sands/Image"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
+        }
       },
+      "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/criteriaQualityType",
+        "https://openminds.ebrains.eu/vocab/internalIdentifier",
+        "https://openminds.ebrains.eu/vocab/laterality",
+        "https://openminds.ebrains.eu/vocab/namingTerm"
+      ],
       "type": "object"
     }
   },
+  "description": "Structured information on an image annotation.",
   "required": [
-    "@id",
-    "@type",
-    "https://openminds.ebrains.eu/vocab/criteriaQualityType",
-    "https://openminds.ebrains.eu/vocab/internalIdentifier",
-    "https://openminds.ebrains.eu/vocab/laterality",
-    "https://openminds.ebrains.eu/vocab/namingTerm"
+    "@id"
   ],
   "title": "Annotation",
   "type": "object"

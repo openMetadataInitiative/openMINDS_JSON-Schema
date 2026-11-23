@@ -1,72 +1,98 @@
 {
   "$id": "https://openminds.ebrains.eu/core/Configuration?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": "Structured information about the properties or parameters of an entity or process.",
-  "properties": {
-    "@id": {
-      "description": "Metadata node identifier.",
-      "type": "string"
-    },
-    "@type": {
-      "const": "https://openminds.ebrains.eu/core/Configuration",
-      "description": "Metadata schema identifier.",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/configuration": {
-      "description": null,
-      "name": "configuration",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/format": {
-      "description": "Method of digitally organizing and structuring data or information.",
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
+  "allOf": [
+    {
+      "$ref": "#/definitions/embedded"
+    }
+  ],
+  "definitions": {
+    "embedded": {
+      "properties": {
+        "@id": {
+          "description": "Metadata node identifier.",
+          "type": "string"
         },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "format",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
+        "@type": {
+          "const": "https://openminds.ebrains.eu/core/Configuration",
+          "description": "Metadata schema identifier.",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/configuration": {
+          "description": null,
+          "name": "configuration",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/format": {
+          "description": "Method of digitally organizing and structuring data or information.",
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
           },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/core/ContentType"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "format",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/core/ContentType"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
         },
-        "required": [
-          "@id"
-        ]
+        "https://openminds.ebrains.eu/vocab/lookupLabel": {
+          "description": null,
+          "name": "lookupLabel",
+          "type": "string"
+        }
       },
+      "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/configuration",
+        "https://openminds.ebrains.eu/vocab/format"
+      ],
       "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/lookupLabel": {
-      "description": null,
-      "name": "lookupLabel",
-      "type": "string"
     }
   },
+  "description": "Structured information about the properties or parameters of an entity or process.",
   "required": [
-    "@id",
-    "@type",
-    "https://openminds.ebrains.eu/vocab/configuration",
-    "https://openminds.ebrains.eu/vocab/format"
+    "@id"
   ],
   "title": "Configuration",
   "type": "object"

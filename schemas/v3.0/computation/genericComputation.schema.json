@@ -1,598 +1,764 @@
 {
   "$id": "https://openminds.ebrains.eu/computation/GenericComputation?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": "Structured information about a computation whose type is unknown or unspecified.",
-  "properties": {
-    "@id": {
-      "description": "Metadata node identifier.",
-      "type": "string"
-    },
-    "@type": {
-      "const": "https://openminds.ebrains.eu/computation/GenericComputation",
-      "description": "Metadata schema identifier.",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/customPropertySet": {
-      "description": null,
-      "items": {
-        "$ref": "https://openminds.ebrains.eu/core/CustomPropertySet?format=json-schema",
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "customPropertySet",
-      "type": "array",
-      "uniqueItems": true
-    },
-    "https://openminds.ebrains.eu/vocab/description": {
-      "description": "Longer statement or account giving the characteristics of someone or something.",
-      "name": "description",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/endTime": {
-      "anyOf": [
-        {
-          "format": "date-time",
+  "allOf": [
+    {
+      "$ref": "#/definitions/embedded"
+    }
+  ],
+  "definitions": {
+    "embedded": {
+      "properties": {
+        "@id": {
+          "description": "Metadata node identifier.",
           "type": "string"
         },
-        {
-          "format": "time",
+        "@type": {
+          "const": "https://openminds.ebrains.eu/computation/GenericComputation",
+          "description": "Metadata schema identifier.",
           "type": "string"
-        }
-      ],
-      "description": null,
-      "name": "endTime"
-    },
-    "https://openminds.ebrains.eu/vocab/environment": {
-      "description": null,
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
         },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "environment",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/computation/Environment",
-              "https://openminds.ebrains.eu/core/WebServiceVersion"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/input": {
-      "description": "Something or someone that is put into or participates in a process or machine.",
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            },
-            "@type": {
-              "enum": [
-                "https://openminds.ebrains.eu/computation/LocalFile",
-                "https://openminds.ebrains.eu/core/File",
-                "https://openminds.ebrains.eu/core/FileBundle",
-                "https://openminds.ebrains.eu/core/SoftwareVersion"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "input",
-      "type": "array",
-      "uniqueItems": true
-    },
-    "https://openminds.ebrains.eu/vocab/launchConfiguration": {
-      "description": null,
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "launchConfiguration",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/computation/LaunchConfiguration"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/lookupLabel": {
-      "description": null,
-      "name": "lookupLabel",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/output": {
-      "description": "Something or someone that comes out of, is delivered or produced by a process or machine.",
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            },
-            "@type": {
-              "enum": [
-                "https://openminds.ebrains.eu/computation/LocalFile",
-                "https://openminds.ebrains.eu/core/File",
-                "https://openminds.ebrains.eu/core/FileArchive",
-                "https://openminds.ebrains.eu/core/FileBundle"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "output",
-      "type": "array",
-      "uniqueItems": true
-    },
-    "https://openminds.ebrains.eu/vocab/performedBy": {
-      "description": null,
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            },
-            "@type": {
-              "enum": [
-                "https://openminds.ebrains.eu/computation/SoftwareAgent",
-                "https://openminds.ebrains.eu/core/Person"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "performedBy",
-      "type": "array",
-      "uniqueItems": true
-    },
-    "https://openminds.ebrains.eu/vocab/recipe": {
-      "description": null,
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "recipe",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/computation/WorkflowRecipeVersion"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/resourceUsage": {
-      "description": null,
-      "items": {
-        "anyOf": [
-          {
-            "$ref": "https://openminds.ebrains.eu/core/QuantitativeValue?format=json-schema",
+        "https://openminds.ebrains.eu/vocab/customPropertySet": {
+          "description": null,
+          "items": {
+            "$ref": "https://openminds.ebrains.eu/core/CustomPropertySet?format=json-schema#/definitions/embedded",
             "type": "object"
           },
-          {
-            "$ref": "https://openminds.ebrains.eu/core/QuantitativeValueRange?format=json-schema",
+          "minItems": 1,
+          "name": "customPropertySet",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/description": {
+          "description": "Longer statement or account giving the characteristics of someone or something.",
+          "name": "description",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/endTime": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "format": "time",
+              "type": "string"
+            }
+          ],
+          "description": null,
+          "name": "endTime"
+        },
+        "https://openminds.ebrains.eu/vocab/environment": {
+          "description": null,
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "environment",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/computation/Environment",
+                  "https://openminds.ebrains.eu/core/WebServiceVersion"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/input": {
+          "description": "Something or someone that is put into or participates in a process or machine.",
+          "items": {
+            "else": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "if": {
+              "required": [
+                "@type"
+              ]
+            },
+            "then": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                },
+                "@type": {
+                  "enum": [
+                    "https://openminds.ebrains.eu/computation/LocalFile",
+                    "https://openminds.ebrains.eu/core/File",
+                    "https://openminds.ebrains.eu/core/FileBundle",
+                    "https://openminds.ebrains.eu/core/SoftwareVersion"
+                  ],
+                  "format": "iri",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
             "type": "object"
-          }
-        ]
-      },
-      "minItems": 1,
-      "name": "resourceUsage",
-      "type": "array",
-      "uniqueItems": true
-    },
-    "https://openminds.ebrains.eu/vocab/startTime": {
-      "anyOf": [
-        {
-          "format": "date-time",
+          },
+          "minItems": 1,
+          "name": "input",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/launchConfiguration": {
+          "description": null,
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "launchConfiguration",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/computation/LaunchConfiguration"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/lookupLabel": {
+          "description": null,
+          "name": "lookupLabel",
           "type": "string"
         },
-        {
-          "format": "time",
-          "type": "string"
+        "https://openminds.ebrains.eu/vocab/output": {
+          "description": "Something or someone that comes out of, is delivered or produced by a process or machine.",
+          "items": {
+            "else": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "if": {
+              "required": [
+                "@type"
+              ]
+            },
+            "then": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                },
+                "@type": {
+                  "enum": [
+                    "https://openminds.ebrains.eu/computation/LocalFile",
+                    "https://openminds.ebrains.eu/core/File",
+                    "https://openminds.ebrains.eu/core/FileArchive",
+                    "https://openminds.ebrains.eu/core/FileBundle"
+                  ],
+                  "format": "iri",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "type": "object"
+          },
+          "minItems": 1,
+          "name": "output",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/performedBy": {
+          "description": null,
+          "items": {
+            "else": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "if": {
+              "required": [
+                "@type"
+              ]
+            },
+            "then": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                },
+                "@type": {
+                  "enum": [
+                    "https://openminds.ebrains.eu/computation/SoftwareAgent",
+                    "https://openminds.ebrains.eu/core/Person"
+                  ],
+                  "format": "iri",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "type": "object"
+          },
+          "minItems": 1,
+          "name": "performedBy",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/recipe": {
+          "description": null,
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "recipe",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/computation/WorkflowRecipeVersion"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/resourceUsage": {
+          "description": null,
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "https://openminds.ebrains.eu/core/QuantitativeValue?format=json-schema#/definitions/embedded",
+                "type": "object"
+              },
+              {
+                "$ref": "https://openminds.ebrains.eu/core/QuantitativeValueRange?format=json-schema#/definitions/embedded",
+                "type": "object"
+              }
+            ]
+          },
+          "minItems": 1,
+          "name": "resourceUsage",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/startTime": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "format": "time",
+              "type": "string"
+            }
+          ],
+          "description": null,
+          "name": "startTime"
+        },
+        "https://openminds.ebrains.eu/vocab/startedBy": {
+          "description": null,
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "startedBy",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/computation/SoftwareAgent",
+                  "https://openminds.ebrains.eu/core/Person"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/status": {
+          "description": null,
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "status",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/controlledTerms/ActionStatusType"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/studyTarget": {
+          "description": "Structure or function that was targeted within a study.",
+          "items": {
+            "else": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "if": {
+              "required": [
+                "@type"
+              ]
+            },
+            "then": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                },
+                "@type": {
+                  "enum": [
+                    "https://openminds.ebrains.eu/controlledTerms/AuditoryStimulusType",
+                    "https://openminds.ebrains.eu/controlledTerms/BiologicalOrder",
+                    "https://openminds.ebrains.eu/controlledTerms/BiologicalSex",
+                    "https://openminds.ebrains.eu/controlledTerms/BreedingType",
+                    "https://openminds.ebrains.eu/controlledTerms/CellCultureType",
+                    "https://openminds.ebrains.eu/controlledTerms/CellType",
+                    "https://openminds.ebrains.eu/controlledTerms/Disease",
+                    "https://openminds.ebrains.eu/controlledTerms/DiseaseModel",
+                    "https://openminds.ebrains.eu/controlledTerms/ElectricalStimulusType",
+                    "https://openminds.ebrains.eu/controlledTerms/GeneticStrainType",
+                    "https://openminds.ebrains.eu/controlledTerms/GustatoryStimulusType",
+                    "https://openminds.ebrains.eu/controlledTerms/Handedness",
+                    "https://openminds.ebrains.eu/controlledTerms/MolecularEntity",
+                    "https://openminds.ebrains.eu/controlledTerms/OlfactoryStimulusType",
+                    "https://openminds.ebrains.eu/controlledTerms/OpticalStimulusType",
+                    "https://openminds.ebrains.eu/controlledTerms/Organ",
+                    "https://openminds.ebrains.eu/controlledTerms/OrganismSubstance",
+                    "https://openminds.ebrains.eu/controlledTerms/OrganismSystem",
+                    "https://openminds.ebrains.eu/controlledTerms/Species",
+                    "https://openminds.ebrains.eu/controlledTerms/SubcellularEntity",
+                    "https://openminds.ebrains.eu/controlledTerms/TactileStimulusType",
+                    "https://openminds.ebrains.eu/controlledTerms/TermSuggestion",
+                    "https://openminds.ebrains.eu/controlledTerms/UBERONParcellation",
+                    "https://openminds.ebrains.eu/controlledTerms/VisualStimulusType",
+                    "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity",
+                    "https://openminds.ebrains.eu/sands/ParcellationEntity",
+                    "https://openminds.ebrains.eu/sands/ParcellationEntityVersion"
+                  ],
+                  "format": "iri",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "type": "object"
+          },
+          "minItems": 1,
+          "name": "studyTarget",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/tag": {
+          "description": null,
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "name": "tag",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/technique": {
+          "description": "Method of accomplishing a desired aim.",
+          "items": {
+            "else": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "if": {
+              "required": [
+                "@type"
+              ]
+            },
+            "then": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                },
+                "@type": {
+                  "enum": [
+                    "https://openminds.ebrains.eu/controlledTerms/AnalysisTechnique"
+                  ],
+                  "format": "iri",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "type": "object"
+          },
+          "minItems": 1,
+          "name": "technique",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/wasInformedBy": {
+          "description": null,
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "wasInformedBy",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/computation/DataAnalysis",
+                  "https://openminds.ebrains.eu/computation/DataCopy",
+                  "https://openminds.ebrains.eu/computation/GenericComputation",
+                  "https://openminds.ebrains.eu/computation/ModelValidation",
+                  "https://openminds.ebrains.eu/computation/Optimization",
+                  "https://openminds.ebrains.eu/computation/Simulation",
+                  "https://openminds.ebrains.eu/computation/Visualization"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
         }
+      },
+      "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/environment",
+        "https://openminds.ebrains.eu/vocab/input",
+        "https://openminds.ebrains.eu/vocab/output",
+        "https://openminds.ebrains.eu/vocab/startTime"
       ],
-      "description": null,
-      "name": "startTime"
-    },
-    "https://openminds.ebrains.eu/vocab/startedBy": {
-      "description": null,
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "startedBy",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/computation/SoftwareAgent",
-              "https://openminds.ebrains.eu/core/Person"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/status": {
-      "description": null,
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "status",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/controlledTerms/ActionStatusType"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/studyTarget": {
-      "description": "Structure or function that was targeted within a study.",
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            },
-            "@type": {
-              "enum": [
-                "https://openminds.ebrains.eu/controlledTerms/AuditoryStimulusType",
-                "https://openminds.ebrains.eu/controlledTerms/BiologicalOrder",
-                "https://openminds.ebrains.eu/controlledTerms/BiologicalSex",
-                "https://openminds.ebrains.eu/controlledTerms/BreedingType",
-                "https://openminds.ebrains.eu/controlledTerms/CellCultureType",
-                "https://openminds.ebrains.eu/controlledTerms/CellType",
-                "https://openminds.ebrains.eu/controlledTerms/Disease",
-                "https://openminds.ebrains.eu/controlledTerms/DiseaseModel",
-                "https://openminds.ebrains.eu/controlledTerms/ElectricalStimulusType",
-                "https://openminds.ebrains.eu/controlledTerms/GeneticStrainType",
-                "https://openminds.ebrains.eu/controlledTerms/GustatoryStimulusType",
-                "https://openminds.ebrains.eu/controlledTerms/Handedness",
-                "https://openminds.ebrains.eu/controlledTerms/MolecularEntity",
-                "https://openminds.ebrains.eu/controlledTerms/OlfactoryStimulusType",
-                "https://openminds.ebrains.eu/controlledTerms/OpticalStimulusType",
-                "https://openminds.ebrains.eu/controlledTerms/Organ",
-                "https://openminds.ebrains.eu/controlledTerms/OrganismSubstance",
-                "https://openminds.ebrains.eu/controlledTerms/OrganismSystem",
-                "https://openminds.ebrains.eu/controlledTerms/Species",
-                "https://openminds.ebrains.eu/controlledTerms/SubcellularEntity",
-                "https://openminds.ebrains.eu/controlledTerms/TactileStimulusType",
-                "https://openminds.ebrains.eu/controlledTerms/TermSuggestion",
-                "https://openminds.ebrains.eu/controlledTerms/UBERONParcellation",
-                "https://openminds.ebrains.eu/controlledTerms/VisualStimulusType",
-                "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity",
-                "https://openminds.ebrains.eu/sands/ParcellationEntity",
-                "https://openminds.ebrains.eu/sands/ParcellationEntityVersion"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "studyTarget",
-      "type": "array",
-      "uniqueItems": true
-    },
-    "https://openminds.ebrains.eu/vocab/tag": {
-      "description": null,
-      "items": {
-        "type": "string"
-      },
-      "minItems": 1,
-      "name": "tag",
-      "type": "array",
-      "uniqueItems": true
-    },
-    "https://openminds.ebrains.eu/vocab/technique": {
-      "description": "Method of accomplishing a desired aim.",
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            },
-            "@type": {
-              "enum": [
-                "https://openminds.ebrains.eu/controlledTerms/AnalysisTechnique"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "technique",
-      "type": "array",
-      "uniqueItems": true
-    },
-    "https://openminds.ebrains.eu/vocab/wasInformedBy": {
-      "description": null,
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "wasInformedBy",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/computation/DataAnalysis",
-              "https://openminds.ebrains.eu/computation/DataCopy",
-              "https://openminds.ebrains.eu/computation/GenericComputation",
-              "https://openminds.ebrains.eu/computation/ModelValidation",
-              "https://openminds.ebrains.eu/computation/Optimization",
-              "https://openminds.ebrains.eu/computation/Simulation",
-              "https://openminds.ebrains.eu/computation/Visualization"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
       "type": "object"
     }
   },
+  "description": "Structured information about a computation whose type is unknown or unspecified.",
   "required": [
-    "@id",
-    "@type",
-    "https://openminds.ebrains.eu/vocab/environment",
-    "https://openminds.ebrains.eu/vocab/input",
-    "https://openminds.ebrains.eu/vocab/output",
-    "https://openminds.ebrains.eu/vocab/startTime"
+    "@id"
   ],
   "title": "GenericComputation",
   "type": "object"

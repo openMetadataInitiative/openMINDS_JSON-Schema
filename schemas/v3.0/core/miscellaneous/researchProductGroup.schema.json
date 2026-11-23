@@ -1,91 +1,116 @@
 {
   "$id": "https://openminds.ebrains.eu/core/ResearchProductGroup?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": null,
-  "properties": {
-    "@id": {
-      "description": "Metadata node identifier.",
-      "type": "string"
-    },
-    "@type": {
-      "const": "https://openminds.ebrains.eu/core/ResearchProductGroup",
-      "description": "Metadata schema identifier.",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/context": {
-      "description": null,
-      "name": "context",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/hasPart": {
-      "description": null,
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
+  "allOf": [
+    {
+      "$ref": "#/definitions/embedded"
+    }
+  ],
+  "definitions": {
+    "embedded": {
+      "properties": {
+        "@id": {
+          "description": "Metadata node identifier.",
+          "type": "string"
         },
-        "if": {
-          "required": [
-            "@type"
-          ]
+        "@type": {
+          "const": "https://openminds.ebrains.eu/core/ResearchProductGroup",
+          "description": "Metadata schema identifier.",
+          "type": "string"
         },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
+        "https://openminds.ebrains.eu/vocab/context": {
+          "description": null,
+          "name": "context",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/hasPart": {
+          "description": null,
+          "items": {
+            "else": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
             },
-            "@type": {
-              "enum": [
-                "https://openminds.ebrains.eu/computation/ValidationTest",
-                "https://openminds.ebrains.eu/computation/ValidationTestVersion",
-                "https://openminds.ebrains.eu/computation/WorkflowRecipe",
-                "https://openminds.ebrains.eu/computation/WorkflowRecipeVersion",
-                "https://openminds.ebrains.eu/core/Dataset",
-                "https://openminds.ebrains.eu/core/DatasetVersion",
-                "https://openminds.ebrains.eu/core/MetaDataModel",
-                "https://openminds.ebrains.eu/core/MetaDataModelVersion",
-                "https://openminds.ebrains.eu/core/Model",
-                "https://openminds.ebrains.eu/core/ModelVersion",
-                "https://openminds.ebrains.eu/core/Software",
-                "https://openminds.ebrains.eu/core/SoftwareVersion",
-                "https://openminds.ebrains.eu/core/WebService",
-                "https://openminds.ebrains.eu/core/WebServiceVersion",
-                "https://openminds.ebrains.eu/publications/LivePaper",
-                "https://openminds.ebrains.eu/publications/LivePaperVersion",
-                "https://openminds.ebrains.eu/sands/BrainAtlas",
-                "https://openminds.ebrains.eu/sands/BrainAtlasVersion",
-                "https://openminds.ebrains.eu/sands/CommonCoordinateSpace",
-                "https://openminds.ebrains.eu/sands/CommonCoordinateSpaceVersion"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
+            "if": {
+              "required": [
+                "@type"
+              ]
+            },
+            "then": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                },
+                "@type": {
+                  "enum": [
+                    "https://openminds.ebrains.eu/computation/ValidationTest",
+                    "https://openminds.ebrains.eu/computation/ValidationTestVersion",
+                    "https://openminds.ebrains.eu/computation/WorkflowRecipe",
+                    "https://openminds.ebrains.eu/computation/WorkflowRecipeVersion",
+                    "https://openminds.ebrains.eu/core/Dataset",
+                    "https://openminds.ebrains.eu/core/DatasetVersion",
+                    "https://openminds.ebrains.eu/core/MetaDataModel",
+                    "https://openminds.ebrains.eu/core/MetaDataModelVersion",
+                    "https://openminds.ebrains.eu/core/Model",
+                    "https://openminds.ebrains.eu/core/ModelVersion",
+                    "https://openminds.ebrains.eu/core/Software",
+                    "https://openminds.ebrains.eu/core/SoftwareVersion",
+                    "https://openminds.ebrains.eu/core/WebService",
+                    "https://openminds.ebrains.eu/core/WebServiceVersion",
+                    "https://openminds.ebrains.eu/publications/LivePaper",
+                    "https://openminds.ebrains.eu/publications/LivePaperVersion",
+                    "https://openminds.ebrains.eu/sands/BrainAtlas",
+                    "https://openminds.ebrains.eu/sands/BrainAtlasVersion",
+                    "https://openminds.ebrains.eu/sands/CommonCoordinateSpace",
+                    "https://openminds.ebrains.eu/sands/CommonCoordinateSpaceVersion"
+                  ],
+                  "format": "iri",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "type": "object"
           },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
+          "minItems": 1,
+          "name": "hasPart",
+          "type": "array",
+          "uniqueItems": true
+        }
       },
-      "minItems": 1,
-      "name": "hasPart",
-      "type": "array",
-      "uniqueItems": true
+      "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/context",
+        "https://openminds.ebrains.eu/vocab/hasPart"
+      ],
+      "type": "object"
     }
   },
   "required": [
-    "@id",
-    "@type",
-    "https://openminds.ebrains.eu/vocab/context",
-    "https://openminds.ebrains.eu/vocab/hasPart"
+    "@id"
   ],
   "title": "ResearchProductGroup",
   "type": "object"

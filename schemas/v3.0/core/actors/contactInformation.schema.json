@@ -1,28 +1,40 @@
 {
   "$id": "https://openminds.ebrains.eu/core/ContactInformation?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": "Structured information about how to contact a given person or consortium.",
-  "properties": {
-    "@id": {
-      "description": "Metadata node identifier.",
-      "type": "string"
-    },
-    "@type": {
-      "const": "https://openminds.ebrains.eu/core/ContactInformation",
-      "description": "Metadata schema identifier.",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/email": {
-      "description": "Address to which or from which an electronic mail can be sent.",
-      "format": "email",
-      "name": "email",
-      "type": "string"
+  "allOf": [
+    {
+      "$ref": "#/definitions/embedded"
+    }
+  ],
+  "definitions": {
+    "embedded": {
+      "properties": {
+        "@id": {
+          "description": "Metadata node identifier.",
+          "type": "string"
+        },
+        "@type": {
+          "const": "https://openminds.ebrains.eu/core/ContactInformation",
+          "description": "Metadata schema identifier.",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/email": {
+          "description": "Address to which or from which an electronic mail can be sent.",
+          "format": "email",
+          "name": "email",
+          "type": "string"
+        }
+      },
+      "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/email"
+      ],
+      "type": "object"
     }
   },
+  "description": "Structured information about how to contact a given person or consortium.",
   "required": [
-    "@id",
-    "@type",
-    "https://openminds.ebrains.eu/vocab/email"
+    "@id"
   ],
   "title": "ContactInformation",
   "type": "object"

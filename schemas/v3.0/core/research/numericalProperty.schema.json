@@ -1,46 +1,58 @@
 {
   "$id": "https://openminds.ebrains.eu/core/NumericalProperty?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": "Structured information about a property of some entity or process whose value is a number.",
-  "properties": {
-    "@id": {
-      "description": "Metadata node identifier.",
-      "type": "string"
-    },
-    "@type": {
-      "const": "https://openminds.ebrains.eu/core/NumericalProperty",
-      "description": "Metadata schema identifier.",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/name": {
-      "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
-      "name": "name",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/value": {
-      "description": "Entry for a property.",
-      "items": {
-        "anyOf": [
-          {
-            "$ref": "https://openminds.ebrains.eu/core/QuantitativeValue?format=json-schema",
-            "type": "object"
+  "allOf": [
+    {
+      "$ref": "#/definitions/embedded"
+    }
+  ],
+  "definitions": {
+    "embedded": {
+      "properties": {
+        "@id": {
+          "description": "Metadata node identifier.",
+          "type": "string"
+        },
+        "@type": {
+          "const": "https://openminds.ebrains.eu/core/NumericalProperty",
+          "description": "Metadata schema identifier.",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/name": {
+          "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+          "name": "name",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/value": {
+          "description": "Entry for a property.",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "https://openminds.ebrains.eu/core/QuantitativeValue?format=json-schema#/definitions/embedded",
+                "type": "object"
+              },
+              {
+                "$ref": "https://openminds.ebrains.eu/core/QuantitativeValueRange?format=json-schema#/definitions/embedded",
+                "type": "object"
+              }
+            ]
           },
-          {
-            "$ref": "https://openminds.ebrains.eu/core/QuantitativeValueRange?format=json-schema",
-            "type": "object"
-          }
-        ]
+          "minItems": 1,
+          "name": "value",
+          "type": "array"
+        }
       },
-      "minItems": 1,
-      "name": "value",
-      "type": "array"
+      "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/name",
+        "https://openminds.ebrains.eu/vocab/value"
+      ],
+      "type": "object"
     }
   },
+  "description": "Structured information about a property of some entity or process whose value is a number.",
   "required": [
-    "@id",
-    "@type",
-    "https://openminds.ebrains.eu/vocab/name",
-    "https://openminds.ebrains.eu/vocab/value"
+    "@id"
   ],
   "title": "NumericalProperty",
   "type": "object"

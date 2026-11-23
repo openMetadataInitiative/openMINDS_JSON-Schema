@@ -1,127 +1,167 @@
 {
   "$id": "https://openminds.ebrains.eu/core/QuantitativeValueArray?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": "A representation of an array of quantitative values, optionally with uncertainties.",
-  "properties": {
-    "@id": {
-      "description": "Metadata node identifier.",
-      "type": "string"
-    },
-    "@type": {
-      "const": "https://openminds.ebrains.eu/core/QuantitativeValueArray",
-      "description": "Metadata schema identifier.",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/negativeUncertainties": {
-      "description": null,
-      "items": {
-        "type": "number"
-      },
-      "minItems": 2,
-      "name": "negativeUncertainties",
-      "type": "array"
-    },
-    "https://openminds.ebrains.eu/vocab/positiveUncertainties": {
-      "description": null,
-      "items": {
-        "type": "number"
-      },
-      "minItems": 2,
-      "name": "positiveUncertainties",
-      "type": "array"
-    },
-    "https://openminds.ebrains.eu/vocab/typeOfUncertainty": {
-      "description": "Distinct technique used to quantify the uncertainty of a measurement.",
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
+  "allOf": [
+    {
+      "$ref": "#/definitions/embedded"
+    }
+  ],
+  "definitions": {
+    "embedded": {
+      "properties": {
+        "@id": {
+          "description": "Metadata node identifier.",
+          "type": "string"
         },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "typeOfUncertainty",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
+        "@type": {
+          "const": "https://openminds.ebrains.eu/core/QuantitativeValueArray",
+          "description": "Metadata schema identifier.",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/negativeUncertainties": {
+          "description": null,
+          "items": {
+            "type": "number"
           },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
+          "minItems": 2,
+          "name": "negativeUncertainties",
+          "type": "array"
         },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/unit": {
-      "description": "Determinate quantity adopted as a standard of measurement.",
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "unit",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
+        "https://openminds.ebrains.eu/vocab/positiveUncertainties": {
+          "description": null,
+          "items": {
+            "type": "number"
           },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
+          "minItems": 2,
+          "name": "positiveUncertainties",
+          "type": "array"
         },
-        "required": [
-          "@id"
-        ]
+        "https://openminds.ebrains.eu/vocab/typeOfUncertainty": {
+          "description": "Distinct technique used to quantify the uncertainty of a measurement.",
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "typeOfUncertainty",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/unit": {
+          "description": "Determinate quantity adopted as a standard of measurement.",
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "unit",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/values": {
+          "description": null,
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "name": "values",
+          "type": "array"
+        }
       },
+      "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/values"
+      ],
       "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/values": {
-      "description": null,
-      "items": {
-        "type": "number"
-      },
-      "minItems": 2,
-      "name": "values",
-      "type": "array"
     }
   },
+  "description": "A representation of an array of quantitative values, optionally with uncertainties.",
   "required": [
-    "@id",
-    "@type",
-    "https://openminds.ebrains.eu/vocab/values"
+    "@id"
   ],
   "title": "QuantitativeValueArray",
   "type": "object"

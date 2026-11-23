@@ -1,157 +1,210 @@
 {
   "$id": "https://openminds.ebrains.eu/core/ServiceLink?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": null,
-  "properties": {
-    "@id": {
-      "description": "Metadata node identifier.",
-      "type": "string"
-    },
-    "@type": {
-      "const": "https://openminds.ebrains.eu/core/ServiceLink",
-      "description": "Metadata schema identifier.",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/dataLocation": {
-      "description": null,
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
+  "allOf": [
+    {
+      "$ref": "#/definitions/embedded"
+    }
+  ],
+  "definitions": {
+    "embedded": {
+      "properties": {
+        "@id": {
+          "description": "Metadata node identifier.",
+          "type": "string"
         },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "dataLocation",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
+        "@type": {
+          "const": "https://openminds.ebrains.eu/core/ServiceLink",
+          "description": "Metadata schema identifier.",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/dataLocation": {
+          "description": null,
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
           },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/core/File",
-              "https://openminds.ebrains.eu/core/FileArchive",
-              "https://openminds.ebrains.eu/core/FileBundle",
-              "https://openminds.ebrains.eu/core/ModelVersion",
-              "https://openminds.ebrains.eu/publications/LivePaperResourceItem",
-              "https://openminds.ebrains.eu/sands/ParcellationEntityVersion"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/displayLabel": {
-      "description": null,
-      "name": "displayLabel",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/openDataIn": {
-      "description": null,
-      "format": "iri",
-      "name": "openDataIn",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/previewImage": {
-      "description": null,
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "previewImage",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
+          "if": {
+            "required": [
+              "@type"
+            ]
           },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/core/File"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/service": {
-      "description": null,
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "service",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
+          "name": "dataLocation",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/core/File",
+                  "https://openminds.ebrains.eu/core/FileArchive",
+                  "https://openminds.ebrains.eu/core/FileBundle",
+                  "https://openminds.ebrains.eu/core/ModelVersion",
+                  "https://openminds.ebrains.eu/publications/LivePaperResourceItem",
+                  "https://openminds.ebrains.eu/sands/ParcellationEntityVersion"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
           },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/controlledTerms/Service"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
+          "type": "object"
         },
-        "required": [
-          "@id"
-        ]
+        "https://openminds.ebrains.eu/vocab/displayLabel": {
+          "description": null,
+          "name": "displayLabel",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/openDataIn": {
+          "description": null,
+          "format": "iri",
+          "name": "openDataIn",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/previewImage": {
+          "description": null,
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "previewImage",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/core/File"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/service": {
+          "description": null,
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "service",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/controlledTerms/Service"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
+        }
       },
+      "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/dataLocation",
+        "https://openminds.ebrains.eu/vocab/openDataIn",
+        "https://openminds.ebrains.eu/vocab/service"
+      ],
       "type": "object"
     }
   },
   "required": [
-    "@id",
-    "@type",
-    "https://openminds.ebrains.eu/vocab/dataLocation",
-    "https://openminds.ebrains.eu/vocab/openDataIn",
-    "https://openminds.ebrains.eu/vocab/service"
+    "@id"
   ],
   "title": "ServiceLink",
   "type": "object"

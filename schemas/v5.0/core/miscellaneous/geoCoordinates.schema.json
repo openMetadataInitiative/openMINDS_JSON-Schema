@@ -1,38 +1,49 @@
 {
   "$id": "https://openminds.om-i.org/types/GeoCoordinates?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": null,
-  "properties": {
-    "@id": {
-      "description": "Metadata node identifier.",
-      "type": "string"
-    },
-    "@type": {
-      "const": "https://openminds.om-i.org/types/GeoCoordinates",
-      "description": "Metadata schema identifier.",
-      "type": "string"
-    },
-    "https://openminds.om-i.org/props/elevation": {
-      "description": null,
-      "name": "elevation",
-      "type": "number"
-    },
-    "https://openminds.om-i.org/props/latitude": {
-      "description": null,
-      "name": "latitude",
-      "type": "number"
-    },
-    "https://openminds.om-i.org/props/longitude": {
-      "description": null,
-      "name": "longitude",
-      "type": "number"
+  "allOf": [
+    {
+      "$ref": "#/definitions/embedded"
+    }
+  ],
+  "definitions": {
+    "embedded": {
+      "properties": {
+        "@id": {
+          "description": "Metadata node identifier.",
+          "type": "string"
+        },
+        "@type": {
+          "const": "https://openminds.om-i.org/types/GeoCoordinates",
+          "description": "Metadata schema identifier.",
+          "type": "string"
+        },
+        "https://openminds.om-i.org/props/elevation": {
+          "description": null,
+          "name": "elevation",
+          "type": "number"
+        },
+        "https://openminds.om-i.org/props/latitude": {
+          "description": null,
+          "name": "latitude",
+          "type": "number"
+        },
+        "https://openminds.om-i.org/props/longitude": {
+          "description": null,
+          "name": "longitude",
+          "type": "number"
+        }
+      },
+      "required": [
+        "@type",
+        "https://openminds.om-i.org/props/latitude",
+        "https://openminds.om-i.org/props/longitude"
+      ],
+      "type": "object"
     }
   },
   "required": [
-    "@id",
-    "@type",
-    "https://openminds.om-i.org/props/latitude",
-    "https://openminds.om-i.org/props/longitude"
+    "@id"
   ],
   "title": "GeoCoordinates",
   "type": "object"

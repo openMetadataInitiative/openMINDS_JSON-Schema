@@ -1,115 +1,154 @@
 {
   "$id": "https://openminds.ebrains.eu/sands/QuantitativeRelationAssessment?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": null,
-  "properties": {
-    "@id": {
-      "description": "Metadata node identifier.",
-      "type": "string"
-    },
-    "@type": {
-      "const": "https://openminds.ebrains.eu/sands/QuantitativeRelationAssessment",
-      "description": "Metadata schema identifier.",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/criteria": {
-      "description": "Aspects or standards on which a judgement or decision is based.",
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
+  "allOf": [
+    {
+      "$ref": "#/definitions/embedded"
+    }
+  ],
+  "definitions": {
+    "embedded": {
+      "properties": {
+        "@id": {
+          "description": "Metadata node identifier.",
+          "type": "string"
         },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "criteria",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
+        "@type": {
+          "const": "https://openminds.ebrains.eu/sands/QuantitativeRelationAssessment",
+          "description": "Metadata schema identifier.",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/criteria": {
+          "description": "Aspects or standards on which a judgement or decision is based.",
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
           },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/core/ProtocolExecution"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/inRelationTo": {
-      "description": "Reference to a related element.",
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "inRelationTo",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
+          "if": {
+            "required": [
+              "@type"
+            ]
           },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/sands/ParcellationEntity"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/quantitativeOverlap": {
-      "anyOf": [
-        {
-          "$ref": "https://openminds.ebrains.eu/core/QuantitativeValue?format=json-schema",
+          "name": "criteria",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/core/ProtocolExecution"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
           "type": "object"
         },
-        {
-          "$ref": "https://openminds.ebrains.eu/core/QuantitativeValueRange?format=json-schema",
+        "https://openminds.ebrains.eu/vocab/inRelationTo": {
+          "description": "Reference to a related element.",
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "inRelationTo",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/sands/ParcellationEntity"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
           "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/quantitativeOverlap": {
+          "anyOf": [
+            {
+              "$ref": "https://openminds.ebrains.eu/core/QuantitativeValue?format=json-schema#/definitions/embedded",
+              "type": "object"
+            },
+            {
+              "$ref": "https://openminds.ebrains.eu/core/QuantitativeValueRange?format=json-schema#/definitions/embedded",
+              "type": "object"
+            }
+          ],
+          "description": "Numerical characterization of how much two things occupy the same space.",
+          "name": "quantitativeOverlap"
         }
+      },
+      "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/inRelationTo",
+        "https://openminds.ebrains.eu/vocab/quantitativeOverlap"
       ],
-      "description": "Numerical characterization of how much two things occupy the same space.",
-      "name": "quantitativeOverlap"
+      "type": "object"
     }
   },
   "required": [
-    "@id",
-    "@type",
-    "https://openminds.ebrains.eu/vocab/inRelationTo",
-    "https://openminds.ebrains.eu/vocab/quantitativeOverlap"
+    "@id"
   ],
   "title": "QuantitativeRelationAssessment",
   "type": "object"

@@ -1,213 +1,280 @@
 {
   "$id": "https://openminds.ebrains.eu/stimulation/EphysStimulus?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": null,
-  "properties": {
-    "@id": {
-      "description": "Metadata node identifier.",
-      "type": "string"
-    },
-    "@type": {
-      "const": "https://openminds.ebrains.eu/stimulation/EphysStimulus",
-      "description": "Metadata schema identifier.",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/deliveredBy": {
-      "description": null,
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
+  "allOf": [
+    {
+      "$ref": "#/definitions/embedded"
+    }
+  ],
+  "definitions": {
+    "embedded": {
+      "properties": {
+        "@id": {
+          "description": "Metadata node identifier.",
+          "type": "string"
         },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "deliveredBy",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/ephys/ElectrodeArrayUsage",
-              "https://openminds.ebrains.eu/ephys/ElectrodeUsage",
-              "https://openminds.ebrains.eu/ephys/PipetteUsage",
-              "https://openminds.ebrains.eu/specimenPrep/SlicingDeviceUsage"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
+        "@type": {
+          "const": "https://openminds.ebrains.eu/stimulation/EphysStimulus",
+          "description": "Metadata schema identifier.",
+          "type": "string"
         },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/description": {
-      "description": "Longer statement or account giving the characteristics of someone or something.",
-      "name": "description",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/epoch": {
-      "$ref": "https://openminds.ebrains.eu/core/QuantitativeValue?format=json-schema",
-      "description": null,
-      "name": "epoch",
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/generatedBy": {
-      "description": null,
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "generatedBy",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/ephys/ElectrodeArrayUsage",
-              "https://openminds.ebrains.eu/ephys/ElectrodeUsage",
-              "https://openminds.ebrains.eu/ephys/PipetteUsage",
-              "https://openminds.ebrains.eu/specimenPrep/SlicingDeviceUsage"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/internalIdentifier": {
-      "description": "Term or code that identifies someone or something within a particular product.",
-      "name": "internalIdentifier",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/lookupLabel": {
-      "description": null,
-      "name": "lookupLabel",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/specification": {
-      "description": "Detailed and precise presentation of, or proposal for something.",
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
+        "https://openminds.ebrains.eu/vocab/deliveredBy": {
+          "description": null,
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
             },
-            "@type": {
-              "enum": [
-                "https://openminds.ebrains.eu/core/Configuration",
-                "https://openminds.ebrains.eu/core/File",
-                "https://openminds.ebrains.eu/core/FileBundle",
-                "https://openminds.ebrains.eu/core/PropertyValueList"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
+            "required": [
+              "@id"
+            ]
           },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "specification",
-      "type": "array",
-      "uniqueItems": true
-    },
-    "https://openminds.ebrains.eu/vocab/type": {
-      "description": "Distinct class to which a group of entities or concepts with similar characteristics or attributes belong to.",
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "type",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
+          "if": {
+            "required": [
+              "@type"
+            ]
           },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/controlledTerms/ElectricalStimulusType"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
+          "name": "deliveredBy",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/ephys/ElectrodeArrayUsage",
+                  "https://openminds.ebrains.eu/ephys/ElectrodeUsage",
+                  "https://openminds.ebrains.eu/ephys/PipetteUsage",
+                  "https://openminds.ebrains.eu/specimenPrep/SlicingDeviceUsage"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
         },
-        "required": [
-          "@id"
-        ]
+        "https://openminds.ebrains.eu/vocab/description": {
+          "description": "Longer statement or account giving the characteristics of someone or something.",
+          "name": "description",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/epoch": {
+          "$ref": "https://openminds.ebrains.eu/core/QuantitativeValue?format=json-schema#/definitions/embedded",
+          "description": null,
+          "name": "epoch",
+          "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/generatedBy": {
+          "description": null,
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "generatedBy",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/ephys/ElectrodeArrayUsage",
+                  "https://openminds.ebrains.eu/ephys/ElectrodeUsage",
+                  "https://openminds.ebrains.eu/ephys/PipetteUsage",
+                  "https://openminds.ebrains.eu/specimenPrep/SlicingDeviceUsage"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/internalIdentifier": {
+          "description": "Term or code that identifies someone or something within a particular product.",
+          "name": "internalIdentifier",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/lookupLabel": {
+          "description": null,
+          "name": "lookupLabel",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/specification": {
+          "description": "Detailed and precise presentation of, or proposal for something.",
+          "items": {
+            "else": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "if": {
+              "required": [
+                "@type"
+              ]
+            },
+            "then": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                },
+                "@type": {
+                  "enum": [
+                    "https://openminds.ebrains.eu/core/Configuration",
+                    "https://openminds.ebrains.eu/core/File",
+                    "https://openminds.ebrains.eu/core/FileBundle",
+                    "https://openminds.ebrains.eu/core/PropertyValueList"
+                  ],
+                  "format": "iri",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "type": "object"
+          },
+          "minItems": 1,
+          "name": "specification",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/type": {
+          "description": "Distinct class to which a group of entities or concepts with similar characteristics or attributes belong to.",
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "type",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/controlledTerms/ElectricalStimulusType"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
+        }
       },
+      "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/internalIdentifier"
+      ],
       "type": "object"
     }
   },
   "required": [
-    "@id",
-    "@type",
-    "https://openminds.ebrains.eu/vocab/internalIdentifier"
+    "@id"
   ],
   "title": "EphysStimulus",
   "type": "object"

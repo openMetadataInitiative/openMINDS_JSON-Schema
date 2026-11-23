@@ -1,51 +1,63 @@
 {
   "$id": "https://openminds.ebrains.eu/core/License?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": "Structured information on a used license.",
-  "properties": {
-    "@id": {
-      "description": "Metadata node identifier.",
-      "type": "string"
-    },
-    "@type": {
-      "const": "https://openminds.ebrains.eu/core/License",
-      "description": "Metadata schema identifier.",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/fullName": {
-      "description": "Whole, non-abbreviated name of something or somebody.",
-      "name": "fullName",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/legalCode": {
-      "description": "Type of legislation that claims to cover the law system (complete or parts) as it existed at the time the code was enacted.",
-      "format": "iri",
-      "name": "legalCode",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/shortName": {
-      "description": "Shortened or fully abbreviated name of something or somebody.",
-      "name": "shortName",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/webpage": {
-      "description": "Hypertext document (block of information) found on the World Wide Web.",
-      "items": {
-        "format": "iri",
-        "type": "string"
+  "allOf": [
+    {
+      "$ref": "#/definitions/embedded"
+    }
+  ],
+  "definitions": {
+    "embedded": {
+      "properties": {
+        "@id": {
+          "description": "Metadata node identifier.",
+          "type": "string"
+        },
+        "@type": {
+          "const": "https://openminds.ebrains.eu/core/License",
+          "description": "Metadata schema identifier.",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/fullName": {
+          "description": "Whole, non-abbreviated name of something or somebody.",
+          "name": "fullName",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/legalCode": {
+          "description": "Type of legislation that claims to cover the law system (complete or parts) as it existed at the time the code was enacted.",
+          "format": "iri",
+          "name": "legalCode",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/shortName": {
+          "description": "Shortened or fully abbreviated name of something or somebody.",
+          "name": "shortName",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/webpage": {
+          "description": "Hypertext document (block of information) found on the World Wide Web.",
+          "items": {
+            "format": "iri",
+            "type": "string"
+          },
+          "minItems": 1,
+          "name": "webpage",
+          "type": "array",
+          "uniqueItems": true
+        }
       },
-      "minItems": 1,
-      "name": "webpage",
-      "type": "array",
-      "uniqueItems": true
+      "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/fullName",
+        "https://openminds.ebrains.eu/vocab/legalCode",
+        "https://openminds.ebrains.eu/vocab/shortName"
+      ],
+      "type": "object"
     }
   },
+  "description": "Structured information on a used license.",
   "required": [
-    "@id",
-    "@type",
-    "https://openminds.ebrains.eu/vocab/fullName",
-    "https://openminds.ebrains.eu/vocab/legalCode",
-    "https://openminds.ebrains.eu/vocab/shortName"
+    "@id"
   ],
   "title": "License",
   "type": "object"

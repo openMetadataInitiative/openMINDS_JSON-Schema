@@ -1,43 +1,55 @@
 {
   "$id": "https://openminds.ebrains.eu/controlledTerms/BiologicalSex?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": "Structured information on the biological sex of a subject.",
-  "properties": {
-    "@id": {
-      "description": "Metadata node identifier.",
-      "type": "string"
-    },
-    "@type": {
-      "const": "https://openminds.ebrains.eu/controlledTerms/BiologicalSex",
-      "description": "Metadata schema identifier.",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/definition": {
-      "description": "Short, but precise statement of the meaning of a word, word group, sign or a symbol.",
-      "name": "definition",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/description": {
-      "description": "Longer statement or account giving the characteristics of someone or something.",
-      "name": "description",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/name": {
-      "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
-      "name": "name",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/ontologyIdentifier": {
-      "description": "Term or code used to identify something or someone registered within a particular ontology.",
-      "format": "iri",
-      "name": "ontologyIdentifier",
-      "type": "string"
+  "allOf": [
+    {
+      "$ref": "#/definitions/embedded"
+    }
+  ],
+  "definitions": {
+    "embedded": {
+      "properties": {
+        "@id": {
+          "description": "Metadata node identifier.",
+          "type": "string"
+        },
+        "@type": {
+          "const": "https://openminds.ebrains.eu/controlledTerms/BiologicalSex",
+          "description": "Metadata schema identifier.",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/definition": {
+          "description": "Short, but precise statement of the meaning of a word, word group, sign or a symbol.",
+          "name": "definition",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/description": {
+          "description": "Longer statement or account giving the characteristics of someone or something.",
+          "name": "description",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/name": {
+          "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+          "name": "name",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/ontologyIdentifier": {
+          "description": "Term or code used to identify something or someone registered within a particular ontology.",
+          "format": "iri",
+          "name": "ontologyIdentifier",
+          "type": "string"
+        }
+      },
+      "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/name"
+      ],
+      "type": "object"
     }
   },
+  "description": "Structured information on the biological sex of a subject.",
   "required": [
-    "@id",
-    "@type",
-    "https://openminds.ebrains.eu/vocab/name"
+    "@id"
   ],
   "title": "BiologicalSex",
   "type": "object"

@@ -1,164 +1,218 @@
 {
   "$id": "https://openminds.ebrains.eu/core/FileRepository?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": "Structured information on a file repository.",
-  "properties": {
-    "@id": {
-      "description": "Metadata node identifier.",
-      "type": "string"
-    },
-    "@type": {
-      "const": "https://openminds.ebrains.eu/core/FileRepository",
-      "description": "Metadata schema identifier.",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/IRI": {
-      "description": "Stands for Internationalized Resource Identifier which is an internet protocol standard that builds on the URI protocol, extending the set of permitted characters to include Unicode/ISO 10646.",
-      "format": "iri",
-      "name": "IRI",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/format": {
-      "description": "Method of digitally organizing and structuring data or information.",
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
+  "allOf": [
+    {
+      "$ref": "#/definitions/embedded"
+    }
+  ],
+  "definitions": {
+    "embedded": {
+      "properties": {
+        "@id": {
+          "description": "Metadata node identifier.",
+          "type": "string"
         },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "format",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
+        "@type": {
+          "const": "https://openminds.ebrains.eu/core/FileRepository",
+          "description": "Metadata schema identifier.",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/IRI": {
+          "description": "Stands for Internationalized Resource Identifier which is an internet protocol standard that builds on the URI protocol, extending the set of permitted characters to include Unicode/ISO 10646.",
+          "format": "iri",
+          "name": "IRI",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/format": {
+          "description": "Method of digitally organizing and structuring data or information.",
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
           },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/core/ContentType"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/hash": {
-      "$ref": "https://openminds.ebrains.eu/core/Hash?format=json-schema",
-      "description": "Term used for the process of converting any data into a single value. Often also directly refers to the resulting single value.",
-      "name": "hash",
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/hostedBy": {
-      "description": "Reference to an organization that provides facilities and services for something.",
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "hostedBy",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
+          "if": {
+            "required": [
+              "@type"
+            ]
           },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/core/Organization"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/name": {
-      "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
-      "name": "name",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/repositoryType": {
-      "description": null,
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "repositoryType",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
+          "name": "format",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/core/ContentType"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
           },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/controlledTerms/FileRepositoryType"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
+          "type": "object"
         },
-        "required": [
-          "@id"
-        ]
+        "https://openminds.ebrains.eu/vocab/hash": {
+          "$ref": "https://openminds.ebrains.eu/core/Hash?format=json-schema#/definitions/embedded",
+          "description": "Term used for the process of converting any data into a single value. Often also directly refers to the resulting single value.",
+          "name": "hash",
+          "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/hostedBy": {
+          "description": "Reference to an organization that provides facilities and services for something.",
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "hostedBy",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/core/Organization"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/name": {
+          "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+          "name": "name",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/repositoryType": {
+          "description": null,
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "repositoryType",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/controlledTerms/FileRepositoryType"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/storageSize": {
+          "$ref": "https://openminds.ebrains.eu/core/QuantitativeValue?format=json-schema#/definitions/embedded",
+          "description": "Quantitative value defining how much disk space is used by an object on a computer system.",
+          "name": "storageSize",
+          "type": "object"
+        }
       },
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/storageSize": {
-      "$ref": "https://openminds.ebrains.eu/core/QuantitativeValue?format=json-schema",
-      "description": "Quantitative value defining how much disk space is used by an object on a computer system.",
-      "name": "storageSize",
+      "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/IRI",
+        "https://openminds.ebrains.eu/vocab/hostedBy",
+        "https://openminds.ebrains.eu/vocab/name"
+      ],
       "type": "object"
     }
   },
+  "description": "Structured information on a file repository.",
   "required": [
-    "@id",
-    "@type",
-    "https://openminds.ebrains.eu/vocab/IRI",
-    "https://openminds.ebrains.eu/vocab/hostedBy",
-    "https://openminds.ebrains.eu/vocab/name"
+    "@id"
   ],
   "title": "FileRepository",
   "type": "object"

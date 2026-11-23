@@ -1,46 +1,58 @@
 {
   "$id": "https://openminds.ebrains.eu/core/PropertyValueList?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": "An identifiable list of property-value pairs.",
-  "properties": {
-    "@id": {
-      "description": "Metadata node identifier.",
-      "type": "string"
-    },
-    "@type": {
-      "const": "https://openminds.ebrains.eu/core/PropertyValueList",
-      "description": "Metadata schema identifier.",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/lookupLabel": {
-      "description": null,
-      "name": "lookupLabel",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/propertyValuePair": {
-      "description": null,
-      "items": {
-        "anyOf": [
-          {
-            "$ref": "https://openminds.ebrains.eu/core/NumericalProperty?format=json-schema",
-            "type": "object"
+  "allOf": [
+    {
+      "$ref": "#/definitions/embedded"
+    }
+  ],
+  "definitions": {
+    "embedded": {
+      "properties": {
+        "@id": {
+          "description": "Metadata node identifier.",
+          "type": "string"
+        },
+        "@type": {
+          "const": "https://openminds.ebrains.eu/core/PropertyValueList",
+          "description": "Metadata schema identifier.",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/lookupLabel": {
+          "description": null,
+          "name": "lookupLabel",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/propertyValuePair": {
+          "description": null,
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "https://openminds.ebrains.eu/core/NumericalProperty?format=json-schema#/definitions/embedded",
+                "type": "object"
+              },
+              {
+                "$ref": "https://openminds.ebrains.eu/core/StringProperty?format=json-schema#/definitions/embedded",
+                "type": "object"
+              }
+            ]
           },
-          {
-            "$ref": "https://openminds.ebrains.eu/core/StringProperty?format=json-schema",
-            "type": "object"
-          }
-        ]
+          "minItems": 1,
+          "name": "propertyValuePair",
+          "type": "array",
+          "uniqueItems": true
+        }
       },
-      "minItems": 1,
-      "name": "propertyValuePair",
-      "type": "array",
-      "uniqueItems": true
+      "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/propertyValuePair"
+      ],
+      "type": "object"
     }
   },
+  "description": "An identifiable list of property-value pairs.",
   "required": [
-    "@id",
-    "@type",
-    "https://openminds.ebrains.eu/vocab/propertyValuePair"
+    "@id"
   ],
   "title": "PropertyValueList",
   "type": "object"

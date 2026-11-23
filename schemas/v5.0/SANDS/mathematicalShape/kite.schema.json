@@ -1,40 +1,51 @@
 {
   "$id": "https://openminds.om-i.org/types/Kite?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": null,
-  "properties": {
-    "@id": {
-      "description": "Metadata node identifier.",
-      "type": "string"
-    },
-    "@type": {
-      "const": "https://openminds.om-i.org/types/Kite",
-      "description": "Metadata schema identifier.",
-      "type": "string"
-    },
-    "https://openminds.om-i.org/props/legLengths": {
-      "description": null,
-      "items": {
-        "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema",
-        "type": "object"
+  "allOf": [
+    {
+      "$ref": "#/definitions/embedded"
+    }
+  ],
+  "definitions": {
+    "embedded": {
+      "properties": {
+        "@id": {
+          "description": "Metadata node identifier.",
+          "type": "string"
+        },
+        "@type": {
+          "const": "https://openminds.om-i.org/types/Kite",
+          "description": "Metadata schema identifier.",
+          "type": "string"
+        },
+        "https://openminds.om-i.org/props/legLengths": {
+          "description": null,
+          "items": {
+            "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
+            "type": "object"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "name": "legLengths",
+          "type": "array"
+        },
+        "https://openminds.om-i.org/props/symmetryDiagonalLength": {
+          "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
+          "description": null,
+          "name": "symmetryDiagonalLength",
+          "type": "object"
+        }
       },
-      "maxItems": 2,
-      "minItems": 2,
-      "name": "legLengths",
-      "type": "array"
-    },
-    "https://openminds.om-i.org/props/symmetryDiagonalLength": {
-      "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema",
-      "description": null,
-      "name": "symmetryDiagonalLength",
+      "required": [
+        "@type",
+        "https://openminds.om-i.org/props/legLengths",
+        "https://openminds.om-i.org/props/symmetryDiagonalLength"
+      ],
       "type": "object"
     }
   },
   "required": [
-    "@id",
-    "@type",
-    "https://openminds.om-i.org/props/legLengths",
-    "https://openminds.om-i.org/props/symmetryDiagonalLength"
+    "@id"
   ],
   "title": "Kite",
   "type": "object"

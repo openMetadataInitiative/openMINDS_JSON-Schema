@@ -1,67 +1,92 @@
 {
   "$id": "https://openminds.om-i.org/types/PublicationIssue?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": null,
-  "properties": {
-    "@id": {
-      "description": "Metadata node identifier.",
-      "type": "string"
-    },
-    "@type": {
-      "const": "https://openminds.om-i.org/types/PublicationIssue",
-      "description": "Metadata schema identifier.",
-      "type": "string"
-    },
-    "https://openminds.om-i.org/props/isPartOf": {
-      "description": "Reference to the ensemble of multiple things or beings.",
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
+  "allOf": [
+    {
+      "$ref": "#/definitions/embedded"
+    }
+  ],
+  "definitions": {
+    "embedded": {
+      "properties": {
+        "@id": {
+          "description": "Metadata node identifier.",
+          "type": "string"
         },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "isPartOf",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
+        "@type": {
+          "const": "https://openminds.om-i.org/types/PublicationIssue",
+          "description": "Metadata schema identifier.",
+          "type": "string"
+        },
+        "https://openminds.om-i.org/props/isPartOf": {
+          "description": "Reference to the ensemble of multiple things or beings.",
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
           },
-          "@type": {
-            "enum": [
-              "https://openminds.om-i.org/types/PublicationVolume"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "isPartOf",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.om-i.org/types/PublicationVolume"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
         },
-        "required": [
-          "@id"
-        ]
+        "https://openminds.om-i.org/props/issueNumber": {
+          "description": null,
+          "name": "issueNumber",
+          "type": "string"
+        }
       },
+      "required": [
+        "@type",
+        "https://openminds.om-i.org/props/isPartOf",
+        "https://openminds.om-i.org/props/issueNumber"
+      ],
       "type": "object"
-    },
-    "https://openminds.om-i.org/props/issueNumber": {
-      "description": null,
-      "name": "issueNumber",
-      "type": "string"
     }
   },
   "required": [
-    "@id",
-    "@type",
-    "https://openminds.om-i.org/props/isPartOf",
-    "https://openminds.om-i.org/props/issueNumber"
+    "@id"
   ],
   "title": "PublicationIssue",
   "type": "object"

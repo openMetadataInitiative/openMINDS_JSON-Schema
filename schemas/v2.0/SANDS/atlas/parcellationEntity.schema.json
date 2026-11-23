@@ -1,227 +1,294 @@
 {
   "$id": "https://openminds.ebrains.eu/sands/ParcellationEntity?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": null,
-  "properties": {
-    "@id": {
-      "description": "Metadata node identifier.",
-      "type": "string"
-    },
-    "@type": {
-      "const": "https://openminds.ebrains.eu/sands/ParcellationEntity",
-      "description": "Metadata schema identifier.",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/hasAnnotation": {
-      "description": null,
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
+  "allOf": [
+    {
+      "$ref": "#/definitions/embedded"
+    }
+  ],
+  "definitions": {
+    "embedded": {
+      "properties": {
+        "@id": {
+          "description": "Metadata node identifier.",
+          "type": "string"
         },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "hasAnnotation",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/sands/AtlasAnnotation"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
+        "@type": {
+          "const": "https://openminds.ebrains.eu/sands/ParcellationEntity",
+          "description": "Metadata schema identifier.",
+          "type": "string"
         },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/hasParent": {
-      "description": "Reference to a parent object or legal person.",
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "hasParent",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/sands/ParcellationEntity"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/isPartOf": {
-      "description": "Reference to the ensemble of multiple things or beings.",
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
+        "https://openminds.ebrains.eu/vocab/hasAnnotation": {
+          "description": null,
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
             },
-            "@type": {
-              "enum": [
-                "https://openminds.ebrains.eu/sands/ParcellationTerminology"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
+            "required": [
+              "@id"
+            ]
           },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "isPartOf",
-      "type": "array",
-      "uniqueItems": true
-    },
-    "https://openminds.ebrains.eu/vocab/name": {
-      "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
-      "name": "name",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/ontologyIdentifier": {
-      "description": "Term or code used to identify something or someone registered within a particular ontology.",
-      "format": "iri",
-      "name": "ontologyIdentifier",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/relatedUBERONTerm": {
-      "description": null,
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "relatedUBERONTerm",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
+          "if": {
+            "required": [
+              "@type"
+            ]
           },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/controlledTerms/UBERONParcellation"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
+          "name": "hasAnnotation",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/sands/AtlasAnnotation"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
         },
-        "required": [
-          "@id"
-        ]
+        "https://openminds.ebrains.eu/vocab/hasParent": {
+          "description": "Reference to a parent object or legal person.",
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "hasParent",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/sands/ParcellationEntity"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/isPartOf": {
+          "description": "Reference to the ensemble of multiple things or beings.",
+          "items": {
+            "else": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "if": {
+              "required": [
+                "@type"
+              ]
+            },
+            "then": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                },
+                "@type": {
+                  "enum": [
+                    "https://openminds.ebrains.eu/sands/ParcellationTerminology"
+                  ],
+                  "format": "iri",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "type": "object"
+          },
+          "minItems": 1,
+          "name": "isPartOf",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/name": {
+          "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+          "name": "name",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/ontologyIdentifier": {
+          "description": "Term or code used to identify something or someone registered within a particular ontology.",
+          "format": "iri",
+          "name": "ontologyIdentifier",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/relatedUBERONTerm": {
+          "description": null,
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "relatedUBERONTerm",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/controlledTerms/UBERONParcellation"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/relationAssessment": {
+          "description": null,
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "https://openminds.ebrains.eu/sands/QualitativeRelationAssessment?format=json-schema#/definitions/embedded",
+                "type": "object"
+              },
+              {
+                "$ref": "https://openminds.ebrains.eu/sands/QuantitativeRelationAssessment?format=json-schema#/definitions/embedded",
+                "type": "object"
+              }
+            ]
+          },
+          "minItems": 1,
+          "name": "relationAssessment",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/versionIdentifier": {
+          "description": "Term or code used to identify the version of something.",
+          "name": "versionIdentifier",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/versionInnovation": {
+          "description": "Documentation on what changed in comparison to a previously published form of something.",
+          "name": "versionInnovation",
+          "type": "string"
+        }
       },
+      "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/isPartOf",
+        "https://openminds.ebrains.eu/vocab/name",
+        "https://openminds.ebrains.eu/vocab/relatedUBERONTerm",
+        "https://openminds.ebrains.eu/vocab/versionIdentifier",
+        "https://openminds.ebrains.eu/vocab/versionInnovation"
+      ],
       "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/relationAssessment": {
-      "description": null,
-      "items": {
-        "anyOf": [
-          {
-            "$ref": "https://openminds.ebrains.eu/sands/QualitativeRelationAssessment?format=json-schema",
-            "type": "object"
-          },
-          {
-            "$ref": "https://openminds.ebrains.eu/sands/QuantitativeRelationAssessment?format=json-schema",
-            "type": "object"
-          }
-        ]
-      },
-      "minItems": 1,
-      "name": "relationAssessment",
-      "type": "array",
-      "uniqueItems": true
-    },
-    "https://openminds.ebrains.eu/vocab/versionIdentifier": {
-      "description": "Term or code used to identify the version of something.",
-      "name": "versionIdentifier",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/versionInnovation": {
-      "description": "Documentation on what changed in comparison to a previously published form of something.",
-      "name": "versionInnovation",
-      "type": "string"
     }
   },
   "required": [
-    "@id",
-    "@type",
-    "https://openminds.ebrains.eu/vocab/isPartOf",
-    "https://openminds.ebrains.eu/vocab/name",
-    "https://openminds.ebrains.eu/vocab/relatedUBERONTerm",
-    "https://openminds.ebrains.eu/vocab/versionIdentifier",
-    "https://openminds.ebrains.eu/vocab/versionInnovation"
+    "@id"
   ],
   "title": "ParcellationEntity",
   "type": "object"

@@ -1,227 +1,294 @@
 {
   "$id": "https://openminds.ebrains.eu/publications/LivePaper?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": null,
-  "properties": {
-    "@id": {
-      "description": "Metadata node identifier.",
-      "type": "string"
-    },
-    "@type": {
-      "const": "https://openminds.ebrains.eu/publications/LivePaper",
-      "description": "Metadata schema identifier.",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/author": {
-      "description": "Creator of a literary or creative work, as well as a dataset publication.",
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
+  "allOf": [
+    {
+      "$ref": "#/definitions/embedded"
+    }
+  ],
+  "definitions": {
+    "embedded": {
+      "properties": {
+        "@id": {
+          "description": "Metadata node identifier.",
+          "type": "string"
         },
-        "if": {
-          "required": [
-            "@type"
-          ]
+        "@type": {
+          "const": "https://openminds.ebrains.eu/publications/LivePaper",
+          "description": "Metadata schema identifier.",
+          "type": "string"
         },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
+        "https://openminds.ebrains.eu/vocab/author": {
+          "description": "Creator of a literary or creative work, as well as a dataset publication.",
+          "items": {
+            "else": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
             },
-            "@type": {
-              "enum": [
-                "https://openminds.ebrains.eu/core/Consortium",
-                "https://openminds.ebrains.eu/core/Organization",
-                "https://openminds.ebrains.eu/core/Person"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "author",
-      "type": "array",
-      "uniqueItems": true
-    },
-    "https://openminds.ebrains.eu/vocab/custodian": {
-      "description": "The 'custodian' is a legal person who is responsible for the content and quality of the data, metadata, and/or code of a research product.",
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
+            "if": {
+              "required": [
+                "@type"
+              ]
             },
-            "@type": {
-              "enum": [
-                "https://openminds.ebrains.eu/core/Consortium",
-                "https://openminds.ebrains.eu/core/Organization",
-                "https://openminds.ebrains.eu/core/Person"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
+            "then": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                },
+                "@type": {
+                  "enum": [
+                    "https://openminds.ebrains.eu/core/Consortium",
+                    "https://openminds.ebrains.eu/core/Organization",
+                    "https://openminds.ebrains.eu/core/Person"
+                  ],
+                  "format": "iri",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "type": "object"
           },
-          "required": [
-            "@id"
-          ]
+          "minItems": 1,
+          "name": "author",
+          "type": "array",
+          "uniqueItems": true
         },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "custodian",
-      "type": "array",
-      "uniqueItems": true
-    },
-    "https://openminds.ebrains.eu/vocab/description": {
-      "description": "Longer statement or account giving the characteristics of someone or something.",
-      "name": "description",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/digitalIdentifier": {
-      "description": "Digital handle to identify objects or legal persons.",
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "digitalIdentifier",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
+        "https://openminds.ebrains.eu/vocab/custodian": {
+          "description": "The 'custodian' is a legal person who is responsible for the content and quality of the data, metadata, and/or code of a research product.",
+          "items": {
+            "else": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "if": {
+              "required": [
+                "@type"
+              ]
+            },
+            "then": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                },
+                "@type": {
+                  "enum": [
+                    "https://openminds.ebrains.eu/core/Consortium",
+                    "https://openminds.ebrains.eu/core/Organization",
+                    "https://openminds.ebrains.eu/core/Person"
+                  ],
+                  "format": "iri",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "type": "object"
           },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/core/DOI"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
+          "minItems": 1,
+          "name": "custodian",
+          "type": "array",
+          "uniqueItems": true
         },
-        "required": [
-          "@id"
-        ]
+        "https://openminds.ebrains.eu/vocab/description": {
+          "description": "Longer statement or account giving the characteristics of someone or something.",
+          "name": "description",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/digitalIdentifier": {
+          "description": "Digital handle to identify objects or legal persons.",
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "digitalIdentifier",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/core/DOI"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/fullName": {
+          "description": "Whole, non-abbreviated name of something or somebody.",
+          "name": "fullName",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/hasVersion": {
+          "description": "Reference to variants of an original.",
+          "items": {
+            "else": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "if": {
+              "required": [
+                "@type"
+              ]
+            },
+            "then": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                },
+                "@type": {
+                  "enum": [
+                    "https://openminds.ebrains.eu/publications/LivePaperVersion"
+                  ],
+                  "format": "iri",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "type": "object"
+          },
+          "minItems": 1,
+          "name": "hasVersion",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/homepage": {
+          "description": "Main website of something or someone.",
+          "format": "iri",
+          "name": "homepage",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/howToCite": {
+          "description": "Preferred format for citing a particular object or legal person.",
+          "name": "howToCite",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/shortName": {
+          "description": "Shortened or fully abbreviated name of something or somebody.",
+          "name": "shortName",
+          "type": "string"
+        }
       },
+      "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/author",
+        "https://openminds.ebrains.eu/vocab/description",
+        "https://openminds.ebrains.eu/vocab/fullName",
+        "https://openminds.ebrains.eu/vocab/hasVersion",
+        "https://openminds.ebrains.eu/vocab/shortName"
+      ],
       "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/fullName": {
-      "description": "Whole, non-abbreviated name of something or somebody.",
-      "name": "fullName",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/hasVersion": {
-      "description": "Reference to variants of an original.",
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            },
-            "@type": {
-              "enum": [
-                "https://openminds.ebrains.eu/publications/LivePaperVersion"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "hasVersion",
-      "type": "array",
-      "uniqueItems": true
-    },
-    "https://openminds.ebrains.eu/vocab/homepage": {
-      "description": "Main website of something or someone.",
-      "format": "iri",
-      "name": "homepage",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/howToCite": {
-      "description": "Preferred format for citing a particular object or legal person.",
-      "name": "howToCite",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/shortName": {
-      "description": "Shortened or fully abbreviated name of something or somebody.",
-      "name": "shortName",
-      "type": "string"
     }
   },
   "required": [
-    "@id",
-    "@type",
-    "https://openminds.ebrains.eu/vocab/author",
-    "https://openminds.ebrains.eu/vocab/description",
-    "https://openminds.ebrains.eu/vocab/fullName",
-    "https://openminds.ebrains.eu/vocab/hasVersion",
-    "https://openminds.ebrains.eu/vocab/shortName"
+    "@id"
   ],
   "title": "LivePaper",
   "type": "object"

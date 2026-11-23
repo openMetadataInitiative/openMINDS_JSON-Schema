@@ -1,84 +1,109 @@
 {
   "$id": "https://openminds.ebrains.eu/sands/ViewerSpecification?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": null,
-  "properties": {
-    "@id": {
-      "description": "Metadata node identifier.",
-      "type": "string"
-    },
-    "@type": {
-      "const": "https://openminds.ebrains.eu/sands/ViewerSpecification",
-      "description": "Metadata schema identifier.",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/additionalRemarks": {
-      "description": "Mention of what deserves additional attention or notice.",
-      "name": "additionalRemarks",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/anchorPoint": {
-      "description": null,
-      "items": {
-        "$ref": "https://openminds.ebrains.eu/core/QuantitativeValue?format=json-schema",
-        "type": "object"
-      },
-      "maxItems": 3,
-      "minItems": 2,
-      "name": "anchorPoint",
-      "type": "array"
-    },
-    "https://openminds.ebrains.eu/vocab/cameraPosition": {
-      "$ref": "https://openminds.ebrains.eu/sands/CoordinatePoint?format=json-schema",
-      "description": null,
-      "name": "cameraPosition",
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/preferredDisplayColor": {
-      "description": null,
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
+  "allOf": [
+    {
+      "$ref": "#/definitions/embedded"
+    }
+  ],
+  "definitions": {
+    "embedded": {
+      "properties": {
+        "@id": {
+          "description": "Metadata node identifier.",
+          "type": "string"
         },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "preferredDisplayColor",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
+        "@type": {
+          "const": "https://openminds.ebrains.eu/sands/ViewerSpecification",
+          "description": "Metadata schema identifier.",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/additionalRemarks": {
+          "description": "Mention of what deserves additional attention or notice.",
+          "name": "additionalRemarks",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/anchorPoint": {
+          "description": null,
+          "items": {
+            "$ref": "https://openminds.ebrains.eu/core/QuantitativeValue?format=json-schema#/definitions/embedded",
+            "type": "object"
           },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/controlledTerms/Colormap",
-              "https://openminds.ebrains.eu/sands/SingleColor"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
+          "maxItems": 3,
+          "minItems": 2,
+          "name": "anchorPoint",
+          "type": "array"
         },
-        "required": [
-          "@id"
-        ]
+        "https://openminds.ebrains.eu/vocab/cameraPosition": {
+          "$ref": "https://openminds.ebrains.eu/sands/CoordinatePoint?format=json-schema#/definitions/embedded",
+          "description": null,
+          "name": "cameraPosition",
+          "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/preferredDisplayColor": {
+          "description": null,
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "preferredDisplayColor",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/controlledTerms/Colormap",
+                  "https://openminds.ebrains.eu/sands/SingleColor"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
+        }
       },
+      "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/anchorPoint"
+      ],
       "type": "object"
     }
   },
   "required": [
-    "@id",
-    "@type",
-    "https://openminds.ebrains.eu/vocab/anchorPoint"
+    "@id"
   ],
   "title": "ViewerSpecification",
   "type": "object"

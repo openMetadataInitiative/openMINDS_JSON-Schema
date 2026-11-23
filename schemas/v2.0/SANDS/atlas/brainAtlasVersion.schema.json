@@ -1,304 +1,399 @@
 {
   "$id": "https://openminds.ebrains.eu/sands/BrainAtlasVersion?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": null,
-  "properties": {
-    "@id": {
-      "description": "Metadata node identifier.",
-      "type": "string"
-    },
-    "@type": {
-      "const": "https://openminds.ebrains.eu/sands/BrainAtlasVersion",
-      "description": "Metadata schema identifier.",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/coordinateSpace": {
-      "description": "Two or three dimensional geometric setting.",
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
+  "allOf": [
+    {
+      "$ref": "#/definitions/embedded"
+    }
+  ],
+  "definitions": {
+    "embedded": {
+      "properties": {
+        "@id": {
+          "description": "Metadata node identifier.",
+          "type": "string"
         },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "coordinateSpace",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/sands/CommonCoordinateSpace"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
+        "@type": {
+          "const": "https://openminds.ebrains.eu/sands/BrainAtlasVersion",
+          "description": "Metadata schema identifier.",
+          "type": "string"
         },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/digitalIdentifier": {
-      "description": "Digital handle to identify objects or legal persons.",
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "digitalIdentifier",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/core/DOI"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/fullName": {
-      "description": "Whole, non-abbreviated name of something or somebody.",
-      "name": "fullName",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/hasTerminology": {
-      "description": null,
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "hasTerminology",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/sands/parcellationTerminology"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/homepage": {
-      "description": "Main website of something or someone.",
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "homepage",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/core/URL"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/howToCite": {
-      "description": "Preferred format for citing a particular object or legal person.",
-      "name": "howToCite",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/isAlternativeVersionOf": {
-      "description": "Reference to an original form where the essence was preserved, but presented in an alternative form.",
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
+        "https://openminds.ebrains.eu/vocab/coordinateSpace": {
+          "description": "Two or three dimensional geometric setting.",
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
             },
-            "@type": {
-              "enum": [
-                "https://openminds.ebrains.eu/sands/BrainAtlasVersion"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
+            "required": [
+              "@id"
+            ]
           },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "isAlternativeVersionOf",
-      "type": "array",
-      "uniqueItems": true
-    },
-    "https://openminds.ebrains.eu/vocab/isNewVersionOf": {
-      "description": "Reference to a previous (potentially outdated) particular form of something.",
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "isNewVersionOf",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
+          "if": {
+            "required": [
+              "@type"
+            ]
           },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/sands/BrainAtlasVersion"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
+          "name": "coordinateSpace",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/sands/CommonCoordinateSpace"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
         },
-        "required": [
-          "@id"
-        ]
+        "https://openminds.ebrains.eu/vocab/digitalIdentifier": {
+          "description": "Digital handle to identify objects or legal persons.",
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "digitalIdentifier",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/core/DOI"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/fullName": {
+          "description": "Whole, non-abbreviated name of something or somebody.",
+          "name": "fullName",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/hasTerminology": {
+          "description": null,
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "hasTerminology",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/sands/parcellationTerminology"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/homepage": {
+          "description": "Main website of something or someone.",
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "homepage",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/core/URL"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/howToCite": {
+          "description": "Preferred format for citing a particular object or legal person.",
+          "name": "howToCite",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/isAlternativeVersionOf": {
+          "description": "Reference to an original form where the essence was preserved, but presented in an alternative form.",
+          "items": {
+            "else": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "if": {
+              "required": [
+                "@type"
+              ]
+            },
+            "then": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                },
+                "@type": {
+                  "enum": [
+                    "https://openminds.ebrains.eu/sands/BrainAtlasVersion"
+                  ],
+                  "format": "iri",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "type": "object"
+          },
+          "minItems": 1,
+          "name": "isAlternativeVersionOf",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/isNewVersionOf": {
+          "description": "Reference to a previous (potentially outdated) particular form of something.",
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "isNewVersionOf",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/sands/BrainAtlasVersion"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/ontologyIdentifier": {
+          "description": "Term or code used to identify something or someone registered within a particular ontology.",
+          "format": "iri",
+          "name": "ontologyIdentifier",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/releaseDate": {
+          "description": "Fixed date on which a product is due to become or was made available for the general public to see or buy",
+          "format": "date",
+          "name": "releaseDate",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/shortName": {
+          "description": "Shortened or fully abbreviated name of something or somebody.",
+          "name": "shortName",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/versionIdentifier": {
+          "description": "Term or code used to identify the version of something.",
+          "name": "versionIdentifier",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/versionInnovation": {
+          "description": "Documentation on what changed in comparison to a previously published form of something.",
+          "name": "versionInnovation",
+          "type": "string"
+        }
       },
+      "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/coordinateSpace",
+        "https://openminds.ebrains.eu/vocab/fullName",
+        "https://openminds.ebrains.eu/vocab/hasTerminology",
+        "https://openminds.ebrains.eu/vocab/releaseDate",
+        "https://openminds.ebrains.eu/vocab/shortName",
+        "https://openminds.ebrains.eu/vocab/versionIdentifier",
+        "https://openminds.ebrains.eu/vocab/versionInnovation"
+      ],
       "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/ontologyIdentifier": {
-      "description": "Term or code used to identify something or someone registered within a particular ontology.",
-      "format": "iri",
-      "name": "ontologyIdentifier",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/releaseDate": {
-      "description": "Fixed date on which a product is due to become or was made available for the general public to see or buy",
-      "format": "date",
-      "name": "releaseDate",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/shortName": {
-      "description": "Shortened or fully abbreviated name of something or somebody.",
-      "name": "shortName",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/versionIdentifier": {
-      "description": "Term or code used to identify the version of something.",
-      "name": "versionIdentifier",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/versionInnovation": {
-      "description": "Documentation on what changed in comparison to a previously published form of something.",
-      "name": "versionInnovation",
-      "type": "string"
     }
   },
   "required": [
-    "@id",
-    "@type",
-    "https://openminds.ebrains.eu/vocab/coordinateSpace",
-    "https://openminds.ebrains.eu/vocab/fullName",
-    "https://openminds.ebrains.eu/vocab/hasTerminology",
-    "https://openminds.ebrains.eu/vocab/releaseDate",
-    "https://openminds.ebrains.eu/vocab/shortName",
-    "https://openminds.ebrains.eu/vocab/versionIdentifier",
-    "https://openminds.ebrains.eu/vocab/versionInnovation"
+    "@id"
   ],
   "title": "BrainAtlasVersion",
   "type": "object"

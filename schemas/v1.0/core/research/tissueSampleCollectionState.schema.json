@@ -1,104 +1,129 @@
 {
   "$id": "https://openminds.ebrains.eu/core/TissueSampleCollectionState?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": null,
-  "properties": {
-    "@id": {
-      "description": "Metadata node identifier.",
-      "type": "string"
-    },
-    "@type": {
-      "const": "https://openminds.ebrains.eu/core/TissueSampleCollectionState",
-      "description": "Metadata schema identifier.",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/additionalRemarks": {
-      "description": "Mention of what deserves additional attention or notice.",
-      "name": "additionalRemarks",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/age": {
-      "anyOf": [
-        {
-          "$ref": "https://openminds.ebrains.eu/core/QuantitativeValue?format=json-schema",
-          "type": "object"
+  "allOf": [
+    {
+      "$ref": "#/definitions/embedded"
+    }
+  ],
+  "definitions": {
+    "embedded": {
+      "properties": {
+        "@id": {
+          "description": "Metadata node identifier.",
+          "type": "string"
         },
-        {
-          "$ref": "https://openminds.ebrains.eu/core/QuantitativeValueRange?format=json-schema",
-          "type": "object"
-        }
-      ],
-      "description": "Time of life or existence at which some particular qualification, capacity or event arises.",
-      "name": "age"
-    },
-    "https://openminds.ebrains.eu/vocab/lookupLabel": {
-      "description": null,
-      "name": "lookupLabel",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/pathology": {
-      "description": "Structural and functional deviation from the normal that constitutes a disease or characterizes a particular disease.",
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
+        "@type": {
+          "const": "https://openminds.ebrains.eu/core/TissueSampleCollectionState",
+          "description": "Metadata schema identifier.",
+          "type": "string"
         },
-        "if": {
-          "required": [
-            "@type"
-          ]
+        "https://openminds.ebrains.eu/vocab/additionalRemarks": {
+          "description": "Mention of what deserves additional attention or notice.",
+          "name": "additionalRemarks",
+          "type": "string"
         },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
+        "https://openminds.ebrains.eu/vocab/age": {
+          "anyOf": [
+            {
+              "$ref": "https://openminds.ebrains.eu/core/QuantitativeValue?format=json-schema#/definitions/embedded",
+              "type": "object"
             },
-            "@type": {
-              "enum": [
-                "https://openminds.ebrains.eu/controlledTerms/Disease",
-                "https://openminds.ebrains.eu/controlledTerms/DiseaseModel"
-              ],
-              "format": "iri",
-              "type": "string"
+            {
+              "$ref": "https://openminds.ebrains.eu/core/QuantitativeValueRange?format=json-schema#/definitions/embedded",
+              "type": "object"
             }
+          ],
+          "description": "Time of life or existence at which some particular qualification, capacity or event arises.",
+          "name": "age"
+        },
+        "https://openminds.ebrains.eu/vocab/lookupLabel": {
+          "description": null,
+          "name": "lookupLabel",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/pathology": {
+          "description": "Structural and functional deviation from the normal that constitutes a disease or characterizes a particular disease.",
+          "items": {
+            "else": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "if": {
+              "required": [
+                "@type"
+              ]
+            },
+            "then": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                },
+                "@type": {
+                  "enum": [
+                    "https://openminds.ebrains.eu/controlledTerms/Disease",
+                    "https://openminds.ebrains.eu/controlledTerms/DiseaseModel"
+                  ],
+                  "format": "iri",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "type": "object"
           },
-          "required": [
-            "@id"
-          ]
+          "minItems": 1,
+          "name": "pathology",
+          "type": "array",
+          "uniqueItems": true
         },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "pathology",
-      "type": "array",
-      "uniqueItems": true
-    },
-    "https://openminds.ebrains.eu/vocab/weight": {
-      "anyOf": [
-        {
-          "$ref": "https://openminds.ebrains.eu/core/QuantitativeValue?format=json-schema",
-          "type": "object"
-        },
-        {
-          "$ref": "https://openminds.ebrains.eu/core/QuantitativeValueRange?format=json-schema",
-          "type": "object"
+        "https://openminds.ebrains.eu/vocab/weight": {
+          "anyOf": [
+            {
+              "$ref": "https://openminds.ebrains.eu/core/QuantitativeValue?format=json-schema#/definitions/embedded",
+              "type": "object"
+            },
+            {
+              "$ref": "https://openminds.ebrains.eu/core/QuantitativeValueRange?format=json-schema#/definitions/embedded",
+              "type": "object"
+            }
+          ],
+          "description": "Amount that a thing or being weighs.",
+          "name": "weight"
         }
+      },
+      "required": [
+        "@type"
       ],
-      "description": "Amount that a thing or being weighs.",
-      "name": "weight"
+      "type": "object"
     }
   },
   "required": [
-    "@id",
-    "@type"
+    "@id"
   ],
   "title": "TissueSampleCollectionState",
   "type": "object"

@@ -1,28 +1,40 @@
 {
   "$id": "https://openminds.ebrains.eu/core/RRID?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": "A persistent identifier for a research resource provided by the Resource Identification Initiative.",
-  "properties": {
-    "@id": {
-      "description": "Metadata node identifier.",
-      "type": "string"
-    },
-    "@type": {
-      "const": "https://openminds.ebrains.eu/core/RRID",
-      "description": "Metadata schema identifier.",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/identifier": {
-      "description": "Term or code used to identify something or someone.",
-      "name": "identifier",
-      "pattern": "https://scicrunch.org/resolver/RRID:([A-Za-z]+)[_:]([A-Za-z0-9_:-]+)",
-      "type": "string"
+  "allOf": [
+    {
+      "$ref": "#/definitions/embedded"
+    }
+  ],
+  "definitions": {
+    "embedded": {
+      "properties": {
+        "@id": {
+          "description": "Metadata node identifier.",
+          "type": "string"
+        },
+        "@type": {
+          "const": "https://openminds.ebrains.eu/core/RRID",
+          "description": "Metadata schema identifier.",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/identifier": {
+          "description": "Term or code used to identify something or someone.",
+          "name": "identifier",
+          "pattern": "https://scicrunch.org/resolver/RRID:([A-Za-z]+)[_:]([A-Za-z0-9_:-]+)",
+          "type": "string"
+        }
+      },
+      "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/identifier"
+      ],
+      "type": "object"
     }
   },
+  "description": "A persistent identifier for a research resource provided by the Resource Identification Initiative.",
   "required": [
-    "@id",
-    "@type",
-    "https://openminds.ebrains.eu/vocab/identifier"
+    "@id"
   ],
   "title": "RRID",
   "type": "object"

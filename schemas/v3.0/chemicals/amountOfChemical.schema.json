@@ -1,69 +1,95 @@
 {
   "$id": "https://openminds.ebrains.eu/chemicals/AmountOfChemical?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": "Structured information about the amount of a given chemical that was used.",
-  "properties": {
-    "@id": {
-      "description": "Metadata node identifier.",
-      "type": "string"
-    },
-    "@type": {
-      "const": "https://openminds.ebrains.eu/chemicals/AmountOfChemical",
-      "description": "Metadata schema identifier.",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/amount": {
-      "$ref": "https://openminds.ebrains.eu/core/QuantitativeValue?format=json-schema",
-      "description": null,
-      "name": "amount",
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/chemicalProduct": {
-      "description": null,
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
+  "allOf": [
+    {
+      "$ref": "#/definitions/embedded"
+    }
+  ],
+  "definitions": {
+    "embedded": {
+      "properties": {
+        "@id": {
+          "description": "Metadata node identifier.",
+          "type": "string"
         },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "chemicalProduct",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
+        "@type": {
+          "const": "https://openminds.ebrains.eu/chemicals/AmountOfChemical",
+          "description": "Metadata schema identifier.",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/amount": {
+          "$ref": "https://openminds.ebrains.eu/core/QuantitativeValue?format=json-schema#/definitions/embedded",
+          "description": null,
+          "name": "amount",
+          "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/chemicalProduct": {
+          "description": null,
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
           },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/chemicals/ChemicalMixture",
-              "https://openminds.ebrains.eu/chemicals/ChemicalSubstance",
-              "https://openminds.ebrains.eu/controlledTerms/MolecularEntity"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "chemicalProduct",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/chemicals/ChemicalMixture",
+                  "https://openminds.ebrains.eu/chemicals/ChemicalSubstance",
+                  "https://openminds.ebrains.eu/controlledTerms/MolecularEntity"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
+        }
       },
+      "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/chemicalProduct"
+      ],
       "type": "object"
     }
   },
+  "description": "Structured information about the amount of a given chemical that was used.",
   "required": [
-    "@id",
-    "@type",
-    "https://openminds.ebrains.eu/vocab/chemicalProduct"
+    "@id"
   ],
   "title": "AmountOfChemical",
   "type": "object"

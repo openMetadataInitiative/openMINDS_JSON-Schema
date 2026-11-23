@@ -1,111 +1,151 @@
 {
   "$id": "https://openminds.ebrains.eu/core/QuantitativeValueRange?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": "A representation of a range of quantitative values.",
-  "properties": {
-    "@id": {
-      "description": "Metadata node identifier.",
-      "type": "string"
-    },
-    "@type": {
-      "const": "https://openminds.ebrains.eu/core/QuantitativeValueRange",
-      "description": "Metadata schema identifier.",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/maxValue": {
-      "description": "Greatest quantity attained or allowed.",
-      "name": "maxValue",
-      "type": "number"
-    },
-    "https://openminds.ebrains.eu/vocab/maxValueUnit": {
-      "description": null,
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
+  "allOf": [
+    {
+      "$ref": "#/definitions/embedded"
+    }
+  ],
+  "definitions": {
+    "embedded": {
+      "properties": {
+        "@id": {
+          "description": "Metadata node identifier.",
+          "type": "string"
         },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "maxValueUnit",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
+        "@type": {
+          "const": "https://openminds.ebrains.eu/core/QuantitativeValueRange",
+          "description": "Metadata schema identifier.",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/maxValue": {
+          "description": "Greatest quantity attained or allowed.",
+          "name": "maxValue",
+          "type": "number"
+        },
+        "https://openminds.ebrains.eu/vocab/maxValueUnit": {
+          "description": null,
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
           },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/minValue": {
-      "description": "Smallest quantity attained or allowed.",
-      "name": "minValue",
-      "type": "number"
-    },
-    "https://openminds.ebrains.eu/vocab/minValueUnit": {
-      "description": null,
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "minValueUnit",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
+          "if": {
+            "required": [
+              "@type"
+            ]
           },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
+          "name": "maxValueUnit",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
         },
-        "required": [
-          "@id"
-        ]
+        "https://openminds.ebrains.eu/vocab/minValue": {
+          "description": "Smallest quantity attained or allowed.",
+          "name": "minValue",
+          "type": "number"
+        },
+        "https://openminds.ebrains.eu/vocab/minValueUnit": {
+          "description": null,
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "minValueUnit",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
+        }
       },
+      "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/maxValue",
+        "https://openminds.ebrains.eu/vocab/minValue"
+      ],
       "type": "object"
     }
   },
+  "description": "A representation of a range of quantitative values.",
   "required": [
-    "@id",
-    "@type",
-    "https://openminds.ebrains.eu/vocab/maxValue",
-    "https://openminds.ebrains.eu/vocab/minValue"
+    "@id"
   ],
   "title": "QuantitativeValueRange",
   "type": "object"

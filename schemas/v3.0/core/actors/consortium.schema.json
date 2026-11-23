@@ -1,77 +1,103 @@
 {
   "$id": "https://openminds.ebrains.eu/core/Consortium?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": "Structured information about an association of two or more persons or organizations, with the objective of participating in a common activity.",
-  "properties": {
-    "@id": {
-      "description": "Metadata node identifier.",
-      "type": "string"
-    },
-    "@type": {
-      "const": "https://openminds.ebrains.eu/core/Consortium",
-      "description": "Metadata schema identifier.",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/contactInformation": {
-      "description": "Any available way used to contact a person or business (e.g., address, phone number, email address, etc.).",
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
+  "allOf": [
+    {
+      "$ref": "#/definitions/embedded"
+    }
+  ],
+  "definitions": {
+    "embedded": {
+      "properties": {
+        "@id": {
+          "description": "Metadata node identifier.",
+          "type": "string"
         },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "contactInformation",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
+        "@type": {
+          "const": "https://openminds.ebrains.eu/core/Consortium",
+          "description": "Metadata schema identifier.",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/contactInformation": {
+          "description": "Any available way used to contact a person or business (e.g., address, phone number, email address, etc.).",
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
           },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/core/ContactInformation"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "contactInformation",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/core/ContactInformation"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
         },
-        "required": [
-          "@id"
-        ]
+        "https://openminds.ebrains.eu/vocab/fullName": {
+          "description": "Whole, non-abbreviated name of something or somebody.",
+          "name": "fullName",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/homepage": {
+          "description": "Main website of something or someone.",
+          "format": "iri",
+          "name": "homepage",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/shortName": {
+          "description": "Shortened or fully abbreviated name of something or somebody.",
+          "name": "shortName",
+          "type": "string"
+        }
       },
+      "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/fullName"
+      ],
       "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/fullName": {
-      "description": "Whole, non-abbreviated name of something or somebody.",
-      "name": "fullName",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/homepage": {
-      "description": "Main website of something or someone.",
-      "format": "iri",
-      "name": "homepage",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/shortName": {
-      "description": "Shortened or fully abbreviated name of something or somebody.",
-      "name": "shortName",
-      "type": "string"
     }
   },
+  "description": "Structured information about an association of two or more persons or organizations, with the objective of participating in a common activity.",
   "required": [
-    "@id",
-    "@type",
-    "https://openminds.ebrains.eu/vocab/fullName"
+    "@id"
   ],
   "title": "Consortium",
   "type": "object"

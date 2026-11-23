@@ -1,320 +1,416 @@
 {
   "$id": "https://openminds.ebrains.eu/core/ProtocolExecution?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": "Structured information on a protocol execution.",
-  "properties": {
-    "@id": {
-      "description": "Metadata node identifier.",
-      "type": "string"
-    },
-    "@type": {
-      "const": "https://openminds.ebrains.eu/core/ProtocolExecution",
-      "description": "Metadata schema identifier.",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/description": {
-      "description": "Longer statement or account giving the characteristics of someone or something.",
-      "name": "description",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/input": {
-      "description": "Something or someone that is put into or participates in a process or machine.",
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
+  "allOf": [
+    {
+      "$ref": "#/definitions/embedded"
+    }
+  ],
+  "definitions": {
+    "embedded": {
+      "properties": {
+        "@id": {
+          "description": "Metadata node identifier.",
+          "type": "string"
         },
-        "if": {
-          "required": [
-            "@type"
-          ]
+        "@type": {
+          "const": "https://openminds.ebrains.eu/core/ProtocolExecution",
+          "description": "Metadata schema identifier.",
+          "type": "string"
         },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
+        "https://openminds.ebrains.eu/vocab/description": {
+          "description": "Longer statement or account giving the characteristics of someone or something.",
+          "name": "description",
+          "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/input": {
+          "description": "Something or someone that is put into or participates in a process or machine.",
+          "items": {
+            "else": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
             },
-            "@type": {
-              "enum": [
-                "https://openminds.ebrains.eu/core/FileBundle",
-                "https://openminds.ebrains.eu/core/File",
-                "https://openminds.ebrains.eu/core/SubjectGroupState",
-                "https://openminds.ebrains.eu/core/SubjectState",
-                "https://openminds.ebrains.eu/core/TissueSampleCollectionState",
-                "https://openminds.ebrains.eu/core/TissueSampleState"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "input",
-      "type": "array",
-      "uniqueItems": true
-    },
-    "https://openminds.ebrains.eu/vocab/lookupLabel": {
-      "description": null,
-      "name": "lookupLabel",
-      "type": "string"
-    },
-    "https://openminds.ebrains.eu/vocab/output": {
-      "description": "Something or someone that comes out of, is delivered or produced by a process or machine.",
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
+            "if": {
+              "required": [
+                "@type"
+              ]
             },
-            "@type": {
-              "enum": [
-                "https://openminds.ebrains.eu/core/FileBundle",
-                "https://openminds.ebrains.eu/core/File",
-                "https://openminds.ebrains.eu/core/SubjectGroupState",
-                "https://openminds.ebrains.eu/core/SubjectState",
-                "https://openminds.ebrains.eu/core/TissueSampleCollectionState",
-                "https://openminds.ebrains.eu/core/TissueSampleState"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
+            "then": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                },
+                "@type": {
+                  "enum": [
+                    "https://openminds.ebrains.eu/core/FileBundle",
+                    "https://openminds.ebrains.eu/core/File",
+                    "https://openminds.ebrains.eu/core/SubjectGroupState",
+                    "https://openminds.ebrains.eu/core/SubjectState",
+                    "https://openminds.ebrains.eu/core/TissueSampleCollectionState",
+                    "https://openminds.ebrains.eu/core/TissueSampleState"
+                  ],
+                  "format": "iri",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "type": "object"
           },
-          "required": [
-            "@id"
-          ]
+          "minItems": 1,
+          "name": "input",
+          "type": "array",
+          "uniqueItems": true
         },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "output",
-      "type": "array",
-      "uniqueItems": true
-    },
-    "https://openminds.ebrains.eu/vocab/parameterSet": {
-      "description": "Manner, position, or direction in which digital or physical properties are set to determine a particular function, characteristics or behavior of something.",
-      "items": {
-        "$ref": "https://openminds.ebrains.eu/core/ParameterSet?format=json-schema",
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "parameterSet",
-      "type": "array",
-      "uniqueItems": true
-    },
-    "https://openminds.ebrains.eu/vocab/preparationType": {
-      "description": "Distinct class of actions or processes that make something ready for use or service.",
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
+        "https://openminds.ebrains.eu/vocab/lookupLabel": {
+          "description": null,
+          "name": "lookupLabel",
+          "type": "string"
         },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "preparationType",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
+        "https://openminds.ebrains.eu/vocab/output": {
+          "description": "Something or someone that comes out of, is delivered or produced by a process or machine.",
+          "items": {
+            "else": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "if": {
+              "required": [
+                "@type"
+              ]
+            },
+            "then": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                },
+                "@type": {
+                  "enum": [
+                    "https://openminds.ebrains.eu/core/FileBundle",
+                    "https://openminds.ebrains.eu/core/File",
+                    "https://openminds.ebrains.eu/core/SubjectGroupState",
+                    "https://openminds.ebrains.eu/core/SubjectState",
+                    "https://openminds.ebrains.eu/core/TissueSampleCollectionState",
+                    "https://openminds.ebrains.eu/core/TissueSampleState"
+                  ],
+                  "format": "iri",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "type": "object"
           },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/controlledTerms/PreparationType"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
+          "minItems": 1,
+          "name": "output",
+          "type": "array",
+          "uniqueItems": true
         },
-        "required": [
-          "@id"
-        ]
+        "https://openminds.ebrains.eu/vocab/parameterSet": {
+          "description": "Manner, position, or direction in which digital or physical properties are set to determine a particular function, characteristics or behavior of something.",
+          "items": {
+            "$ref": "https://openminds.ebrains.eu/core/ParameterSet?format=json-schema#/definitions/embedded",
+            "type": "object"
+          },
+          "minItems": 1,
+          "name": "parameterSet",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/preparationType": {
+          "description": "Distinct class of actions or processes that make something ready for use or service.",
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "preparationType",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/controlledTerms/PreparationType"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/protocol": {
+          "description": "Plan that describes the process of a scientific or medical experiment, treatment, or procedure.",
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "protocol",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.ebrains.eu/core/Protocol"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/semanticallyAnchoredTo": {
+          "description": "Reference to a related anatomical structure without providing a quantitative proof of the claimed relation.",
+          "items": {
+            "else": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "if": {
+              "required": [
+                "@type"
+              ]
+            },
+            "then": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                },
+                "@type": {
+                  "enum": [
+                    "https://openminds.ebrains.eu/sands/AnatomicalEntity"
+                  ],
+                  "format": "iri",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "type": "object"
+          },
+          "minItems": 1,
+          "name": "semanticallyAnchoredTo",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/studyTarget": {
+          "description": "Structure or function that was targeted within a study.",
+          "items": {
+            "else": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "if": {
+              "required": [
+                "@type"
+              ]
+            },
+            "then": {
+              "properties": {
+                "@id": {
+                  "anyOf": [
+                    {
+                      "format": "iri"
+                    },
+                    {
+                      "format": "uuid"
+                    }
+                  ],
+                  "type": "string"
+                },
+                "@type": {
+                  "enum": [
+                    "https://openminds.ebrains.eu/controlledTerms/BiologicalSex",
+                    "https://openminds.ebrains.eu/controlledTerms/CellType",
+                    "https://openminds.ebrains.eu/controlledTerms/Disease",
+                    "https://openminds.ebrains.eu/controlledTerms/DiseaseModel",
+                    "https://openminds.ebrains.eu/controlledTerms/Handedness",
+                    "https://openminds.ebrains.eu/controlledTerms/Organ",
+                    "https://openminds.ebrains.eu/controlledTerms/Phenotype",
+                    "https://openminds.ebrains.eu/controlledTerms/Species",
+                    "https://openminds.ebrains.eu/controlledTerms/Strain",
+                    "https://openminds.ebrains.eu/controlledTerms/TermSuggestion",
+                    "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity",
+                    "https://openminds.ebrains.eu/sands/ParcellationEntity"
+                  ],
+                  "format": "iri",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            "type": "object"
+          },
+          "minItems": 1,
+          "name": "studyTarget",
+          "type": "array",
+          "uniqueItems": true
+        }
       },
+      "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/input",
+        "https://openminds.ebrains.eu/vocab/output",
+        "https://openminds.ebrains.eu/vocab/protocol"
+      ],
       "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/protocol": {
-      "description": "Plan that describes the process of a scientific or medical experiment, treatment, or procedure.",
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "protocol",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          },
-          "@type": {
-            "enum": [
-              "https://openminds.ebrains.eu/core/Protocol"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
-    "https://openminds.ebrains.eu/vocab/semanticallyAnchoredTo": {
-      "description": "Reference to a related anatomical structure without providing a quantitative proof of the claimed relation.",
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            },
-            "@type": {
-              "enum": [
-                "https://openminds.ebrains.eu/sands/AnatomicalEntity"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "semanticallyAnchoredTo",
-      "type": "array",
-      "uniqueItems": true
-    },
-    "https://openminds.ebrains.eu/vocab/studyTarget": {
-      "description": "Structure or function that was targeted within a study.",
-      "items": {
-        "else": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "if": {
-          "required": [
-            "@type"
-          ]
-        },
-        "then": {
-          "properties": {
-            "@id": {
-              "format": "iri",
-              "type": "string"
-            },
-            "@type": {
-              "enum": [
-                "https://openminds.ebrains.eu/controlledTerms/BiologicalSex",
-                "https://openminds.ebrains.eu/controlledTerms/CellType",
-                "https://openminds.ebrains.eu/controlledTerms/Disease",
-                "https://openminds.ebrains.eu/controlledTerms/DiseaseModel",
-                "https://openminds.ebrains.eu/controlledTerms/Handedness",
-                "https://openminds.ebrains.eu/controlledTerms/Organ",
-                "https://openminds.ebrains.eu/controlledTerms/Phenotype",
-                "https://openminds.ebrains.eu/controlledTerms/Species",
-                "https://openminds.ebrains.eu/controlledTerms/Strain",
-                "https://openminds.ebrains.eu/controlledTerms/TermSuggestion",
-                "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity",
-                "https://openminds.ebrains.eu/sands/ParcellationEntity"
-              ],
-              "format": "iri",
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
-        },
-        "type": "object"
-      },
-      "minItems": 1,
-      "name": "studyTarget",
-      "type": "array",
-      "uniqueItems": true
     }
   },
+  "description": "Structured information on a protocol execution.",
   "required": [
-    "@id",
-    "@type",
-    "https://openminds.ebrains.eu/vocab/input",
-    "https://openminds.ebrains.eu/vocab/output",
-    "https://openminds.ebrains.eu/vocab/protocol"
+    "@id"
   ],
   "title": "ProtocolExecution",
   "type": "object"

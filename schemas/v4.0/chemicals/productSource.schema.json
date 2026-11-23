@@ -1,127 +1,167 @@
 {
   "$id": "https://openminds.om-i.org/types/ProductSource?format=json-schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": "Structured information about the source of a chemical substance or mixture.",
-  "properties": {
-    "@id": {
-      "description": "Metadata node identifier.",
-      "type": "string"
-    },
-    "@type": {
-      "const": "https://openminds.om-i.org/types/ProductSource",
-      "description": "Metadata schema identifier.",
-      "type": "string"
-    },
-    "https://openminds.om-i.org/props/digitalIdentifier": {
-      "description": "Digital handle to identify objects or legal persons.",
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
+  "allOf": [
+    {
+      "$ref": "#/definitions/embedded"
+    }
+  ],
+  "definitions": {
+    "embedded": {
+      "properties": {
+        "@id": {
+          "description": "Metadata node identifier.",
+          "type": "string"
         },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "digitalIdentifier",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
+        "@type": {
+          "const": "https://openminds.om-i.org/types/ProductSource",
+          "description": "Metadata schema identifier.",
+          "type": "string"
+        },
+        "https://openminds.om-i.org/props/digitalIdentifier": {
+          "description": "Digital handle to identify objects or legal persons.",
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
           },
-          "@type": {
-            "enum": [
-              "https://openminds.om-i.org/types/RRID"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
-    "https://openminds.om-i.org/props/identifier": {
-      "description": "Term or code used to identify something or someone.",
-      "name": "identifier",
-      "type": "string"
-    },
-    "https://openminds.om-i.org/props/productName": {
-      "description": null,
-      "name": "productName",
-      "type": "string"
-    },
-    "https://openminds.om-i.org/props/provider": {
-      "description": null,
-      "else": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "if": {
-        "required": [
-          "@type"
-        ]
-      },
-      "name": "provider",
-      "then": {
-        "properties": {
-          "@id": {
-            "format": "iri",
-            "type": "string"
+          "if": {
+            "required": [
+              "@type"
+            ]
           },
-          "@type": {
-            "enum": [
-              "https://openminds.om-i.org/types/Consortium",
-              "https://openminds.om-i.org/types/Organization",
-              "https://openminds.om-i.org/types/Person"
-            ],
-            "format": "iri",
-            "type": "string"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "type": "object"
-    },
-    "https://openminds.om-i.org/props/purity": {
-      "anyOf": [
-        {
-          "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema",
+          "name": "digitalIdentifier",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.om-i.org/types/RRID"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
           "type": "object"
         },
-        {
-          "$ref": "https://openminds.om-i.org/types/QuantitativeValueRange?format=json-schema",
+        "https://openminds.om-i.org/props/identifier": {
+          "description": "Term or code used to identify something or someone.",
+          "name": "identifier",
+          "type": "string"
+        },
+        "https://openminds.om-i.org/props/productName": {
+          "description": null,
+          "name": "productName",
+          "type": "string"
+        },
+        "https://openminds.om-i.org/props/provider": {
+          "description": null,
+          "else": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "if": {
+            "required": [
+              "@type"
+            ]
+          },
+          "name": "provider",
+          "then": {
+            "properties": {
+              "@id": {
+                "anyOf": [
+                  {
+                    "format": "iri"
+                  },
+                  {
+                    "format": "uuid"
+                  }
+                ],
+                "type": "string"
+              },
+              "@type": {
+                "enum": [
+                  "https://openminds.om-i.org/types/Consortium",
+                  "https://openminds.om-i.org/types/Organization",
+                  "https://openminds.om-i.org/types/Person"
+                ],
+                "format": "iri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
           "type": "object"
+        },
+        "https://openminds.om-i.org/props/purity": {
+          "anyOf": [
+            {
+              "$ref": "https://openminds.om-i.org/types/QuantitativeValue?format=json-schema#/definitions/embedded",
+              "type": "object"
+            },
+            {
+              "$ref": "https://openminds.om-i.org/types/QuantitativeValueRange?format=json-schema#/definitions/embedded",
+              "type": "object"
+            }
+          ],
+          "description": null,
+          "name": "purity"
         }
+      },
+      "required": [
+        "@type",
+        "https://openminds.om-i.org/props/productName",
+        "https://openminds.om-i.org/props/provider"
       ],
-      "description": null,
-      "name": "purity"
+      "type": "object"
     }
   },
+  "description": "Structured information about the source of a chemical substance or mixture.",
   "required": [
-    "@id",
-    "@type",
-    "https://openminds.om-i.org/props/productName",
-    "https://openminds.om-i.org/props/provider"
+    "@id"
   ],
   "title": "ProductSource",
   "type": "object"
