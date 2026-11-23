@@ -55,7 +55,7 @@
               "@id": {
                 "anyOf": [
                   {
-                    "pattern": "^[A-Za-z][A-Za-z0-9+.\\-]*:\\S+$"
+                    "format": "iri"
                   },
                   {
                     "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
@@ -79,7 +79,7 @@
               "@id": {
                 "anyOf": [
                   {
-                    "pattern": "^[A-Za-z][A-Za-z0-9+.\\-]*:\\S+$"
+                    "format": "iri"
                   },
                   {
                     "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
@@ -110,7 +110,7 @@
                 "@id": {
                   "anyOf": [
                     {
-                      "pattern": "^[A-Za-z][A-Za-z0-9+.\\-]*:\\S+$"
+                      "format": "iri"
                     },
                     {
                       "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
@@ -133,7 +133,7 @@
                 "@id": {
                   "anyOf": [
                     {
-                      "pattern": "^[A-Za-z][A-Za-z0-9+.\\-]*:\\S+$"
+                      "format": "iri"
                     },
                     {
                       "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
@@ -172,7 +172,7 @@
               "@id": {
                 "anyOf": [
                   {
-                    "pattern": "^[A-Za-z][A-Za-z0-9+.\\-]*:\\S+$"
+                    "format": "iri"
                   },
                   {
                     "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
@@ -196,7 +196,7 @@
               "@id": {
                 "anyOf": [
                   {
-                    "pattern": "^[A-Za-z][A-Za-z0-9+.\\-]*:\\S+$"
+                    "format": "iri"
                   },
                   {
                     "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
@@ -231,7 +231,7 @@
                 "@id": {
                   "anyOf": [
                     {
-                      "pattern": "^[A-Za-z][A-Za-z0-9+.\\-]*:\\S+$"
+                      "format": "iri"
                     },
                     {
                       "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
@@ -254,7 +254,7 @@
                 "@id": {
                   "anyOf": [
                     {
-                      "pattern": "^[A-Za-z][A-Za-z0-9+.\\-]*:\\S+$"
+                      "format": "iri"
                     },
                     {
                       "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
@@ -291,7 +291,7 @@
                 "@id": {
                   "anyOf": [
                     {
-                      "pattern": "^[A-Za-z][A-Za-z0-9+.\\-]*:\\S+$"
+                      "format": "iri"
                     },
                     {
                       "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
@@ -314,7 +314,7 @@
                 "@id": {
                   "anyOf": [
                     {
-                      "pattern": "^[A-Za-z][A-Za-z0-9+.\\-]*:\\S+$"
+                      "format": "iri"
                     },
                     {
                       "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
@@ -349,7 +349,7 @@
               "@id": {
                 "anyOf": [
                   {
-                    "pattern": "^[A-Za-z][A-Za-z0-9+.\\-]*:\\S+$"
+                    "format": "iri"
                   },
                   {
                     "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
@@ -373,7 +373,7 @@
               "@id": {
                 "anyOf": [
                   {
-                    "pattern": "^[A-Za-z][A-Za-z0-9+.\\-]*:\\S+$"
+                    "format": "iri"
                   },
                   {
                     "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
@@ -440,7 +440,7 @@
               "@id": {
                 "anyOf": [
                   {
-                    "pattern": "^[A-Za-z][A-Za-z0-9+.\\-]*:\\S+$"
+                    "format": "iri"
                   },
                   {
                     "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
@@ -464,7 +464,7 @@
               "@id": {
                 "anyOf": [
                   {
-                    "pattern": "^[A-Za-z][A-Za-z0-9+.\\-]*:\\S+$"
+                    "format": "iri"
                   },
                   {
                     "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
@@ -494,7 +494,7 @@
               "@id": {
                 "anyOf": [
                   {
-                    "pattern": "^[A-Za-z][A-Za-z0-9+.\\-]*:\\S+$"
+                    "format": "iri"
                   },
                   {
                     "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
@@ -518,7 +518,7 @@
               "@id": {
                 "anyOf": [
                   {
-                    "pattern": "^[A-Za-z][A-Za-z0-9+.\\-]*:\\S+$"
+                    "format": "iri"
                   },
                   {
                     "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
@@ -548,7 +548,7 @@
                 "@id": {
                   "anyOf": [
                     {
-                      "pattern": "^[A-Za-z][A-Za-z0-9+.\\-]*:\\S+$"
+                      "format": "iri"
                     },
                     {
                       "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
@@ -571,7 +571,7 @@
                 "@id": {
                   "anyOf": [
                     {
-                      "pattern": "^[A-Za-z][A-Za-z0-9+.\\-]*:\\S+$"
+                      "format": "iri"
                     },
                     {
                       "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
@@ -643,7 +643,7 @@
                 "@id": {
                   "anyOf": [
                     {
-                      "pattern": "^[A-Za-z][A-Za-z0-9+.\\-]*:\\S+$"
+                      "format": "iri"
                     },
                     {
                       "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
@@ -666,7 +666,7 @@
                 "@id": {
                   "anyOf": [
                     {
-                      "pattern": "^[A-Za-z][A-Za-z0-9+.\\-]*:\\S+$"
+                      "format": "iri"
                     },
                     {
                       "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
@@ -700,7 +700,7 @@
               "@id": {
                 "anyOf": [
                   {
-                    "pattern": "^[A-Za-z][A-Za-z0-9+.\\-]*:\\S+$"
+                    "format": "iri"
                   },
                   {
                     "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
@@ -724,7 +724,7 @@
               "@id": {
                 "anyOf": [
                   {
-                    "pattern": "^[A-Za-z][A-Za-z0-9+.\\-]*:\\S+$"
+                    "format": "iri"
                   },
                   {
                     "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
