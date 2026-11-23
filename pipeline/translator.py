@@ -135,8 +135,9 @@ class JSONSchemaBuilder(object):
     def _translate_property_specifications(self, property) -> Dict:
         self._translated_prop_spec = {}
 
-        prop_description = property["description"] if "description" in property else None
-        self._translated_prop_spec["description"] = prop_description
+        prop_description = property.get("description")
+        if prop_description:
+            self._translated_prop_spec["description"] = prop_description
 
         self._translated_prop_spec["name"] = property["name"]
 
