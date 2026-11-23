@@ -11,9 +11,7 @@ def _embedded_ref(type_iri: str) -> str:
     return f"{type_iri}?format=json-schema#/definitions/{EMBEDDED_DEFINITION}"
 
 
-# Patterns instead of "format" so that the checks are enforced by every validator
-# ("format" is only an annotation by default, and "uuid" is not a draft-07 format).
-IRI_PATTERN = r"^[A-Za-z][A-Za-z0-9+.\-]*:\S+$"
+# A pattern instead of "format" for UUIDs, since "uuid" is not a draft-07 format.
 UUID_PATTERN = r"^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
 
 
@@ -22,7 +20,7 @@ def _linked_id_spec() -> Dict:
     return {
         "type": "string",
         "anyOf": [
-            {"pattern": IRI_PATTERN},
+            {"format": "iri"},
             {"pattern": UUID_PATTERN}
         ]
     }
